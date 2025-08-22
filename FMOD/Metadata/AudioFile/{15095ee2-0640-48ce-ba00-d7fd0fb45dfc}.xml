@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{15095ee2-0640-48ce-ba00-d7fd0fb45dfc}">
+		<property name="assetPath">
+			<value>SFX/katieedited_Sound_Ideas,_CRASH,_CARTOON_-_CRAZY_BASS_DRUM_AND_C.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.4039999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7eb0f3e3-1cdb-4834-b809-e654e20db326}</destination>
+		</relationship>
+	</object>
+</objects>

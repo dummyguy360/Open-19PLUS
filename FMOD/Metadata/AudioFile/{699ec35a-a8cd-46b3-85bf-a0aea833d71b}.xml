@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{699ec35a-a8cd-46b3-85bf-a0aea833d71b}">
+		<property name="assetPath">
+			<value>SFX/wood_plank_break1.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.69066660000000002</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7eb0f3e3-1cdb-4834-b809-e654e20db326}</destination>
+		</relationship>
+	</object>
+</objects>

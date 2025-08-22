@@ -1,6 +1,7 @@
+// seems unfinished
 function scr_tilttile()
 {
     static rm = room;
     
-    exit;
+    return;
 }

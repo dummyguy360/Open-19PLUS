@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{7452683f-30c9-4b99-8d42-fd1b8c0fdde6}">
+		<property name="assetPath">
+			<value>Music/DISTASTEFUL_ANCHOVI_JC_RE-EDIT_v5c.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>205.55065999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7eb0f3e3-1cdb-4834-b809-e654e20db326}</destination>
+		</relationship>
+	</object>
+</objects>

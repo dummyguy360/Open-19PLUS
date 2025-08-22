@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{d592e1c4-dc3b-4d4d-8ced-3ffbd04c8ae6}">
+		<property name="assetPath">
+			<value>SFX/sfx_mach3.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.7146665999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7eb0f3e3-1cdb-4834-b809-e654e20db326}</destination>
+		</relationship>
+	</object>
+</objects>

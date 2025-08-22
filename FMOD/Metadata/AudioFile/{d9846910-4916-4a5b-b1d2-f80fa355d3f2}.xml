@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{d9846910-4916-4a5b-b1d2-f80fa355d3f2}">
+		<property name="assetPath">
+			<value>SFX/sfx_knightdown.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.0946666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{7eb0f3e3-1cdb-4834-b809-e654e20db326}</destination>
+		</relationship>
+	</object>
+</objects>

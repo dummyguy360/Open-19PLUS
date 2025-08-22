@@ -1,3 +1,2 @@
-function scr_getinput()
-{
-}
+// now unused
+function scr_getinput() { }
