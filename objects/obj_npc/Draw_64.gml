@@ -9,8 +9,8 @@ if (state == 0)
     exit;
 }
 
-var _bubblescale = tween(0, 1, bubblescaleanim, "out back");
-var _nameboxscale = tween(0, 1, nameboxscaleanim, "out back");
+var _bubblescale = tween(0, 1, bubblescaleanim, EASE_OUT_BACK);
+var _nameboxscale = tween(0, 1, nameboxscaleanim, EASE_OUT_BACK);
 var _char = self.get_char(scenario.lines[currentline].character);
 
 if (!surface_exists(dialoguebubblesurf))
@@ -64,7 +64,7 @@ draw_set_valign(fa_middle);
 draw_set_halign(fa_left);
 draw_set_font(global.npcnamefont);
 draw_set_colour(c_white);
-var _charnamex = tween(-string_width(_char[0]), _nameboxx - 85, nameslideanim, "out back");
+var _charnamex = tween(-string_width(_char[0]), _nameboxx - 85, nameslideanim, EASE_OUT_BACK);
 __draw_text_hook(_charnamex, _nameboxy, _char[0]);
 draw_set_font(font_dialogue);
 var _str = string_wordwrap_width(scenario.lines[currentline].dialogue, 636, "\n", false);

@@ -58,7 +58,22 @@ function checkCheese(arg0, arg1)
     return arg0.object_index == object_get_name(obj_destructibleplatform);
 }
 
-var _rooms = [ruin_1, ruin_2, ruin_3, ruin_4, ruin_5, ruin_6, ruin_7, ruin_8, ruin_9, ruin_10, ruin_11, ruin_12, ruin_13];
+var _rooms = 
+[
+	ruin_1, 
+	ruin_2, 
+	ruin_3, 
+	ruin_4, 
+	ruin_5, 
+	ruin_6, 
+	ruin_7, 
+	ruin_8, 
+	ruin_9, 
+	ruin_10, 
+	ruin_11, 
+	ruin_12, 
+	ruin_13
+];
 
 for (var i = 0; i < array_length(_rooms); i++)
 {

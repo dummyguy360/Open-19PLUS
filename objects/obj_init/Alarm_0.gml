@@ -4,6 +4,4 @@ if (array_length(texturelist) > 0)
     alarm[0] = 1;
 }
 else
-{
     room_goto(logos);
-}

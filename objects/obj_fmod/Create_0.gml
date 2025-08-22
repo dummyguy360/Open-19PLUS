@@ -6,14 +6,19 @@ show_debug_message("fmod_studio_system_create: " + string(fmod_last_result()));
 fmod_studio_system_init(_max_channels, _flags_studio, _flags_core);
 show_debug_message("fmod_studio_system_init: " + string(fmod_last_result()));
 fmod_main_system = fmod_studio_system_get_core_system();
-var banks = ["Data/Audio/Master.strings.bank", "Data/Audio/Master.bank", "Data/Audio/Music.bank", "Data/Audio/SFX.bank"];
-var i = array_length(banks) - 1;
 
-while (i >= 0)
+var banks = 
+[
+	"Data/Audio/Master.strings.bank", 
+	"Data/Audio/Master.bank", 
+	"Data/Audio/Music.bank", 
+	"Data/Audio/SFX.bank"
+];
+
+for (var i = array_length(banks) - 1; i >= 0; i--)
 {
     bank[i] = fmod_studio_system_load_bank_file(fmod_path_bundle(banks[i]), 0);
     fmod_studio_bank_load_sample_data(bank[i]);
-    i--;
 }
 
 z = 0;

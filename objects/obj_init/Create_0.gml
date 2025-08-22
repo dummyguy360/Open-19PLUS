@@ -1,4 +1,17 @@
-var groupstobeloaded = ["Default", "player", "baddies", "rank", "title", "hub", "hud", "shop", "blood", "levelshared", "samplegroup"];
+var groupstobeloaded = 
+[
+	"Default", 
+	"player", 
+	"baddies", 
+	"rank", 
+	"title", 
+	"hub", 
+	"hud", 
+	"shop", 
+	"blood", 
+	"levelshared", 
+	"samplegroup"
+];
 texturelist = array_create(0);
 
 for (var i = 0; i < array_length(groupstobeloaded); i++)

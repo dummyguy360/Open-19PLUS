@@ -12,8 +12,8 @@
   "name":"obj_collectspawn",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Collectibles",
+    "path":"folders/Objects/Level Structure/Collectibles.yy",
   },
   "parentObjectId":{
     "name":"obj_collectpar",

@@ -1,7 +1,7 @@
 draw_sprite(background, -1, 0, 0);
 var _panbodge = max(0, pan);
-var _towery = tween(-600, 0, _panbodge, "out cubic");
-var _pepy = tween(0, 760, _panbodge, "out cubic");
+var _towery = tween(-600, 0, _panbodge, EASE_OUT_CUBIC);
+var _pepy = tween(0, 760, _panbodge, EASE_OUT_CUBIC);
 
 if (scene == 1)
 {

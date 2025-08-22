@@ -3,8 +3,8 @@
   "%Name":"shd_hiddentile",
   "name":"shd_hiddentile",
   "parent":{
-    "name":"Shaders",
-    "path":"folders/Shaders.yy",
+    "name":"Tiles",
+    "path":"folders/Shaders/Tiles.yy",
   },
   "resourceType":"GMShader",
   "resourceVersion":"2.0",

@@ -10,8 +10,8 @@
   "name":"obj_collectspawnarea",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Collectibles",
+    "path":"folders/Objects/Level Structure/Collectibles.yy",
   },
   "parentObjectId":null,
   "persistent":false,

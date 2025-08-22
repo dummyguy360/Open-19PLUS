@@ -10,8 +10,8 @@
   "name":"obj_characterswitch",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Player",
+    "path":"folders/Objects/Game Settings/Player.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -11,8 +11,8 @@
   "name":"obj_baddiehitbox",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Baddie",
+    "path":"folders/Objects/Baddie.yy",
   },
   "parentObjectId":null,
   "persistent":false,

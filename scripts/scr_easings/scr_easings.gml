@@ -5,10 +5,10 @@
 //   solhsa.com/interpolation/
 //   github.com/ai/easings.net
 
-function ease(_amount, _easing = __EASE_NONE){
+function ease(_amount, _easing = EASE_LINEAR){
     return __easings()[$ _easing](clamp(_amount, 0, 1)) }
 
-function interpolate(_from, _to, _amount, _easing = __EASE_NONE){
+function tween(_from, _to, _amount, _easing = EASE_LINEAR){
     return _from + (_to - _from)*ease(_amount, _easing) }
 
 //Library singleton
@@ -23,7 +23,6 @@ function __easings(){ static __instance = new (function() constructor{
     __sqrt = function(_z){ return (sign(_z) == 1)? sqrt(_z) : 0 };
     
     //Easings functions    
-    _set(__EASE_NONE,      function(_z){ return _z >= 0.5 });
     _set(EASE_LINEAR,      function(_z){ return _z });
 
     _set(EASE_IN_QUAD,     function(_z){ return power(_z, 2) });
@@ -102,7 +101,6 @@ function __easings(){ static __instance = new (function() constructor{
 
 })(); return __instance }
 
-#macro __EASE_NONE         "none"
 #macro EASE_LINEAR         "linear"
 #macro EASE_IN_QUAD        "in quad"
 #macro EASE_IN_CUBIC       "in cubic"

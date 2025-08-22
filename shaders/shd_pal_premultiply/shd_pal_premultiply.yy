@@ -3,8 +3,8 @@
   "%Name":"shd_pal_premultiply",
   "name":"shd_pal_premultiply",
   "parent":{
-    "name":"Shaders",
-    "path":"folders/Shaders.yy",
+    "name":"Palette and Pattern",
+    "path":"folders/Shaders/Palette and Pattern.yy",
   },
   "resourceType":"GMShader",
   "resourceVersion":"2.0",
