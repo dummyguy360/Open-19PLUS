@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"shd_whiteoutline",
+  "name":"shd_whiteoutline",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

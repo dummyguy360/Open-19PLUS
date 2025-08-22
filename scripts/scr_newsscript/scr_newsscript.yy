@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_newsscript",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_newsscript",
+  "parent":{
+    "name":"HUD",
+    "path":"folders/Scripts/General/HUD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

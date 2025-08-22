@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"tileset_dungeon4",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"tileset_dungeon4",
+  "out_columns":41,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Bloodsauce Dungeon",
+    "path":"folders/Tilesets/Bloodsauce Dungeon.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"_decompiled_tileset_dungeon4",
+    "path":"sprites/_decompiled_tileset_dungeon4/_decompiled_tileset_dungeon4.yy",
+  },
+  "spriteNoExport":true,
+  "textureGroupId":{
+    "name":"dungeon",
+    "path":"texturegroups/dungeon",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.00015,
+  "tileHeight":32,
+  "tilehsep":4,
+  "tilevsep":4,
+  "tileWidth":32,
+  "tilexoff":2,
+  "tileyoff":2,
+  "tile_count":1681,
+}

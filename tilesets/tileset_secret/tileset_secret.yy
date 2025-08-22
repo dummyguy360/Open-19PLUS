@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"tileset_secret",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"tileset_secret",
+  "out_columns":31,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Tutorial & Secrets",
+    "path":"folders/Tilesets/Tutorial & Secrets.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"_decompiled_tileset_secret",
+    "path":"sprites/_decompiled_tileset_secret/_decompiled_tileset_secret.yy",
+  },
+  "spriteNoExport":true,
+  "textureGroupId":{
+    "name":"levelshared",
+    "path":"texturegroups/levelshared",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.00015,
+  "tileHeight":32,
+  "tilehsep":4,
+  "tilevsep":4,
+  "tileWidth":32,
+  "tilexoff":2,
+  "tileyoff":2,
+  "tile_count":992,
+}

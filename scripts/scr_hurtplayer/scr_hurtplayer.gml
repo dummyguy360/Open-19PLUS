@@ -1,0 +1,207 @@
+function scr_hurtplayer(arg0 = other.id, arg1 = true)
+{
+    with (arg0)
+    {
+        var _hurttype = 0;
+        
+        if (arg1)
+        {
+            switch (other.object_index)
+            {
+                case obj_baddiecollisionbox:
+                    _hurttype = obj_baddiecollisionbox.baddieID.hurttype;
+                    break;
+                
+                default:
+                    _hurttype = other.hurttype;
+                    break;
+            }
+        }
+        
+        if ((state == 18 || state == 13 || state == 115) && !cutscene)
+            return false;
+        
+        if (state == 19 && !hurted)
+            return false;
+        
+        if (state == 8)
+            return false;
+        
+        if (state == 96)
+            return false;
+        
+        if (state == 108)
+            return false;
+        
+        if (state == 1)
+            return false;
+        
+        if (state == 88)
+            return false;
+        
+        if (instance_exists(obj_parryhitbox))
+            return false;
+        
+        if ((state == 106 || state == 107) && !hurted && !cutscene)
+        {
+            mariodeathid = event_play_oneshot("event:/sfx/player/retrodeath");
+            state = 108;
+            push_notif(2, [_hurttype]);
+            return true;
+        }
+        
+        if (state == 11)
+        {
+            scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
+            
+            repeat (5)
+            {
+                with (instance_create_depth(x, y, -1, obj_boxxeddebris))
+                    image_index = 0;
+            }
+            
+            if (x != other.x)
+                obj_player.hsp = sign(x - other.x) * 5;
+            else
+                obj_player.hsp = 5;
+            
+            vsp = -3;
+            image_index = 0;
+            obj_player.image_index = 0;
+            obj_player.flash = 1;
+            state = 49;
+            push_notif(2, [_hurttype]);
+            return true;
+        }
+        
+        if (state == 9 || state == 10)
+        {
+            scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
+            obj_player.grav = 0.5;
+            
+            repeat (8)
+                instance_create_depth(x, y, -1, obj_slimedebris);
+            
+            if (x != other.x)
+                obj_player.hsp = sign(x - other.x) * 5;
+            else
+                obj_player.hsp = 5;
+            
+            vsp = -3;
+            image_index = 0;
+            obj_player.image_index = 0;
+            obj_player.flash = 1;
+            state = 49;
+            push_notif(2, [_hurttype]);
+            return true;
+        }
+        
+        if (shield == 0 && state != 50 && state != 4 && state != 11 && state != 49 && state != 70 && state != 78 && state != 5 && state != 88 && state != 8 && state != 96 && !hurted && !cutscene)
+        {
+            var fmodhurtsound = scr_fmod_soundeffectONESHOT("event:/sfx/player/hurt", x, y);
+            fmod_studio_event_instance_set_parameter_by_name(fmodhurtsound, "hurttype", _hurttype, true);
+            voice_hurt();
+            hurted = 1;
+            alarm[7] = 50;
+            alarm[8] = 600;
+            
+            if (global.smallpep)
+            {
+                sprite_index = spr_smallhurt;
+                movespeed = -8;
+            }
+            else if (character != "S")
+            {
+                if (xscale == other.image_xscale)
+                {
+                    sprite_index = spr_hurtjumpstart;
+                    movespeed = 8;
+                }
+                else
+                {
+                    sprite_index = spr_hurt;
+                    movespeed = -8;
+                }
+            }
+            else
+            {
+                sprite_index = spr_hurt;
+                movespeed = -8;
+            }
+            
+            with (obj_drawcontroller)
+            {
+                hurthud = 1;
+                alarm[11] = 120;
+            }
+            
+            vsp = -12;
+            timeuntilhpback = 300;
+            instance_create_depth(x, y, 0, obj_spikehurteffect);
+            state = 50;
+            image_index = 0;
+            flash = 1;
+            
+            if (global.currentbadge != 3)
+            {
+                global.combotime -= 25;
+                
+                if (global.combotime < 0)
+                    global.combotime = 0;
+            }
+            else
+            {
+                global.combotime = 0;
+            }
+            
+            global.hurtcounter += 1;
+            add_collect(-50);
+            
+            if (global.collect > 0)
+            {
+                instance_create_depth(x, y - 20, 0, obj_minus50);
+                
+                repeat (12)
+                    instance_create_depth(x, y, 0, obj_pizzaloss);
+            }
+            
+            push_notif(2, [_hurttype]);
+            return true;
+        }
+        
+        if (shield > 0 && state != 35 && !hurted)
+        {
+            state = 35;
+            flash = 1;
+            hurted = 1;
+            alarm[7] = 50;
+            instance_create_depth(x, y, 0, obj_spikehurteffect);
+            scr_fmod_soundeffectONESHOT("event:/sfx/player/killingblow", x, y);
+            sprite_index = spr_player_punchblock;
+            image_index = 0;
+            movespeed = -10;
+            vsp = 0;
+            shieldhurt = 1;
+            shieldhealth -= 1;
+            shieldblocking = false;
+            
+            if (shieldhealth > 0)
+            {
+                shieldblocking = true;
+                shieldind = 0;
+            }
+            
+            if (shield > 0 && shieldhealth <= 0)
+            {
+                shield -= 1;
+                shieldhealth = 3;
+                
+                with (instance_create_depth(x + ((shield - 1) * 20 * xscale), y, 0, obj_baddiedead))
+                    sprite_index = spr_pizzashield_collectible;
+            }
+            
+            push_notif(2, [_hurttype]);
+            return true;
+        }
+    }
+}

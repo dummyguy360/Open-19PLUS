@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"tileset_ruindeco",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"tileset_ruindeco",
+  "out_columns":19,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"The Ancient Cheese",
+    "path":"folders/Tilesets/The Ancient Cheese.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"_decompiled_tileset_ruindeco",
+    "path":"sprites/_decompiled_tileset_ruindeco/_decompiled_tileset_ruindeco.yy",
+  },
+  "spriteNoExport":true,
+  "textureGroupId":{
+    "name":"ruin",
+    "path":"texturegroups/ruin",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.00015,
+  "tileHeight":32,
+  "tilehsep":4,
+  "tilevsep":4,
+  "tileWidth":32,
+  "tilexoff":2,
+  "tileyoff":2,
+  "tile_count":361,
+}

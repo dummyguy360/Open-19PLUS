@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"shd_noalpha",
+  "name":"shd_noalpha",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_hudroomcheck",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_hudroomcheck",
+  "parent":{
+    "name":"HUD",
+    "path":"folders/Scripts/General/HUD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

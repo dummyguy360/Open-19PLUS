@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_camerautil",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_camerautil",
+  "parent":{
+    "name":"HUD",
+    "path":"folders/Scripts/General/HUD.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

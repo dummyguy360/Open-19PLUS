@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_player_barrelmach1",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_player_barrelmach1",
+  "parent":{
+    "name":"Transformations",
+    "path":"folders/Scripts/Player/States/Transformations.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

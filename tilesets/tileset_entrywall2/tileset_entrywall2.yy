@@ -1,0 +1,38 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"tileset_entrywall2",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"tileset_entrywall2",
+  "out_columns":49,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"John Pillar",
+    "path":"folders/Tilesets/John Pillar.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"_decompiled_tileset_entrywall2",
+    "path":"sprites/_decompiled_tileset_entrywall2/_decompiled_tileset_entrywall2.yy",
+  },
+  "spriteNoExport":true,
+  "textureGroupId":{
+    "name":"entry",
+    "path":"texturegroups/entry",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.00015,
+  "tileHeight":16,
+  "tilehsep":4,
+  "tilevsep":4,
+  "tileWidth":16,
+  "tilexoff":2,
+  "tileyoff":2,
+  "tile_count":2401,
+}
