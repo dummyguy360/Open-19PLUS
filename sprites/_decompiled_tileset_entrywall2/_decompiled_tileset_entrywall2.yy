@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"Used Sprites",
-    "path":"folders/Tilesets/John Pillar/Used Sprites.yy",
+    "path":"folders/Tilesets/Archaic Entry/Used Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -6,20 +6,20 @@ if (!global.panic)
     {
         var prevmusic = global.music;
         
-        if (prevmusic == -4 || mu.eventname != prevmusic.eventname)
+        if (prevmusic == noone || mu.eventname != prevmusic.eventname)
         {
             fmod_studio_event_instance_start(mu.event);
             fmod_studio_event_instance_set_paused(mu.event, false);
             
-            if (mu.continuous && prevmusic != -4)
+            if (mu.continuous && prevmusic != noone)
                 timeline_wrapauto(prevmusic.eventsecret, mu.eventname, mu.event);
             
-            if (prevmusic != -4)
+            if (prevmusic != noone)
             {
-                if (prevmusic.event != -4)
+                if (prevmusic.event != noone)
                     event_stop(prevmusic.event, true);
                 
-                if (prevmusic.eventsecret != -4)
+                if (prevmusic.eventsecret != noone)
                     event_stop(prevmusic.eventsecret, true);
             }
             
@@ -27,14 +27,14 @@ if (!global.panic)
         }
     }
     
-    if (global.music != -4 && global.music.mumethod != -4)
+    if (global.music != noone && global.music.mumethod != noone)
         global.music.mumethod(room);
 }
 
 var _prevsecret = secret;
 secret = asset_has_tags(room, "Secret Room", 3);
 
-if (global.music != -4 && global.music.eventsecret != -4)
+if (global.music != noone && global.music.eventsecret != noone)
 {
     if (secret)
     {
@@ -64,12 +64,12 @@ if (global.music != -4 && global.music.eventsecret != -4)
 
 if (room == rank_room || room == timesuproom || room == virtualinsanity)
 {
-    if (global.music != -4)
+    if (global.music != noone)
     {
-        if (global.music.event != -4)
+        if (global.music.event != noone)
             event_stop(global.music.event, true);
         
-        if (global.music.eventsecret != -4)
+        if (global.music.eventsecret != noone)
             event_stop(global.music.eventsecret, true);
         
         event_stop(pillarmusicID, true);

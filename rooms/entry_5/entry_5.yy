@@ -308,8 +308,8 @@
   ],
   "name":"entry_5",
   "parent":{
-    "name":"John Pillar",
-    "path":"folders/Rooms/Levels/John Pillar.yy",
+    "name":"Archaic Entry",
+    "path":"folders/Rooms/Levels/Archaic Entry.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

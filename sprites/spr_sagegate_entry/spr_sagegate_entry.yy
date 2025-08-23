@@ -45,8 +45,8 @@
   },
   "origin":4,
   "parent":{
-    "name":"John Pillar",
-    "path":"folders/Sprites/Level Structure/Hub Gates/John Pillar.yy",
+    "name":"Archaic Entry",
+    "path":"folders/Sprites/Level Structure/Hub Gates/Archaic Entry.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

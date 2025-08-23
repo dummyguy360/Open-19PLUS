@@ -34,8 +34,8 @@
   ],
   "name":"entry_treasure",
   "parent":{
-    "name":"John Pillar",
-    "path":"folders/Rooms/Levels/John Pillar.yy",
+    "name":"Archaic Entry",
+    "path":"folders/Rooms/Levels/Archaic Entry.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

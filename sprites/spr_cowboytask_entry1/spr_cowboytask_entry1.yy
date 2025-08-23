@@ -45,8 +45,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"John Pillar",
-    "path":"folders/Sprites/Level Structure/Cowboy Tasks/John Pillar.yy",
+    "name":"Archaic Entry",
+    "path":"folders/Sprites/Level Structure/Cowboy Tasks/Archaic Entry.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

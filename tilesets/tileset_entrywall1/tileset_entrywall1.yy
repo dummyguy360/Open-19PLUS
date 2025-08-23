@@ -12,8 +12,8 @@
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
-    "name":"John Pillar",
-    "path":"folders/Tilesets/John Pillar.yy",
+    "name":"Archaic Entry",
+    "path":"folders/Tilesets/Archaic Entry.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",

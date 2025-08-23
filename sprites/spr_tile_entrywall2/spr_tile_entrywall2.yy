@@ -45,7 +45,7 @@
   "origin":0,
   "parent":{
     "name":"Fixed Sprites",
-    "path":"folders/Tilesets/John Pillar/Fixed Sprites.yy",
+    "path":"folders/Tilesets/Archaic Entry/Fixed Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

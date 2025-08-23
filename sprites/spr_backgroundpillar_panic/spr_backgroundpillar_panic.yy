@@ -47,7 +47,7 @@
   "origin":4,
   "parent":{
     "name":"Background Pillars",
-    "path":"folders/Sprites/Backgrounds & Decorations/John Pillar/Background Pillars.yy",
+    "path":"folders/Sprites/Backgrounds & Decorations/Archaic Entry/Background Pillars.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

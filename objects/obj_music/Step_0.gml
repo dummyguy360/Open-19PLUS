@@ -61,12 +61,12 @@ if (global.panic)
             fmod_studio_event_instance_set_parameter_by_name(panicmusicID, "state", 0, true);
             fmod_studio_event_instance_set_parameter_by_name(panicmusicID, "escapestate", 0, true);
             
-            if (global.music != -4)
+            if (global.music != noone)
             {
-                if (global.music.event != -4)
+                if (global.music.event != noone)
                     event_stop(global.music.event, true);
                 
-                if (global.music.eventsecret != -4)
+                if (global.music.eventsecret != noone)
                     event_stop(global.music.eventsecret, true);
             }
             
@@ -80,7 +80,7 @@ if (global.panic)
         }
     }
     
-    if (global.levelname == "dragonslair" && global.music != -4)
+    if (global.levelname == "dragonslair" && global.music != noone)
         fmod_studio_event_instance_set_parameter_by_name(global.music.event, "state", 1, true);
 }
 else
@@ -92,6 +92,6 @@ else
         event_perform(ev_collision, obj_richpresence);
     }
     
-    if (global.levelname == "dragonslair" && global.music != -4)
+    if (global.levelname == "dragonslair" && global.music != noone)
         fmod_studio_event_instance_set_parameter_by_name(global.music.event, "state", 0, true);
 }
