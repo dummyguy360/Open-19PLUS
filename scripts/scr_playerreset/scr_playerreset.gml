@@ -16,7 +16,7 @@ function scr_playerreset(arg0, arg1 = true)
     global.timer = 0;
     global.followers = [];
     
-    if (global.levelname != -4 && global.levelname != "tutorial")
+    if (global.levelname != noone && global.levelname != "tutorial")
     {
         wallet_open();
         wallet_readcoins(global.levelname, true);
@@ -93,12 +93,12 @@ function scr_playerreset(arg0, arg1 = true)
     {
         with (obj_music)
         {
-            if (global.music != -4)
+            if (global.music != noone)
             {
-                if (global.music.event != -4)
+                if (global.music.event != noone)
                     fmod_studio_event_instance_set_parameter_by_name(global.music.event, "state", 0, true);
                 
-                global.music = -4;
+                global.music = noone;
             }
         }
     }
@@ -127,7 +127,7 @@ function scr_playerreset(arg0, arg1 = true)
     {
         if (!arg0)
         {
-            state = 0;
+            state = states.normal;
             punchedenemy = false;
         }
         
@@ -253,7 +253,7 @@ function scr_playerreset(arg0, arg1 = true)
         gravityflip = 1;
         pitfalltime = 10;
         firemouthdash = 0;
-        bombspawnerid = -4;
+        bombspawnerid = noone;
         supertauntcooldown = 0;
         global.hasgotkeybefore = 0;
         global.permshotgun = 0;
@@ -262,7 +262,7 @@ function scr_playerreset(arg0, arg1 = true)
         combopointstogive = 0;
         global.switchblock = false;
         pipedir = "noone";
-        pipe = -4;
+        pipe = noone;
         inwar = 0;
         snickmach2mode = 0;
         snickmach3mode = 0;
@@ -299,6 +299,6 @@ function scr_unrevokeprank()
 
 function scr_leavelevel()
 {
-    global.levelname = -4;
+    global.levelname = noone;
     global.currentbadge = 0;
 }

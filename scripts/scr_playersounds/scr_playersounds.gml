@@ -1,7 +1,6 @@
 function scr_playersounds()
 {
-    var _attr;
-    
+	var _attr;
     with (obj_player)
     {
         _attr = new Fmod3DAttributes();
@@ -19,14 +18,10 @@ function scr_playersounds()
                 fmod_studio_system_set_parameter_by_name("pizzafaceattenuation", _val * obj_pizzaface.image_alpha, true);
             }
             else
-            {
                 fmod_studio_system_set_parameter_by_name("pizzafaceattenuation", 0, true);
-            }
         }
         else
-        {
             fmod_studio_system_set_parameter_by_name("pizzafaceattenuation", 0, true);
-        }
         
         if (character != "N")
         {
@@ -47,18 +42,18 @@ function scr_playersounds()
             char_hurtsnd = noisehurtsnd;
         }
         
-        if (state == 47 || state == 66 || state == 87 || state == 12)
+        if (state == states.mach2 || state == states.mach3 || state == states.hitstun || state == states.climbwall)
         {
             if (!event_isplaying(char_machsnd))
                 fmod_studio_event_instance_start(char_machsnd);
             
             s = 0;
             
-            if ((state == 47 && sprite_index == spr_mach1 && character != "N") || (state == 47 && character == "N"))
+            if ((state == states.mach2 && sprite_index == spr_mach1 && character != "N") || (state == states.mach2 && character == "N"))
                 s = 1;
-            else if ((state == 47 && sprite_index == spr_mach && character != "N") || (state == 47 && character == "N") || state == 12)
+            else if ((state == states.mach2 && sprite_index == spr_mach && character != "N") || (state == states.mach2 && character == "N") || state == states.climbwall)
                 s = 2;
-            else if ((state == 66 || state == 87) && (sprite_index == spr_mach4 || sprite_index == spr_rollgetup || sprite_index == spr_mach3hit || sprite_index == spr_mach3jump) && sprite_index != spr_crazyrun)
+            else if ((state == states.mach3 || state == states.hitstun) && (sprite_index == spr_mach4 || sprite_index == spr_rollgetup || sprite_index == spr_mach3hit || sprite_index == spr_mach3jump) && sprite_index != spr_crazyrun)
                 s = 3;
             else if (sprite_index == spr_crazyrun)
                 s = 4;
@@ -70,47 +65,41 @@ function scr_playersounds()
             event_set_3d_position_struct(char_machsnd, _attr);
         }
         else
-        {
             event_stop(char_machsnd, 1);
-        }
         
-        if (state != 16 && state != 73 && state != 118)
+        if (state != states.suplexgrab && state != states.shoulderbash && state != states.lunge)
             event_stop(suplexdashsnd, true);
         
         event_set_3d_position_struct(suplexdashsnd, _attr);
         
-        if (state != 47 && state != 66 && sprite_index != spr_player_longjumpstart && sprite_index != spr_player_longjump)
+        if (state != states.mach2 && state != states.mach3 && sprite_index != spr_player_longjumpstart && sprite_index != spr_player_longjump)
             event_stop(longjumpsnd, true);
         
         event_set_3d_position_struct(longjumpsnd, _attr);
         
-        if (state == 42 || state == 40 || (state == 87 && sprite_index == spr_superjump))
+        if (state == states.sjumpprep || state == states.sjump || (state == states.hitstun && sprite_index == spr_superjump))
         {
-            if (state == 42)
+            if (state == states.sjumpprep)
             {
                 if (!event_isplaying(char_superjumpsnd))
                     fmod_studio_event_instance_start(char_superjumpsnd);
                 
                 fmod_studio_event_instance_set_parameter_by_name(char_superjumpsnd, "state", 0, true);
             }
-            else if (state == 40)
-            {
+            else if (state == states.sjump)
                 fmod_studio_event_instance_set_parameter_by_name(char_superjumpsnd, "state", 1, true);
-            }
             
             event_set_3d_position_struct(char_superjumpsnd, _attr);
         }
         else
-        {
             event_stop(char_superjumpsnd, 1);
-        }
         
-        if (state != 67 && state != 51 && state != 25 && state != 87)
+        if (state != states.freefallprep && state != states.freefall && state != states.superslam && state != states.hitstun)
             event_stop(groundpoundfallsnd, 1);
         else
             event_set_3d_position_struct(groundpoundfallsnd, _attr);
         
-        if ((state == 13 && grounded && vsp > 0) || state == 27)
+        if ((state == states.knightpepslopes && grounded && vsp > 0) || state == states.grind)
         {
             if (!event_isplaying(knightslidesnd))
                 fmod_studio_event_instance_start(knightslidesnd);
@@ -118,9 +107,7 @@ function scr_playersounds()
             event_set_3d_position_struct(knightslidesnd, _attr);
         }
         else
-        {
             event_stop(knightslidesnd, 1);
-        }
         
         if (sprite_index == spr_bombpeprun || sprite_index == spr_bombpeprunabouttoexplode)
         {
@@ -130,9 +117,7 @@ function scr_playersounds()
             event_set_3d_position_struct(bombpep1snd, _attr);
         }
         else if (sprite_index != spr_bombpeprun && sprite_index != spr_bombpeprunabouttoexplode && event_isplaying(bombpep1snd))
-        {
             event_stop(bombpep1snd, 1);
-        }
         
         if (sprite_index == spr_barrelroll && grounded)
         {
@@ -142,11 +127,9 @@ function scr_playersounds()
             event_set_3d_position_struct(barrelsnd, _attr);
         }
         else
-        {
             event_stop(barrelsnd, 1);
-        }
         
-        if (state == 11)
+        if (state == states.boxxedpep)
         {
             if (!event_isplaying(boxxeddashsnd))
                 fmod_studio_event_instance_start(boxxeddashsnd);
@@ -160,11 +143,9 @@ function scr_playersounds()
             event_set_3d_position_struct(boxxeddashsnd, _attr);
         }
         else
-        {
             event_stop(boxxeddashsnd, 1);
-        }
         
-        if (state == 96)
+        if (state == states.weeniemount)
         {
             if (hsp != 0)
             {
@@ -174,14 +155,10 @@ function scr_playersounds()
                 event_set_3d_position_struct(weeniegallopingsnd, _attr);
             }
             else
-            {
                 event_stop(weeniegallopingsnd, 1);
-            }
         }
         else
-        {
             event_stop(weeniegallopingsnd, 1);
-        }
         
         if (sprite_index == spr_machroll || sprite_index == spr_longjumpslidestart || sprite_index == spr_longjumpslide)
         {
@@ -191,9 +168,7 @@ function scr_playersounds()
             event_set_3d_position_struct(machrollsnd, _attr);
         }
         else
-        {
             event_stop(machrollsnd, 1);
-        }
         
         var s = 0;
         
@@ -225,9 +200,7 @@ function scr_playersounds()
             event_set_3d_position_struct(swingdingsnd, _attr);
         }
         else
-        {
             event_stop(swingdingsnd, 1);
-        }
         
         event_set_3d_position_struct(tumblesnd, _attr);
         fmod_studio_event_instance_set_parameter_by_name(tumblesnd, "state", s, true);
@@ -243,7 +216,7 @@ function scr_playersounds()
         event_set_3d_position_struct(swingdingsnd, _attr);
     }
     
-    if (state == 47 && character == "N" && (sprite_index == spr_playerN_sidewayspin || sprite_index == spr_playerN_sidewayspinend))
+    if (state == states.mach2 && character == "N" && (sprite_index == spr_playerN_sidewayspin || sprite_index == spr_playerN_sidewayspinend))
     {
         if (!event_isplaying(airspinsnd))
             fmod_studio_event_instance_start(airspinsnd);
@@ -251,11 +224,9 @@ function scr_playersounds()
         event_set_3d_position_struct(airspinsnd, _attr);
     }
     else
-    {
         event_stop(airspinsnd, 1);
-    }
     
-    if (state == 120 && character == "N" && sprite_index == spr_playerN_wallbounce)
+    if (state == states.nwalljump && character == "N" && sprite_index == spr_playerN_wallbounce)
     {
         if (!event_isplaying(wallbouncesnd))
             fmod_studio_event_instance_start(wallbouncesnd);
@@ -263,11 +234,9 @@ function scr_playersounds()
         event_set_3d_position_struct(wallbouncesnd, _attr);
     }
     else
-    {
         event_stop(wallbouncesnd, 1);
-    }
     
-    if (state == 120 && character == "N" && (sprite_index == spr_playerN_divebomb || sprite_index == spr_playerN_divebombfall || sprite_index == spr_playerN_divebombland))
+    if (state == states.nwalljump && character == "N" && (sprite_index == spr_playerN_divebomb || sprite_index == spr_playerN_divebombfall || sprite_index == spr_playerN_divebombland))
     {
         if (!event_isplaying(noisetornadosnd))
             fmod_studio_event_instance_start(noisetornadosnd);
@@ -283,7 +252,5 @@ function scr_playersounds()
         fmod_studio_event_instance_set_parameter_by_name(noisetornadosnd, "state", s, true);
     }
     else
-    {
         event_stop(noisetornadosnd, 1);
-    }
 }

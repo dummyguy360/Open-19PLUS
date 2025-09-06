@@ -66,7 +66,7 @@ function __draw_text_ext_transformed_colour_hook(arg0, arg1, arg2, arg3, arg4, a
     __ptp_draw_text_ext(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12);
 }
 
-function draw_text_fancy(arg0, arg1, arg2, arg3 = 16777215, arg4 = 1, arg5 = true, arg6 = input_profile_get(), arg7 = 0)
+function draw_text_fancy(arg0, arg1, arg2, arg3 = c_white, arg4 = 1, arg5 = true, arg6 = input_profile_get(), arg7 = 0)
 {
     var _font = draw_get_font();
     var _halign = draw_get_halign();

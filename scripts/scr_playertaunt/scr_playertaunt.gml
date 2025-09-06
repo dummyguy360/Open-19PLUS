@@ -4,7 +4,7 @@ function scr_playertaunt()
     {
         if (global.currentbadge == 2)
         {
-            state = 71;
+            state = states.breakdance;
             
             if (movespeed < 9)
                 movespeed = 9;
@@ -26,7 +26,7 @@ function scr_playertaunt()
             tauntstoredimagespeed = image_speed;
             tauntstoredhsp = hsp;
             tauntstoredimageindex = image_index;
-            state = 31;
+            state = states.backbreaker;
             image_index = random_range(0, sprite_get_number(spr_taunt) - 1);
             sprite_index = spr_taunt;
             scr_fmod_soundeffect(tauntsnd, x, y);
@@ -41,7 +41,7 @@ function scr_playertaunt()
             {
                 if (bbox_in_camera(1, id))
                 {
-                    if (!thrown && state != 95 && grounded)
+                    if (!thrown && state != states.ramp && grounded)
                     {
                         if (stunned <= 0)
                             bombreset = 0;
@@ -54,7 +54,7 @@ function scr_playertaunt()
             
             with (obj_baddiespawner)
             {
-                if (!instance_exists(spawnedobject) && !(content == obj_bomb && (bomb || (obj_player.state == 19 && obj_player.bombspawnerid == id))))
+                if (!instance_exists(spawnedobject) && !(content == obj_bomb && (bomb || (obj_player.state == states.bombpep && obj_player.bombspawnerid == id))))
                     cooldown = 0;
             }
         }

@@ -1,8 +1,6 @@
 function scr_playerstates()
 {
-    collide_destructibles = function()
-    {
-    };
+    collide_destructibles = function() { }
     
     step_vertical = function()
     {
@@ -14,33 +12,44 @@ function scr_playerstates()
         return true;
     };
     
-    hit_vertical = function()
-    {
-    };
+    hit_vertical = function() { }
     
-    hit_horizontal = function()
-    {
-    };
+    hit_horizontal = function() { }
     
     noisesnapvalue = (character == "N") ? 32 : 22;
     
-    if (state == 13 || state == 45 || state == 16 || state == 73 || state == 118 || state == 91 || state == 66 || state == 47)
+    if (state == states.knightpepslopes || state == states.crouchslide || state == states.suplexgrab 
+	|| state == states.shoulderbash || state == states.lunge || state == states.kungfu 
+	|| state == states.mach3 || state == states.mach2)
         maxSnapUp = (vsp >= 0) ? 32 : noisesnapvalue;
     else
         maxSnapUp = 2.75;
     
+	// Execute script that corresponds with the current state
     if (!is_undefined(statemachine[state].script))
         statemachine[state].script();
     
-    if (state == 66 || (state == 47 && character != "S") || (state == 12 && character != "S") || (state == 81 && pogobounce >= 5) || state == 51 || state == 1 || state == 4 || (state == 5 && sprite_index != spr_firemouthintro) || state == 26 || state == 40 || state == 23 || state == 7 || (state == 25 && sprite_index == spr_piledriver) || state == 18 || state == 13 || state == 11 || state == 9 || state == 8 || (state == 75 && vsp <= 0) || state == 77 || state == 80 || state == 45 || state == 71 || state == 88 || state == 38 || state == 96 || state == 97 || state == 95 || (state == 107 && sprite_index == spr_smalldash) || state == 27 || state == 120 || sprite_index == spr_machslideboost3 || sprite_index == spr_machslideboost3end || sprite_index == spr_freefall || sprite_index == spr_facestomp)
+    if (state == states.mach3 || (state == states.mach2 && character != "S") 
+	|| (state == states.climbwall && character != "S") || (state == states.pogo && pogobounce >= 5) 
+	|| state == states.freefall || state == states.tumble || state == states.fireass 
+	|| (state == states.firemouth && sprite_index != spr_firemouthintro) || state == states.skateboard 
+	|| state == states.sjump || state == states.machroll || state == states.tacklecharge 
+	|| (state == states.superslam && sprite_index == spr_piledriver) || state == states.knightpep 
+	|| state == states.knightpepslopes || state == states.boxxedpep || state == states.cheesepep 
+	|| state == states.cheeseball || (state == states.shoryuken && vsp <= 0) || state == states.faceplant 
+	|| state == states.thok || state == states.crouchslide || state == states.breakdance 
+	|| state == states.slipbanan || state == states.slipnslide || state == states.weeniemount 
+	|| state == states.firemove || state == states.ramp || (state == states.smallpepdash && sprite_index == spr_smalldash) 
+	|| state == states.grind || state == states.nwalljump 
+	|| sprite_index == spr_machslideboost3 || sprite_index == spr_machslideboost3end || sprite_index == spr_freefall || sprite_index == spr_facestomp)
         instakillmove = 1;
     else
         instakillmove = 0;
     
-    if (state != 16)
+    if (state != states.suplexgrab)
         grabslap = 0;
     
-    if (state != 75)
+    if (state != states.shoryuken)
         uppercutcancel = 0;
     
     if (grounded && vsp > 0)
@@ -52,15 +61,15 @@ function scr_playerstates()
         doorblend = min(1, doorblend + (0.35 / sprite_get_number(spr_walkfront)));
     }
     
-    if (state != 87)
+    if (state != states.hitstun)
     {
-        if (state != 40)
+        if (state != states.sjump)
             sjumpvsp = -12;
         
-        if (state != 51)
+        if (state != states.freefall)
             bodyslamvsp = 14;
         
-        if (state != 88)
+        if (state != states.slipbanan)
             slipbounce = 0;
     }
 }
@@ -69,7 +78,7 @@ function throwmort()
 {
     if (input_check_pressed("shoot") && character == "P" && global.currentpowerup == 3 && !instance_exists(obj_mortprojectile))
     {
-        state = 74;
+        state = states.gunshoot;
         sprite_index = spr_player_mortthrow;
         image_index = 0;
         
@@ -85,7 +94,7 @@ function throwmort()
 
 function parry()
 {
-    if (state != 70 && state == 31)
+    if (state != states.parrying && state == states.backbreaker)
     {
         scr_fmod_soundeffectONESHOT("event:/sfx/player/parry", x, y);
         movespeed = -8;
@@ -98,7 +107,7 @@ function parry()
         
         instance_create_depth(x, y, 1, obj_parryeffect);
         sprite_index = choose(spr_parry1, spr_parry2, spr_parry3);
-        state = 70;
+        state = states.parrying;
         image_index = 0;
         flash = 1;
         camera_shake(10, 20);
@@ -141,7 +150,7 @@ function blurafterimageeffect(arg0, arg1)
 
 function player_pummelhit()
 {
-    state = 35;
+    state = states.tackle;
     pummelpunch = 1;
     pummeltimer = 10;
     sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_suplexmash5, spr_suplexmash6, spr_suplexmash7);
@@ -155,7 +164,7 @@ function player_pummelhit()
     with (other.baddieID)
     {
         scr_enemygibs();
-        state = 104;
+        state = states.seat;
         stunned = 100;
         pummelled = other;
         alarm[3] = 3;
@@ -170,7 +179,7 @@ function player_pummelhit()
     
     if (other.baddieID.hp <= 0)
     {
-        state = 35;
+        state = states.tackle;
         pummelpunch = 0;
         image_index = 0;
         
@@ -178,7 +187,7 @@ function player_pummelhit()
         {
             if (input_check("dash"))
             {
-                state = 66;
+                state = states.mach3;
                 sprite_index = spr_mach3hit;
                 image_index = 0;
             }
@@ -215,7 +224,7 @@ function player_pummelhit()
         {
             suplexmove = 1;
             cangrab = 0;
-            state = 75;
+            state = states.shoryuken;
             sprite_index = spr_shoryukenstart;
             image_index = 0;
             hsp = 0;
@@ -238,9 +247,9 @@ function player_pummelhit()
         else if (input_check("down"))
         {
             image_index = 0;
-            other.baddieID.state = 107;
+            other.baddieID.state = states.smallpepdash;
             other.baddieID.grabbedby = obj_player;
-            state = 25;
+            state = states.superslam;
             sprite_index = spr_piledriver;
             other.baddieID.image_yscale = -1;
             piledrivervsp = -4;
@@ -266,7 +275,7 @@ function enterdoor()
     {
         sprite_index = spr_lookdoor;
         image_index = 0;
-        state = 54;
+        state = states.door;
     }
     
     obj_player.targetDoor = other.targetDoor;
@@ -278,7 +287,7 @@ function enterdoor()
 
 function do_hitstun(arg0)
 {
-    if (state != 87)
+    if (state != states.hitstun)
     {
         hitstunstoredmovespeed = movespeed;
         hitstunstoredsprite = sprite_index;
@@ -287,7 +296,7 @@ function do_hitstun(arg0)
         hitstunstoredimagespeed = image_speed;
         hitstunstoredhsp = hsp;
         hittimer = arg0;
-        state = 87;
+        state = states.hitstun;
     }
 }
 
@@ -304,12 +313,12 @@ function enterboxofpizza(arg0)
     obj_player.enteredDoor = other.id;
     sprite_index = arg0;
     image_index = 0;
-    state = 54;
+    state = states.door;
 }
 
-function voice_collect(arg0 = id)
+function voice_collect(_player = id)
 {
-    with (arg0)
+    with (_player)
     {
         var voice = random_range(1, 100);
         
@@ -323,9 +332,9 @@ function voice_collect(arg0 = id)
     }
 }
 
-function voice_random(arg0 = id)
+function voice_random(_player = id)
 {
-    with (arg0)
+    with (_player)
     {
         var voice = random_range(1, 100);
         
@@ -339,9 +348,9 @@ function voice_random(arg0 = id)
     }
 }
 
-function voice_transfo(arg0 = id)
+function voice_transfo(_player = id)
 {
-    with (arg0)
+    with (_player)
     {
         var voice = random_range(1, 100);
         
@@ -355,9 +364,9 @@ function voice_transfo(arg0 = id)
     }
 }
 
-function voice_hurt(arg0 = id)
+function voice_hurt(_player = id)
 {
-    with (arg0)
+    with (_player)
     {
         var voice = random_range(1, 100);
         
@@ -371,9 +380,10 @@ function voice_hurt(arg0 = id)
     }
 }
 
-function voice_scream(arg0 = 1, arg1 = id)
+// arg0 is unused
+function voice_scream(arg0 = 1, _player = id)
 {
-    with (arg1)
+    with (_player)
     {
         if (character == "P")
             fmod_studio_event_instance_start(PscreamVA);
