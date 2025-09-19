@@ -1,6 +1,6 @@
 while (!ds_list_empty(notifications))
 {
-    var _notif = ds_list_find_value(notifications, 0);
+    var _notif = notifications[| 0];
     
     for (var a = 0; a < array_length(achievements); a++)
     {
@@ -18,7 +18,7 @@ while (!ds_list_empty(notifications))
 
 if (!ds_list_empty(popupqueue) && popupy <= 0 && popuptime <= 0)
 {
-    popupstruct = ds_list_find_value(popupqueue, 0);
+    popupstruct = popupqueue[| 0];
     ds_list_delete(popupqueue, 0);
     popupy = 0;
     popuptime = 200;

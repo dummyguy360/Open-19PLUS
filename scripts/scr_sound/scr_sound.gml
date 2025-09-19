@@ -17,7 +17,7 @@ function scr_sound_multiple(arg0, arg1, arg2)
     
     for (var i = 0; i < ds_list_size(_list); i++)
     {
-        b = ds_list_find_value(_list, i);
+        b = _list[| i];
         event_stop(b, 0);
         fmod_studio_event_instance_release(b);
     }

@@ -291,7 +291,7 @@ function fast_ray(arg0, arg1, arg2, arg3)
     
     for (var _i = 0; _i < _num; _i++)
     {
-        var _instance = ds_list_find_value(_il, _i);
+        var _instance = _il[| _i];
         
         if (place_meeting(x, y, _instance) && object_is_parent_or_ancestor(obj_platform, _instance.object_index))
             continue;

@@ -29,7 +29,7 @@ function scr_solid_player(arg0, arg1)
     
     for (var i = 0; i < num; i++)
     {
-        var b = ds_list_find_value(il, i);
+        var b = il[| i];
         var obj = b.object_index;
         
         if (object_is_parent_or_ancestor(obj_platform, obj) || object_is_parent_or_ancestor(obj_infestedwater, obj) || object_is_parent_or_ancestor(obj_grindrail, obj))
@@ -94,7 +94,7 @@ function check_slope_player(arg0, arg1 = x, arg2 = y)
     
     for (var i = 0; i < num; i++)
     {
-        var slope = ds_list_find_value(il, i);
+        var slope = il[| i];
         
         with (slope)
         {

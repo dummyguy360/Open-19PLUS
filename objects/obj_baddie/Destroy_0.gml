@@ -39,7 +39,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1)
     
     for (var i = 0; i < _num; i++)
     {
-        with (ds_list_find_value(global.baddiecollidelist, i))
+        with (global.baddiecollidelist[| i])
         {
             if (state != states.smallpepdash)
             {

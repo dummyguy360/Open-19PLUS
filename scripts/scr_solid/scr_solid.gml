@@ -18,7 +18,7 @@ function scr_solid(arg0, arg1)
         
         for (var i = 0; i < num; i++)
         {
-            var b = ds_list_find_value(il, i);
+            var b = il[| i];
             
             switch (b.object_index)
             {
@@ -99,7 +99,7 @@ function scr_solid_exclude_destructibles(arg0, arg1)
         
         for (var i = 0; i < num; i++)
         {
-            var b = ds_list_find_value(il, i);
+            var b = il[| i];
             
             switch (b.object_index)
             {
