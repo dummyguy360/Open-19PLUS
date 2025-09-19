@@ -6,7 +6,7 @@ function scr_solid_player(arg0, arg1)
     var old_y = y;
     x = arg0;
     y = arg1;
-    var collisioncheck = [obj_solid, obj_slope, -4, -4, -4, -4];
+    var collisioncheck = [obj_solid, obj_slope, noone, noone, noone, noone];
     
     if (y > old_y && state != states.ladder)
     {

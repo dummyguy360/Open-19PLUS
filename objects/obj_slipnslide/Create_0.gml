@@ -4,6 +4,6 @@ vsp = 0;
 grav = 0.4;
 grounded = 0;
 image_speed = 0;
-baddieID = -4;
+baddieID = noone;
 banana = 0;
 important = 0;

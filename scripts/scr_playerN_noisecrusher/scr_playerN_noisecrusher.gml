@@ -102,7 +102,7 @@ function scr_player_noisecrusher()
         {
             with (obj_slipnslide)
             {
-                if (grounded && baddieID != -4 && bbox_in_camera(1, id))
+                if (grounded && baddieID != noone && bbox_in_camera(1, id))
                 {
                     instance_destroy();
                     

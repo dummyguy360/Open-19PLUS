@@ -93,7 +93,7 @@ function destroy_clips()
         var _pos = _checks[_i];
         var _inst = instance_place(_pos[0], _pos[1], obj_clipparent);
         
-        while (_inst != -4)
+        while (_inst != noone)
         {
             instance_destroy(_inst);
             _inst = instance_place(_pos[0], _pos[1], obj_clipparent);
@@ -230,7 +230,7 @@ function create_uparrow()
     return _createdID;
 }
 
-function fire_ray(arg0, arg1, arg2, arg3, arg4 = 1, arg5 = -4, arg6 = -4, arg7 = spr_1x1)
+function fire_ray(arg0, arg1, arg2, arg3, arg4 = 1, arg5 = noone, arg6 = noone, arg7 = spr_1x1)
 {
     var _dist = point_distance(arg0, arg1, arg2, arg3);
     var _dir = point_direction(arg0, arg1, arg2, arg3);
@@ -259,7 +259,7 @@ function fire_ray(arg0, arg1, arg2, arg3, arg4 = 1, arg5 = -4, arg6 = -4, arg7 =
             
             if (scr_solid(x + sign(lengthdir_x(1, _dir)), y + sign(lengthdir_y(1, _dir))))
             {
-                if (arg5 == -4 || !place_meeting(x + sign(lengthdir_x(1, _dir)), y + sign(lengthdir_y(1, _dir)), arg5))
+                if (arg5 == noone || !place_meeting(x + sign(lengthdir_x(1, _dir)), y + sign(lengthdir_y(1, _dir)), arg5))
                 {
                     _raystruct.clear = false;
                     break;
@@ -287,7 +287,7 @@ function fast_ray(arg0, arg1, arg2, arg3)
     static _il = global.instancelist;
     
     var _y = arg3;
-    var _num = collision_rectangle_list(arg0, arg1, arg2, arg3, [obj_solid, obj_slope, (arg3 > arg1) ? obj_platform : -4], false, true, _il, true);
+    var _num = collision_rectangle_list(arg0, arg1, arg2, arg3, [obj_solid, obj_slope, (arg3 > arg1) ? obj_platform : noone], false, true, _il, true);
     
     for (var _i = 0; _i < _num; _i++)
     {
@@ -394,12 +394,12 @@ function create_key(arg0)
     };
 }
 
-function scr_tiptext(arg0, arg1 = -4)
+function scr_tiptext(arg0, arg1 = noone)
 {
     var _dothing = true;
-    var _id = -4;
+    var _id = noone;
     
-    if (arg1 != -4)
+    if (arg1 != noone)
     {
         save_open();
         _dothing = !ini_read_real("GameProgress", arg1, false);

@@ -10,7 +10,7 @@ if (floor(image_index) >= 20 && sprite_index == pipeenterspr && !released)
             if (pipe == other.id && pipedir == "hold")
             {
                 pipedir = other.pipedir;
-                pipe = -4;
+                pipe = noone;
             }
         }
     }

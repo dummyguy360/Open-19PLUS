@@ -2,7 +2,7 @@ event_inherited();
 hp = 2;
 depth = 1;
 image_speed = 0.35;
-solidid = -4;
+solidid = noone;
 
 if (image_xscale > 0)
     solidid = instance_create_depth(x, y, 0, obj_solid);

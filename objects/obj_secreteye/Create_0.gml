@@ -1,7 +1,7 @@
 targetRoom = virtualinsanity;
 active = true;
 touched = false;
-playerid = -4;
+playerid = noone;
 isexit = false;
 depth = 50;
 image_speed = 0.35;

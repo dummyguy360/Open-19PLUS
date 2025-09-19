@@ -159,7 +159,7 @@ if (__player.state != states.kungfu && __player.state != states.hurt)
                     {
                         if (hitstunstoredstate == states.superslam)
                         {
-                            var _grabbedind = -4;
+                            var _grabbedind = noone;
                             
                             with (obj_baddie)
                             {

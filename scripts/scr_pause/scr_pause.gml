@@ -2,12 +2,12 @@ function pause_unpause_music()
 {
     with (obj_music)
     {
-        if (global.music != -4)
+        if (global.music != noone)
         {
-            if (global.music.event != -4)
+            if (global.music.event != noone)
                 fmod_studio_event_instance_set_paused(global.music.event, other.savedmusicpause);
             
-            if (global.music.eventsecret != -4)
+            if (global.music.eventsecret != noone)
                 fmod_studio_event_instance_set_paused(global.music.eventsecret, other.savedsecretpause);
         }
         

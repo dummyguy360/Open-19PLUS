@@ -1,6 +1,6 @@
 {
   "FolderOrderSettings":[
-    {"name":"Fmod","order":2,"path":"folders/Extensions/Fmod.yy",},
+    {"name":"FMOD","order":2,"path":"folders/Extensions/FMOD.yy",},
     {"name":"Gameframe","order":1,"path":"folders/Extensions/Gameframe.yy",},
     {"name":"Projectiles","order":1,"path":"folders/Objects/Baddie/Projectiles.yy",},
     {"name":"Unused","order":2,"path":"folders/Objects/Baddie/Unused.yy",},

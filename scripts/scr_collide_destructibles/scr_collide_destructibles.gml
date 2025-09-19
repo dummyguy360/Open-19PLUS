@@ -3,16 +3,16 @@ function scr_destroy_horizontal(arg0, arg1 = 0)
     if (arg0 != 0)
     {
         var _hitblock = false;
-        var _arr = [obj_destructibles, obj_onewaybigblock, obj_smbitembox, -4, -4, -4, -4, -4, -4];
+        var _arr = [obj_destructibles, obj_onewaybigblock, obj_smbitembox, noone, noone, noone, noone, noone, noone];
         
         if (arg1 & 32)
-            _arr[0] = -4;
+            _arr[0] = noone;
         
         if (arg1 & 64)
-            _arr[1] = -4;
+            _arr[1] = noone;
         
         if (arg1 & 128)
-            _arr[2] = -4;
+            _arr[2] = noone;
         
         if (arg1 & 1)
             _arr[3] = obj_metalblock;
@@ -119,13 +119,13 @@ function scr_destroy_vertical(arg0, arg1 = 0)
     if (arg0 != 0)
     {
         var _hitblock = false;
-        var _arr = [obj_destructibles, obj_smbitembox, -4, -4, -4, -4];
+        var _arr = [obj_destructibles, obj_smbitembox, noone, noone, noone, noone];
         
         if (arg1 & 32)
-            _arr[0] = -4;
+            _arr[0] = noone;
         
         if (arg1 & 128)
-            _arr[1] = -4;
+            _arr[1] = noone;
         
         if (arg1 & 1)
             _arr[2] = obj_metalblock;
@@ -196,7 +196,7 @@ function scr_collide_destructibles(arg0, arg1)
         var _i = 0;
         var _cheese = instance_place(x, y + 1, obj_destructibleplatform);
         
-        while (_cheese != -4 && _i < array_length(_arr))
+        while (_cheese != noone && _i < array_length(_arr))
         {
             with (_cheese)
             {
@@ -256,11 +256,11 @@ function scr_bump_rat(arg0 = 0, arg1 = 0, arg2 = true)
 
 function scr_enemy_destructibles(arg0, arg1)
 {
-    if (thrown || parried || pummelled != -4)
+    if (thrown || parried || pummelled != noone)
     {
         var _i = instance_place(x + arg0, y + arg1, [obj_destructibles, obj_enemyblock]);
         
-        while (_i != -4)
+        while (_i != noone)
         {
             instance_destroy(_i);
             _i = instance_place(x + arg0, y + arg1, [obj_destructibles, obj_enemyblock]);
@@ -276,7 +276,7 @@ function scr_enemy_enemies(arg0, arg1)
     {
         var _i = instance_place(x + arg0, y + arg1, obj_baddiecollisionbox);
         
-        while (_i != -4)
+        while (_i != noone)
         {
             _hit = true;
             instance_destroy(_i.baddieID);

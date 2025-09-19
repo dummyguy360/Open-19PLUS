@@ -2,7 +2,7 @@ with (other.id)
 {
     if (!instance_exists(obj_fadeout))
     {
-        if (other.doorletterid != -4)
+        if (other.doorletterid != noone)
         {
             obj_player.verticalhallwayposition = point_distance(obj_player.x, other.doorletterid.y, other.doorletterid.x, other.doorletterid.y);
             obj_player.verticalhallway = 1;

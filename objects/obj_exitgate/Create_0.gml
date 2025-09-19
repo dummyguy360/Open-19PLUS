@@ -11,4 +11,4 @@ depth = 2;
 endgate = 0;
 cutscene = 0;
 locked = false;
-uparrowid = -4;
+uparrowid = noone;

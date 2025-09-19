@@ -1,4 +1,4 @@
-baddieid = -4;
+baddieid = noone;
 image_speed = 0;
 image_blend = choose(c_red, c_lime);
 alarm[1] = 3;

@@ -7,4 +7,4 @@ if (ds_list_find_index(global.collectspawn, id) != -1)
 if (place_meeting(x, y, obj_collectspawnarea))
     area = instance_place(x, y, obj_collectspawnarea).selfID;
 else
-    area = -4;
+    area = noone;

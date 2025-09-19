@@ -70,7 +70,7 @@ global.screeneffect = config_get_option("Accessibility", "screeneffect", true);
 global.tvtextalpha = config_get_option("Accessibility", "tvtextalpha", 1);
 apply_videoglobals();
 apply_inputglobals();
-global.levelname = -4;
+global.levelname = noone;
 global.tutorialdone = false;
 global.savetime = 0;
 global.timetrialreplays = ds_map_create();

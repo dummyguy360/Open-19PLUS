@@ -8,8 +8,8 @@ spawn = 0;
 activate = 0;
 previousmask = spr_sausagecollect;
 escape = 0;
-area = -4;
-magnetized = -4;
+area = noone;
+magnetized = noone;
 
 function collectGrabbed()
 {

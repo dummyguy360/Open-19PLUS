@@ -1,2 +1,2 @@
-if (magnetized != -4)
+if (magnetized != noone)
     self.collectGrabbed();

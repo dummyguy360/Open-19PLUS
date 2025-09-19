@@ -35,8 +35,8 @@ function raycast(arg0, arg1, arg2, arg3, arg4)
     
     switch (_col)
     {
-        case -4:
-            ds_map_add(_list, "obj", -4);
+        case noone:
+            ds_map_add(_list, "obj", noone);
             break;
         
         default:

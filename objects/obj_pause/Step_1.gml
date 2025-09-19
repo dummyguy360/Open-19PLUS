@@ -15,15 +15,15 @@ if (!instance_exists(obj_endlevelfade) && !instance_exists(obj_endtutorialfade) 
         
         with (obj_music)
         {
-            if (global.music != -4)
+            if (global.music != noone)
             {
-                if (global.music.event != -4)
+                if (global.music.event != noone)
                 {
                     other.savedmusicpause = fmod_studio_event_instance_get_paused(global.music.event);
                     fmod_studio_event_instance_set_paused(global.music.event, true);
                 }
                 
-                if (global.music.eventsecret != -4)
+                if (global.music.eventsecret != noone)
                 {
                     other.savedsecretpause = fmod_studio_event_instance_get_paused(global.music.eventsecret);
                     fmod_studio_event_instance_set_paused(global.music.eventsecret, true);

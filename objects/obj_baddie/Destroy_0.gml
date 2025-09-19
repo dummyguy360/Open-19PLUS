@@ -29,10 +29,10 @@ if (ds_list_find_index(global.baddieroom, id) == -1)
         push_notif(16, [obj_player.knightslidekills]);
     }
     
-    if (killedbyfireassstoredsprite != -4)
+    if (killedbyfireassstoredsprite != noone)
         push_notif(14, [killedbyfireassstoredsprite]);
     
-    if (killedwithbypiledrive != -4)
+    if (killedwithbypiledrive != noone)
         push_notif(15, [object_index, killedwithbypiledrive]);
     
     var _num = instance_place_list(x, y, obj_baddie, global.baddiecollidelist, false);

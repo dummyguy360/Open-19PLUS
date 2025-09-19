@@ -18,7 +18,7 @@ else if (instance_exists(grabbedby))
             hsp = 16 * grabbedby.xscale;
         }
         
-        var _ray = fire_ray(x, y, grabbedby.x, grabbedby.y, 1, -4, -4, mask_index);
+        var _ray = fire_ray(x, y, grabbedby.x, grabbedby.y, 1, noone, noone, mask_index);
         
         if (!_ray.clear)
         {
@@ -32,7 +32,7 @@ else if (instance_exists(grabbedby))
             y = grabbedby.y;
         }
         
-        grabbedby = -4;
+        grabbedby = noone;
         thrown = true;
         exit;
     }
@@ -41,7 +41,7 @@ else if (instance_exists(grabbedby))
     {
         x = grabbedby.x;
         y = grabbedby.y;
-        grabbedby = -4;
+        grabbedby = noone;
         depth = 0;
         exit;
     }
@@ -136,7 +136,7 @@ else if (instance_exists(grabbedby))
     
     if (grabbedby.state == states.finishingblow)
     {
-        var _ray = fire_ray(grabbedby.x, grabbedby.y, grabbedby.x + (grabbedby.xscale * 60), grabbedby.y - 1, 1, -4, -4, mask_index);
+        var _ray = fire_ray(grabbedby.x, grabbedby.y, grabbedby.x + (grabbedby.xscale * 60), grabbedby.y - 1, 1, noone, noone, mask_index);
         x = _ray.x;
         y = _ray.y;
         depth = 0;
@@ -229,7 +229,7 @@ else if (instance_exists(grabbedby))
                 state = states.jump;
             }
             
-            grabbedby = -4;
+            grabbedby = noone;
             thrown = true;
             vsp = -8;
             hsp = 2 * image_xscale;
@@ -275,7 +275,7 @@ else
         var _i = 0;
         var _cheese = instance_place(x, y, obj_destructibleplatform);
         
-        while (_cheese != -4 && _i < array_length(_arr))
+        while (_cheese != noone && _i < array_length(_arr))
         {
             with (_cheese)
             {
@@ -316,6 +316,6 @@ if (place_meeting(x, y, [obj_hallway, obj_verticalhallway]) || !rectangle_in_rec
     if (instance_exists(grabbedby))
     {
         grabbedby.state = states.normal;
-        grabbedby = -4;
+        grabbedby = noone;
     }
 }

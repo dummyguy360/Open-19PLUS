@@ -5,10 +5,10 @@ else
 
 xscale = obj_player.xscale;
 positioninline = array_get_index(global.followers, id);
-lastfollowerid = (positioninline > 0) ? global.followers[positioninline - 1] : -4;
-ds_queue_enqueue(followerqueue, ((lastfollowerid == -4) ? obj_player.x : lastfollowerid.x) + round(abs(bbox_left - bbox_right) * spaceb));
-ds_queue_enqueue(followerqueue, (lastfollowerid == -4) ? obj_player.y : lastfollowerid.y);
-ds_queue_enqueue(followerqueue, (lastfollowerid == -4) ? (obj_player.state == states.backbreaker && obj_player.sprite_index == obj_player.spr_taunt) : lastfollowerid.taunting);
+lastfollowerid = (positioninline > 0) ? global.followers[positioninline - 1] : noone;
+ds_queue_enqueue(followerqueue, ((lastfollowerid == noone) ? obj_player.x : lastfollowerid.x) + round(abs(bbox_left - bbox_right) * spaceb));
+ds_queue_enqueue(followerqueue, (lastfollowerid == noone) ? obj_player.y : lastfollowerid.y);
+ds_queue_enqueue(followerqueue, (lastfollowerid == noone) ? (obj_player.state == states.backbreaker && obj_player.sprite_index == obj_player.spr_taunt) : lastfollowerid.taunting);
 
 if (ds_queue_size(followerqueue) > (lag * 2))
 {

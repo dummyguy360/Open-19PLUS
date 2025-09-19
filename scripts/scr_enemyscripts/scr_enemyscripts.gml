@@ -31,23 +31,23 @@ function scr_enemy_create()
     hitfactor = 0;
     hurttype = 0;
     stompscale = 0;
-    hitboxID = -4;
+    hitboxID = noone;
     insupertaunt = 0;
     superhurt = 0;
-    escapespawnID = -4;
+    escapespawnID = noone;
     escapestun = true;
     stuntouchbuffer = 0;
     hitboxcreate = 0;
     enemypalette = -1;
-    chargeeffectID = -4;
+    chargeeffectID = noone;
     throwhsp = 0;
     throwvsp = 0;
-    pummelled = -4;
+    pummelled = noone;
     scaredbuffer = 100;
     darkalpha = 1;
-    killedbyfireassstoredsprite = -4;
+    killedbyfireassstoredsprite = noone;
     killedbyknightslide = false;
-    killedwithbypiledrive = -4;
+    killedwithbypiledrive = noone;
     playkillsound = true;
 }
 
@@ -93,7 +93,7 @@ function scr_escapeenemy()
                 }
             }
             
-            var _ray = fire_ray(x, y, __player.x, __player.y, 1, -4, -4, mask_index);
+            var _ray = fire_ray(x, y, __player.x, __player.y, 1, noone, noone, mask_index);
             
             if (!_ray.clear)
             {

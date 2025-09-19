@@ -2,7 +2,7 @@ with (other.id)
 {
     if (!instance_exists(obj_fadeout))
     {
-        if (other.doorletterid != -4)
+        if (other.doorletterid != noone)
         {
             backtohubstartx = obj_doorB.x + 16;
             backtohubstarty = obj_doorB.y - 14;

@@ -1,6 +1,6 @@
 var _gate = instance_place(x, y, obj_startgate);
 
-if (_gate == -4)
+if (_gate == noone)
 {
     instance_destroy();
     exit;

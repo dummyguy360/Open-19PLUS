@@ -12,7 +12,7 @@ function scr_player_victory()
     crouchAnim = 1;
     machhitAnim = 0;
     
-    if (enteredDoor != -4)
+    if (enteredDoor != noone)
         x = lerp(x, (enteredDoor.x + 48.5 + (1.5 * (enteredDoor.object_index == obj_geromedoor))) - (47.5 * (enteredDoor.object_index == obj_startgate || enteredDoor.object_index == obj_sagegate)), min(1, image_index / sprite_get_number(spr_lookdoor)));
     
     if (place_meeting(x, y, obj_keydoor))
@@ -27,7 +27,7 @@ function scr_player_victory()
     if (floor(image_index) == (image_number - 1))
     {
         image_speed = 0;
-        enteredDoor = -4;
+        enteredDoor = noone;
     }
     else
     {

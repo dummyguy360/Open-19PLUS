@@ -1,6 +1,6 @@
 function scr_playerS_homingattack()
 {
-    if (homingtarget != -4)
+    if (homingtarget != noone)
     {
         var _dir = point_direction(x, y, homingtarget.x, homingtarget.y);
         var _dist = distance_to_object(homingtarget);
@@ -14,13 +14,13 @@ function scr_playerS_homingattack()
         }
         else
         {
-            homingtarget = -4;
+            homingtarget = noone;
             state = states.jump;
         }
         
         if (!instance_exists(homingtarget))
         {
-            homingtarget = -4;
+            homingtarget = noone;
             state = states.jump;
         }
         
@@ -33,10 +33,10 @@ function scr_playerS_homingattack()
     
     if (grounded)
     {
-        homingtarget = -4;
+        homingtarget = noone;
         state = states.jump;
     }
     
-    if (homingtarget == -4)
+    if (homingtarget == noone)
         state = states.jump;
 }

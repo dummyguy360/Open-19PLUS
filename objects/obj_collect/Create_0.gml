@@ -7,7 +7,7 @@ depth = -4;
 spawn = 0;
 activate = 0;
 previousmask = spr_sausagecollect;
-magnetized = -4;
+magnetized = noone;
 magnetspeed = 7;
 
 function collectGrabbed()

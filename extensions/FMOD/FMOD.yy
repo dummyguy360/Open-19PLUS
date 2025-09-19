@@ -1050,8 +1050,8 @@
   "optionsFile":"options.json",
   "packageId":"",
   "parent":{
-    "name":"Fmod",
-    "path":"folders/Extensions/Fmod.yy",
+    "name":"FMOD",
+    "path":"folders/Extensions/FMOD.yy",
   },
   "productId":"",
   "resourceType":"GMExtension",

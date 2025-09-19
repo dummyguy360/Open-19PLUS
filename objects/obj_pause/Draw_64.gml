@@ -23,7 +23,7 @@ if (pause)
                 _textalpha = 1 - (0.75 * inhub);
             
             if (i == 3)
-                _textalpha = 1 - (0.75 * (global.levelname == -4 || global.levelname == "tutorial"));
+                _textalpha = 1 - (0.75 * (global.levelname == noone || global.levelname == "tutorial"));
             
             draw_text_color(_textX, floor(_textY + ((310 * i) / (array_length(_strings) - 1))), _strings[i], c_white, c_white, c_white, c_white, _textalpha);
         }
@@ -72,7 +72,7 @@ if (pause)
         
         switch (global.levelname)
         {
-            case -4:
+            case noone:
                 break;
             
             case "entry":

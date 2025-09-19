@@ -1,11 +1,11 @@
-function camera_zoom(arg0, arg1 = -4)
+function camera_zoom(arg0, arg1 = noone)
 {
     with (obj_drawcontroller)
     {
         targetzoom = arg0;
         targetzoom = clamp(targetzoom, 0, max_zoom);
         
-        if (arg1 != -4)
+        if (arg1 != noone)
             zoomspd = abs(arg1);
     }
 }

@@ -82,7 +82,7 @@ function save_load()
     }
 }
 
-function save_dump(arg0 = -4)
+function save_dump(arg0 = noone)
 {
     with (obj_savesystem)
     {
@@ -103,7 +103,7 @@ function save_dump(arg0 = -4)
             buffer_delete(_wallettempbuff);
             buffer_save_async(walletsavebuff, "playerWallet.save", 0, buffer_get_size(walletsavebuff));
             
-            if (arg0 != -4 && arg0 != "tutorial" && global.timetrial)
+            if (arg0 != noone && arg0 != "tutorial" && global.timetrial)
             {
                 if (ds_map_find_value(global.timetrialreplays, arg0) == -1 || global.timetrialtick < array_get(ds_map_find_value(global.timetrialreplays, arg0), 0))
                 {

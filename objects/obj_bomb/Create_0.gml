@@ -6,7 +6,7 @@ image_speed = 0.35;
 drop = 1;
 grounded = 0;
 kicked = 1;
-spawner = -4;
+spawner = noone;
 important = false;
 goblinbomb = false;
 

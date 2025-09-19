@@ -1,4 +1,4 @@
-if (other.grabbedby == -4 && abs(other.hsp) > 0 && !other.dead)
+if (other.grabbedby == noone && abs(other.hsp) > 0 && !other.dead)
 {
     with (obj_player)
         do_hitstun(global.mach2hitstun);

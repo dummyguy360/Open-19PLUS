@@ -163,7 +163,7 @@ if (pause)
                     break;
                 
                 case 3:
-                    if (global.levelname != -4 && global.levelname != "tutorial")
+                    if (global.levelname != noone && global.levelname != "tutorial")
                     {
                         instance_create_depth(x, y, -9999, obj_cowboytasks);
                         event_play_oneshot("event:/sfx/pausemenu/impact");

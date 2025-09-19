@@ -1,1 +1,1 @@
-owner = -4;
+owner = noone;

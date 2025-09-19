@@ -6,7 +6,7 @@ if (ds_list_find_index(global.baddieroom, id) != -1)
 
 if (escape)
 {
-    if (escapespawnID == -4)
+    if (escapespawnID == noone)
     {
         with (instance_create_depth(x, y, depth + 1, obj_escapespawn))
         {

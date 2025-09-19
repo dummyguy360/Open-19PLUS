@@ -1,7 +1,7 @@
 escape = 0;
 killed = 0;
 toomuchalarm1 = 0;
-killedbyfireassstoredsprite = -4;
+killedbyfireassstoredsprite = noone;
 killedbyknightslide = false;
-killedwithbypiledrive = -4;
+killedwithbypiledrive = noone;
 startroom = room;

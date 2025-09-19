@@ -91,6 +91,6 @@ if (global.currentpowerup == 3)
 
 roomstartx = x;
 roomstarty = y;
-portalcheckpointid = -4;
+portalcheckpointid = noone;
 global.battle = 0;
 update_object_coordinates();

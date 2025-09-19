@@ -1,3 +1,3 @@
 cooldown = 0;
-ID = -4;
+ID = noone;
 image_speed = 0.35;

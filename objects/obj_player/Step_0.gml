@@ -52,7 +52,7 @@ supertauntcooldown = clamp(supertauntcooldown, 0, 10);
 if (!asset_has_tags(room, "No Save Timer", 3))
     global.savetime++;
 
-if (!asset_has_tags(room, "No Timer", 3) && !scr_hudroomcheck() && global.levelname != -4 && !instance_exists(obj_endlevelfade))
+if (!asset_has_tags(room, "No Timer", 3) && !scr_hudroomcheck() && global.levelname != noone && !instance_exists(obj_endlevelfade))
     global.timer++;
 
 if (_player == 1)
@@ -365,7 +365,7 @@ if (grounded && vsp >= 0)
     pummeldoublejump = false;
 
 if (state != states.victory && state != states.door)
-    enteredDoor = -4;
+    enteredDoor = noone;
 
 if (global.playerhealth <= 0 && state != states.ejected2)
 {

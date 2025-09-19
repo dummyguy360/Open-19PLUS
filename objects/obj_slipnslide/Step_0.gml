@@ -9,7 +9,7 @@ if (banana >= 2)
     instance_destroy();
 }
 
-if (baddieID != -4 && !instance_exists(baddieID))
+if (baddieID != noone && !instance_exists(baddieID))
 {
     instance_create_depth(x, y + 5, -8, obj_genericpoofeffect);
     instance_destroy();

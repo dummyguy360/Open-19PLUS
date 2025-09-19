@@ -19,7 +19,7 @@ else if (!instance_exists(uparrowid))
     uparrowid = create_uparrow();
 }
 
-if (place_meeting(x, y, obj_player) && obj_player.state == states.normal && obj_player.grounded && input_check_pressed("up") && (clockspr == spr_timetrialactivator_clock || clockspr == spr_timetrialactivator_clockopened) && clonespr == -4)
+if (place_meeting(x, y, obj_player) && obj_player.state == states.normal && obj_player.grounded && input_check_pressed("up") && (clockspr == spr_timetrialactivator_clock || clockspr == spr_timetrialactivator_clockopened) && clonespr == noone)
 {
     global.timetrial = !global.timetrial;
     save_open();
@@ -50,7 +50,7 @@ if (place_meeting(x, y, obj_player) && obj_player.state == states.normal && obj_
 clockind += image_speed;
 clockind %= sprite_get_number(clockspr);
 
-if (clonespr != -4)
+if (clonespr != noone)
 {
     cloneind += image_speed;
     cloneind %= sprite_get_number(clonespr);
@@ -70,7 +70,7 @@ if (clockspr == spr_timetrialactivator_clockclosing && floor(clockind) == (sprit
 if (clonespr == spr_timetrialactivator_clonecomeout && floor(cloneind) == (sprite_get_number(clonespr) - 1))
 {
     instance_create_depth(x + 64, y + 178, depth - 1, obj_clonefollow);
-    clonespr = -4;
+    clonespr = noone;
 }
 
 if (clonespr == spr_timetrialactivator_clonegoback)
@@ -86,7 +86,7 @@ if (clonespr == spr_timetrialactivator_clonegoback)
     
     if (floor(cloneind) == (sprite_get_number(clonespr) - 1))
     {
-        clonespr = -4;
+        clonespr = noone;
         clockspr = spr_timetrialactivator_clockclosing;
         clockind = 0;
         scr_fmod_soundeffect(clockclose, _soundsourcepos.x, _soundsourcepos.y);

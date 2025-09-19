@@ -1,7 +1,7 @@
 image_speed = 0.35;
 clockspr = spr_timetrialactivator_clock;
 clockind = 0;
-clonespr = -4;
+clonespr = noone;
 cloneind = 0;
 uparrowid = create_uparrow();
 depth = 0;

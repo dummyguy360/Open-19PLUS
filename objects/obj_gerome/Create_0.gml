@@ -5,7 +5,7 @@ if (_i != -1)
     array_delete(global.followers, _i, 1);
 
 persistent = false;
-tauntid = -4;
+tauntid = noone;
 taunted = false;
 sprite_index = choose(spr_gerome_idle, spr_gerome_sandwich, spr_gerome_sleeping);
 image_speed = 0.35;

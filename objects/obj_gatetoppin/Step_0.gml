@@ -34,7 +34,7 @@ if (visible)
             var _prevx = x;
             x += (2 * image_xscale);
             
-            if (_area == -4 || rectangle_in_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, _area.bbox_left, _area.bbox_top, _area.bbox_right, _area.bbox_bottom) != 1)
+            if (_area == noone || rectangle_in_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, _area.bbox_left, _area.bbox_top, _area.bbox_right, _area.bbox_bottom) != 1)
             {
                 image_xscale *= -1;
                 x = _prevx;
@@ -47,6 +47,6 @@ if (visible)
         }
     }
     
-    if (_area != -4 && bbox_in_camera(1, id, 100))
+    if (_area != noone && bbox_in_camera(1, id, 100))
         y += (fast_ray(bbox_left, _area.bbox_top, bbox_right, _area.bbox_bottom) - bbox_bottom);
 }

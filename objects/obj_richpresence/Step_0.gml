@@ -1,6 +1,6 @@
 np_update();
 
-if (global.levelname != -4)
+if (global.levelname != noone)
     details = scr_getlevelname(global.levelname);
 
 var _state = string_concat("Score: ", global.collect, " / Rank: ", scr_getlevelpoints(), " / Combo: ", global.combo);

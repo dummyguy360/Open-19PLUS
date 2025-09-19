@@ -10,7 +10,7 @@ draw_sprite_ext(spr_pizzacoincounterbar, 0, roundlower(obj_player.x) - 1, _y + 4
 draw_sprite_ext(spr_pizzacoin, -1, (roundlower(obj_player.x) - 32) + (16 * (1 - _squishhhhh)), (_y - 38) + (48 * _squishhhhh), 1 + _squishhhhh, 1 - _squishhhhh, 0, c_white, image_alpha);
 var _count = "0/0";
 
-if (global.levelname != -4 && global.levelname != "tutorial")
+if (global.levelname != noone && global.levelname != "tutorial")
 {
     _count = string_padzeros(get_levelcoincount(global.levelname)) + "/25";
 }

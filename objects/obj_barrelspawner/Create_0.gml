@@ -1,1 +1,1 @@
-barrelID = -4;
+barrelID = noone;

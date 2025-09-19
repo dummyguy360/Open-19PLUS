@@ -86,7 +86,7 @@ function scr_collide()
 function scr_collide_enemy()
 {
     grounded = false;
-    var _selfcollision = -4;
+    var _selfcollision = noone;
     
     with (obj_baddiecollisionbox)
     {
@@ -207,7 +207,7 @@ function scr_collide_and_destroy(arg0)
         var v = clamp(vy, -1, 1);
         var _i = instance_place(x, y + v, arg0);
         
-        while (_i != -4)
+        while (_i != noone)
         {
             _destroyedsomething = true;
             instance_destroy(_i);
@@ -233,7 +233,7 @@ function scr_collide_and_destroy(arg0)
         var v = clamp(vx, -1, 1);
         var _i = instance_place(x + v, y, arg0);
         
-        while (_i != -4)
+        while (_i != noone)
         {
             _destroyedsomething = true;
             instance_destroy(_i);

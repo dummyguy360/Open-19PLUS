@@ -9,12 +9,12 @@ if (fade == 0)
     {
         with (obj_player)
         {
-            if (portalcheckpointid != -4)
+            if (portalcheckpointid != noone)
             {
                 x = portalcheckpointid.x;
                 y = portalcheckpointid.y;
             }
-            else if (portalcheckpointid == -4)
+            else if (portalcheckpointid == noone)
             {
                 x = roomstartx;
                 y = roomstarty;

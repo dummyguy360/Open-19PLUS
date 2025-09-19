@@ -1,6 +1,6 @@
 function update_camera(arg0)
 {
-    static p = -4;
+    static p = noone;
     
     if (arg0 == undefined)
         arg0 = true;
@@ -8,7 +8,7 @@ function update_camera(arg0)
     if (instance_exists(obj_player) && (!obj_pause.pause || copyapp))
         p = obj_player.id;
     
-    if (p != -4 && p.state != states.ejected2)
+    if (p != noone && p.state != states.ejected2)
     {
         var camx = 0;
         var camy = 0;

@@ -3,7 +3,7 @@ var _count = 0;
 for (var _i = 0; _i < array_length(obj); _i++)
     _count += instance_number(obj[_i]);
 
-var _instances = array_create(_count, -4);
+var _instances = array_create(_count, noone);
 var _index = 0;
 
 for (i = 0; i < array_length(obj); i++)
@@ -21,15 +21,11 @@ while (i < array_length(_instances))
 {
     var _inst = _instances[i];
     
-    if (_inst == -4)
-    {
+    if (_inst == noone)
         break;
-    }
     else
     {
-        if (!bbox_in_camera(1, _inst, 100))
-        {
-        }
+        if (!bbox_in_camera(1, _inst, 100)) { }
         else
         {
             var _ray = room_height;

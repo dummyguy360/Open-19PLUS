@@ -6,10 +6,8 @@ function scr_textureload(arg0)
     if (arg0 == undefined)
         arg0 = global.levelname;
     
-    if (arg0 == -4 && string_starts_with(room_get_name(room), "hub"))
-    {
+    if (arg0 == noone && string_starts_with(room_get_name(room), "hub"))
         arg0 = "hub";
-    }
     else if (arg0 == "dragonslair")
     {
         switch (room)

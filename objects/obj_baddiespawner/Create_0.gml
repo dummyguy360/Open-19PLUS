@@ -1,5 +1,5 @@
 image_speed = 0.35;
-spawnedobject = -4;
+spawnedobject = noone;
 content = obj_cheeseslime;
 cooldown = 20;
 depth = 1;

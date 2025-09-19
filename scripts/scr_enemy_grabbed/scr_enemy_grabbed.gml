@@ -79,7 +79,7 @@ function scr_enemy_grabbed()
     
     if (grabbedby.state == states.finishingblow)
     {
-        var _ray = fire_ray(grabbedby.x, grabbedby.y, grabbedby.x + (grabbedby.xscale * 60), grabbedby.y - 3, 1, -4, -4, mask_index);
+        var _ray = fire_ray(grabbedby.x, grabbedby.y, grabbedby.x + (grabbedby.xscale * 60), grabbedby.y - 3, 1, noone, noone, mask_index);
         x = _ray.x;
         y = _ray.y;
     }

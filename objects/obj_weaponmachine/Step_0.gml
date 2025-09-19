@@ -17,8 +17,8 @@ if (place_meeting(x, y + 1, obj_player) && obj_player.vsp <= 1 && global.collect
     ds_list_add(global.saveroom, string("{0}_open", id));
 }
 
-if (shield != -4 && !instance_exists(shield))
+if (shield != noone && !instance_exists(shield))
 {
     ds_list_add(global.saveroom, string("{0}_noshield", id));
-    shield = -4;
+    shield = noone;
 }

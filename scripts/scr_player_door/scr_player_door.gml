@@ -34,6 +34,6 @@ function scr_player_door()
     if (floor(image_index) == (image_number - 1) && !instance_exists(obj_fadeout) && (sprite_index == spr_downpizzabox || sprite_index == spr_uppizzabox))
     {
         instance_create_depth(x, y, -9999, obj_fadeout);
-        enteredDoor = -4;
+        enteredDoor = noone;
     }
 }

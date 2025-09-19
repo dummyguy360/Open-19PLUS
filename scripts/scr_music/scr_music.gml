@@ -1,25 +1,25 @@
-function add_music(arg0, arg1, arg2, arg3, arg4 = -4)
+function add_music(arg0, arg1, arg2, arg3, arg4 = noone)
 {
     var musicstruct = 
     {
         continuous: arg3,
-        event: -4,
-        eventsecret: -4,
-        mumethod: -4
+        event: noone,
+        eventsecret: noone,
+        mumethod: noone
     };
     
     with (musicstruct)
     {
-        if (arg4 != -4)
+        if (arg4 != noone)
             mumethod = method(self, arg4);
         
-        if (arg1 != -4)
+        if (arg1 != noone)
         {
             eventname = arg1;
             event = event_instance(arg1);
         }
         
-        if (arg2 != -4)
+        if (arg2 != noone)
         {
             eventsecretname = arg2;
             eventsecret = event_instance(arg2);
@@ -33,12 +33,12 @@ function stop_music()
 {
     with (obj_music)
     {
-        if (global.music != -4)
+        if (global.music != noone)
         {
-            if (global.music.event != -4)
+            if (global.music.event != noone)
                 event_stop(global.music.event, obj_pause.pause);
             
-            if (global.music.eventsecret != -4)
+            if (global.music.eventsecret != noone)
                 event_stop(global.music.eventsecret, obj_pause.pause);
         }
         

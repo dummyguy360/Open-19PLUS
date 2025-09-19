@@ -65,4 +65,4 @@ brank = 0;
 crank = 0;
 panic = 0;
 global.throwitback = false;
-mus = -4;
+mus = noone;

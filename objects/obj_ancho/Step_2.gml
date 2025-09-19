@@ -64,7 +64,7 @@ if (state == states.homingattack)
 {
     if (y != attackpos && y == prevy)
     {
-        var _raycheck = fire_ray(x, y, x, attackpos, 1, -4, -4, mask_index);
+        var _raycheck = fire_ray(x, y, x, attackpos, 1, noone, noone, mask_index);
         
         if (!_raycheck.clear)
             attackpos = _raycheck.y;

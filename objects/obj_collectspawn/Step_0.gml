@@ -1,4 +1,4 @@
-if (magnetized == -4)
+if (magnetized == noone)
     visible = !place_meeting(x, y, [obj_destructibles, obj_metalblock]);
 else
     visible = true;
@@ -6,7 +6,7 @@ else
 if (global.collectsound < 10)
     global.collectsound += 1;
 
-if (area != -4)
+if (area != noone)
 {
     if (area.activate == 1)
         activate = 1;
@@ -25,7 +25,7 @@ if (activate == 1)
     
     mask_index = spr_sausagecollect;
     
-    if (magnetized == -4)
+    if (magnetized == noone)
     {
         with (instance_nearest(x + 16, y + 16, obj_player))
         {

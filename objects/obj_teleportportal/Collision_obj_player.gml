@@ -1,6 +1,6 @@
 with (other.id)
 {
-    if (other.receiver != -4)
+    if (other.receiver != noone)
     {
         x = other.receiver.x;
         y = other.receiver.y - 15;

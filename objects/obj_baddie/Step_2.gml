@@ -9,7 +9,7 @@ if (stuntouchbuffer <= 0)
 
 if (state != states.seat || !instance_exists(pummelled) || !pummelled.pummelpunch)
 {
-    pummelled = -4;
+    pummelled = noone;
     
     if (state != states.smallpepdash)
         depth = -2;
@@ -18,7 +18,7 @@ else
 {
     vsp = 0;
     hsp = 0;
-    var _ray = fire_ray(pummelled.x, pummelled.y, pummelled.x + (pummelled.xscale * 60), pummelled.y - 3, 1, -4, -4, mask_index);
+    var _ray = fire_ray(pummelled.x, pummelled.y, pummelled.x + (pummelled.xscale * 60), pummelled.y - 3, 1, noone, noone, mask_index);
     x = _ray.x;
     y = _ray.y;
     
@@ -28,7 +28,7 @@ else
 
 if (state == states.seat && sprite_index == spr_dead && hsp != 0)
 {
-    if (chargeeffectID == -4)
+    if (chargeeffectID == noone)
     {
         with (instance_create_depth(x, y, depth - 1, obj_enemychargeeffect))
         {
@@ -52,7 +52,7 @@ if (y > (room_height + 400) && !persistent)
 if (place_meeting(x, y + 1, obj_current))
     killed = 1;
 
-persistent = state == states.smallpepdash || pummelled != -4;
+persistent = state == states.smallpepdash || pummelled != noone;
 
 if (state != states.smallpepdash)
     scr_collide_enemy();

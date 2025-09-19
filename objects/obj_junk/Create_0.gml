@@ -1,4 +1,4 @@
-grabbedby = -4;
+grabbedby = noone;
 hit = false;
 image_speed = 0;
 image_index = irandom(6);

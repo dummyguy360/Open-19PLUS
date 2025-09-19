@@ -1,11 +1,11 @@
-if (magnetized == -4)
+if (magnetized == noone)
     visible = !place_meeting(x, y, [obj_destructibles, obj_metalblock]);
 else
     visible = true;
 
 if (!place_meeting(x, y, [obj_destructibles, obj_metalblock]) && !place_meeting(x, y, obj_targetblock))
 {
-    if (magnetized == -4)
+    if (magnetized == noone)
     {
         with (instance_nearest(x + 16, y + 16, obj_player))
         {
@@ -15,7 +15,7 @@ if (!place_meeting(x, y, [obj_destructibles, obj_metalblock]) && !place_meeting(
     }
 }
 
-if (magnetized != -4)
+if (magnetized != noone)
 {
     var _dir = point_direction(x, y, magnetized.x, magnetized.y);
     x += lengthdir_x(magnetspeed, _dir);

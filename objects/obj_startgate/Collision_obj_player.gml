@@ -10,7 +10,7 @@ if (unlockedanim >= 1 && unlocked)
             image_index = 0;
             state = states.victory;
             
-            if (global.music != -4)
+            if (global.music != noone)
                 event_stop(global.music.event, 0);
             
             with (obj_drawcontroller)

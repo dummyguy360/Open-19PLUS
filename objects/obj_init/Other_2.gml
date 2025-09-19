@@ -49,7 +49,7 @@ global.portalmode = true;
 global.smallpep = false;
 global.prank = 0;
 global.prankattempt = false;
-global.levelname = -4;
+global.levelname = noone;
 global.currentbadge = 0;
 global.cheeseblocknumb = 0;
 
