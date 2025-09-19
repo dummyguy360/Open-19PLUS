@@ -3,9 +3,9 @@ if (!metrequirement)
 
 with (other.id)
 {
-    if (input_check_pressed("up") && grounded && (state == 0 || state == 47 || (state == 66 && !rocket)) && !instance_exists(obj_fadeout) && state != 41 && state != 39)
+    if (input_check_pressed("up") && grounded && (state == states.normal || state == states.mach2 || (state == states.mach3 && !rocket)) && !instance_exists(obj_fadeout) && state != states.victory && state != states.comingoutdoor)
     {
-        state = 127;
+        state = states.gatecutscene;
         sprite_index = spr_bump;
         scr_fmod_soundeffectONESHOT("event:/sfx/misc/purchase", x, y);
         scr_fmod_soundeffectONESHOT("event:/sfx/player/bump", x, y);
@@ -19,7 +19,7 @@ with (other.id)
         
         with (other.id)
         {
-            state = 1;
+            state = states.tumble;
             
             with (instance_create_depth(x - 75, bbox_bottom - 32, depth - 1, obj_baddiedead))
                 sprite_index = spr_gauntletsign;

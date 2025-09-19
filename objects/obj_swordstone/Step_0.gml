@@ -2,13 +2,13 @@ with (obj_player)
 {
     var _checkstate = state;
     
-    if (state == 116)
+    if (state == states.secretportal)
         _checkstate = tauntstoredstate;
     
-    if (state == 87)
+    if (state == states.hitstun)
         _checkstate = hitstunstoredstate;
     
-    if (_checkstate == 18 || _checkstate == 115 || _checkstate == 13)
+    if (_checkstate == states.knightpep || _checkstate == states.knightpepbump || _checkstate == states.knightpepslopes)
         other.sprite_index = spr_swordstonetaken;
     else
         other.sprite_index = spr_swordstone;

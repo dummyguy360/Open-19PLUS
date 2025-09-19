@@ -1,2 +1,2 @@
-if (state == 2)
+if (state == states.finishingblow)
     instance_destroy();

@@ -58,7 +58,7 @@ function scr_player_ramp()
     {
         if (input_check("dash"))
         {
-            state = 66;
+            state = states.mach3;
             sprite_index = spr_mach4;
         }
         else
@@ -66,7 +66,7 @@ function scr_player_ramp()
             longjumpslideanim = 1;
             longjumpspd = movespeed * xscale;
             sprite_index = spr_longjumpslidestart;
-            state = 45;
+            state = states.crouchslide;
             rollbuffer = 0;
         }
     }
@@ -94,7 +94,7 @@ function scr_player_ramp()
         }
         
         flash = 0;
-        state = 49;
+        state = states.bump;
         hsp = -2.5 * xscale;
         vsp = -3;
         mach2 = 0;

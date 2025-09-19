@@ -6,7 +6,7 @@ with (obj_bomb)
         bomb = true;
 }
 
-if (!instance_exists(spawnedobject) && !(content == obj_bomb && (bomb || (obj_player.state == 19 && obj_player.bombspawnerid == id))))
+if (!instance_exists(spawnedobject) && !(content == obj_bomb && (bomb || (obj_player.state == states.bombpep && obj_player.bombspawnerid == id))))
     cooldown--;
 
 if (cooldown <= 0 && sprite_index != spr_baddiespawnerspit)

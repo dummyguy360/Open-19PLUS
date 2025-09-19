@@ -2,7 +2,7 @@ image_xscale = obj_player.xscale;
 x = obj_player.x;
 y = obj_player.y;
 
-if (obj_player.state != 20)
+if (obj_player.state != states.chainsawpogo)
     instance_destroy();
 
 if (place_meeting(x, y + 1, obj_solid) || place_meeting(x, y, obj_spike))

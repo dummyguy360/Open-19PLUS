@@ -2,7 +2,7 @@ if (sprite_index == spr_grabbiehand_fall)
 {
     with (other.id)
     {
-        if (state == 11)
+        if (state == states.boxxedpep)
         {
             scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
             
@@ -22,7 +22,7 @@ if (sprite_index == spr_grabbiehand_fall)
                 image_index = 4;
         }
         
-        if (state == 9 || state == 10)
+        if (state == states.cheesepep || state == states.cheesepepstick)
         {
             scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
             instance_create_depth(x, y, -1, obj_slimedebris);
@@ -42,7 +42,7 @@ if (sprite_index == spr_grabbiehand_fall)
     sprite_index = spr_grabbiehand_catch;
     other.image_index = 0;
     other.sprite_index = spr_player_catched;
-    other.state = 49;
+    other.state = states.bump;
     other.x = x;
     other.y = y;
     other.vsp = 0;
@@ -50,7 +50,7 @@ if (sprite_index == spr_grabbiehand_fall)
     scr_fmod_soundeffectONESHOT("event:/sfx/enemy/hit", x, y);
 }
 
-if (other.state == 16 && thumbingup == 0 && x <= (xstarte + 5) && x >= (xstarte - 5) && y <= (ystarte + 5) && y >= (ystarte - 5) && grabbing == 0)
+if (other.state == states.suplexgrab && thumbingup == 0 && x <= (xstarte + 5) && x >= (xstarte - 5) && y <= (ystarte + 5) && y >= (ystarte - 5) && grabbing == 0)
 {
     scr_fmod_soundeffectONESHOT("event:/sfx/enemy/hit", x, y);
     delay = 5;

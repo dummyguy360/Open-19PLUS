@@ -38,7 +38,7 @@ function scr_playerN_walljump()
             
             if (!place_meeting(x + xx, y, obj_solid) || place_meeting(x + xx, y, obj_destructibles))
             {
-                state = 45;
+                state = states.crouchslide;
                 sprite_index = spr_machroll;
                 image_index = 0;
                 instance_destroy(instance_place(x + xx, y, obj_destructibles));
@@ -107,7 +107,7 @@ function scr_playerN_walljump()
             xscale = savedmove;
         
         jumpstop = true;
-        state = 66;
+        state = states.mach3;
         movespeed = 12;
         sprite_index = spr_mach4;
         scr_fmod_soundeffectONESHOT("event:/sfx/player/wallbounceland", x, y);
@@ -130,7 +130,7 @@ function scr_playerN_walljump()
     if (input_buffer_attack < 8 && input_check("up") && character == "N")
     {
         input_buffer_attack = 8;
-        state = 75;
+        state = states.shoryuken;
         sprite_index = spr_shoryukenstart;
         image_index = 0;
         movespeed = abs(hsp);
@@ -170,7 +170,7 @@ function scr_playerN_walljump()
     
     if (grounded && !input_check("dash") && vsp >= 0 && sprite_index == spr_playerN_wallbounce)
     {
-        state = 0;
+        state = states.normal;
         movespeed = abs(hsp);
         scr_fmod_soundeffectONESHOT("event:/sfx/player/wallbounceland", x, y);
     }
@@ -225,7 +225,7 @@ function scr_noise_sidewayspin()
         input_buffer_attack = 8;
         machhitAnim = 0;
         image_index = 0;
-        state = 47;
+        state = states.mach2;
         vsp = -5;
         movespeed = 12;
         instance_create_depth(x, y, 0, obj_crazyrunothereffect);

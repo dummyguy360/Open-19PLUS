@@ -61,7 +61,7 @@ if (global.panic && !obj_music.secret && global.levelname != "tutorial" && !glob
         else
         {
             global.panic = false;
-            obj_player.state = 94;
+            obj_player.state = states.timesup;
             
             with (obj_baddie)
                 persistent = false;
@@ -429,7 +429,7 @@ if (instance_exists(obj_player))
             case 34:
             case 41:
             default:
-                if (p.sprite_index != p.spr_entergate && (happyhud || p.sprite_index == p.spr_levelcomplete || p.state == 34))
+                if (p.sprite_index != p.spr_entergate && (happyhud || p.sprite_index == p.spr_levelcomplete || p.state == states.keyget))
                 {
                     if (sprite_index != p.spr_newhudhappy && hudstate != "happy")
                         scr_hud("happy");
@@ -438,7 +438,7 @@ if (instance_exists(obj_player))
                     break;
                 }
                 
-                if (hurthud || p.state == 50)
+                if (hurthud || p.state == states.hurt)
                 {
                     if (sprite_index != p.spr_newhudhurt && hudstate != "hurt")
                         scr_hud("hurt");
@@ -458,14 +458,14 @@ if (instance_exists(obj_player))
                 
                 if (!p.rocket)
                 {
-                    if ((p.movespeed <= 16 && (p.state == 66 || ((p.state == 12 || p.state == 23) && p.movespeed >= 12))) || p.sprite_index == p.spr_machslideboost3 || p.sprite_index == p.spr_machslideboost3end)
+                    if ((p.movespeed <= 16 && (p.state == states.mach3 || ((p.state == states.climbwall || p.state == states.machroll) && p.movespeed >= 12))) || p.sprite_index == p.spr_machslideboost3 || p.sprite_index == p.spr_machslideboost3end)
                     {
                         if (sprite_index != p.spr_newhudmach3 && hudstate != "mach3" && p.sprite_index != p.spr_crazyrun)
                             scr_hud("mach3");
                         
                         break;
                     }
-                    else if (p.movespeed > 16 && (p.state == 66 || p.state == 12 || p.state == 23))
+                    else if (p.movespeed > 16 && (p.state == states.mach3 || p.state == states.climbwall || p.state == states.machroll))
                     {
                         if (sprite_index != p.spr_newhudmach4 && hudstate != "mach4")
                             scr_hud("mach4");
@@ -494,7 +494,7 @@ if (instance_exists(obj_player))
                     break;
                 }
                 
-                if (p.state == 66 && p.rocket)
+                if (p.state == states.mach3 && p.rocket)
                 {
                     if (hudstate != "rocket")
                         scr_hud("rocket");
@@ -595,7 +595,7 @@ if (!showtext)
 
 if (instance_exists(obj_player))
 {
-    if (!(obj_player.state == 18 && obj_player.state == 13))
+    if (!(obj_player.state == states.knightpep && obj_player.state == states.knightpepslopes))
         once = 0;
     
     var doyshift = p.y < 200 && !scr_hudroomcheck();
@@ -768,7 +768,7 @@ switch (combostate)
         combobary += combobarvsp;
         
         if (combobary >= 16)
-            combostate = 1;
+            combostate = states.tumble;
         
         break;
     
@@ -800,13 +800,13 @@ switch (combostate)
         combobary = Approach(combobary, -120, 5);
         
         if (global.combo > 0)
-            combostate = 0;
+            combostate = states.normal;
         
         break;
 }
 
 if (global.combo <= 0)
-    combostate = 2;
+    combostate = states.finishingblow;
 
 if (global.combo > 0)
 {
@@ -821,7 +821,7 @@ visualheat = global.stylethreshold;
 
 if (instance_exists(obj_player))
 {
-    if (obj_player.state != 87)
+    if (obj_player.state != states.hitstun)
     {
         if (obj_player.hsp != 0)
             barspeed = Approach(barspeed, abs(obj_player.hsp), 1);

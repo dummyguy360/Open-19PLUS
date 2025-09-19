@@ -51,7 +51,7 @@ function scr_player_handstand()
     {
         movespeed = 9;
         landAnim = 0;
-        state = 47;
+        state = states.mach2;
         jumpAnim = 1;
         jumpstop = 0;
         image_index = 0;
@@ -68,7 +68,7 @@ function scr_player_handstand()
         if (input_check("dash"))
             landAnim = 0;
         
-        state = 0;
+        state = states.normal;
         jumpAnim = 1;
         jumpstop = 0;
         image_index = 0;
@@ -84,7 +84,7 @@ function scr_player_handstand()
     {
         stompAnim = 0;
         vsp = -9;
-        state = 36;
+        state = states.jump;
         jumpAnim = 1;
         jumpstop = 0;
         image_index = 0;

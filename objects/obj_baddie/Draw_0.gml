@@ -16,7 +16,7 @@ else if (enemypalette != -1)
 var _shakex = 0;
 var _shakey = 0;
 
-if (state == 300)
+if (state == states.enemyhitstun)
 {
     _shakex = obj_player.hitstunshakeX;
     _shakey = obj_player.hitstunshakeY;

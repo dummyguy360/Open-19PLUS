@@ -17,7 +17,7 @@ function tv_defaulthud()
     {
         var p = obj_player;
         
-        if (p.state == 87)
+        if (p.state == states.hitstun)
             exit;
         
         with (obj_drawcontroller)

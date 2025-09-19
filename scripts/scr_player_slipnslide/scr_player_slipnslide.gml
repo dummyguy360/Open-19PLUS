@@ -28,13 +28,13 @@ function scr_player_slipnslide()
         
         if (place_meeting(x, y - 1, obj_solid) && !place_meeting(x, y - 1, obj_destructibles))
         {
-            state = 36;
+            state = states.jump;
             sprite_index = spr_rockethitwall;
         }
         
         if (!place_meeting(x + xscale, y, obj_solid))
         {
-            state = 36;
+            state = states.jump;
             sprite_index = spr_fall;
         }
     }

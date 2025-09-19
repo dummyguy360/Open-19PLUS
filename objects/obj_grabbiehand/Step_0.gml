@@ -61,7 +61,7 @@ if (x <= (dropspotx + 5) && x >= (dropspotx - 5) && y <= (dropspoty + 5) && y >=
 {
     with (targetplayer)
     {
-        state = 51;
+        state = states.freefall;
         sprite_index = spr_bodyslamfall;
         vsp += 14;
     }
@@ -95,7 +95,7 @@ if (sprite_index == spr_grabbiehand_catch)
 {
     targetplayer.vsp = vsp;
     targetplayer.hsp = hsp;
-    targetplayer.state = 49;
+    targetplayer.state = states.bump;
     targetplayer.sprite_index = spr_player_catched;
     targetplayer.x = x;
     targetplayer.y = y;

@@ -4,7 +4,7 @@ function scr_player_juggle()
     {
         sprite_index = spr_player_juggle;
         vsp = -13;
-        state = 36;
+        state = states.jump;
         image_index = 0;
     }
 }

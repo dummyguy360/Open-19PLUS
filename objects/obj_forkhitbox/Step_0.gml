@@ -15,7 +15,7 @@ with (ID)
     
     if (object_index == obj_forknight)
     {
-        if (state != 100 && state != 94)
+        if (state != states.homingattack && state != states.timesup)
         {
             hitboxcreate = 0;
             instance_destroy(other.id);
@@ -24,7 +24,7 @@ with (ID)
     
     if (object_index == obj_minijohn)
     {
-        if (state != 94)
+        if (state != states.timesup)
         {
             hitboxcreate = 0;
             instance_destroy(other.id);
@@ -33,7 +33,7 @@ with (ID)
     
     if (object_index == obj_fencer || object_index == obj_ancho || object_index == obj_cheeseslime)
     {
-        if (state != 94 || targetplayer.state == 66)
+        if (state != states.timesup || targetplayer.state == states.mach3)
         {
             hitboxcreate = 0;
             instance_destroy(other.id);
@@ -42,7 +42,7 @@ with (ID)
     
     if (object_index == obj_weeniesquire)
     {
-        if (state != 94)
+        if (state != states.timesup)
         {
             hitboxcreate = 0;
             instance_destroy(other.id);

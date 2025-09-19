@@ -1,6 +1,6 @@
 with (other)
 {
-    if (input_check("up") && (state == 0 || state == 46 || state == 47 || state == 66 || state == 42) && !instance_exists(obj_fadeout) && state != 54 && state != 39)
+    if (input_check("up") && (state == states.normal || state == states.mach1 || state == states.mach2 || state == states.mach3 || state == states.sjumpprep) && !instance_exists(obj_fadeout) && state != states.door && state != states.comingoutdoor)
     {
         other.sprite_index = spr_elevatorclose;
         other.image_index = 0;
@@ -11,7 +11,7 @@ with (other)
         obj_player.targetDoor = other.targetDoor;
         obj_player.targetRoom = other.targetRoom;
         obj_player.image_index = 0;
-        obj_player.state = 54;
+        obj_player.state = states.door;
         obj_player.mach2 = 0;
         obj_player.elevator = 1;
         show_debug_message(string(other.x - obj_player.x) + "\n" + string(other.y - obj_player.y));

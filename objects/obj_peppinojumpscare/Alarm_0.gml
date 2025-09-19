@@ -6,7 +6,7 @@ if (room == virtualinsanity)
     with (obj_player)
     {
         targetDoor = "D";
-        state = 6;
+        state = states.titlescreen;
         image_index = 0;
         room_goto(backtohubroom);
         x = backtohubstartx;

@@ -11,7 +11,7 @@ switch (savestate)
             if (buffer_exists(demosavebuff))
                 buffer_delete(demosavebuff);
             
-            savestate = 0;
+            savestate = states.normal;
             trace("Game Save Status: ", ds_map_find_value(async_load, "status"));
         }
         
@@ -76,7 +76,7 @@ switch (savestate)
             
             ds_map_destroy(demoloadbuffs);
             demoloadbuffs = -1;
-            savestate = 0;
+            savestate = states.normal;
             trace("Game Load Status: ", ds_map_find_value(async_load, "status"));
         }
         
@@ -86,7 +86,7 @@ switch (savestate)
         if (_id == asyncconfigsaveid)
         {
             buffer_delete(configsavebuff);
-            savestate = 0;
+            savestate = states.normal;
             trace("Config Save Status: ", ds_map_find_value(async_load, "status"));
         }
         

@@ -109,7 +109,7 @@ function test_ground(arg0 = false)
 {
     if (arg0 || vsp >= 0)
     {
-        if (state != 8 && state != 9 && state != 10 && state != 11 && state != 18 && state != 19 && state != 25 && state != 40 && state != 49)
+        if (state != states.cheeseball && state != states.cheesepep && state != states.cheesepepstick && state != states.boxxedpep && state != states.knightpep && state != states.bombpep && state != states.superslam && state != states.sjump && state != states.bump)
         {
             var g = instance_place(x, y + 1, obj_grindrail);
             

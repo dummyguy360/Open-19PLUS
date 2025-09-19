@@ -86,7 +86,7 @@ global.permshotgun = 0;
 global.hasgotkeybefore = 0;
 global.combopoints = 0;
 global.combopointmultipler = 1;
-global.combogalstate = 0;
+global.combogalstate = states.normal;
 global.switchblock = false;
 global.voicelines = 1;
 

@@ -8,10 +8,10 @@ else if (instance_exists(uparrowid))
     instance_destroy(uparrowid);
 }
 
-if (obj_player.grounded && (obj_player.state == 0 || obj_player.state == 46 || obj_player.state == 47 || obj_player.state == 66 || obj_player.state == 42) && (sprite_index == spr_doorkey || sprite_index == spr_factorydoorkey) && input_check("up") && global.key_inv == 1 && place_meeting(x, y, obj_player))
+if (obj_player.grounded && (obj_player.state == states.normal || obj_player.state == states.mach1 || obj_player.state == states.mach2 || obj_player.state == states.mach3 || obj_player.state == states.sjumpprep) && (sprite_index == spr_doorkey || sprite_index == spr_factorydoorkey) && input_check("up") && global.key_inv == 1 && place_meeting(x, y, obj_player))
 {
     ds_list_add(global.saveroom, id);
-    obj_player.state = 41;
+    obj_player.state = states.victory;
     obj_player.image_index = 0;
     obj_player.enteredDoor = id;
     image_index = 0;
@@ -32,7 +32,7 @@ if (obj_player.grounded && (obj_player.state == 0 || obj_player.state == 46 || o
 
 with (obj_player)
 {
-    if (place_meeting(x, y, obj_keydoor) && grounded && other.sprite_index == spr_door && input_check("up") && (state == 0 || state == 42 || state == 46 || state == 47 || state == 66) && !instance_exists(obj_fadeout) && state != 54 && state != 41 && state != 39)
+    if (place_meeting(x, y, obj_keydoor) && grounded && other.sprite_index == spr_door && input_check("up") && (state == states.normal || state == states.sjumpprep || state == states.mach1 || state == states.mach2 || state == states.mach3) && !instance_exists(obj_fadeout) && state != states.door && state != states.victory && state != states.comingoutdoor)
     {
         lastroom_x = other.x;
         lastroom_y = other.y;
@@ -45,14 +45,14 @@ with (obj_player)
         obj_player.targetDoor = other.targetDoor;
         obj_player.targetRoom = other.targetRoom;
         obj_player.image_index = 0;
-        obj_player.state = 54;
+        obj_player.state = states.door;
         obj_player.mach2 = 0;
         other.visited = 1;
         instance_create_depth(x, y, -9999, obj_fadeout);
     }
 }
 
-if (floor(obj_player.image_index) == (obj_player.image_number - 1) && obj_player.state == 41)
+if (floor(obj_player.image_index) == (obj_player.image_number - 1) && obj_player.state == states.victory)
 {
     with (obj_player)
     {

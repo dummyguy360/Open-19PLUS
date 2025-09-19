@@ -27,7 +27,7 @@ function scr_player_mach3()
             
             wallspeed = movespeed;
             wallclimbtime = 0;
-            state = 12;
+            state = states.climbwall;
         }
         else
         {
@@ -52,7 +52,7 @@ function scr_player_mach3()
             }
             
             image_speed = 0.35;
-            state = 49;
+            state = states.bump;
             mach2 = 0;
             image_index = 0;
             instance_create_depth(x + (xscale * 10), y + 10, 0, obj_bumpeffect);
@@ -184,7 +184,7 @@ function scr_player_mach3()
             {
                 longjumpslideanim = 1;
                 sprite_index = spr_longjumpslidestart;
-                state = 45;
+                state = states.crouchslide;
                 rollbuffer = 0;
             }
             else
@@ -260,14 +260,14 @@ function scr_player_mach3()
     if (grounded && vsp >= 0 && input_check("superjump") && sprite_index != spr_Dashpad && !rocket)
     {
         sprite_index = spr_superjumpprep;
-        state = 42;
+        state = states.sjumpprep;
         image_index = 0;
     }
     
     if ((character == "P" || character == "N") && input_check("up") && canuppercut && !grounded && input_buffer_attack < 8)
     {
         input_buffer_attack = 8;
-        state = 75;
+        state = states.shoryuken;
         sprite_index = spr_shoryukenstart;
         image_index = 0;
         
@@ -310,7 +310,7 @@ function scr_player_mach3()
     {
         sprite_index = spr_machslidestart;
         scr_fmod_soundeffect(char_machbreaksnd, x, y);
-        state = 48;
+        state = states.machslide;
         image_index = 0;
     }
     
@@ -318,7 +318,7 @@ function scr_player_mach3()
     {
         scr_fmod_soundeffect(char_machturnsnd, x, y);
         sprite_index = spr_machslideboost3;
-        state = 48;
+        state = states.machslide;
         image_index = 0;
     }
     
@@ -337,7 +337,7 @@ function scr_player_mach3()
                 with (instance_create_depth(x, y, obj_player.depth, obj_balloonpop))
                     sprite_index = spr_noisewalljumpeffect;
                 
-                state = 120;
+                state = states.nwalljump;
                 savedmove = xscale;
                 vsp = 20;
                 movespeed = hsp;
@@ -351,12 +351,12 @@ function scr_player_mach3()
             
             if (character != "N")
             {
-                state = 23;
+                state = states.machroll;
                 vsp = 10;
             }
             else if (grounded)
             {
-                state = 23;
+                state = states.machroll;
             }
             
             if (!grounded)
@@ -391,7 +391,7 @@ function scr_player_mach3()
             if (!kungfumove)
             {
                 kungfumove = true;
-                state = 91;
+                state = states.kungfu;
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/kungfu", x, y);
                 
                 if (movespeed < 10)
@@ -412,7 +412,7 @@ function scr_player_mach3()
         {
             suplexmove = 1;
             fmod_studio_event_instance_start(suplexdashsnd);
-            state = 16;
+            state = states.suplexgrab;
             image_index = 0;
             
             if (global.currentpowerup == 1)
@@ -440,7 +440,7 @@ function scr_player_mach3()
         if (!grounded)
             vsp = -6;
         
-        state = 74;
+        state = states.gunshoot;
         sprite_index = spr_player_gunshoot;
         image_index = 0;
         
@@ -472,7 +472,7 @@ function scr_player_mach3()
     {
         mortjump = 1;
         momemtum = 1;
-        state = 36;
+        state = states.jump;
         stompAnim = 0;
         sprite_index = spr_player_mortdoublejump;
         image_index = 0;

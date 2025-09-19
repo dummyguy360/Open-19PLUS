@@ -16,16 +16,16 @@ if (active && sprite_index != spr_secretportal_open && ds_list_find_index(global
     
     if (!touched)
     {
-        if (other.state != 18 && other.state != 13 && other.state != 115 && other.state != 5)
+        if (other.state != states.knightpep && other.state != states.knightpepslopes && other.state != states.knightpepbump && other.state != states.firemouth)
         {
             other.sprite_index = other.spr_hurt;
             other.image_speed = 0.35;
         }
         
-        if (other.state == 13)
+        if (other.state == states.knightpepslopes)
         {
             other.sprite_index = other.spr_knightpepfall;
-            other.state = 18;
+            other.state = states.knightpep;
             other.hsp = 0;
             other.vsp = 0;
         }
@@ -36,7 +36,7 @@ if (active && sprite_index != spr_secretportal_open && ds_list_find_index(global
         other.tauntstoredvsp = other.vsp;
         other.tauntstoredsprite = other.sprite_index;
         other.tauntstoredimageindex = other.image_index;
-        other.state = 116;
+        other.state = states.secretportal;
         other.enteringsecret = 1;
     }
     

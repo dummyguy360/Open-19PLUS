@@ -16,7 +16,7 @@ function scr_player_jump()
     
     hit_horizontal = function(arg0)
     {
-        if (sign(arg0) != xscale || state != 36)
+        if (sign(arg0) != xscale || state != states.jump)
             exit;
         
         if (character == "S")
@@ -25,7 +25,7 @@ function scr_player_jump()
             {
                 sprite_index = spr_machclimbwall;
                 wallspeed = movespeed;
-                state = 12;
+                state = states.climbwall;
             }
             else
             {
@@ -114,7 +114,7 @@ function scr_player_jump()
         else
             vsp = -10;
         
-        state = 36;
+        state = states.jump;
         noisedoublejumped = 0;
         jumpAnim = 1;
         jumpstop = 0;
@@ -232,7 +232,7 @@ function scr_player_jump()
         {
             movespeed *= _analogue;
             image_index = 0;
-            state = 67;
+            state = states.freefallprep;
             sprite_index = spr_bodyslamstart;
             vsp = -6;
             fmod_studio_event_instance_start(groundpoundfallsnd);
@@ -241,7 +241,7 @@ function scr_player_jump()
         {
             scr_fmod_soundeffectONESHOT("event:/sfx/player/killingblow", x, y);
             image_index = 0;
-            state = 67;
+            state = states.freefallprep;
             sprite_index = spr_shotgunjump1;
             vsp = -5;
             
@@ -293,7 +293,7 @@ function scr_player_jump()
                     vsp = -7;
                     hsp = 0;
                     stunned = 200;
-                    state = 104;
+                    state = states.seat;
                 }
             }
         }
@@ -303,7 +303,7 @@ function scr_player_jump()
         scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
         image_index = 0;
         sprite_index = spr_freefallland;
-        state = 53;
+        state = states.freefallland;
     }
     
     if (input_buffer_attack < 8 && character != "S" && bumped != 1 && !input_check("up"))
@@ -315,7 +315,7 @@ function scr_player_jump()
             if (!kungfumove)
             {
                 kungfumove = true;
-                state = 91;
+                state = states.kungfu;
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/kungfu", x, y);
                 
                 if (movespeed < 10)
@@ -336,7 +336,7 @@ function scr_player_jump()
         {
             suplexmove = 1;
             fmod_studio_event_instance_start(suplexdashsnd);
-            state = 16;
+            state = states.suplexgrab;
             image_index = 0;
             sprite_index = _suplexanim;
             movespeed = 6;
@@ -347,7 +347,7 @@ function scr_player_jump()
     if ((character == "P" || character == "N") && input_check("up") && canuppercut && input_buffer_attack < 8)
     {
         input_buffer_attack = 8;
-        state = 75;
+        state = states.shoryuken;
         sprite_index = spr_shoryukenstart;
         image_index = 0;
         
@@ -397,7 +397,7 @@ function scr_player_jump()
                 movespeed = 6;
             
             sprite_index = spr_mach1;
-            state = 47;
+            state = states.mach2;
             image_index = 0;
             jumpAnim = 1;
             facehurt = 0;
@@ -408,7 +408,7 @@ function scr_player_jump()
         {
             movespeed *= _analogue;
             scr_fmod_soundeffectONESHOT("event:/sfx/player/step", x, y);
-            state = 0;
+            state = states.normal;
             jumpAnim = 1;
             jumpstop = 0;
             image_index = 0;
@@ -420,7 +420,7 @@ function scr_player_jump()
     
     if (input_check_pressed("shoot") && global.currentpowerup == 2)
     {
-        state = 74;
+        state = states.gunshoot;
         sprite_index = spr_player_gunshoot;
         image_index = 0;
         

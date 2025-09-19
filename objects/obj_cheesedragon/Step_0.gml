@@ -122,7 +122,7 @@ switch (sprite_index)
         break;
     
     case spr_cheesedragon_hurt:
-        if (obj_player.state != 87)
+        if (obj_player.state != states.hitstun)
         {
             add_combo();
             obj_drawcontroller.givetime = timereward;

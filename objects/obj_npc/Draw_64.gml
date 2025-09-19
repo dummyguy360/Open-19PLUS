@@ -1,4 +1,4 @@
-if (state == 0)
+if (state == states.normal)
 {
     if (surface_exists(dialoguebubblesurf))
         surface_free(dialoguebubblesurf);

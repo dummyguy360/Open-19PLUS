@@ -5,7 +5,7 @@ alarm[1] = 3;
 alarm[0] = 15;
 fading = 0;
 
-if (playerid.state == 120 || playerid.state == 129)
+if (playerid.state == states.nwalljump || playerid.state == states.noisecrusher)
     image_alpha = abs(playerid.movespeed / 12);
 else
     image_alpha = playerid.movespeed / 12;

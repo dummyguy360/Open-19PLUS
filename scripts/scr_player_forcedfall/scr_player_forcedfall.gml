@@ -9,6 +9,6 @@ function scr_player_forcedfall()
         sprite_index = spr_land;
         image_index = 0;
         landAnim = true;
-        state = 0;
+        state = states.normal;
     }
 }

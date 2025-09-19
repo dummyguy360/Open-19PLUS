@@ -20,7 +20,7 @@ function scr_enemy_walk()
                 image_xscale *= -1;
                 image_index = 0;
                 sprite_index = spr_forknight_turn;
-                state = 92;
+                state = states.tackleold;
             }
             else
             {
@@ -40,7 +40,7 @@ function scr_enemy_walk()
                     image_xscale *= -1;
                     image_index = 0;
                     sprite_index = spr_forknight_turn;
-                    state = 92;
+                    state = states.tackleold;
                 }
                 else
                 {

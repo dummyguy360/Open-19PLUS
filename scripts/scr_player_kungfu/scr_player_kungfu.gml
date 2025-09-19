@@ -57,7 +57,7 @@ function scr_player_kungfu()
         if (floor(image_index) == (image_number - 1) && !input_check("dash"))
         {
             image_speed = 0.35;
-            state = 0;
+            state = states.normal;
             grav = 0.5;
             
             if (movespeed < 0)
@@ -67,7 +67,7 @@ function scr_player_kungfu()
         if (floor(image_index) == (image_number - 1) && input_check("dash"))
         {
             image_speed = 0.35;
-            state = 47;
+            state = states.mach2;
             grav = 0.5;
         }
         
@@ -88,7 +88,7 @@ function scr_player_kungfu()
         
         if (input_buffer_jump < 8 && (can_jump || coyotetime > 0) && grounded && vsp >= 0)
         {
-            state = 47;
+            state = states.mach2;
             input_buffer_jump = 8;
             grounded = false;
             coyotetime = 0;
@@ -124,7 +124,7 @@ function scr_player_kungfu()
         if ((!input_check("dash") && grounded && vsp >= 0) || (input_check("dash") && grounded && vsp >= 0 && movespeed < 0))
         {
             image_speed = 0.35;
-            state = 0;
+            state = states.normal;
             grav = 0.5;
             
             if (movespeed < 0)
@@ -134,7 +134,7 @@ function scr_player_kungfu()
         if (input_check("dash") && grounded && vsp >= 0 && movespeed > 0)
         {
             image_speed = 0.35;
-            state = 47;
+            state = states.mach2;
             grav = 0.5;
         }
         
@@ -154,7 +154,7 @@ function scr_player_kungfu()
         if (grounded && vsp > 0)
         {
             image_speed = 0.35;
-            state = 0;
+            state = states.normal;
             grav = 0.5;
         }
         

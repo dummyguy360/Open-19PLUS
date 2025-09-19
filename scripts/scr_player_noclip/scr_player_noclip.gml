@@ -18,7 +18,7 @@ function scr_player_noclip()
     {
         suplexmove = 1;
         fmod_studio_event_instance_start(suplexdashsnd);
-        state = 16;
+        state = states.suplexgrab;
         image_index = 0;
         
         if (global.currentpowerup != 1)

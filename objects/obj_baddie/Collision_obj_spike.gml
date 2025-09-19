@@ -1,2 +1,2 @@
-if (state != 107)
+if (state != states.smallpepdash)
     instance_destroy();

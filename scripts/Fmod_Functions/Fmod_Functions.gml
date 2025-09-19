@@ -668,7 +668,7 @@ function FmodSystemRecordDriverInfo() constructor {
 	system_rate = 0;
 	speaker_mode = 0;
 	speaker_mode_channels = 0;
-	state = 0;
+	state = states.normal;
 }
 
 /// @param {real} record_driver_index
@@ -1928,7 +1928,7 @@ function fmod_sound_get_loop_points(_sound_ref, _loop_start_type, _loop_end_type
 }
 
 function FmodSoundOpenState() constructor {
-	open_state = 0;
+	open_state = states.normal;
 	percent_buffered = 0;
 	starving = false;
 	disk_busy = false;

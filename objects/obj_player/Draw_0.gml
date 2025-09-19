@@ -27,7 +27,7 @@ var _xscale = xscale * scale_xs * gravityflip * exitgatescale;
 var _yscale = yscale * scale_ys * gravityflip * exitgatescale;
 var _angle = angle;
 
-if (state == 109)
+if (state == states.firework)
     _angle = fireworkangle - 90;
 
 draw_sprite_ext(sprite_index, image_index, _x, _y, _xscale, _yscale, _angle, image_blend, image_alpha);
@@ -79,7 +79,7 @@ draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 draw_set_font(global.smallfont);
 
-if (state == 121)
+if (state == states.kingbubble)
 {
     __draw_text_hook(x - 64, y - 32, string(kingbubbleangle));
     __draw_text_hook(x - 64, y - 64, string(movespeed));
@@ -89,5 +89,5 @@ draw_set_font(global.font);
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
 
-if (state == 101)
+if (state == states.pinch)
     draw_sprite(spr_grabbiehand_catch, -1, x, y - 20);

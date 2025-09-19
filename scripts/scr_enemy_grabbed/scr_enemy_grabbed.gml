@@ -4,7 +4,7 @@ function scr_enemy_grabbed()
     stunned = 200;
     grabbedby.baddiegrabbedID = id;
     
-    if (grabbedby.state == 28 || grabbedby.state == 7)
+    if (grabbedby.state == states.grab || grabbedby.state == states.tacklecharge)
     {
         x = grabbedby.x;
         
@@ -24,7 +24,7 @@ function scr_enemy_grabbed()
         image_xscale = -grabbedby.xscale;
     }
     
-    if (grabbedby.state == 119)
+    if (grabbedby.state == states.kungfugrab)
     {
         x = grabbedby.x + (grabbedby.xscale * 60);
         y = grabbedby.y;
@@ -36,7 +36,7 @@ function scr_enemy_grabbed()
         suplexhavetomash = other.hp - 1;
         move = input_check_opposing_pressed("left", "right");
         
-        if (input_check("attack") && sprite_index == spr_grab && state != 119)
+        if (input_check("attack") && sprite_index == spr_grab && state != states.kungfugrab)
         {
             restore_combo();
             image_index = 0;
@@ -47,18 +47,18 @@ function scr_enemy_grabbed()
             camera_shake(3, 3);
         }
         
-        if (!(state == 28 || state == 2 || state == 119 || state == 7 || state == 29 || state == 25 || state == 30 || state == 87))
+        if (!(state == states.grab || state == states.finishingblow || state == states.kungfugrab || state == states.tacklecharge || state == states.punch || state == states.superslam || state == states.shoulder || state == states.hitstun))
         {
             other.x = x;
             other.y = y;
-            other.state = 104;
+            other.state = states.seat;
             other.image_index = 0;
         }
     }
     
     hsp = 0;
     
-    if (grabbedby.state == 29)
+    if (grabbedby.state == states.punch)
     {
         alarm[3] = 3;
         restore_combo();
@@ -69,7 +69,7 @@ function scr_enemy_grabbed()
         x = grabbedby.x;
         vsp = 0;
         y = grabbedby.y;
-        state = 104;
+        state = states.seat;
         hsp = -image_xscale * 25;
         grav = 0;
         scr_enemygibs(1);
@@ -77,14 +77,14 @@ function scr_enemy_grabbed()
         camera_shake(3, 3);
     }
     
-    if (grabbedby.state == 2)
+    if (grabbedby.state == states.finishingblow)
     {
         var _ray = fire_ray(grabbedby.x, grabbedby.y, grabbedby.x + (grabbedby.xscale * 60), grabbedby.y - 3, 1, -4, -4, mask_index);
         x = _ray.x;
         y = _ray.y;
     }
     
-    if (grabbedby.state == 30)
+    if (grabbedby.state == states.shoulder)
     {
         alarm[3] = 3;
         restore_combo();
@@ -94,7 +94,7 @@ function scr_enemy_grabbed()
         thrown = 1;
         x = grabbedby.x;
         y = grabbedby.y;
-        state = 104;
+        state = states.seat;
         
         if (grabbedby.sprite_index == spr_player_shoulder)
             vsp = 15;
@@ -117,13 +117,13 @@ function scr_enemy_grabbed()
         camera_shake(3, 3);
     }
     
-    if (grabbedby.state == 7)
+    if (grabbedby.state == states.tacklecharge)
     {
         x = grabbedby.x + (grabbedby.xscale * 15);
         y = grabbedby.y;
     }
     
-    if (grabbedby.state == 25 && grabbedby.sprite_index == grabbedby.spr_piledriver)
+    if (grabbedby.state == states.superslam && grabbedby.sprite_index == grabbedby.spr_piledriver)
     {
         image_yscale = -1;
         
@@ -189,7 +189,7 @@ function scr_enemy_grabbed()
         }
     }
     
-    if ((grabbedby.state == 28 && grabbedby.sprite_index == grabbedby.spr_swingding) || (grabbedby.state == 87 && grabbedby.sprite_index == grabbedby.spr_swingding))
+    if ((grabbedby.state == states.grab && grabbedby.sprite_index == grabbedby.spr_swingding) || (grabbedby.state == states.hitstun && grabbedby.sprite_index == grabbedby.spr_swingding))
     {
         if (floor(grabbedby.image_index) == 0)
         {

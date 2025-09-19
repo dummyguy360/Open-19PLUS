@@ -16,9 +16,7 @@ function add_achievement_variable(arg0, arg1, arg2 = 0, arg3 = false)
             _varstruct.startingval = _varstruct.value;
         }
         else
-        {
             _varstruct.value = ds_list_create();
-        }
         
         ds_map_set(variables, arg0, _varstruct);
     }
@@ -64,9 +62,7 @@ function set_achvariable(arg0, arg1)
     }
 }
 
-function add_achievement(arg0, arg1, arg2, arg3 = function()
-{
-})
+function add_achievement(arg0, arg1, arg2, arg3 = function() { } )
 {
     with (obj_achievementtracker)
     {
@@ -86,9 +82,7 @@ function add_achievement(arg0, arg1, arg2, arg3 = function()
     }
 }
 
-function add_unlock(arg0, arg1, arg2, arg3 = function()
-{
-})
+function add_unlock(arg0, arg1, arg2, arg3 = function() { } )
 {
     with (obj_achievementtracker)
     {

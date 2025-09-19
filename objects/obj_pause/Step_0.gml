@@ -140,7 +140,7 @@ if (pause)
                             with (obj_player)
                             {
                                 targetDoor = "A";
-                                state = 88;
+                                state = states.slipbanan;
                                 sprite_index = spr_rockethitwall;
                             }
                         }
@@ -149,7 +149,7 @@ if (pause)
                             with (obj_player)
                             {
                                 targetDoor = "A";
-                                state = 54;
+                                state = states.door;
                             }
                             
                             with (obj_drawcontroller)
@@ -198,7 +198,7 @@ if (pause)
                                 sprite_index = spr_slipbanan2;
                                 hsp = 0;
                                 movespeed = 0;
-                                state = 110;
+                                state = states.nothing;
                                 room_goto(backtohubroom);
                                 targetDoor = "HUB";
                             }
@@ -240,7 +240,7 @@ if (pause)
                                 scr_playerreset(0);
                                 save_clear();
                                 scr_leavelevel();
-                                obj_player.state = 6;
+                                obj_player.state = states.titlescreen;
                                 obj_player.sprite_index = spr_player_title;
                                 obj_player.targetDoor = "A";
                             }
@@ -279,7 +279,7 @@ if (pause)
                             scr_playerreset(0);
                             save_clear();
                             scr_leavelevel();
-                            obj_player.state = 6;
+                            obj_player.state = states.titlescreen;
                             obj_player.sprite_index = spr_player_title;
                             obj_player.targetDoor = "A";
                         }
@@ -317,7 +317,7 @@ if (pause)
                         scr_playerreset(0);
                         save_clear();
                         scr_leavelevel();
-                        obj_player.state = 6;
+                        obj_player.state = states.titlescreen;
                         obj_player.sprite_index = spr_player_title;
                         obj_player.targetDoor = "A";
                     }

@@ -1,6 +1,6 @@
 if (dead)
 {
-    if (obj_player.state != 87)
+    if (obj_player.state != states.hitstun)
         instance_destroy();
 }
 else if (instance_exists(grabbedby))
@@ -37,7 +37,7 @@ else if (instance_exists(grabbedby))
         exit;
     }
     
-    if (grabbedby.state != 87 && grabbedby.state != 28 && grabbedby.state != 119 && grabbedby.state != 7 && grabbedby.state != 2 && grabbedby.sprite_index != grabbedby.spr_piledriver && grabbedby.sprite_index != grabbedby.spr_piledriverland)
+    if (grabbedby.state != states.hitstun && grabbedby.state != states.grab && grabbedby.state != states.kungfugrab && grabbedby.state != states.tacklecharge && grabbedby.state != states.finishingblow && grabbedby.sprite_index != grabbedby.spr_piledriver && grabbedby.sprite_index != grabbedby.spr_piledriverland)
     {
         x = grabbedby.x;
         y = grabbedby.y;
@@ -46,7 +46,7 @@ else if (instance_exists(grabbedby))
         exit;
     }
     
-    if (grabbedby.state == 28 || grabbedby.state == 7)
+    if (grabbedby.state == states.grab || grabbedby.state == states.tacklecharge)
     {
         x = grabbedby.x;
         
@@ -67,7 +67,7 @@ else if (instance_exists(grabbedby))
         depth = 0;
     }
     
-    if ((grabbedby.state == 28 && grabbedby.sprite_index == grabbedby.spr_swingding) || (grabbedby.state == 87 && grabbedby.sprite_index == grabbedby.spr_swingding))
+    if ((grabbedby.state == states.grab && grabbedby.sprite_index == grabbedby.spr_swingding) || (grabbedby.state == states.hitstun && grabbedby.sprite_index == grabbedby.spr_swingding))
     {
         if (floor(grabbedby.image_index) == 0)
         {
@@ -126,7 +126,7 @@ else if (instance_exists(grabbedby))
         }
     }
     
-    if (grabbedby.state == 119)
+    if (grabbedby.state == states.kungfugrab)
     {
         x = grabbedby.x + (grabbedby.xscale * 60);
         y = grabbedby.y;
@@ -134,7 +134,7 @@ else if (instance_exists(grabbedby))
         depth = 0;
     }
     
-    if (grabbedby.state == 2)
+    if (grabbedby.state == states.finishingblow)
     {
         var _ray = fire_ray(grabbedby.x, grabbedby.y, grabbedby.x + (grabbedby.xscale * 60), grabbedby.y - 1, 1, -4, -4, mask_index);
         x = _ray.x;
@@ -226,7 +226,7 @@ else if (instance_exists(grabbedby))
                 jumpAnim = 1;
                 sprite_index = spr_airjugglestart;
                 image_index = 0;
-                state = 36;
+                state = states.jump;
             }
             
             grabbedby = -4;
@@ -315,7 +315,7 @@ if (place_meeting(x, y, [obj_hallway, obj_verticalhallway]) || !rectangle_in_rec
     
     if (instance_exists(grabbedby))
     {
-        grabbedby.state = 0;
+        grabbedby.state = states.normal;
         grabbedby = -4;
     }
 }

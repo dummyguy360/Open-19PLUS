@@ -15,7 +15,7 @@ function scr_player_knightpepslopes()
             grounded = false;
             sprite_index = spr_knightpepbump;
             image_index = floor(image_number - 1);
-            state = 115;
+            state = states.knightpepbump;
             gamepadvibrate(0.4, 0, 7);
             scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
             push_notif(6, [arg0]);
@@ -141,6 +141,6 @@ function scr_player_knightpepslopes()
         hsp = 0;
         movespeed = 0;
         doublejumped = 0;
-        state = 18;
+        state = states.knightpep;
     }
 }

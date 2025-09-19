@@ -208,7 +208,7 @@ function player_pummelhit()
                 grav = 0;
                 thrown = 1;
                 stunned = 10000;
-                state = 104;
+                state = states.seat;
                 parried = 1;
                 sprite_index = spr_dead;
                 

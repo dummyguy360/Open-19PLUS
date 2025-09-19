@@ -36,20 +36,20 @@ if (room != rank_room && room != rank_roomtutorial)
                         grounded = true;
                     }
                     
-                    state = grounded ? 0 : 36;
+                    state = grounded ? states.normal : states.jump;
                     
-                    if (state != 0)
+                    if (state != states.normal)
                     {
                         sprite_index = spr_fall;
                         image_index = 0;
                     }
                 }
-                else if (state == 54 || state == 41)
+                else if (state == states.door || state == states.victory)
                 {
                     if (place_meeting(x, y, obj_exitgate))
                         scr_unrevokeprank();
                     
-                    state = 39;
+                    state = states.comingoutdoor;
                     sprite_index = spr_walkfront;
                     image_index = 0;
                     doorblend = 0;
@@ -73,12 +73,12 @@ if (room != rank_room && room != rank_roomtutorial)
     {
         x = obj_doorA.x + 16;
         y = obj_doorA.y - 14;
-        state = 6;
+        state = states.titlescreen;
     }
     
     if (room == hub_forcedtutorial && targetDoor == "C")
     {
-        state = 88;
+        state = states.slipbanan;
         sprite_index = spr_slipbananimpact;
         slipbounce = true;
         xscale = 1;

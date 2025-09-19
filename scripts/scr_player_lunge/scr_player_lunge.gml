@@ -15,7 +15,7 @@ function scr_player_lunge()
             scr_fmod_soundeffectONESHOT("event:/sfx/player/bump", x, y);
             jumpstop = 1;
             grounded = 0;
-            state = 36;
+            state = states.jump;
             vsp = -4;
             image_index = 0;
             instance_create_depth(x + (xscale * 10), y + 10, 0, obj_bumpeffect);
@@ -31,7 +31,7 @@ function scr_player_lunge()
                 sprite_index = spr_player_climbwall;
             
             wallspeed = movespeed;
-            state = 12;
+            state = states.climbwall;
             wallclimbtime = 10;
             lunge = 1;
         }
@@ -54,7 +54,7 @@ function scr_player_lunge()
     {
         image_speed = 0.35;
         grav = 0.5;
-        state = 47;
+        state = states.mach2;
     }
     
     if (!pummelpunch)
@@ -70,7 +70,7 @@ function scr_player_lunge()
             longjumping = 1;
             longjumpspd = movespeed * xscale;
             sprite_index = spr_longjumpstart;
-            state = 47;
+            state = states.mach2;
             scr_fmod_soundeffect(longjumpsnd, x, y);
             instance_create_depth(x, y, 0, obj_highjumpcloud2);
         }
@@ -78,7 +78,7 @@ function scr_player_lunge()
         if (move != xscale && move != 0)
         {
             flash = 1;
-            state = 36;
+            state = states.jump;
             sprite_index = spr_suplexgrabcancel;
             image_index = 0;
             jumpAnim = 1;

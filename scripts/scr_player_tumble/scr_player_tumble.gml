@@ -50,7 +50,7 @@ function scr_player_tumble()
         hsp = 0;
         movespeed = 0;
         sprite_index = spr_tumbleend;
-        state = 49;
+        state = states.bump;
         gamepadvibrate(0.4, 0, 7);
         image_index = 0;
     }

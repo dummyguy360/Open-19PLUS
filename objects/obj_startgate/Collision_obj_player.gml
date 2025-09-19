@@ -2,13 +2,13 @@ if (unlockedanim >= 1 && unlocked)
 {
     with (obj_player)
     {
-        if (input_check_pressed("up") && grounded && (state == 0 || state == 47 || (state == 66 && !rocket)) && !instance_exists(obj_fadeout) && state != 41 && state != 39)
+        if (input_check_pressed("up") && grounded && (state == states.normal || state == states.mach2 || (state == states.mach3 && !rocket)) && !instance_exists(obj_fadeout) && state != states.victory && state != states.comingoutdoor)
         {
             enteredDoor = other.id;
             mach2 = 0;
             obj_drawcontroller.chargecamera = 0;
             image_index = 0;
-            state = 41;
+            state = states.victory;
             
             if (global.music != -4)
                 event_stop(global.music.event, 0);
@@ -23,7 +23,7 @@ if (unlockedanim >= 1 && unlocked)
         }
     }
     
-    if (floor(obj_player.image_index) == (obj_player.image_number - 1) && obj_player.state == 41)
+    if (floor(obj_player.image_index) == (obj_player.image_number - 1) && obj_player.state == states.victory)
     {
         with (obj_player)
         {

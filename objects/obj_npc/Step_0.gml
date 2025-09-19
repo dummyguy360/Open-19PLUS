@@ -45,7 +45,7 @@ switch (state)
             nameboxscaleanim = 1;
             nameslideanim = 1;
             bubblescaleanim = 1;
-            state = 2;
+            state = states.finishingblow;
         }
         
         break;
@@ -82,12 +82,12 @@ switch (state)
                 if (scenario.lines[currentline].character != _prev)
                 {
                     characterslide = 0;
-                    state = 3;
+                    state = states.ejected;
                 }
             }
             else
             {
-                state = 4;
+                state = states.fireass;
             }
         }
         
@@ -106,7 +106,7 @@ switch (state)
         characterslide = Approach(characterslide, 1, 0.1);
         
         if (characterslide >= 1)
-            state = 2;
+            state = states.finishingblow;
         
         break;
     
@@ -121,8 +121,8 @@ switch (state)
         
         if (bubblescaleanim <= 0 && nameboxscaleanim <= 0)
         {
-            state = 0;
-            obj_player.state = 0;
+            state = states.normal;
+            obj_player.state = states.normal;
             self.endfunc();
         }
         

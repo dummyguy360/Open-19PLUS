@@ -8,7 +8,7 @@ if (fadealpha > fademax)
         {
             room_goto(obj_player.targetRoom);
             
-            if (obj_player.state == 14)
+            if (obj_player.state == states.portal)
             {
                 with (obj_player)
                 {

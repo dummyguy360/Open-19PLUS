@@ -4,6 +4,6 @@ image_xscale = playerid.xscale;
 
 with (playerid)
 {
-    if (state != 66)
+    if (state != states.mach3)
         instance_destroy(other.id);
 }

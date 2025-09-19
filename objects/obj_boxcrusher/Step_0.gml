@@ -1,6 +1,6 @@
 var targetplayer = instance_nearest(x, y, obj_player);
 
-if (y == ystart && targetplayer.x > (x - 50) && targetplayer.x < (x + 50) && targetplayer.y > y && targetplayer.y < (y + 200) && targetplayer.state != 11)
+if (y == ystart && targetplayer.x > (x - 50) && targetplayer.x < (x + 50) && targetplayer.y > y && targetplayer.y < (y + 200) && targetplayer.state != states.boxxedpep)
 {
     scr_fmod_soundeffectONESHOT("event:/sfx/enemy/projectile", x, y);
     grav = 0.35;

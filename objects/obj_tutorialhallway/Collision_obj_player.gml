@@ -9,7 +9,7 @@ with (other.id)
     {
         targetDoor = other.targetDoor;
         targetRoom = other.targetRoom;
-        state = 54;
+        state = states.door;
         other.visited = 1;
         image_index = 0;
         event_play_oneshot("event:/sfx/player/doorenter");

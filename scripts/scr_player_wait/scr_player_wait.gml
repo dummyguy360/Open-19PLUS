@@ -11,7 +11,7 @@ function scr_player_wait()
     
     if (global.waiting == 0)
     {
-        state = 0;
+        state = states.normal;
         hsp = 0;
         movespeed = 0;
     }

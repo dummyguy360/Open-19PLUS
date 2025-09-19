@@ -55,7 +55,7 @@ function scr_player_shotgun()
             else
                 sprite_index = spr_shotgunfall;
             
-            state = 0;
+            state = states.normal;
         }
     }
     
@@ -66,7 +66,7 @@ function scr_player_shotgun()
         else
             sprite_index = spr_shotgunfall;
         
-        state = 0;
+        state = states.normal;
     }
     
     image_speed = (sprite_index != spr_shotgunpullout) ? 0.5 : 0.35;

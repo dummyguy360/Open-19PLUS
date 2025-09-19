@@ -21,14 +21,14 @@ function scr_player_freefall()
             
             if (sprite_index == spr_player_firemoveend)
             {
-                state = 53;
+                state = states.freefallland;
                 sprite_index = spr_bodyslamland;
             }
             else
             {
                 if (assflingspeed > 0 && input_check("dash"))
                 {
-                    state = 66;
+                    state = states.mach3;
                     var _dir = input_check_opposing("left", "right");
                     
                     if (_dir != 0)
@@ -53,12 +53,12 @@ function scr_player_freefall()
                         sprite_index = spr_player_poundcancel2;
                     }
                     
-                    state = 53;
+                    state = states.freefallland;
                 }
                 
                 if (character == "S" && input_check("dash"))
                 {
-                    state = 45;
+                    state = states.crouchslide;
                     
                     if (movespeed < 10)
                         movespeed = 10;
@@ -87,7 +87,7 @@ function scr_player_freefall()
                                 vsp = -11;
                                 hsp = 0;
                                 stunned = 200;
-                                state = 104;
+                                state = states.seat;
                             }
                         }
                     }
@@ -116,7 +116,7 @@ function scr_player_freefall()
                 {
                     instance_create_depth(x, y, 0, obj_jumpdust);
                     flash = 1;
-                    state = 23;
+                    state = states.machroll;
                     vsp = 10;
                     movespeed = fallspeed / 2;
                     
@@ -130,7 +130,7 @@ function scr_player_freefall()
                     grav = 0.5;
                     sprite_index = spr_crouchslip;
                     machhitAnim = 0;
-                    state = 45;
+                    state = states.crouchslide;
                     vsp = 10;
                     movespeed = fallspeed / 2;
                     
@@ -229,7 +229,7 @@ function scr_player_freefall()
                 if (vsp > -5)
                     vsp = -5;
                 
-                state = 47;
+                state = states.mach2;
                 sprite_index = spr_mach2jump;
                 instance_create_depth(x, y, 0, obj_shoulderbashcrazyrunothereffect);
                 godown = 0;

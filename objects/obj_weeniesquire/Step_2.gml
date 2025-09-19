@@ -45,7 +45,7 @@ switch (state)
 
 enemy_palettepoof();
 
-if (state == 104 && stunned > 100 && birdcreated == 0)
+if (state == states.seat && stunned > 100 && birdcreated == 0)
 {
     birdcreated = 1;
     
@@ -53,10 +53,10 @@ if (state == 104 && stunned > 100 && birdcreated == 0)
         ID = other.id;
 }
 
-if (state != 104)
+if (state != states.seat)
     birdcreated = 0;
 
-if (state == 300)
+if (state == states.enemyhitstun)
     exit;
 
 scr_escapeenemy();
@@ -67,13 +67,13 @@ if (x != __player.x && grounded)
 {
     if (__player.x > (x - 400) && __player.x < (x + 400) && y <= (__player.y + 20) && y >= (__player.y - 20))
     {
-        if (state == 100 && !charging)
+        if (state == states.homingattack && !charging)
         {
             with (instance_create_depth(x, y, 0, obj_forkhitbox))
                 ID = other.id;
             
             charging = true;
-            state = 94;
+            state = states.timesup;
             vsp = -7;
             movespeed = 1;
             scr_fmod_soundeffectONESHOT("event:/sfx/enemy/charge", x, y);
@@ -81,7 +81,7 @@ if (x != __player.x && grounded)
     }
 }
 
-if (state == 104 || state == 100)
+if (state == states.seat || state == states.homingattack)
 {
     charging = 0;
     movespeed = 0;
@@ -90,7 +90,7 @@ if (state == 104 || state == 100)
 if (flash && alarm[2] <= 0)
     alarm[2] = 0.15 * room_speed;
 
-if (!hitboxcreate && visible && state == 100)
+if (!hitboxcreate && visible && state == states.homingattack)
 {
     hitboxcreate = true;
     
@@ -102,7 +102,7 @@ if (!hitboxcreate && visible && state == 100)
     }
 }
 
-if (state != 104)
+if (state != states.seat)
     thrown = 0;
 
 if (!boundbox)

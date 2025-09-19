@@ -24,7 +24,7 @@ function scr_player_tackle()
         vsp = 0;
         
         if (pummeltimer == -6)
-            state = 0;
+            state = states.normal;
         
         if (input_check_pressed("attack"))
             input_buffer_pummel = 0;
@@ -34,14 +34,14 @@ function scr_player_tackle()
             suplexmove = 0;
             sprite_index = spr_crouchslip;
             machhitAnim = 0;
-            state = 45;
+            state = states.crouchslide;
             movespeed = 15;
         }
         
         if (input_buffer_pummel != 6 && !pummeltimer)
         {
             suplexmove = 1;
-            state = 118;
+            state = states.lunge;
             image_index = 0;
             sprite_index = spr_player_ragelunge;
             momemtum = 1;
@@ -59,7 +59,7 @@ function scr_player_tackle()
         
         if (floor(image_index) == (image_number - 1))
         {
-            state = 0;
+            state = states.normal;
             shieldhurt = 0;
         }
         

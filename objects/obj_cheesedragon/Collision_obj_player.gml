@@ -2,7 +2,7 @@ if (sprite_index != spr_cheesedragon_goingup)
 {
     with (other.id)
     {
-        state = 49;
+        state = states.bump;
         sprite_index = spr_bump;
         xscale = other.image_xscale;
         hsp = -5 * xscale;

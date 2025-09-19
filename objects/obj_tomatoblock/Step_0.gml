@@ -1,6 +1,6 @@
 with (obj_player)
 {
-    if (place_meeting(x, y + 1, obj_tomatoblock) && state != 33)
+    if (place_meeting(x, y + 1, obj_tomatoblock) && state != states.ejected2)
     {
         vsp = -15;
         

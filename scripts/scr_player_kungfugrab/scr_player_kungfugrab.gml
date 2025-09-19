@@ -11,7 +11,7 @@ function scr_player_kungfugrab()
     {
         input_buffer_jump = 8;
         piledrivervsp = -14;
-        state = 25;
+        state = states.superslam;
         sprite_index = spr_piledriver;
         movespeed = 0;
         hsp = 0;
@@ -24,14 +24,14 @@ function scr_player_kungfugrab()
     if (input_buffer_attack < 8)
     {
         input_buffer_attack = 8;
-        state = 2;
+        state = states.finishingblow;
         sprite_index = choose(spr_finishingblow1, spr_finishingblow2, spr_finishingblow3, spr_finishingblow4, spr_finishingblow5);
         image_index = 0;
     }
     
     if (input_check_pressed("up"))
     {
-        state = 2;
+        state = states.finishingblow;
         sprite_index = spr_uppercutfinishingblow;
         image_index = 0;
     }
@@ -43,14 +43,14 @@ function scr_player_kungfugrab()
         if (_move != 0)
             xscale = _move;
         
-        state = 2;
+        state = states.finishingblow;
         sprite_index = choose(spr_finishingblow1, spr_finishingblow2, spr_finishingblow3, spr_finishingblow4, spr_finishingblow5);
         image_index = 0;
     }
     
     if (input_check("down") && grounded)
     {
-        state = 43;
+        state = states.crouch;
         landAnim = 0;
         crouchAnim = 1;
         image_index = 0;

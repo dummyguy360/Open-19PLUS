@@ -7,7 +7,7 @@ if (scr_solid(x + 1, y) && !scr_slope())
 {
     with (obj_player)
     {
-        if (state == 65 && place_meeting(x, y, other.id))
+        if (state == states.boulder && place_meeting(x, y, other.id))
         {
             scr_fmod_soundeffectONESHOT("event:/sfx/player/bump", x, y);
             scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
@@ -15,7 +15,7 @@ if (scr_solid(x + 1, y) && !scr_slope())
             mask_index = spr_player_mask;
             grav = 0.5;
             movespeed = 0;
-            state = 49;
+            state = states.bump;
             hsp = 2.5;
             vsp = -3;
             mach2 = 0;

@@ -7,7 +7,7 @@ if (fadealpha > fademax)
     with (obj_player)
     {
         targetDoor = "E";
-        state = 88;
+        state = states.slipbanan;
         sprite_index = spr_rockethitwall;
         hsp = 0;
         vsp = -22;

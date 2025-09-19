@@ -7,7 +7,7 @@ function scr_player_ejected()
         targetRoom = lastroom;
         player_x = lastroom_x;
         player_y = lastroom_y;
-        state = 0;
+        state = states.normal;
     }
     
     sprite_index = spr_deathend;

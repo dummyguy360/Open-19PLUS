@@ -5,7 +5,7 @@ function scr_player_held()
         xscale = -grabbedby.xscale;
         stunned = 200;
         
-        if (grabbedby.state == 28 || grabbedby.state == 119 || grabbedby.state == 7)
+        if (grabbedby.state == states.grab || grabbedby.state == states.kungfugrab || grabbedby.state == states.tacklecharge)
         {
             x = grabbedby.x;
             
@@ -25,11 +25,11 @@ function scr_player_held()
         
         with (grabbedby)
         {
-            if (!(state == 28 || grabbedby.state == 119 || state == 2 || state == 7 || state == 29 || state == 25 || state == 30 || state == 87))
+            if (!(state == states.grab || grabbedby.state == states.kungfugrab || state == states.finishingblow || state == states.tacklecharge || state == states.punch || state == states.superslam || state == states.shoulder || state == states.hitstun))
             {
                 other.x = x;
                 other.y = y;
-                other.state = 50;
+                other.state = states.hurt;
                 other.image_index = 0;
                 other.vsp = -6;
                 other.held = 0;
@@ -39,19 +39,19 @@ function scr_player_held()
         
         hsp = 0;
         
-        if (grabbedby.state == 2 && grabbedby.image_index < 5)
+        if (grabbedby.state == states.finishingblow && grabbedby.image_index < 5)
         {
             x = grabbedby.x + (grabbedby.xscale * 60);
             y = grabbedby.y;
         }
         
-        if ((grabbedby.state == 2 && floor(grabbedby.image_index) == 6 && grabbedby.sprite_index != grabbedby.spr_swingdingend) || (floor(grabbedby.image_index) == 0 && grabbedby.sprite_index == grabbedby.spr_swingdingend))
+        if ((grabbedby.state == states.finishingblow && floor(grabbedby.image_index) == 6 && grabbedby.sprite_index != grabbedby.spr_swingdingend) || (floor(grabbedby.image_index) == 0 && grabbedby.sprite_index == grabbedby.spr_swingdingend))
         {
             scr_enemygibs();
             camera_shake(3, 3);
             xscale = -grabbedby.xscale;
             restore_combo();
-            state = 50;
+            state = states.hurt;
             thrown = 1;
             
             with (grabbedby)
@@ -76,7 +76,7 @@ function scr_player_held()
             }
         }
         
-        if ((grabbedby.state == 25 && grabbedby.sprite_index == spr_player_piledriver) || grabbedby.sprite_index == spr_playerN_piledriver)
+        if ((grabbedby.state == states.superslam && grabbedby.sprite_index == spr_player_piledriver) || grabbedby.sprite_index == spr_playerN_piledriver)
         {
             if (grabbedby.character == "P")
             {
@@ -111,7 +111,7 @@ function scr_player_held()
             }
         }
         
-        if ((grabbedby.state == 28 && grabbedby.sprite_index == grabbedby.spr_swingding) || (grabbedby.state == 87 && grabbedby.sprite_index == grabbedby.spr_swingding))
+        if ((grabbedby.state == states.grab && grabbedby.sprite_index == grabbedby.spr_swingding) || (grabbedby.state == states.hitstun && grabbedby.sprite_index == grabbedby.spr_swingding))
         {
             if (floor(grabbedby.image_index) == 0)
             {
@@ -178,7 +178,7 @@ function scr_player_held()
             restore_combo();
             x = grabbedby.x;
             y = grabbedby.y;
-            state = 50;
+            state = states.hurt;
             movespeed = -8;
             vsp = -11;
             held = 0;

@@ -15,7 +15,7 @@ function scr_player_noisecrusher()
         movespeed = 0;
         
         if (floor(image_index) == (image_number - 1))
-            state = 0;
+            state = states.normal;
         
         exit;
     }
@@ -52,7 +52,7 @@ function scr_player_noisecrusher()
         
         machhitAnim = 0;
         image_index = 0;
-        state = 47;
+        state = states.mach2;
         vsp = -5;
         movespeed = 12;
         instance_create_depth(x, y, 0, obj_crazyrunothereffect);
@@ -93,7 +93,7 @@ function scr_player_noisecrusher()
                     vsp = -11;
                     hsp = 0;
                     stunned = 200;
-                    state = 104;
+                    state = states.seat;
                 }
             }
         }
@@ -126,7 +126,7 @@ function scr_player_do_noisecrusher()
 {
     input_buffer_jump = 0;
     movespeed = hsp * xscale;
-    state = 129;
+    state = states.noisecrusher;
     sprite_index = spr_playerN_noisecrusherstart;
     scr_fmod_soundeffectONESHOT("event:/sfx/player/noisecrusher", x, y);
     image_index = 0;

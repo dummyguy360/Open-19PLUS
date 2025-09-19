@@ -6,7 +6,7 @@ with (other.id)
         scr_fmod_soundeffectONESHOT("event:/sfx/enemy/punched", x, y);
         sprite_index = choose(spr_suplexmash1, spr_suplexmash2, spr_suplexmash3, spr_suplexmash4, spr_suplexmash5, spr_suplexmash6, spr_suplexmash7);
         image_index = 0;
-        state = 35;
+        state = states.tackle;
         movespeed = 3;
         vsp = -3;
         other.wavespd = 2 * xscale;

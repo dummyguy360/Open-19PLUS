@@ -7,7 +7,7 @@ function scr_player_bossintro()
     
     if (sprite_index == spr_bossintro && floor(image_index) == (image_number - 1))
     {
-        state = 0;
+        state = states.normal;
         image_index = 0;
     }
     

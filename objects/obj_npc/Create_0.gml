@@ -13,7 +13,7 @@ function get_char(arg0)
     }
 }
 
-state = 0;
+state = states.normal;
 exclemationframe = -1;
 bubblescaleanim = 0;
 bubblerot = 0;

@@ -108,6 +108,6 @@ function scr_player_superslam()
         jumpAnim = 1;
         sprite_index = spr_airjugglestart;
         image_index = 0;
-        state = 36;
+        state = states.jump;
     }
 }

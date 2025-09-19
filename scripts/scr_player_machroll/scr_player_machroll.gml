@@ -7,7 +7,7 @@ function scr_player_machroll()
     
     hit_horizontal = function(arg0)
     {
-        state = 49;
+        state = states.bump;
         sprite_index = spr_wallsplat;
         gamepadvibrate(0.4, 0, 7);
         image_index = 0;
@@ -73,7 +73,7 @@ function scr_player_machroll()
         
         if (character == "S")
         {
-            state = 45;
+            state = states.crouchslide;
             sprite_index = spr_crouchslip;
         }
     }
@@ -87,7 +87,7 @@ function scr_player_machroll()
             with (instance_create_depth(x, y, obj_player.depth, obj_balloonpop))
                 sprite_index = spr_noisewalljumpeffect;
             
-            state = 120;
+            state = states.nwalljump;
             savedmove = xscale;
             vsp = 20;
             movespeed = hsp;
@@ -112,7 +112,7 @@ function scr_player_machroll()
     {
         image_index = 0;
         scr_fmod_soundeffectONESHOT("event:/sfx/player/mach/rollgetup", x, y);
-        state = 47;
+        state = states.mach2;
         sprite_index = spr_rollgetup;
     }
     
@@ -122,11 +122,11 @@ function scr_player_machroll()
         scr_fmod_soundeffectONESHOT("event:/sfx/player/mach/rollgetup", x, y);
         
         if (character != "S")
-            state = 66;
+            state = states.mach3;
         else if (snickmach3mode)
-            state = 66;
+            state = states.mach3;
         else
-            state = 47;
+            state = states.mach2;
         
         sprite_index = spr_rollgetup;
     }
@@ -134,7 +134,7 @@ function scr_player_machroll()
     if (sprite_index == spr_dive && input_check_pressed("jump") && !scr_solid(x, y - 16) && !scr_solid(x, y - 32))
     {
         cancancelpoundcancel = 1;
-        state = 51;
+        state = states.freefall;
         momemtum = 1;
         bodyslamvsp = -7;
         sprite_index = spr_player_poundcancel1;

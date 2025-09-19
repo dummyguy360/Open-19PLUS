@@ -1,4 +1,4 @@
-if (state == 0)
+if (state == states.normal)
 {
     if (!metrequirement)
     {
@@ -14,7 +14,7 @@ if (state == 0)
     draw_sprite(spr_gauntletsign, 0, x - 75, bbox_bottom - 32);
 }
 
-if (state == 1)
+if (state == states.tumble)
 {
     if (instance_exists(uparrowid))
         instance_destroy(uparrowid);
@@ -42,7 +42,7 @@ if (state == 1)
         obj_player.hsp = 0;
         obj_player.vsp = 0;
         obj_player.movespeed = 0;
-        obj_player.state = 0;
+        obj_player.state = states.normal;
         self.create_func();
         instance_destroy();
     }

@@ -4,7 +4,7 @@ if (image_yscale >= 1)
     {
         if (sprite_index != spr_player_catched && sprite_index != spr_presentjump)
         {
-            if (state == 18 || state == 13)
+            if (state == states.knightpep || state == states.knightpepslopes)
             {
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
                 
@@ -15,10 +15,10 @@ if (image_yscale >= 1)
                 }
             }
             
-            if (state == 19)
+            if (state == states.bombpep)
                 instance_create_depth(x, y, 0, obj_bombexplosion);
             
-            if (state == 8)
+            if (state == states.cheeseball)
             {
                 repeat (8)
                     instance_create_depth(x, y, -1, obj_slimedebris);
@@ -26,7 +26,7 @@ if (image_yscale >= 1)
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
             }
             
-            if (state == 11)
+            if (state == states.boxxedpep)
             {
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
                 
@@ -43,9 +43,9 @@ if (image_yscale >= 1)
             hsp = 0;
             sprite_index = spr_presentjump;
             
-            if (state != 40)
+            if (state != states.sjump)
             {
-                state = 40;
+                state = states.sjump;
                 vsp = -10;
                 cancel_Sjump = false;
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/spring", x, y);
@@ -67,16 +67,16 @@ else if (image_yscale <= -1)
             hsp = 0;
             grounded = false;
             
-            if (state != 51)
+            if (state != states.freefall)
             {
-                state = 51;
+                state = states.freefall;
                 sprite_index = spr_rockethitwall;
                 vsp = 12;
                 freefallsmash = 10;
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/spring", x, y);
             }
             
-            if (state == 18 || state == 13)
+            if (state == states.knightpep || state == states.knightpepslopes)
             {
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
                 
@@ -87,7 +87,7 @@ else if (image_yscale <= -1)
                 }
             }
             
-            if (state == 19)
+            if (state == states.bombpep)
                 instance_create_depth(x, y, 0, obj_bombexplosion);
             
             instance_create_depth(x, y, 0, obj_bangeffect);

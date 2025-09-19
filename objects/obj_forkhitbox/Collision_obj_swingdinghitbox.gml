@@ -14,7 +14,7 @@ if (instance_exists(ID))
         restore_combo();
         alarm[1] = 5;
         thrown = 1;
-        state = 104;
+        state = states.seat;
         image_xscale = -other.playerid.xscale;
         stunned = 200;
         throwhsp = other.playerid.xscale * 25;

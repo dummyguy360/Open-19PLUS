@@ -1,8 +1,8 @@
 with (other.id)
 {
-    if (instance_exists(other.baddieID) && state != 1 && sprite_index != spr_tumbleend && state != 18 && state != 13 && state != 31 && state != 70 && state != 41 && state != 54)
+    if (instance_exists(other.baddieID) && state != states.tumble && sprite_index != spr_tumbleend && state != states.knightpep && state != states.knightpepslopes && state != states.backbreaker && state != states.parrying && state != states.victory && state != states.door)
     {
-        state = 1;
+        state = states.tumble;
         xscale = other.baddieID.image_xscale;
         movespeed = 12;
         vsp = 0;

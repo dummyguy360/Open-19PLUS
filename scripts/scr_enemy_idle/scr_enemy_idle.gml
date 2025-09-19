@@ -18,7 +18,7 @@ function scr_enemy_idle()
                 case spr_forknight_turn:
                 case spr_slimeturn:
                     sprite_index = walkspr;
-                    state = 100;
+                    state = states.homingattack;
                     break;
             }
             
@@ -27,11 +27,11 @@ function scr_enemy_idle()
                 if (object_index != obj_ancho)
                 {
                     if (vsp >= 0 && grounded)
-                        state = 100;
+                        state = states.homingattack;
                 }
                 else
                 {
-                    state = 100;
+                    state = states.homingattack;
                 }
             }
         }

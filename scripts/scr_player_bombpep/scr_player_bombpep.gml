@@ -2,7 +2,7 @@ function scr_player_bombpep()
 {
     collide_destructibles = function(arg0, arg1)
     {
-        if (state != 19)
+        if (state != states.bombpep)
             exit;
         
         if (scr_destroy_horizontal(arg0, 240))
@@ -11,14 +11,14 @@ function scr_player_bombpep()
             movespeed = 4;
             vsp = -10;
             grounded = false;
-            state = 124;
+            state = states.bombknockback;
             bombpeptimer = 0;
         }
     };
     
     hit_horizontal = function(arg0)
     {
-        if (sign(arg0) == xscale && state == 19)
+        if (sign(arg0) == xscale && state == states.bombpep)
         {
             instance_create_depth(x + 10, y + 10, 0, obj_bumpeffect);
             xscale *= -1;
@@ -75,7 +75,7 @@ function scr_player_bombpep()
         alarm[5] = 2;
         alarm[7] = 60;
         hurted = 1;
-        state = 0;
+        state = states.normal;
         sprite_index = spr_idle;
         image_index = 0;
     }
@@ -108,7 +108,7 @@ function scr_player_bombpep()
     
     if (character != "N")
     {
-        if (input_buffer_attack < 8 && sprite_index != spr_bombpepend && state == 19)
+        if (input_buffer_attack < 8 && sprite_index != spr_bombpepend && state == states.bombpep)
         {
             input_buffer_attack = 8;
             move = input_check_opposing("left", "right");
@@ -129,7 +129,7 @@ function scr_player_bombpep()
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/mach/rollgetup", x, y);
             }
             
-            state = 21;
+            state = states.stunned;
             
             with (instance_create_depth(x - 3, y, 0, obj_bomb))
             {
@@ -153,7 +153,7 @@ function scr_player_bombpep()
     
     if (character == "N")
     {
-        if (input_buffer_attack < 8 && sprite_index != spr_bombpepend && state == 19)
+        if (input_buffer_attack < 8 && sprite_index != spr_bombpepend && state == states.bombpep)
         {
             input_buffer_attack = 8;
             move = input_check_opposing("left", "right");
@@ -174,7 +174,7 @@ function scr_player_bombpep()
                 scr_fmod_soundeffectONESHOT("event:/sfx/enemy/punched", x, y);
             }
             
-            state = 21;
+            state = states.stunned;
             
             with (instance_create_depth(x - 3, y, 0, obj_bomb))
             {

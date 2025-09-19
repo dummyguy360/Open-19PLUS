@@ -24,7 +24,7 @@ function scr_player_fireass()
                         sprite_index = spr_slimespin;
                 }
                 
-                state = 0;
+                state = states.normal;
                 hsp = 0;
                 movespeed = 0;
                 image_index = 0;
@@ -84,7 +84,7 @@ function scr_player_fireass()
         if (floor(image_index) == (image_number - 1))
         {
             scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/fireasssizzle", x, y);
-            state = 0;
+            state = states.normal;
             hsp = 0;
             movespeed = 0;
             image_index = 0;

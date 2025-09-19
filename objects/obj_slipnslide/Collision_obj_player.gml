@@ -2,7 +2,7 @@ var _bananaid = id;
 
 with (other.id)
 {
-    state = 88;
+    state = states.slipbanan;
     
     if (movespeed < 6)
         movespeed = 6;

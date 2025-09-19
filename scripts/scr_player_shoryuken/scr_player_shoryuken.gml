@@ -53,7 +53,7 @@ function scr_player_shoryuken()
             if (!kungfumove)
             {
                 kungfumove = true;
-                state = 91;
+                state = states.kungfu;
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/kungfu", x, y);
                 
                 if (movespeed < 10)
@@ -75,7 +75,7 @@ function scr_player_shoryuken()
             cangrab = 0;
             suplexmove = 1;
             fmod_studio_event_instance_start(suplexdashsnd);
-            state = 16;
+            state = states.suplexgrab;
             image_index = 0;
             sprite_index = spr_suplexgrabjumpstart;
             
@@ -93,7 +93,7 @@ function scr_player_shoryuken()
             xscale = sign(hsp);
         
         movespeed = abs(hsp);
-        state = 0;
+        state = states.normal;
         jumpAnim = 1;
         jumpstop = 0;
         image_index = 0;

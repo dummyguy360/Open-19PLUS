@@ -1,7 +1,7 @@
 if (room == rank_room || room == timesuproom)
     visible = 0;
 
-if (obj_player.state == 32)
+if (obj_player.state == states.bossintro)
     visible = 0;
 
 if (global.miniboss == 0)

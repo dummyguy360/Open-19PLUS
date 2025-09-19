@@ -1,6 +1,6 @@
 image_xscale = playerid.xscale;
 
-if (playerid.state != 66 || (playerid.character == "S" && playerid.state != 85))
+if (playerid.state != states.mach3 || (playerid.character == "S" && playerid.state != states.sidejump))
     instance_destroy();
 
 x = playerid.x;

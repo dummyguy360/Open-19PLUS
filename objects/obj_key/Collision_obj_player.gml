@@ -1,6 +1,6 @@
 with (other.id)
 {
-    if (other.inv_frame == 0 && !scr_transformationcheck(id) && state != 50 && state != 96)
+    if (other.inv_frame == 0 && !scr_transformationcheck(id) && state != states.hurt && state != states.weeniemount)
     {
         instance_destroy(other.id);
         global.key_inv = 1;
@@ -20,9 +20,9 @@ with (other.id)
 with (obj_peppermandestroyable)
     instance_destroy();
 
-if (global.keyget == 0 && !scr_transformationcheck(other.id) && other.state != 50 && other.state != 96)
+if (global.keyget == 0 && !scr_transformationcheck(other.id) && other.state != states.hurt && other.state != states.weeniemount)
 {
-    other.id.state = 34;
+    other.id.state = states.keyget;
     other.id.image_index = 0;
     
     if (global.levelname == "medieval")

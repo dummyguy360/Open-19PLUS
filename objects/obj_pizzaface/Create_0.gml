@@ -26,7 +26,7 @@ save_close();
 
 function pizzaface_freeze()
 {
-    if (obj_player.state == 87 || obj_player.state == 76 || (obj_player.state == 18 && (sprite_index == spr_knightpepstart || sprite_index == spr_knightpepthunder)) || obj_player.cutscene || instance_exists(obj_pitfalltransition) || instance_exists(obj_fadeparent))
+    if (obj_player.state == states.hitstun || obj_player.state == states.pipe || (obj_player.state == states.knightpep && (sprite_index == spr_knightpepstart || sprite_index == spr_knightpepthunder)) || obj_player.cutscene || instance_exists(obj_pitfalltransition) || instance_exists(obj_fadeparent))
         return true;
     
     return false;
@@ -34,7 +34,7 @@ function pizzaface_freeze()
 
 function pizzaface_fadeout()
 {
-    if (obj_player.state == 54 || obj_player.state == 39 || obj_player.state == 34 || obj_player.state == 116 || obj_player.state == 14 || obj_player.state == 17)
+    if (obj_player.state == states.door || obj_player.state == states.comingoutdoor || obj_player.state == states.keyget || obj_player.state == states.secretportal || obj_player.state == states.portal || obj_player.state == states.gottreasure)
         return true;
     
     return false;

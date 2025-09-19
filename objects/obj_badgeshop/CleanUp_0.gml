@@ -5,9 +5,9 @@ destroy_sounds([mu]);
 
 if (instance_exists(obj_player))
 {
-    if (obj_player.state == 110)
+    if (obj_player.state == states.nothing)
     {
-        obj_player.state = 0;
+        obj_player.state = states.normal;
         input_clear_momentary(true);
     }
 }

@@ -22,12 +22,12 @@ function scr_player_breakdance()
                 {
                     if (input_check("dash") && movespeed >= 6)
                     {
-                        state = 47;
+                        state = states.mach2;
                         sprite_index = spr_mach;
                     }
                     else
                     {
-                        state = 0;
+                        state = states.normal;
                     }
                 }
             }
@@ -37,7 +37,7 @@ function scr_player_breakdance()
                 input_buffer_down = 8;
                 sprite_index = spr_player_breakdanceslide;
                 machhitAnim = 0;
-                state = 45;
+                state = states.crouchslide;
                 
                 if (movespeed < 12)
                     movespeed = 12;
@@ -60,7 +60,7 @@ function scr_player_breakdance()
             
             if (scr_solid(x + xscale, y) && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + xscale, y, obj_destructibles))
             {
-                state = 49;
+                state = states.bump;
                 sprite_index = spr_player_wallsplat;
                 gamepadvibrate(0.4, 0, 7);
                 image_index = 0;
@@ -109,7 +109,7 @@ function scr_player_breakdance()
                 movespeed = Approach(movespeed, 0, 0.15);
                 
                 if (movespeed <= 0)
-                    state = 0;
+                    state = states.normal;
             }
             
             if (input_check_pressed("down") && grounded)
@@ -135,7 +135,7 @@ function scr_player_breakdance()
                     movespeed = 8;
                 
                 flash = 0;
-                state = 23;
+                state = states.machroll;
             }
             
             sprite_index = spr_player_breakdanceslide;
@@ -149,11 +149,11 @@ function scr_player_breakdance()
             {
                 if (!input_check("dash"))
                 {
-                    state = 0;
+                    state = states.normal;
                 }
                 else
                 {
-                    state = 66;
+                    state = states.mach3;
                     sprite_index = spr_mach4;
                 }
             }
@@ -163,7 +163,7 @@ function scr_player_breakdance()
             if (!grounded && input_buffer_down < 8)
             {
                 input_buffer_down = 8;
-                state = 51;
+                state = states.freefall;
                 sprite_index = spr_mach2jump;
                 vsp = 12;
                 movespeed = 0;
@@ -180,7 +180,7 @@ function scr_player_breakdance()
                         sprite_index = spr_player_climbwall;
                     
                     wallspeed = movespeed;
-                    state = 12;
+                    state = states.climbwall;
                 }
                 else
                 {
@@ -204,7 +204,7 @@ function scr_player_breakdance()
                     hsp = 0;
                     image_speed = 0.35;
                     flash = 0;
-                    state = 49;
+                    state = states.bump;
                     
                     if (movespeed < 16)
                         hsp = -3 * xscale;
@@ -238,7 +238,7 @@ function scr_player_breakdance()
                     {
                         vsp = -12;
                         hsp = 0;
-                        state = 104;
+                        state = states.seat;
                         
                         if (stunned < 100)
                             stunned = 100;
@@ -251,7 +251,7 @@ function scr_player_breakdance()
             }
             
             if (sprite_index == spr_player_breakdanceslamend && floor(image_index) == (image_number - 1))
-                state = 0;
+                state = states.normal;
             
             break;
     }
@@ -262,7 +262,7 @@ function scr_player_breakdance()
     {
         if (input_check_pressed("up") && dance != "slam")
         {
-            state = 75;
+            state = states.shoryuken;
             sprite_index = spr_shoryukenstart;
             image_index = 0;
             hsp = movespeed * sign(hsp);

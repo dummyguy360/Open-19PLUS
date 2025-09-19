@@ -114,7 +114,7 @@ function scr_collide_enemy()
         {
             killed |= (hp <= 0);
             
-            if (state == 104 && thrown)
+            if (state == states.seat && thrown)
                 killed = true;
             
             vsp = 0;
@@ -179,7 +179,7 @@ function scr_collide_enemy()
         {
             killed |= (hp <= 0);
             
-            if (state == 104 && thrown)
+            if (state == states.seat && thrown)
                 killed = true;
             
             hsp = 0;

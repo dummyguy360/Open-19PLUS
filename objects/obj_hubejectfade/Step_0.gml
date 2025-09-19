@@ -12,7 +12,7 @@ if (fadealpha > fademax)
             sprite_index = spr_slipbanan2;
             hsp = 0;
             movespeed = 0;
-            state = 110;
+            state = states.nothing;
             room_goto(backtohubroom);
             targetDoor = "HUB";
         }

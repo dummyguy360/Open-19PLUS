@@ -8,15 +8,15 @@ function scr_solid_player(arg0, arg1)
     y = arg1;
     var collisioncheck = [obj_solid, obj_slope, -4, -4, -4, -4];
     
-    if (y > old_y && state != 37)
+    if (y > old_y && state != states.ladder)
     {
         collisioncheck[2] = obj_platform;
         
-        if (state == 66 || sprite_index == spr_machslideboost3 || sprite_index == spr_machslideboost3end)
+        if (state == states.mach3 || sprite_index == spr_machslideboost3 || sprite_index == spr_machslideboost3end)
             collisioncheck[3] = obj_infestedwater;
     }
     
-    if (state == 27)
+    if (state == states.grind)
     {
         collisioncheck[4] = obj_grindrailslope;
         

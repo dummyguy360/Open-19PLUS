@@ -1,6 +1,6 @@
 function doorcheck()
 {
-    if (input_check("up") && grounded && other.sprite_index != spr_blockeddoor && state != 54 && state != 39 && (state == 0 || state == 47 || state == 66 || state == 42) && !instance_exists(obj_fadeout))
+    if (input_check("up") && grounded && other.sprite_index != spr_blockeddoor && state != states.door && state != states.comingoutdoor && (state == states.normal || state == states.mach2 || state == states.mach3 || state == states.sjumpprep) && !instance_exists(obj_fadeout))
         enterdoor();
 }
 

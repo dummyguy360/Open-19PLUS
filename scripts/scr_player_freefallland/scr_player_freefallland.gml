@@ -39,9 +39,9 @@ function scr_player_freefallland()
     {
         if (_hasanimended)
         {
-            state = grounded ? 0 : 36;
+            state = grounded ? states.normal : states.jump;
             
-            if (state == 0)
+            if (state == states.normal)
             {
                 if (facehurt)
                     sprite_index = spr_facehurtup;

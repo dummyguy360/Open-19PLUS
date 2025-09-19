@@ -1,9 +1,9 @@
-if (obj_player.state != 6)
+if (obj_player.state != states.titlescreen)
 {
     if (place_meeting(x, y, obj_player) && obj_player.grounded && input_check_pressed("up"))
     {
         instance_create_depth(0, 0, 0, obj_manual);
-        obj_player.state = 110;
+        obj_player.state = states.nothing;
         obj_player.sprite_index = obj_player.spr_idle;
         vis = false;
     }

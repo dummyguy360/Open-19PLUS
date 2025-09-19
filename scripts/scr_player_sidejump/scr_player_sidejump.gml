@@ -40,7 +40,7 @@ function scr_player_sidejump()
     
     if (input_check_pressed("dash"))
     {
-        state = 66;
+        state = states.mach3;
         
         if (grounded)
         {
@@ -73,7 +73,7 @@ function scr_player_sidejump()
         
         scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
         image_index = 0;
-        state = 68;
+        state = states.sjumpland;
         machhitAnim = 0;
     }
     

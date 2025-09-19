@@ -39,7 +39,7 @@ if (sprite_index == spr_player_facehurtup && floor(image_index) == (image_number
 
 y = min(y, 402);
 
-if (state == 0 && x > 1400)
+if (state == states.normal && x > 1400)
 {
     if (global.tutorialdone)
     {
@@ -68,10 +68,10 @@ if (state == 0 && x > 1400)
         image_index = sprite_get_number(spr_player_slipbanan3) - 1;
         image_speed = 0;
         hsp = 0;
-        state = 1;
+        state = states.tumble;
     }
 }
-else if (state == 1)
+else if (state == states.tumble)
 {
     if (bgspd < 0)
     {
@@ -81,7 +81,7 @@ else if (state == 1)
     {
         bgspd = 0;
         alarm[1] = 30;
-        state = 2;
+        state = states.finishingblow;
     }
     
     layer_hspeed(bg2, bgspd);

@@ -18,8 +18,8 @@ if (touched && sprite_index == spr_secretportal_close)
         scale_ys = Approach(scale_ys, 0, 0.05);
         fallinganimation = 0;
         
-        if (state == 47 || state == 66)
-            state = 0;
+        if (state == states.mach2 || state == states.mach3)
+            state = states.normal;
     }
     
     with (obj_heataura)

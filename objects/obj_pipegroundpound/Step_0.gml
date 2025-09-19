@@ -2,10 +2,10 @@ if (place_meeting(x, y, obj_player))
 {
     with (instance_place(x, y, obj_player))
     {
-        if (state == 76)
+        if (state == states.pipe)
         {
             vsp += 14;
-            state = 51;
+            state = states.freefall;
             scr_fmod_soundeffectONESHOT("event:/sfx/player/pipeout", x, y);
             sprite_index = spr_bodyslamfall;
             freefallsmash = 20;

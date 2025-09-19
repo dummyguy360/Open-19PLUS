@@ -4,7 +4,7 @@ if (visible)
 {
     var _area = instance_place(x, y, obj_gatetoppinarea);
     
-    if (obj_player.state == 31 && obj_player.sprite_index == obj_player.spr_taunt)
+    if (obj_player.state == states.backbreaker && obj_player.sprite_index == obj_player.spr_taunt)
     {
         if (sprite_index != tauntspr)
         {

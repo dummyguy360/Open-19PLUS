@@ -2,10 +2,10 @@ if (place_meeting(x + 32, y + 32, obj_player))
 {
     with (instance_place(x + 32, y + 32, obj_player))
     {
-        if (state == 76)
+        if (state == states.pipe)
         {
             vsp = 0;
-            state = 66;
+            state = states.mach3;
             movespeed = 12;
             sprite_index = spr_Dashpad;
             image_index = 0;

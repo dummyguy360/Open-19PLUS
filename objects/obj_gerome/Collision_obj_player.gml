@@ -1,4 +1,4 @@
-if (other.state != 50 && !there_is_follower_id(id))
+if (other.state != states.hurt && !there_is_follower_id(id))
 {
     event_perform_object(obj_follower, ev_create, 0);
     restore_combo();

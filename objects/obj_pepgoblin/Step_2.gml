@@ -45,7 +45,7 @@ switch (state)
 
 enemy_palettepoof();
 
-if (state == 104 && stunned > 100 && birdcreated == 0)
+if (state == states.seat && stunned > 100 && birdcreated == 0)
 {
     birdcreated = 1;
     
@@ -53,16 +53,16 @@ if (state == 104 && stunned > 100 && birdcreated == 0)
         ID = other.id;
 }
 
-if (state != 104)
+if (state != states.seat)
     birdcreated = 0;
 
-if (state == 300)
+if (state == states.enemyhitstun)
     exit;
 
 if (flash == 1 && alarm[2] <= 0)
     alarm[2] = 0.15 * room_speed;
 
-if (state != 104)
+if (state != states.seat)
     thrown = 0;
 
 scr_enemy_scared();
@@ -73,21 +73,21 @@ if (bombreset > 0)
 
 var __player = instance_nearest(x, y, obj_player);
 
-if (x != __player.x && state != 95 && __player.state != 1 && __player.state != 87 && !scr_transformationcheck() && bombreset == 0 && grounded)
+if (x != __player.x && state != states.ramp && __player.state != states.tumble && __player.state != states.hitstun && !scr_transformationcheck() && bombreset == 0 && grounded)
 {
     if (__player.x > (x - 80) && __player.x < (x + 80) && y <= (__player.y + 100) && y >= (__player.y - 100))
     {
-        if (state == 100)
+        if (state == states.homingattack)
         {
             image_index = 0;
             sprite_index = spr_pepgoblin_kick;
             image_xscale = -sign(x - __player.x);
-            state = 95;
+            state = states.ramp;
         }
     }
 }
 
-if (grounded && state == 95 && floor(image_index) == 3)
+if (grounded && state == states.ramp && floor(image_index) == 3)
     vsp = -5;
 
 if (boundbox == 0)

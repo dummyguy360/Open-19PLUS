@@ -1,8 +1,8 @@
 with (other.id)
 {
-    if (state != 66 && state != 78 && sprite_index != spr_player_catched)
+    if (state != states.mach3 && state != states.ghost && sprite_index != spr_player_catched)
     {
-        if (state == 18 || state == 13)
+        if (state == states.knightpep || state == states.knightpepslopes)
         {
             for (var i = 0; i < 5; i += 1)
             {
@@ -13,10 +13,10 @@ with (other.id)
             scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
         }
         
-        if (state == 19)
+        if (state == states.bombpep)
             instance_create_depth(x, y, 0, obj_bombexplosion);
         
-        if (state == 11)
+        if (state == states.boxxedpep)
         {
             scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
             
@@ -29,7 +29,7 @@ with (other.id)
         
         xscale = other.image_xscale;
         machhitAnim = 0;
-        state = 66;
+        state = states.mach3;
         
         if (sprite_index != spr_Dashpad)
         {
@@ -45,10 +45,10 @@ with (other.id)
         scr_fmod_soundeffectONESHOT("event:/sfx/player/dashpad", x, y);
     }
     
-    if (state == 66 || state == 23 || state == 40 || state == 12)
+    if (state == states.mach3 || state == states.machroll || state == states.sjump || state == states.climbwall)
     {
-        if (state != 66)
-            state = 66;
+        if (state != states.mach3)
+            state = states.mach3;
         
         if (sprite_index != spr_Dashpad && sprite_index != spr_crazyrun)
         {

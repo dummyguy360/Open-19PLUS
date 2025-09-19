@@ -2,7 +2,7 @@ if (instance_exists(obj_player))
 {
     var p = obj_player;
     
-    if (!scr_hudroomcheck() && obj_player.state != 33)
+    if (!scr_hudroomcheck() && obj_player.state != states.ejected2)
     {
         var _tutorial = global.levelname == "tutorial";
         

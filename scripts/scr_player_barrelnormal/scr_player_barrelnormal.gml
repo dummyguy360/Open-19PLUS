@@ -9,21 +9,21 @@ function scr_player_barrelnormal()
     
     if (!grounded && !input_check_pressed("jump"))
     {
-        state = 60;
+        state = states.barrelfall;
         image_index = 0;
         hsp = 0;
     }
     
     if ((input_check("down") && grounded) || scr_solid(x, y - 3))
     {
-        state = 56;
+        state = states.barrelcrouch;
         image_index = 0;
     }
     
     if (input_check("dash") && grounded)
     {
         movespeed = 0;
-        state = 59;
+        state = states.barrelmach1;
         landAnim = 0;
     }
     

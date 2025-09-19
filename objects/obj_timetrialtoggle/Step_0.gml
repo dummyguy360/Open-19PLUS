@@ -19,7 +19,7 @@ else if (!instance_exists(uparrowid))
     uparrowid = create_uparrow();
 }
 
-if (place_meeting(x, y, obj_player) && obj_player.state == 0 && obj_player.grounded && input_check_pressed("up") && (clockspr == spr_timetrialactivator_clock || clockspr == spr_timetrialactivator_clockopened) && clonespr == -4)
+if (place_meeting(x, y, obj_player) && obj_player.state == states.normal && obj_player.grounded && input_check_pressed("up") && (clockspr == spr_timetrialactivator_clock || clockspr == spr_timetrialactivator_clockopened) && clonespr == -4)
 {
     global.timetrial = !global.timetrial;
     save_open();
@@ -27,7 +27,7 @@ if (place_meeting(x, y, obj_player) && obj_player.state == 0 && obj_player.groun
     if (!ini_read_real("GameProgress", "turnedontimetrial", false))
     {
         instance_create_depth(x, y, 0, obj_timetrialexplanation);
-        obj_player.state = 122;
+        obj_player.state = states.npclocked;
     }
     
     ini_write_real("GameProgress", "turnedontimetrial", true);

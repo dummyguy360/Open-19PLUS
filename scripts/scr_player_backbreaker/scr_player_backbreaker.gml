@@ -1,10 +1,10 @@
 function scr_player_backbreaker()
 {
     if (floor(image_index) == (image_number - 1) && sprite_index == spr_levelcomplete)
-        state = 0;
+        state = states.normal;
     
     if (floor(image_index) == (image_number - 1) && sprite_index == spr_player_bossscared)
-        state = 0;
+        state = states.normal;
     
     if (floor(image_index) == (image_number - 1) && sprite_index == spr_Timesup && !place_meeting(x, y, obj_exitgate))
     {
@@ -14,12 +14,12 @@ function scr_player_backbreaker()
     }
     
     if (floor(image_index) == (image_number - 1) && sprite_index == spr_Timesup && place_meeting(x, y, obj_exitgate))
-        state = 0;
+        state = states.normal;
     
     if (floor(image_index) == (image_number - 1) && sprite_index == spr_player_titlescared && titlescreenstart == 0)
     {
         introscared = 1;
-        state = 0;
+        state = states.normal;
         
         with (instance_create_depth(x, y + 16, depth + 1, obj_debris))
         {
@@ -30,7 +30,7 @@ function scr_player_backbreaker()
     }
     
     if (floor(image_index) == (image_number - 1) && sprite_index == spr_player_titlescared && titlescreenstart == 1)
-        state = 0;
+        state = states.normal;
     
     mach2 = 0;
     
@@ -51,7 +51,7 @@ function scr_player_backbreaker()
     {
         if (sprite_index == spr_machfreefall)
         {
-            state = 48;
+            state = states.machslide;
             sprite_index = spr_player_crouchslide;
         }
     }
@@ -60,7 +60,7 @@ function scr_player_backbreaker()
     {
         with (obj_baddie)
         {
-            if (distance_to_object(instance_nearest(x, y, obj_player)) < 100 && state == 104)
+            if (distance_to_object(instance_nearest(x, y, obj_player)) < 100 && state == states.seat)
             {
                 stunned = 0;
                 bombreset = 0;
@@ -76,7 +76,7 @@ function scr_player_backbreaker()
                 if (bbox_in_camera(1, id))
                 {
                     stunned = 200;
-                    state = 104;
+                    state = states.seat;
                     hsp = 0;
                     vsp = 0;
                     insupertaunt = 1;

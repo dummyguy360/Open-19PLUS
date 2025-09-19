@@ -15,7 +15,7 @@ function scr_player_mach2()
     {
         if (sign(arg0) != xscale)
         {
-            state = 49;
+            state = states.bump;
             sprite_index = spr_wallsplat;
             image_index = 0;
             
@@ -35,14 +35,14 @@ function scr_player_mach2()
             longjumping = 0;
             longjumpspd = 0;
             wallclimbtime = 0;
-            state = 12;
+            state = states.climbwall;
         }
         else
         {
             if (scr_bump_rat(arg0))
                 exit;
             
-            state = 49;
+            state = states.bump;
             sprite_index = spr_wallsplat;
             image_index = 0;
             mach2 = 0;
@@ -85,7 +85,7 @@ function scr_player_mach2()
         if (character == "S")
         {
             jumpstop = 0;
-            state = 36;
+            state = states.jump;
             momemtum = 1;
             sprite_index = spr_jump;
         }
@@ -128,18 +128,18 @@ function scr_player_mach2()
         if (movespeed >= 8)
         {
             image_index = 0;
-            state = 48;
+            state = states.machslide;
             scr_fmod_soundeffect(char_machbreaksnd, x, y);
             sprite_index = spr_machslidestart;
         }
         else if (movespeed < 8)
         {
-            state = 0;
+            state = states.normal;
         }
     }
     
     if (!input_check("dash") && grounded && vsp >= 0 && move == xscale && !longjumping)
-        state = 0;
+        state = states.normal;
     
     if (longjumping)
     {
@@ -168,7 +168,7 @@ function scr_player_mach2()
             longjumpslideanim = 1;
             sprite_index = spr_longjumpslidestart;
             scr_fmod_soundeffectONESHOT("event:/sfx/player/step", x, y);
-            state = 45;
+            state = states.crouchslide;
             rollbuffer = 0;
         }
     }
@@ -218,7 +218,7 @@ function scr_player_mach2()
         if ((abs(hsp) >= 12 && character != "S") || (character == "S" && abs(hsp) >= 12 && scr_slope_ext(x, y + 1) && vsp >= 0 && xscale == -sign(instance_place(x, y + 1, obj_slope).image_xscale)))
         {
             machhitAnim = 0;
-            state = 66;
+            state = states.mach3;
             flash = 1;
             
             if (sprite_index != spr_rollgetup && sprite_index != spr_Dashpad)
@@ -264,16 +264,16 @@ function scr_player_mach2()
         flash = 0;
         
         if (character != "N")
-            state = 23;
+            state = states.machroll;
         else if (grounded)
-            state = 23;
+            state = states.machroll;
         
         if (character == "N" && !grounded)
         {
             with (instance_create_depth(x, y, obj_player.depth, obj_balloonpop))
                 sprite_index = spr_noisewalljumpeffect;
             
-            state = 120;
+            state = states.nwalljump;
             savedmove = xscale;
             vsp = 20;
             movespeed = hsp;
@@ -302,7 +302,7 @@ function scr_player_mach2()
         {
             scr_fmod_soundeffect(char_machturnsnd, x, y);
             image_index = 0;
-            state = 48;
+            state = states.machslide;
             sprite_index = spr_machslideboost;
         }
     }
@@ -333,7 +333,7 @@ function scr_player_mach2()
     if ((character == "P" || character == "N") && input_check("up") && input_buffer_attack < 8 && canuppercut)
     {
         input_buffer_attack = 8;
-        state = 75;
+        state = states.shoryuken;
         sprite_index = spr_shoryukenstart;
         image_index = 0;
         
@@ -381,7 +381,7 @@ function scr_player_mach2()
             if (!kungfumove)
             {
                 kungfumove = true;
-                state = 91;
+                state = states.kungfu;
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/kungfu", x, y);
                 
                 if (movespeed < 10)
@@ -402,7 +402,7 @@ function scr_player_mach2()
         {
             suplexmove = 1;
             fmod_studio_event_instance_start(suplexdashsnd);
-            state = 16;
+            state = states.suplexgrab;
             image_index = 0;
             
             if (global.currentpowerup != 1)
@@ -430,7 +430,7 @@ function scr_player_mach2()
         if (!grounded)
             vsp = -6;
         
-        state = 74;
+        state = states.gunshoot;
         sprite_index = spr_player_gunshoot;
         image_index = 0;
         
@@ -459,7 +459,7 @@ function scr_player_mach2()
     if (global.currentpowerup == 3 && !mortjump && input_check_pressed("jump") && !grounded && sprite_index != spr_player_mortdoublejump && sprite_index != spr_player_mortjump)
     {
         mortjump = 1;
-        state = 36;
+        state = states.jump;
         stompAnim = 0;
         sprite_index = spr_player_mortdoublejump;
         image_index = 0;

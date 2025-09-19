@@ -54,7 +54,7 @@ function scr_playerC_normal()
     
     if (input_check("attack"))
     {
-        state = 113;
+        state = states.cheeseslimeattack;
         movespeed = 0;
         sprite_index = spr_slime_rage;
         image_index = 0;

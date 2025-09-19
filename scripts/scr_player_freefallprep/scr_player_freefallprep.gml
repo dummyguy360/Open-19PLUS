@@ -52,7 +52,7 @@ function scr_player_freefallprep()
     
     if (floor(image_index) == (image_number - 1) || vsp > 3)
     {
-        state = 51;
+        state = states.freefall;
         
         if (global.currentpowerup != 1)
             sprite_index = spr_bodyslamfall;

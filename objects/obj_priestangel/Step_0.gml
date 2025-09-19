@@ -12,7 +12,7 @@ switch (state)
             alarm[0] = 50;
             x = tx;
             y = ty;
-            state = 1;
+            state = states.tumble;
         }
         
         break;

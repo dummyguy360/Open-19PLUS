@@ -12,7 +12,7 @@ function scr_player_seat()
                 player_isseated = 0;
         }
         
-        state = 36;
+        state = states.jump;
         vsp = -8;
         jumpAnim = 1;
         sprite_index = spr_jump;

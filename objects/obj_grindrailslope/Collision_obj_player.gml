@@ -1,4 +1,4 @@
-if (other.y > other.yprevious && other.state != 31 && other.state != 27 && other.state != 49 && other.y < y && !scr_transformationcheck())
+if (other.y > other.yprevious && other.state != states.backbreaker && other.state != states.grind && other.state != states.bump && other.y < y && !scr_transformationcheck())
 {
     with (other)
     {
@@ -9,6 +9,6 @@ if (other.y > other.yprevious && other.state != 31 && other.state != 27 && other
     if (other.movespeed < 10)
         other.movespeed = 10;
     
-    other.state = 27;
+    other.state = states.grind;
     other.sprite_index = other.spr_grind;
 }

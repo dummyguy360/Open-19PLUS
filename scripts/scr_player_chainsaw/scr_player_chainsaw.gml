@@ -53,7 +53,7 @@ function scr_player_chainsaw()
         
         if (input_check("dash") && canmach3 <= 0 && grounded)
         {
-            state = 66;
+            state = states.mach3;
             sprite_index = spr_dashpad;
             image_index = 0;
         }
@@ -100,7 +100,7 @@ function scr_player_chainsaw()
     {
         hsp = -5;
         image_index = 0;
-        state = 15;
+        state = states.chainsawbump;
         vsp = -3;
         scr_fmod_soundeffectONESHOT("event:/sfx/player/bump", x, y);
         scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
@@ -129,7 +129,7 @@ function scr_player_chainsaw()
     
     if (sprite_index == spr_player_chainsawbumpwall && floor(image_index) == (image_number - 1))
     {
-        state = 0;
+        state = states.normal;
         hsp = 0;
         image_index = 0;
     }
@@ -142,7 +142,7 @@ function scr_player_chainsaw()
     
     if (sprite_index == spr_player_chainsawdash && input_check("dash") && grounded && floor(image_index) == (image_number - 1))
     {
-        state = 47;
+        state = states.mach2;
         
         with (instance_create_depth(x, y, 0, obj_dashcloud))
             image_index = other.xscale;

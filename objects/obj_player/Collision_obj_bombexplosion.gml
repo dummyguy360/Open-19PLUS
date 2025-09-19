@@ -1,6 +1,6 @@
-if (!hurted && !cutscene && state != 19 && sprite_index != spr_bombpepend && state != 40 && state != 42 && state != 11 && !rocket)
+if (!hurted && !cutscene && state != states.bombpep && sprite_index != spr_bombpepend && state != states.sjump && state != states.sjumpprep && state != states.boxxedpep && !rocket)
 {
-    if (state == 18)
+    if (state == states.knightpep)
     {
         scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
         
@@ -17,7 +17,7 @@ if (!hurted && !cutscene && state != 19 && sprite_index != spr_bombpepend && sta
     image_index = 0;
     vsp = -4;
     sprite_index = spr_bombpepend;
-    state = 19;
+    state = states.bombpep;
     bombpeptimer = 0;
     restore_combo();
 }

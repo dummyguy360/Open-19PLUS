@@ -31,7 +31,7 @@ if (y >= -32)
             {
                 sprite_index = spr_player_titlescared;
                 image_index = 0;
-                state = 31;
+                state = states.backbreaker;
                 vsp = -5;
             }
         }

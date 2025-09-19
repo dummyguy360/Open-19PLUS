@@ -20,7 +20,7 @@ function scr_player_sagelevelentrance()
     
     if (sprite_index == spr_slipbanan3 && floor(image_index) == (image_number - 1))
     {
-        state = 0;
+        state = states.normal;
         vsp = 0;
     }
     

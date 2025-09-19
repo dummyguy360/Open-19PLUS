@@ -17,7 +17,7 @@ function scr_player_shoulderbash()
             
             scr_fmod_soundeffectONESHOT("event:/sfx/player/bump", x, y);
             jumpstop = 1;
-            state = 36;
+            state = states.jump;
             vsp = -4;
             image_index = 0;
             instance_create_depth(x + (xscale * 10), y + 10, 0, obj_bumpeffect);
@@ -35,7 +35,7 @@ function scr_player_shoulderbash()
                 wallspeed = movespeed;
             
             wallclimbtime = 10;
-            state = 12;
+            state = states.climbwall;
         }
     };
     
@@ -71,16 +71,16 @@ function scr_player_shoulderbash()
         image_speed = 0.35;
         
         if (character != "N" || (character == "N" && !pogo))
-            state = 47;
+            state = states.mach2;
         
         if (character == "N" && pogo)
-            state = 0;
+            state = states.normal;
     }
     
     if (floor(image_index) == (image_number - 1) && sprite_index == spr_shoulderbash && grounded && !input_check("dash"))
     {
         image_speed = 0.35;
-        state = 0;
+        state = states.normal;
         grav = 0.5;
         inmach = 0;
     }
@@ -108,13 +108,13 @@ function scr_player_shoulderbash()
         grav = 0.5;
         instance_create_depth(x, y, 0, obj_jumpdust);
         flash = 0;
-        state = 23;
+        state = states.machroll;
         vsp = 10;
     }
     
     if (move != xscale && move != 0)
     {
-        state = 36;
+        state = states.jump;
         sprite_index = spr_suplexgrabcancel;
         image_index = 0;
         jumpAnim = 1;

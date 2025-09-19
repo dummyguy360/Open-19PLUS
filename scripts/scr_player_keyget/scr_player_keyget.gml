@@ -24,9 +24,9 @@ function scr_player_keyget()
         global.keyget = 0;
         
         if (character == "C")
-            state = 112;
+            state = states.cheeseslime;
         else
-            state = 0;
+            state = states.normal;
         
         if (global.key_inv && !instance_exists(obj_keyinv))
         {

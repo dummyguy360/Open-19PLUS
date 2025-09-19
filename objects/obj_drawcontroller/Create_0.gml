@@ -8,7 +8,7 @@ function update_camera(arg0)
     if (instance_exists(obj_player) && (!obj_pause.pause || copyapp))
         p = obj_player.id;
     
-    if (p != -4 && p.state != 33)
+    if (p != -4 && p.state != states.ejected2)
     {
         var camx = 0;
         var camy = 0;
@@ -25,13 +25,13 @@ function update_camera(arg0)
             var _targetcharge = 0;
             var _tspeed = 0;
             
-            if (target.state == 47 || target.state == 66 || target.state == 87 || target.state == 73 || target.state == 1 || target.state == 27 || target.state == 26 || (target.state == 18 && target.knightsliding) || target.state == 13)
+            if (target.state == states.mach2 || target.state == states.mach3 || target.state == states.hitstun || target.state == states.shoulderbash || target.state == states.tumble || target.state == states.grind || target.state == states.skateboard || (target.state == states.knightpep && target.knightsliding) || target.state == states.knightpepslopes)
             {
                 _targetcharge = ((target.xscale * target.movespeed) / 4) * 100;
                 _tspeed = 0.2;
                 chargecamera = Approach(chargecamera, _targetcharge, _tspeed);
             }
-            else if (abs(target.hsp) >= 16 && target.state != 12 && target.state != 40)
+            else if (abs(target.hsp) >= 16 && target.state != states.climbwall && target.state != states.sjump)
             {
                 _targetcharge = ((target.xscale * abs(target.hsp)) / 4) * 100;
                 _tspeed = 2;
@@ -41,7 +41,7 @@ function update_camera(arg0)
                 
                 chargecamera = Approach(chargecamera, _targetcharge, _tspeed);
             }
-            else if (state == 48)
+            else if (state == states.machslide)
             {
                 chargecamera = Approach(chargecamera, 0, 10);
             }
@@ -78,10 +78,10 @@ function update_camera(arg0)
         camx = target.x + chargecamera;
         camy = target.y - camy_minus;
         
-        if (target.state == 125)
+        if (target.state == states.hubeject)
             camy = target.backtohubstarty - camy_minus;
         
-        if (target.state == 126)
+        if (target.state == states.sagelevelentrance)
             camy = target.roomstarty - camy_minus;
         
         if (wasball)
@@ -344,7 +344,7 @@ function tv_thintext()
 
 combobarvsp = 0;
 combobary = -120;
-combostate = 0;
+combostate = states.normal;
 comboguypos = (tvX + 123) - 61;
 comboguyind = 0;
 combobubbleind = 0;

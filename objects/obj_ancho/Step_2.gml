@@ -46,7 +46,7 @@ switch (state)
 
 enemy_palettepoof();
 
-if (state == 104 && stunned > 100 && birdcreated == 0)
+if (state == states.seat && stunned > 100 && birdcreated == 0)
 {
     birdcreated = 1;
     
@@ -54,13 +54,13 @@ if (state == 104 && stunned > 100 && birdcreated == 0)
         ID = other.id;
 }
 
-if (state == 300)
+if (state == states.enemyhitstun)
     exit;
 
-if (state != 104)
+if (state != states.seat)
     birdcreated = 0;
 
-if (state == 100)
+if (state == states.homingattack)
 {
     if (y != attackpos && y == prevy)
     {
@@ -74,7 +74,7 @@ if (state == 100)
         y = Approach(y, attackpos, 1);
 }
 
-if (state == 104)
+if (state == states.seat)
     grav = 0.5;
 else
     grav = 0;
@@ -87,9 +87,9 @@ var __player = instance_nearest(x, y, obj_player);
 
 if (__player.x > (x - 400) && __player.x < (x + 400) && y <= (__player.y + 60) && y >= (__player.y - 60))
 {
-    if (state != 92 && state != 94 && __player.state == 66)
+    if (state != states.tackleold && state != states.timesup && __player.state == states.mach3)
     {
-        state = 92;
+        state = states.tackleold;
         sprite_index = scaredspr;
         
         if (x != __player.x)
@@ -99,7 +99,7 @@ if (__player.x > (x - 400) && __player.x < (x + 400) && y <= (__player.y + 60) &
 
 if (sprite_index == spr_ancho_chargestart && floor(image_index) == (image_number - 1))
 {
-    if (hitboxcreate == 0 && visible == 1 && state == 94)
+    if (hitboxcreate == 0 && visible == 1 && state == states.timesup)
     {
         hitboxcreate = 1;
         
@@ -117,11 +117,11 @@ if (x != __player.x && _cancharge && visible)
 {
     if (__player.x > (x - 200) && __player.x < (x + 200) && y <= (__player.y + 50) && y >= (__player.y - 50))
     {
-        if (state == 100)
+        if (state == states.homingattack)
         {
             image_index = 0;
             image_xscale = -sign(x - __player.x);
-            state = 94;
+            state = states.timesup;
             sprite_index = spr_ancho_chargestart;
             scr_fmod_soundeffectONESHOT("event:/sfx/enemy/charge", x, y);
         }
@@ -129,7 +129,7 @@ if (x != __player.x && _cancharge && visible)
     
     if (__player.x > (x - 200) && __player.x < (x + 200) && y <= (__player.y + 200) && y >= (__player.y - 200))
     {
-        if (state != 94 && state != 92 && global.stylethreshold >= 2 && __player.state != 40 && !scr_transformationcheck())
+        if (state != states.timesup && state != states.tackleold && global.stylethreshold >= 2 && __player.state != states.sjump && !scr_transformationcheck())
         {
             for (var i = 0; i < 4; i++)
             {
@@ -151,7 +151,7 @@ if (x != __player.x && _cancharge && visible)
             
             charging = true;
             scr_fmod_soundeffectONESHOT("event:/sfx/enemy/charge", x, y);
-            state = 94;
+            state = states.timesup;
             movespeed = 0;
             sprite_index = spr_ancho_rage1;
             image_index = 0;
@@ -162,10 +162,10 @@ if (x != __player.x && _cancharge && visible)
     }
 }
 
-if (state == 104 || state == 100)
+if (state == states.seat || state == states.homingattack)
     movespeed = 0;
 
-if (state != 104)
+if (state != states.seat)
     thrown = 0;
 
 if (boundbox == 0)

@@ -1,4 +1,4 @@
-if (grounded && other.sprite_index == spr_swordstone && (is_player_grabbing() || (character == "S" && state == 0)))
+if (grounded && other.sprite_index == spr_swordstone && (is_player_grabbing() || (character == "S" && state == states.normal)))
 {
     scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/knightsword", x, y);
     momemtum = 0;
@@ -7,7 +7,7 @@ if (grounded && other.sprite_index == spr_swordstone && (is_player_grabbing() ||
     image_index = 0;
     image_speed = 0.35;
     sprite_index = spr_knightpepstart;
-    state = 18;
+    state = states.knightpep;
     hsp = 0;
     knightsliding = 0;
     

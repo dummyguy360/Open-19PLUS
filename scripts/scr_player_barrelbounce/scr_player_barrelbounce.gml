@@ -9,7 +9,7 @@ function scr_player_barrelbounce()
     
     if (grounded && vsp >= 0)
     {
-        state = 105;
+        state = states.barrel;
         
         if (!input_check("dash"))
         {
@@ -24,7 +24,7 @@ function scr_player_barrelbounce()
     
     if (!input_check("dash") && vsp < -4 && !scr_solid(x, y - 16))
     {
-        state = 105;
+        state = states.barrel;
         sprite_index = spr_barrelfall;
     }
 }

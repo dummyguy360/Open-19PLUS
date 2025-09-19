@@ -15,7 +15,7 @@ function scr_player_finishingblow()
     
     if (floor(image_index) == (image_number - 1))
     {
-        state = 0;
+        state = states.normal;
         movespeed = 0;
         punchedenemy = true;
     }

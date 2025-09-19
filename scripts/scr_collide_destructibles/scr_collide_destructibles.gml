@@ -218,7 +218,7 @@ function scr_collide_destructibles(arg0, arg1)
             _arr[--_i].y += room_height;
     }
     
-    if (state == 97)
+    if (state == states.firemove)
     {
         with (instance_place(x, y, obj_destructibles))
             instance_destroy();
@@ -241,7 +241,7 @@ function scr_bump_rat(arg0 = 0, arg1 = 0, arg2 = true)
     
     if (_dobump && arg2)
     {
-        state = 49;
+        state = states.bump;
         sprite_index = spr_bump;
         xscale = other.image_xscale;
         hsp = -5 * xscale;
@@ -272,7 +272,7 @@ function scr_enemy_enemies(arg0, arg1)
 {
     var _hit = false;
     
-    if (state == 104 && thrown)
+    if (state == states.seat && thrown)
     {
         var _i = instance_place(x + arg0, y + arg1, obj_baddiecollisionbox);
         

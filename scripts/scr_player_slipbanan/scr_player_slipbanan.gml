@@ -109,7 +109,7 @@ function scr_player_slipbanan()
         if (floor(image_index) == (image_number - 1))
         {
             if (movespeed == 0 && grounded)
-                state = 0;
+                state = states.normal;
             else
                 image_index = image_number - 1;
         }

@@ -1,4 +1,4 @@
-if (state != 107)
+if (state != states.smallpepdash)
 {
     sprite_index = stunfallspr;
     instance_destroy();

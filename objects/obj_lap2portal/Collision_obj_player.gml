@@ -1,4 +1,4 @@
-if (other.state != 14 && global.panic && sprite_index != spr_pizzaportaloutline)
+if (other.state != states.portal && global.panic && sprite_index != spr_pizzaportaloutline)
 {
     with (other.id)
     {
@@ -6,7 +6,7 @@ if (other.state != 14 && global.panic && sprite_index != spr_pizzaportaloutline)
         vsp = 0;
         other.sprite_index = spr_pizzaportalend;
         other.image_index = 0;
-        state = 14;
+        state = states.portal;
         grav = 0;
         event_play_oneshot("event:/sfx/player/boxenter");
         add_collect(3000);

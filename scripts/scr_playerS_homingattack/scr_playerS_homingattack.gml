@@ -15,13 +15,13 @@ function scr_playerS_homingattack()
         else
         {
             homingtarget = -4;
-            state = 36;
+            state = states.jump;
         }
         
         if (!instance_exists(homingtarget))
         {
             homingtarget = -4;
-            state = 36;
+            state = states.jump;
         }
         
         if (hsp > 0)
@@ -34,9 +34,9 @@ function scr_playerS_homingattack()
     if (grounded)
     {
         homingtarget = -4;
-        state = 36;
+        state = states.jump;
     }
     
     if (homingtarget == -4)
-        state = 36;
+        state = states.jump;
 }

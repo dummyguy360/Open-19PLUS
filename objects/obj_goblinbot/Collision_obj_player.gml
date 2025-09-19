@@ -1,10 +1,10 @@
 with (other.id)
 {
-    if (state != 18 && state != 13 && state != 78)
+    if (state != states.knightpep && state != states.knightpepslopes && state != states.ghost)
     {
-        if (state != 1)
+        if (state != states.tumble)
         {
-            state = 1;
+            state = states.tumble;
             voice_transfo();
             scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/transfo", x, y);
         }

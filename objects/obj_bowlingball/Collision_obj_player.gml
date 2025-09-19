@@ -7,7 +7,7 @@ if (falling && vsp > 0)
     with (obj_player)
     {
         image_index = 0;
-        state = 21;
+        state = states.stunned;
         sprite_index = spr_stunned;
     }
     

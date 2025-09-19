@@ -4,9 +4,9 @@ with (instance_place(x, y - 1, obj_player))
 {
     if (!place_meeting(x, y, obj_pipepar))
     {
-        if (state != 64 && state != 87)
+        if (state != states.current && state != states.hitstun)
         {
-            state = 64;
+            state = states.current;
             sprite_index = obj_player.spr_Current;
         }
     }

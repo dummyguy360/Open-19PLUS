@@ -46,7 +46,7 @@ endfunc = function()
         
         if (get_coins() > 0)
         {
-            obj_player.state = 110;
+            obj_player.state = states.nothing;
             instance_create_depth(x, y, -999, obj_badgeshop);
         }
     }

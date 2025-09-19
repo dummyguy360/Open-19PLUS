@@ -12,14 +12,14 @@ function scr_player_grind()
     if (!place_meeting(x, y + 18, obj_grindrail) && !place_meeting(x, y + 18, obj_grindrailslope))
     {
         if (movespeed < 12)
-            state = 47;
+            state = states.mach2;
         else
-            state = 66;
+            state = states.mach3;
     }
     
     if (place_meeting(x + xscale, y, obj_solid) && !place_meeting(x, y + 18, obj_grindrailslope) && !place_meeting(x, y + 1, obj_slope))
     {
-        state = 49;
+        state = states.bump;
         hsp = -xscale * 5;
         vsp = 1;
     }
@@ -34,9 +34,9 @@ function scr_player_grind()
         image_index = 0;
         
         if (movespeed < 12)
-            state = 47;
+            state = states.mach2;
         else
-            state = 66;
+            state = states.mach3;
     }
     
     if (!instance_exists(obj_grindeffect))

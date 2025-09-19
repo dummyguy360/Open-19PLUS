@@ -4,7 +4,7 @@ with (other.id)
     {
         xscale = other.image_xscale;
         machhitAnim = 0;
-        state = 66;
+        state = states.mach3;
         sprite_index = spr_rocketstart;
         image_index = 0;
         voice_transfo();

@@ -16,7 +16,7 @@ if (instance_exists(baddieID))
         restore_combo();
         alarm[1] = 5;
         thrown = 1;
-        state = 104;
+        state = states.seat;
         image_xscale = -p.xscale;
         stunned = 200;
         

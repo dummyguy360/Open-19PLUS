@@ -1,19 +1,19 @@
-if (visible == 1 && obj_player.state != 3)
+if (visible == 1 && obj_player.state != states.ejected)
 {
     if (place_meeting(x, y - 1, obj_player))
     {
         with (obj_player)
         {
-            if (state == 18)
+            if (state == states.knightpep)
             {
-                state = 13;
+                state = states.knightpepslopes;
                 
                 if (movespeed < 13)
                     movespeed = 13;
             }
-            else if (state != 13)
+            else if (state != states.knightpepslopes)
             {
-                state = 38;
+                state = states.slipnslide;
                 sprite_index = spr_slipnslide;
             }
         }

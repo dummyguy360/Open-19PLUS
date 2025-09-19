@@ -1,4 +1,4 @@
-obj_player.state = 0;
+obj_player.state = states.normal;
 
 with (instance_create_depth(x, y, -9999999, obj_collectparticle))
 {

@@ -41,12 +41,12 @@ if (fade == 0)
         
         with (obj_player)
         {
-            if (state == 98)
+            if (state == states.pitfall)
             {
                 if (global.smallpep)
                 {
                     sprite_index = spr_smallidle;
-                    state = 106;
+                    state = states.smallpep;
                     grav = 0.5;
                     hsp = 0;
                     movespeed = 0;
@@ -54,7 +54,7 @@ if (fade == 0)
                 }
                 else
                 {
-                    state = 0;
+                    state = states.normal;
                     grav = 0.5;
                     hsp = 0;
                     movespeed = 0;

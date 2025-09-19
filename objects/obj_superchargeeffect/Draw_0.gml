@@ -3,7 +3,7 @@ if (!scr_hudroomcheck() && global.battle == 0 && global.currentbadge != 2)
     var check;
     
     with (obj_player)
-        check = state != 54 && state != 41 && state != 39 && state != 114 && state != 128 && state != 76 && state != 14 && state != 21 && state != 34 && state != 110 && !scr_transformationcheck(self);
+        check = state != states.door && state != states.victory && state != states.comingoutdoor && state != states.actor && state != states.noclip && state != states.pipe && state != states.portal && state != states.stunned && state != states.keyget && state != states.nothing && !scr_transformationcheck(self);
     
     with (obj_player)
     {

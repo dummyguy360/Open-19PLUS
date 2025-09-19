@@ -22,7 +22,7 @@ function scr_player_comingoutdoor()
     {
         if (!place_meeting(x, y, obj_exitgate))
         {
-            state = 0;
+            state = states.normal;
             image_index = 0;
         }
         
@@ -36,7 +36,7 @@ function scr_player_comingoutdoor()
     if (place_meeting(x, y, [obj_door, obj_keydoor, obj_doorblocked, obj_exitgate, obj_startgate, obj_geromedoor]))
         sprite_index = spr_walkfront;
     else
-        state = 0;
+        state = states.normal;
     
     image_speed = 0.35;
 }

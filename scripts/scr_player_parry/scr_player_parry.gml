@@ -16,7 +16,7 @@ function scr_player_parry()
         movespeed += 0.6;
     
     if (floor(image_index) == (image_number - 1))
-        state = 0;
+        state = states.normal;
     
     image_speed = 0.6;
 }

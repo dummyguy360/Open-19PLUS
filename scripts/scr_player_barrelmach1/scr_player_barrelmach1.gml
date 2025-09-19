@@ -16,28 +16,28 @@ function scr_player_barrelmach1()
         if (mach2 >= 35)
         {
             image_index = 0;
-            state = 62;
+            state = states.barrelslipnslide;
             flash = 1;
         }
     }
     
     if (!grounded)
     {
-        state = 60;
+        state = states.barrelfall;
         image_index = 0;
         hsp = 0;
     }
     
     if (!input_check("dash") && grounded)
     {
-        state = 61;
+        state = states.barrelnormal;
         image_index = 0;
         mach2 = 0;
     }
     
     if (scr_solid(x + 1, y) && xscale == 1 && !scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope))
     {
-        state = 60;
+        state = states.barrelfall;
         hsp = -2;
         vsp = -2;
         mach2 = 0;
@@ -47,7 +47,7 @@ function scr_player_barrelmach1()
     
     if (scr_solid(x - 1, y) && xscale == -1 && !scr_slope() && !place_meeting(x + sign(hsp), y, obj_slope))
     {
-        state = 60;
+        state = states.barrelfall;
         hsp = 2;
         vsp = -2;
         mach2 = 0;

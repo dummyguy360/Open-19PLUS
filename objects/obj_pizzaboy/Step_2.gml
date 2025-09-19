@@ -45,16 +45,16 @@ switch (state)
 
 enemy_palettepoof();
 
-if (state == 300)
+if (state == states.enemyhitstun)
     exit;
 
 if (flash == 1 && alarm[2] <= 0)
     alarm[2] = 0.15 * room_speed;
 
-if (state == 100)
-    state = 92;
+if (state == states.homingattack)
+    state = states.tackleold;
 
-if (state != 104)
+if (state != states.seat)
     thrown = 0;
 
 scr_escapeenemy();

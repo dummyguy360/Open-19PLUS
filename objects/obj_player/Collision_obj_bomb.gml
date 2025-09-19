@@ -1,7 +1,7 @@
-if (!cutscene && other.grounded == 1 && state != 19 && (is_player_grabbing() || (state == 0 && character == "S")))
+if (!cutscene && other.grounded == 1 && state != states.bombpep && (is_player_grabbing() || (state == states.normal && character == "S")))
 {
     bombpeptimer = 100;
-    state = 19;
+    state = states.bombpep;
     image_index = 0;
     sprite_index = spr_bombpepintro;
     bombspawnerid = other.spawner;
@@ -11,7 +11,7 @@ if (!cutscene && other.grounded == 1 && state != 19 && (is_player_grabbing() || 
     scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/transfo", x, y);
 }
 
-if (!cutscene && other.grounded && state != 19 && state == 53)
+if (!cutscene && other.grounded && state != states.bombpep && state == states.freefallland)
 {
     instance_create_depth(x, y, 0, obj_bombexplosion);
     instance_destroy(other.id, false);
@@ -24,7 +24,7 @@ if (!cutscene && other.grounded && state != 19 && state == 53)
     else
         sprite_index = spr_player_bombjump;
     
-    state = 40;
+    state = states.sjump;
     vsp = -20;
     cancel_Sjump = false;
 }

@@ -1,6 +1,6 @@
 with (obj_player)
 {
-    if (state == 66)
+    if (state == states.mach3)
     {
         do_hitstun(global.mach3hitstun);
         gamepadvibrate(1, 0, 15);

@@ -18,39 +18,39 @@ function scr_hurtplayer(arg0 = other.id, arg1 = true)
             }
         }
         
-        if ((state == 18 || state == 13 || state == 115) && !cutscene)
+        if ((state == states.knightpep || state == states.knightpepslopes || state == states.knightpepbump) && !cutscene)
             return false;
         
-        if (state == 19 && !hurted)
+        if (state == states.bombpep && !hurted)
             return false;
         
-        if (state == 8)
+        if (state == states.cheeseball)
             return false;
         
-        if (state == 96)
+        if (state == states.weeniemount)
             return false;
         
-        if (state == 108)
+        if (state == states.retrodeath)
             return false;
         
-        if (state == 1)
+        if (state == states.tumble)
             return false;
         
-        if (state == 88)
+        if (state == states.slipbanan)
             return false;
         
         if (instance_exists(obj_parryhitbox))
             return false;
         
-        if ((state == 106 || state == 107) && !hurted && !cutscene)
+        if ((state == states.smallpep || state == states.smallpepdash) && !hurted && !cutscene)
         {
             mariodeathid = event_play_oneshot("event:/sfx/player/retrodeath");
-            state = 108;
+            state = states.retrodeath;
             push_notif(2, [_hurttype]);
             return true;
         }
         
-        if (state == 11)
+        if (state == states.boxxedpep)
         {
             scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
             
@@ -69,12 +69,12 @@ function scr_hurtplayer(arg0 = other.id, arg1 = true)
             image_index = 0;
             obj_player.image_index = 0;
             obj_player.flash = 1;
-            state = 49;
+            state = states.bump;
             push_notif(2, [_hurttype]);
             return true;
         }
         
-        if (state == 9 || state == 10)
+        if (state == states.cheesepep || state == states.cheesepepstick)
         {
             scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
             obj_player.grav = 0.5;
@@ -91,12 +91,12 @@ function scr_hurtplayer(arg0 = other.id, arg1 = true)
             image_index = 0;
             obj_player.image_index = 0;
             obj_player.flash = 1;
-            state = 49;
+            state = states.bump;
             push_notif(2, [_hurttype]);
             return true;
         }
         
-        if (shield == 0 && state != 50 && state != 4 && state != 11 && state != 49 && state != 70 && state != 78 && state != 5 && state != 88 && state != 8 && state != 96 && !hurted && !cutscene)
+        if (shield == 0 && state != states.hurt && state != states.fireass && state != states.boxxedpep && state != states.bump && state != states.parrying && state != states.ghost && state != states.firemouth && state != states.slipbanan && state != states.cheeseball && state != states.weeniemount && !hurted && !cutscene)
         {
             var fmodhurtsound = scr_fmod_soundeffectONESHOT("event:/sfx/player/hurt", x, y);
             fmod_studio_event_instance_set_parameter_by_name(fmodhurtsound, "hurttype", _hurttype, true);
@@ -138,7 +138,7 @@ function scr_hurtplayer(arg0 = other.id, arg1 = true)
             vsp = -12;
             timeuntilhpback = 300;
             instance_create_depth(x, y, 0, obj_spikehurteffect);
-            state = 50;
+            state = states.hurt;
             image_index = 0;
             flash = 1;
             
@@ -169,9 +169,9 @@ function scr_hurtplayer(arg0 = other.id, arg1 = true)
             return true;
         }
         
-        if (shield > 0 && state != 35 && !hurted)
+        if (shield > 0 && state != states.tackle && !hurted)
         {
-            state = 35;
+            state = states.tackle;
             flash = 1;
             hurted = 1;
             alarm[7] = 50;

@@ -14,7 +14,7 @@ function scr_player_balllol()
     if ((((hsp * xscale) <= 0 && !instance_place(x + xscale, y + 1, obj_slope)) || (scr_solid(x + 1, y) && xscale == 1) || (scr_solid(x - 1, y) && xscale == -1)) && !place_meeting(x + sign(hsp), y, obj_slope))
     {
         hsp = 0;
-        state = 0;
+        state = states.normal;
         movespeed = 0;
         mach2 = 0;
         crouchslideAnim = 1;

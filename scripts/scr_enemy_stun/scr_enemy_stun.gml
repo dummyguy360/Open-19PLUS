@@ -43,7 +43,7 @@ function scr_enemy_stun()
         vsp = 0;
         image_index = 0;
         sprite_index = walkspr;
-        state = 100;
+        state = states.homingattack;
         movespeed = 1;
     }
     

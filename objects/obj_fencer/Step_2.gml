@@ -45,7 +45,7 @@ switch (state)
 
 enemy_palettepoof();
 
-if (state == 104 && stunned > 100 && birdcreated == 0)
+if (state == states.seat && stunned > 100 && birdcreated == 0)
 {
     birdcreated = 1;
     
@@ -53,17 +53,17 @@ if (state == 104 && stunned > 100 && birdcreated == 0)
         ID = other.id;
 }
 
-if (state != 104)
+if (state != states.seat)
     birdcreated = 0;
 
-if (state == 300)
+if (state == states.enemyhitstun)
     exit;
 
 scr_enemy_scared();
 scr_escapeenemy();
 hurttype = 1;
 
-if (state != 94)
+if (state != states.timesup)
     movespeed = 0;
 
 var __player = instance_nearest(x, y, obj_player);
@@ -72,7 +72,7 @@ if (x != __player.x && grounded)
 {
     if (__player.x > (x - 300) && __player.x < (x + 300) && y <= (__player.y + 60) && y >= (__player.y - 60))
     {
-        if ((global.stylethreshold < 2 && state == 100 && !charging) || (global.stylethreshold >= 2 && heatcharging == 0 && state != 104 && state != 107 && state != 92 && !scr_transformationcheck()))
+        if ((global.stylethreshold < 2 && state == states.homingattack && !charging) || (global.stylethreshold >= 2 && heatcharging == 0 && state != states.seat && state != states.smallpepdash && state != states.tackleold && !scr_transformationcheck()))
         {
             scr_fmod_soundeffectONESHOT("event:/sfx/enemy/charge", x, y);
             
@@ -85,7 +85,7 @@ if (x != __player.x && grounded)
                     
                     heatcharging = 60;
                     charging = 1;
-                    state = 94;
+                    state = states.timesup;
                     movespeed = 0;
                     sprite_index = spr_fencer_rage;
                     image_index = 0;
@@ -104,7 +104,7 @@ if (x != __player.x && grounded)
                 }
                 
                 charging = 1;
-                state = 94;
+                state = states.timesup;
                 movespeed = 5;
                 vsp = -6;
                 sprite_index = spr_fencer_chargestart;
@@ -113,7 +113,7 @@ if (x != __player.x && grounded)
     }
 }
 
-if (state == 104 || state == 100)
+if (state == states.seat || state == states.homingattack)
 {
     heatcharging = 0;
     charging = 0;
@@ -129,7 +129,7 @@ if (sprite_index == spr_fencer_chargestart && floor(image_index) == (image_numbe
 if (flash == 1 && alarm[2] <= 0)
     alarm[2] = 0.15 * room_speed;
 
-if (hitboxcreate == 0 && (state == 100 || state == 94))
+if (hitboxcreate == 0 && (state == states.homingattack || state == states.timesup))
 {
     hitboxcreate = 1;
     
@@ -140,7 +140,7 @@ if (hitboxcreate == 0 && (state == 100 || state == 94))
     }
 }
 
-if (state != 104)
+if (state != states.seat)
     thrown = 0;
 
 if (boundbox == 0)

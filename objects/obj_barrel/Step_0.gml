@@ -9,9 +9,9 @@ if (barrelspawn)
     {
         with (instance_place(x, y - 1, obj_player))
         {
-            if (vsp > 0 && (state == 36 || state == 44 || state == 49))
+            if (vsp > 0 && (state == states.jump || state == states.crouchjump || state == states.bump))
             {
-                state = 105;
+                state = states.barrel;
                 sprite_index = spr_barrelidle;
                 image_index = 0;
                 barrel = 1;

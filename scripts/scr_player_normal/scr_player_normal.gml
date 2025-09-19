@@ -31,7 +31,7 @@ function scr_player_normal()
     
     hit_horizontal = function(arg0)
     {
-        if (sign(arg0) == xscale && state == 0)
+        if (sign(arg0) == xscale && state == states.normal)
         {
             movespeed = 0;
             momemtum = 0;
@@ -298,7 +298,7 @@ function scr_player_normal()
         }
         
         jumpAnim = 0;
-        state = 36;
+        state = states.jump;
         facehurt = 0;
         armhurt = 0;
         introscared = 0;
@@ -319,7 +319,7 @@ function scr_player_normal()
         else
             vsp = -10;
         
-        state = 36;
+        state = states.jump;
         image_index = 0;
         jumpAnim = 1;
         facehurt = 0;
@@ -332,7 +332,7 @@ function scr_player_normal()
         vsp = 0;
         hsp = 0;
         sprite_index = spr_superjumpprep;
-        state = 42;
+        state = states.sjumpprep;
         image_index = 0;
         movespeed = 0;
         exit;
@@ -353,7 +353,7 @@ function scr_player_normal()
         else
             vsp = -10;
         
-        state = 36;
+        state = states.jump;
         jumpAnim = 1;
         jumpstop = 0;
         image_index = 0;
@@ -365,7 +365,7 @@ function scr_player_normal()
     
     if (character != "S" && (input_check("down") || (mask_index == spr_crouchmask && scr_solid(x, y - 16))) && grounded)
     {
-        state = 43;
+        state = states.crouch;
         landAnim = 0;
         crouchAnim = 1;
         image_index = 0;
@@ -384,7 +384,7 @@ function scr_player_normal()
         grav = 0.5;
         sprite_index = spr_crouchslip;
         machhitAnim = 0;
-        state = 45;
+        state = states.crouchslide;
         
         if (movespeed < 8)
             movespeed = 8;
@@ -422,7 +422,7 @@ function scr_player_normal()
                 movespeed = 6;
             
             sprite_index = spr_mach1;
-            state = 47;
+            state = states.mach2;
             image_index = 0;
             jumpAnim = 1;
             facehurt = 0;
@@ -440,7 +440,7 @@ function scr_player_normal()
             if (!kungfumove)
             {
                 kungfumove = true;
-                state = 91;
+                state = states.kungfu;
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/kungfu", x, y);
                 
                 if (movespeed < 10)
@@ -461,7 +461,7 @@ function scr_player_normal()
         {
             suplexmove = 1;
             fmod_studio_event_instance_start(suplexdashsnd);
-            state = 16;
+            state = states.suplexgrab;
             image_index = 0;
             sprite_index = _suplexanim;
             movespeed = 10;
@@ -481,7 +481,7 @@ function scr_player_normal()
     if ((character == "P" || character == "N") && input_check("up") && input_buffer_attack < 8 && canuppercut)
     {
         input_buffer_attack = 8;
-        state = 75;
+        state = states.shoryuken;
         sprite_index = spr_shoryukenstart;
         image_index = 0;
         
@@ -522,7 +522,7 @@ function scr_player_normal()
     
     if (input_check_pressed("shoot") && global.currentpowerup == 2)
     {
-        state = 74;
+        state = states.gunshoot;
         sprite_index = spr_player_gunshoot;
         image_index = 0;
         
@@ -551,8 +551,8 @@ function scr_player_normal()
         introscared = 0;
     }
     
-    if (sprite_index == spr_suplexgrabcancel && state != 36)
-        state = 36;
+    if (sprite_index == spr_suplexgrabcancel && state != states.jump)
+        state = states.jump;
     
     throwmort();
     var _walkframecheck = floor(image_index) == 2 || floor(image_index) == 8 || floor(image_index) == 14 || floor(image_index) == 20 || floor(image_index) == 29 || floor(image_index) == 35 || floor(image_index) == 41 || floor(image_index) == 47;

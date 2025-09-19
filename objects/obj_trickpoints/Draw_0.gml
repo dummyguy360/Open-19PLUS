@@ -3,14 +3,14 @@ if (instance_exists(obj_player))
     x = obj_player.x;
     y = obj_player.y - 150;
     
-    if (obj_player.state == 95)
+    if (obj_player.state == states.ramp)
     {
         ramptricks = obj_player.ramptricks;
         maxramptricks = ramptricks;
     }
 }
 
-if (!instance_exists(obj_player) || obj_player.state != 95)
+if (!instance_exists(obj_player) || obj_player.state != states.ramp)
 {
     instance_destroy();
     event_play_oneshot("event:/sfx/player/ramptrickdone");

@@ -43,7 +43,7 @@ function scr_player_hitstun()
     
     with (obj_baddie)
     {
-        if (state != 300)
+        if (state != states.enemyhitstun)
         {
             hitstunstoredmovespeed = movespeed;
             hitstunstoredhsp = hsp;
@@ -51,7 +51,7 @@ function scr_player_hitstun()
             hitstunstoredsprite = sprite_index;
             hitstunstoredstate = state;
             hitstunstoredimagespeed = image_speed;
-            state = 300;
+            state = states.enemyhitstun;
             hitter = other.hittimer;
         }
     }

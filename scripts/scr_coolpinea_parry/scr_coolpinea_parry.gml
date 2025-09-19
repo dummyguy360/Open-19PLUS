@@ -5,7 +5,7 @@ function scr_coolpinea_parry()
     if (floor(image_index) == (image_number - 1))
     {
         sprite_index = walkspr;
-        state = 100;
+        state = states.homingattack;
     }
     
     image_speed = 0.35;

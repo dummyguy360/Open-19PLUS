@@ -2,7 +2,7 @@ function scr_player_start()
 {
     if (keyboard_check_pressed(vk_enter) || input_check("jump"))
     {
-        state = 0;
+        state = states.normal;
         
         with (obj_drawcontroller)
             thintextfade = 1;

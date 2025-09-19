@@ -49,11 +49,11 @@ if (!yellow)
 if (yellow && !yellowsetup)
 {
     sprite_index = spr_forknight_eating;
-    state = 92;
+    state = states.tackleold;
     yellowsetup = true;
 }
 
-if (state == 104 && stunned > 100 && birdcreated == 0)
+if (state == states.seat && stunned > 100 && birdcreated == 0)
 {
     birdcreated = 1;
     
@@ -61,10 +61,10 @@ if (state == 104 && stunned > 100 && birdcreated == 0)
         ID = other.id;
 }
 
-if (state != 104)
+if (state != states.seat)
     birdcreated = 0;
 
-if (state == 300)
+if (state == states.enemyhitstun)
     exit;
 
 scr_enemy_scared();
@@ -75,7 +75,7 @@ if (flash == 1 && alarm[2] <= 0)
 
 hurttype = 1;
 
-if (hitboxcreate == 0 && visible == 1 && state == 100)
+if (hitboxcreate == 0 && visible == 1 && state == states.homingattack)
 {
     hitboxcreate = 1;
     
@@ -86,21 +86,21 @@ if (hitboxcreate == 0 && visible == 1 && state == 100)
     }
 }
 
-if (state != 94)
+if (state != states.timesup)
     movespeed = 1;
 
 var __player = instance_nearest(x, y, obj_player);
 
 if (x != __player.x && grounded && bombreset == 0 && global.stylethreshold >= 2 && !yellow)
 {
-    if (__player.state != 105 && __player.state != 66 && !scr_transformationcheck() && __player.x > (x - 400) && __player.x < (x + 400) && y <= (__player.y + 60) && y >= (__player.y - 60) && __player.grounded)
+    if (__player.state != states.barrel && __player.state != states.mach3 && !scr_transformationcheck() && __player.x > (x - 400) && __player.x < (x + 400) && y <= (__player.y + 60) && y >= (__player.y - 60) && __player.grounded)
     {
-        if (state == 100 && charging == 0)
+        if (state == states.homingattack && charging == 0)
         {
             charging = 1;
             scr_fmod_soundeffectONESHOT("event:/sfx/enemy/charge", x, y);
             flash = 1;
-            state = 94;
+            state = states.timesup;
             sprite_index = spr_forknight_ragestart;
             image_xscale = -sign(x - __player.x);
             hsp = 0;
@@ -112,12 +112,12 @@ if (x != __player.x && grounded && bombreset == 0 && global.stylethreshold >= 2 
     }
 }
 
-if (ragedash > 0 && state == 94)
+if (ragedash > 0 && state == states.timesup)
     ragedash--;
 
-if (ragedash == 0 && state == 94)
+if (ragedash == 0 && state == states.timesup)
 {
-    state = 100;
+    state = states.homingattack;
     sprite_index = walkspr;
     bombreset = 100;
     movespeed = 1;
@@ -128,7 +128,7 @@ if (ragedash == 0 && state == 94)
 if (bombreset > 0)
     bombreset--;
 
-if (state != 104)
+if (state != states.seat)
     thrown = 0;
 
 if (boundbox == 0 && visible == 1)

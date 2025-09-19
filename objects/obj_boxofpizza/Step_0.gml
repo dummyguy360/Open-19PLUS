@@ -7,13 +7,13 @@ with (obj_player)
 {
     if (other.image_yscale == 1)
     {
-        if (!place_meeting(x, y + 1, obj_destructibles) && place_meeting(x, y + 1, other.id) && (state == 43 || character == "S" || state == 23 || state == 45 || state == 51 || state == 53 || state == 120) && !place_meeting(x, y + 1, obj_destructibles) && place_meeting(x, y + 1, other.id) && !instance_exists(obj_fadeout) && state != 54 && state != 39)
+        if (!place_meeting(x, y + 1, obj_destructibles) && place_meeting(x, y + 1, other.id) && (state == states.crouch || character == "S" || state == states.machroll || state == states.crouchslide || state == states.freefall || state == states.freefallland || state == states.nwalljump) && !place_meeting(x, y + 1, obj_destructibles) && place_meeting(x, y + 1, other.id) && !instance_exists(obj_fadeout) && state != states.door && state != states.comingoutdoor)
             enterboxofpizza(spr_downpizzabox);
     }
     
     if (other.image_yscale == -1)
     {
-        if (!place_meeting(x, y - 1, obj_destructibles) && place_meeting(x, y - 1, other.id) && ((input_check("up") && (state == 0 || state == 36 || state == 75 || state == 47 || state == 66 || state == 120)) || state == 40 || state == 68) && !place_meeting(x, y - 1, obj_destructibles) && place_meeting(x, y - 1, other.id) && !instance_exists(obj_fadeout) && state != 54 && state != 39)
+        if (!place_meeting(x, y - 1, obj_destructibles) && place_meeting(x, y - 1, other.id) && ((input_check("up") && (state == states.normal || state == states.jump || state == states.shoryuken || state == states.mach2 || state == states.mach3 || state == states.nwalljump)) || state == states.sjump || state == states.sjumpland) && !place_meeting(x, y - 1, obj_destructibles) && place_meeting(x, y - 1, other.id) && !instance_exists(obj_fadeout) && state != states.door && state != states.comingoutdoor)
             enterboxofpizza(spr_uppizzabox);
     }
 }

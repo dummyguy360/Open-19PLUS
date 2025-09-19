@@ -1,7 +1,7 @@
 x = xstart + random_range(-2, 2);
 y = ystart + random_range(-2, 2);
 
-if (obj_player.state != 87)
+if (obj_player.state != states.hitstun)
 {
     instance_destroy();
     

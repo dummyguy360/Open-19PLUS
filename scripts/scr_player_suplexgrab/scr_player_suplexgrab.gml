@@ -21,7 +21,7 @@ function scr_player_suplexgrab()
             
             scr_fmod_soundeffectONESHOT("event:/sfx/player/bump", x, y);
             jumpstop = 1;
-            state = 36;
+            state = states.jump;
             vsp = -4;
             image_index = 0;
             instance_create_depth(x + (xscale * 10), y + 10, 0, obj_bumpeffect);
@@ -40,7 +40,7 @@ function scr_player_suplexgrab()
                 wallspeed = movespeed;
             
             wallclimbtime = 10;
-            state = 12;
+            state = states.climbwall;
         }
     };
     
@@ -65,7 +65,7 @@ function scr_player_suplexgrab()
     
     if (move != xscale && move != 0 && sprite_index != spr_longjumpstart && sprite_index != spr_longjump)
     {
-        state = 36;
+        state = states.jump;
         sprite_index = spr_suplexgrabcancel;
         image_index = 0;
         jumpAnim = 1;
@@ -77,7 +77,7 @@ function scr_player_suplexgrab()
     if ((floor(image_index) == (image_number - 1) || sprite_index == spr_suplexgrabjump || (sprite_index == spr_suplexgrabjumpstart && floor(image_index) == (image_number - 1))) && grounded && !input_check("dash") && vsp > 0)
     {
         image_speed = 0.35;
-        state = 0;
+        state = states.normal;
         grav = 0.5;
         inmach = 0;
     }
@@ -88,13 +88,13 @@ function scr_player_suplexgrab()
         
         if (movespeed < 12)
         {
-            state = 47;
+            state = states.mach2;
             sprite_index = spr_mach;
         }
         
         if (movespeed >= 12)
         {
-            state = 66;
+            state = states.mach3;
             sprite_index = spr_mach4;
         }
         
@@ -113,7 +113,7 @@ function scr_player_suplexgrab()
         
         if (global.stylethreshold < 2)
         {
-            state = 73;
+            state = states.shoulderbash;
             
             if (grounded)
             {
@@ -127,7 +127,7 @@ function scr_player_suplexgrab()
         }
         else
         {
-            state = 118;
+            state = states.lunge;
             sprite_index = spr_player_ragelunge;
             
             if (!lunge)
@@ -146,7 +146,7 @@ function scr_player_suplexgrab()
         grav = 0.5;
         sprite_index = spr_crouchslip;
         machhitAnim = 0;
-        state = 45;
+        state = states.crouchslide;
         
         if (movespeed < 12)
             movespeed = 12;
@@ -161,7 +161,7 @@ function scr_player_suplexgrab()
         sprite_index = spr_suplexgrabjumpstart;
     }
     
-    if (input_buffer_jump < 8 && (grounded || coyotetime > 0) && state != 36 && !input_check("down"))
+    if (input_buffer_jump < 8 && (grounded || coyotetime > 0) && state != states.jump && !input_check("down"))
     {
         input_buffer_jump = 8;
         coyotetime = 0;
@@ -173,7 +173,7 @@ function scr_player_suplexgrab()
         vsp = -10;
         scr_fmod_soundeffect(longjumpsnd, x, y);
         instance_create_depth(x, y, 0, obj_highjumpcloud2);
-        state = 47;
+        state = states.mach2;
         sprite_index = spr_longjumpstart;
     }
     

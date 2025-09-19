@@ -6,9 +6,9 @@ if (instance_exists(baddieID))
     {
         if (instance_exists(other.baddieID))
         {
-            if (state != 118)
+            if (state != states.lunge)
             {
-                if (state == 73 || (state == 16 && other.baddieID.hitfactor > 0 && character != "N"))
+                if (state == states.shoulderbash || (state == states.suplexgrab && other.baddieID.hitfactor > 0 && character != "N"))
                 {
                     other.baddieID.sprite_index = other.baddieID.stunfallspr;
                     var hitstun = 1;
@@ -24,7 +24,7 @@ if (instance_exists(baddieID))
                     restore_combo();
                     machpunchAnim = 1;
                     other.baddieID.thrown = 1;
-                    other.baddieID.state = 104;
+                    other.baddieID.state = states.seat;
                     other.baddieID.stunned = 100;
                     other.baddieID.image_xscale = -xscale;
                     other.baddieID.sprite_index = other.baddieID.spr_dead;
@@ -52,7 +52,7 @@ if (instance_exists(baddieID))
                     
                     if (sprite_index != spr_player_shoulderbash)
                     {
-                        state = 36;
+                        state = states.jump;
                         image_index = 0;
                         sprite_index = choose(spr_player_hitstun1, spr_player_hitstun2, spr_player_hitstun3);
                         vsp = -12;
@@ -61,7 +61,7 @@ if (instance_exists(baddieID))
                     }
                     else
                     {
-                        state = 0;
+                        state = states.normal;
                     }
                     
                     hitstun -= 1;
@@ -71,15 +71,15 @@ if (instance_exists(baddieID))
                     alarm[0] = 25;
                 }
                 
-                if (instance_exists(other.baddieID) && character != "S" && ((state == 16 && other.baddieID.hitfactor == 0 && character != "N") || (state == 16 && character == "N")))
+                if (instance_exists(other.baddieID) && character != "S" && ((state == states.suplexgrab && other.baddieID.hitfactor == 0 && character != "N") || (state == states.suplexgrab && character == "N")))
                 {
                     image_index = 0;
-                    other.baddieID.state = 107;
+                    other.baddieID.state = states.smallpepdash;
                     other.baddieID.grabbedby = playerobj;
                     
                     if (input_check("up"))
                     {
-                        state = 25;
+                        state = states.superslam;
                         sprite_index = spr_piledriver;
                         other.baddieID.image_yscale = -1;
                         piledrivervsp = -14;
@@ -104,7 +104,7 @@ if (instance_exists(baddieID))
                             sprite_index = spr_swingding;
                         }
                         
-                        state = 28;
+                        state = states.grab;
                         
                         if (!grounded)
                             vsp = -6;

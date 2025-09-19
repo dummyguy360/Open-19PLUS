@@ -130,6 +130,9 @@ enum states
 	gatecutscene = 127,
 	noclip = 128,
 	noisecrusher = 129,
+	
+	// kinda odd how its this high
+	enemyhitstun = 300,
 }
 
 function State(_id, _name, _func, _flags = 0) constructor

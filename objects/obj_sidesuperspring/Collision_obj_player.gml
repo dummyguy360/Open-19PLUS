@@ -1,6 +1,6 @@
 with (other.id)
 {
-    if (state == 47 || state == 66 || state == 1 || state == 64 || state == 23 || state == 38 || state == 105 || (state == 18 && knightsliding == 1) || state == 13 || state == 8)
+    if (state == states.mach2 || state == states.mach3 || state == states.tumble || state == states.current || state == states.machroll || state == states.slipnslide || state == states.barrel || (state == states.knightpep && knightsliding == 1) || state == states.knightpepslopes || state == states.cheeseball)
     {
         other.sprite_index = spr_sidespring_bounce;
         other.image_index = 0;

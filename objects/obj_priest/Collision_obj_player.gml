@@ -8,7 +8,7 @@ with (__player)
             xscale = sign(hsp);
         
         movespeed = abs(hsp);
-        state = 0;
+        state = states.normal;
         sprite_index = spr_idle;
         dir = xscale;
         instance_create_depth(x, y, -100, obj_genericpoofeffect);

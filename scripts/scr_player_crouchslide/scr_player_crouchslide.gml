@@ -13,7 +13,7 @@ function scr_player_crouchslide()
         {
             if (grounded)
             {
-                state = 49;
+                state = states.bump;
                 sprite_index = spr_wallsplat;
                 
                 if (sign(arg0) != 0)
@@ -28,7 +28,7 @@ function scr_player_crouchslide()
             }
             else
             {
-                state = 43;
+                state = states.crouch;
                 longjumpslideanim = 0;
             }
         }
@@ -89,7 +89,7 @@ function scr_player_crouchslide()
                 
                 longjumpslideanim = 0;
                 timeuntilslide = 0;
-                state = 23;
+                state = states.machroll;
                 sprite_index = spr_machroll;
             }
         }
@@ -108,7 +108,7 @@ function scr_player_crouchslide()
                     movespeed = abs(longjumpspd);
                     longjumping = 0;
                     xscale = sign(longjumpspd);
-                    state = 47;
+                    state = states.mach2;
                     input_buffer_jump = 8;
                     grounded = false;
                     coyotetime = 0;
@@ -123,7 +123,7 @@ function scr_player_crouchslide()
                     movespeed = abs(longjumpspd);
                     xscale = sign(longjumpspd);
                     longjumping = 0;
-                    state = 66;
+                    state = states.mach3;
                     input_buffer_jump = 8;
                     grounded = false;
                     coyotetime = 0;
@@ -143,7 +143,7 @@ function scr_player_crouchslide()
                 if (move != 0)
                     longjumpspd += (0.85 * move);
                 
-                state = 47;
+                state = states.mach2;
                 input_buffer_jump = 8;
                 grounded = false;
                 coyotetime = 0;
@@ -163,7 +163,7 @@ function scr_player_crouchslide()
         if (!grounded && slidetodive && input_check("down"))
         {
             sprite_index = spr_dive;
-            state = 23;
+            state = states.machroll;
             vsp = 10;
         }
         
@@ -197,7 +197,7 @@ function scr_player_crouchslide()
             if (input_check("up") && input_buffer_attack < 8)
             {
                 input_buffer_attack = 8;
-                state = 75;
+                state = states.shoryuken;
                 sprite_index = spr_shoryukenstart;
                 image_index = 0;
                 
@@ -235,9 +235,9 @@ function scr_player_crouchslide()
             landAnim = 0;
             
             if (grounded)
-                state = 43;
+                state = states.crouch;
             else
-                state = 0;
+                state = states.normal;
             
             longjumpslideanim = 0;
         }
@@ -294,7 +294,7 @@ function scr_player_crouchslide()
             if (character == "S")
                 snicksupermode = 1;
             
-            state = 66;
+            state = states.mach3;
             vsp = -4;
             image_speed = 0.35;
         }

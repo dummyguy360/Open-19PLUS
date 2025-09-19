@@ -41,7 +41,7 @@ if (ds_list_find_index(global.baddieroom, id) == -1)
     {
         with (ds_list_find_value(global.baddiecollidelist, i))
         {
-            if (state != 107)
+            if (state != states.smallpepdash)
             {
                 playkillsound = false;
                 killedbyknightslide = other.killedbyknightslide;

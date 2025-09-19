@@ -1,6 +1,6 @@
 with (obj_player)
 {
-    if (state == 5 && sprite_index != spr_firemouthend && sprite_index != spr_firemouthintro)
+    if (state == states.firemouth && sprite_index != spr_firemouthend && sprite_index != spr_firemouthintro)
     {
         image_index = 0;
         sprite_index = spr_firemouthend;

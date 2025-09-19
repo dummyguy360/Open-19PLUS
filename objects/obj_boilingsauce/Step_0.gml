@@ -1,8 +1,8 @@
-if (place_meeting(x, y - 1, obj_player) && obj_player.state != 33 && obj_player.state != 96)
+if (place_meeting(x, y - 1, obj_player) && obj_player.state != states.ejected2 && obj_player.state != states.weeniemount)
 {
     with (instance_place(x, y - 1, obj_player))
     {
-        if (state == 18 || state == 13)
+        if (state == states.knightpep || state == states.knightpepslopes)
         {
             flash = 1;
             scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/detransfo", x, y);
@@ -14,10 +14,10 @@ if (place_meeting(x, y - 1, obj_player) && obj_player.state != 33 && obj_player.
             }
         }
         
-        if (state != 4)
+        if (state != states.fireass)
             push_notif(5, [other.id]);
         
-        state = 4;
+        state = states.fireass;
         vsp = -25;
         sprite_index = spr_fireass;
         

@@ -1,4 +1,4 @@
-if (active == 1 && obj_player.state == 97)
+if (active == 1 && obj_player.state == states.firemove)
 {
     obj_player.movespeed += 12;
     active = 0;

@@ -1,4 +1,4 @@
-if (state != 107)
+if (state != states.smallpepdash)
 {
     sprite_index = stunfallspr;
     instance_destroy();
@@ -13,7 +13,7 @@ if (state != 107)
     scr_enemygibs();
     scr_fmod_soundeffectONESHOT("event:/sfx/enemy/punched", x, y);
     thrown = 1;
-    state = 104;
+    state = states.seat;
     stunned = 100;
     vsp = -8;
     hsp = other.image_xscale * 12;

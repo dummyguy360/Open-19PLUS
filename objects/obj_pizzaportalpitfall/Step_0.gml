@@ -9,12 +9,12 @@ if (sprite_index == spr_pizzaportalentrance && floor(image_index) == (image_numb
 {
     with (obj_player)
     {
-        if (state == 98)
+        if (state == states.pitfall)
         {
             if (global.smallpep)
             {
                 sprite_index = spr_smallidle;
-                state = 106;
+                state = states.smallpep;
                 grav = 0.5;
                 hsp = 0;
                 movespeed = 0;
@@ -22,7 +22,7 @@ if (sprite_index == spr_pizzaportalentrance && floor(image_index) == (image_numb
             }
             else
             {
-                state = 51;
+                state = states.freefall;
                 grav = 0.5;
                 sprite_index = spr_bodyslamfall;
                 hsp = 0;

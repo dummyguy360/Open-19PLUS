@@ -49,7 +49,7 @@ switch (state)
 
 enemy_palettepoof();
 
-if (state == 104 && stunned > 100 && birdcreated == 0)
+if (state == states.seat && stunned > 100 && birdcreated == 0)
 {
     birdcreated = 1;
     
@@ -57,10 +57,10 @@ if (state == 104 && stunned > 100 && birdcreated == 0)
         ID = other.id;
 }
 
-if (state != 104)
+if (state != states.seat)
     birdcreated = 0;
 
-if (state == 300)
+if (state == states.enemyhitstun)
     exit;
 
 scr_escapeenemy();
@@ -70,22 +70,22 @@ if (flash == 1 && alarm[2] <= 0)
 
 hurttype = 0;
 
-if (state != 94)
+if (state != states.timesup)
     movespeed = 1;
 
 var __player = instance_nearest(x, y, obj_player);
 
-if (state == 92 || state == 100)
+if (state == states.tackleold || state == states.homingattack)
 {
     movespeed = 4;
     
     if (__player.x != x)
         image_xscale = -sign(x - __player.x);
     
-    state = 108;
+    state = states.retrodeath;
 }
 
-if (hitboxcreate == 0 && state == 108 && __player.state != 66)
+if (hitboxcreate == 0 && state == states.retrodeath && __player.state != states.mach3)
 {
     hitboxcreate = 1;
     
@@ -98,9 +98,9 @@ if (hitboxcreate == 0 && state == 108 && __player.state != 66)
 
 if (x != __player.x && grounded && bombreset == 0 && global.stylethreshold >= 2)
 {
-    if (__player.state != 105 && __player.state != 66 && !scr_transformationcheck() && __player.x > (x - 250) && __player.x < (x + 250) && y <= (__player.y + 60) && y >= (__player.y - 60))
+    if (__player.state != states.barrel && __player.state != states.mach3 && !scr_transformationcheck() && __player.x > (x - 250) && __player.x < (x + 250) && y <= (__player.y + 60) && y >= (__player.y - 60))
     {
-        if (state == 108 && charging == 0)
+        if (state == states.retrodeath && charging == 0)
         {
             image_xscale = -sign(x - __player.x);
             sprite_index = spr_minijohn_rage1;
@@ -108,7 +108,7 @@ if (x != __player.x && grounded && bombreset == 0 && global.stylethreshold >= 2)
             movespeed = 0;
             charging = 1;
             flash = 1;
-            state = 94;
+            state = states.timesup;
             hsp = 0;
             bombreset = 100;
             
@@ -136,7 +136,7 @@ if (x != __player.x && grounded && bombreset == 0 && global.stylethreshold >= 2)
 if (bombreset > 0)
     bombreset--;
 
-if (state != 104)
+if (state != states.seat)
     thrown = 0;
 
 if (boundbox == 0)

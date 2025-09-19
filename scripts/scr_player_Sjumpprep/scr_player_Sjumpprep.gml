@@ -65,7 +65,7 @@ function scr_player_Sjumpprep()
             {
                 instance_create_depth(x, y, 0, obj_explosioneffect);
                 sprite_index = spr_superjump;
-                state = 40;
+                state = states.sjump;
                 vsp = -17;
             }
         }

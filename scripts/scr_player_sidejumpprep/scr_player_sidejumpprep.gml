@@ -6,7 +6,7 @@ function scr_player_sidejumpprep()
     
     if (sprite_index == spr_player_supersidejumpprep && floor(image_index) == (image_number - 1))
     {
-        state = 85;
+        state = states.sidejump;
         sprite_index = spr_player_supersidejump;
         image_index = 0;
         movespeed = 12;

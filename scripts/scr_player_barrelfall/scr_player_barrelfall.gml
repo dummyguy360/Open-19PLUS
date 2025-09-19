@@ -10,13 +10,13 @@ function scr_player_barrelfall()
     
     if (grounded)
     {
-        state = 56;
+        state = states.barrelcrouch;
         image_index = 0;
     }
     
     if (place_meeting(x, y, obj_water2))
     {
-        state = 57;
+        state = states.barrelfloat;
         image_index = 0;
     }
     

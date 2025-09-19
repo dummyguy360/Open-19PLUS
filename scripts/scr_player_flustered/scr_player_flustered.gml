@@ -19,7 +19,7 @@ function scr_player_flustered()
     
     if (sprite_index == spr_player_flustered && floor(image_index) == (image_number - 1))
     {
-        state = 0;
+        state = states.normal;
         hsp = 0;
         movespeed = 0;
         hurted = 0;

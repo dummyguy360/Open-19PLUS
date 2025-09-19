@@ -8,7 +8,7 @@ function scr_player_barrelcrouch()
     
     if (grounded && !input_check("down") && image_speed == 0)
     {
-        state = 61;
+        state = states.barrelnormal;
         movespeed = 3;
         image_index = 0;
     }

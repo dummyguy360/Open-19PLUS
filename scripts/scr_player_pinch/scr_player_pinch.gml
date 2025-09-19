@@ -14,14 +14,14 @@ function scr_player_pinch()
     
     if (y < pinchid.y && vsp < 0)
     {
-        state = 36;
+        state = states.jump;
         sprite_index = spr_machfreefall;
         bumped = 1;
     }
     
     if (input_check_pressed("jump"))
     {
-        state = 36;
+        state = states.jump;
         sprite_index = spr_machfreefall;
         bumped = 1;
     }

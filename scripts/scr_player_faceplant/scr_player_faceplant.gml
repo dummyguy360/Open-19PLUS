@@ -22,7 +22,7 @@ function scr_player_faceplant()
         grav = 0.5;
         sprite_index = spr_crouchslip;
         machhitAnim = 0;
-        state = 45;
+        state = states.crouchslide;
         movespeed = 12;
     }
     
@@ -48,7 +48,7 @@ function scr_player_faceplant()
         }
         
         flash = 0;
-        state = 49;
+        state = states.bump;
         hsp = -2.5 * xscale;
         vsp = -3;
         mach2 = 0;
@@ -59,14 +59,14 @@ function scr_player_faceplant()
     if (floor(image_index) == (image_number - 1) && !input_check("dash"))
     {
         image_speed = 0.35;
-        state = 0;
+        state = states.normal;
         grav = 0.5;
     }
     
     if (floor(image_index) == (image_number - 1) && input_check("dash"))
     {
         image_speed = 0.35;
-        state = 47;
+        state = states.mach2;
         grav = 0.5;
     }
     

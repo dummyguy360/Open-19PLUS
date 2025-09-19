@@ -26,7 +26,7 @@ function scr_player_chainsawpogo()
         
         hsp = -xscale * 5;
         vsp = -3;
-        state = 15;
+        state = states.chainsawbump;
         scr_fmod_soundeffectONESHOT("event:/sfx/player/bump", x, y);
         chainsaw = 50;
     }
@@ -34,7 +34,7 @@ function scr_player_chainsawpogo()
     if (!input_check("down"))
     {
         sprite_index = spr_player_chainsawair;
-        state = 22;
+        state = states.chainsaw;
         movespeed = 14;
     }
     

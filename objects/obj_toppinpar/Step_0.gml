@@ -1,4 +1,4 @@
-if (obj_player.state == 110 || room == rank_room || room == timesuproom)
+if (obj_player.state == states.nothing || room == rank_room || room == timesuproom)
     visible = false;
 else
     visible = obj_player.visible;

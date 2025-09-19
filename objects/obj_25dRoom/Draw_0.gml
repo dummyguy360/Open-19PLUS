@@ -10,7 +10,7 @@ for (i = 0; i < array_length(obj); i++)
 {
     with (obj[i])
     {
-        if (!object_is_ancestor(object_index, obj_baddie) || state != 107)
+        if (!object_is_ancestor(object_index, obj_baddie) || state != states.smallpepdash)
             _instances[_index++] = id;
     }
 }

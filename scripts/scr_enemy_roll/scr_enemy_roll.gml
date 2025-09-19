@@ -19,7 +19,7 @@ function scr_enemy_roll()
         
         image_index = 0;
         sprite_index = walkspr;
-        state = 100;
+        state = states.homingattack;
         movespeed = 1;
         stunned = 0;
         thrown = 0;

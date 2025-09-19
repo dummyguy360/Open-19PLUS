@@ -1,2 +1,2 @@
-if (got && obj_player.state != 17)
+if (got && obj_player.state != states.gottreasure)
     instance_destroy();

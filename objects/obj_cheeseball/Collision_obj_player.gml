@@ -1,4 +1,4 @@
-if (other.state == 18)
+if (other.state == states.knightpep)
 {
     instance_create_depth(x, y, -1, obj_slimedebris);
     instance_create_depth(x, y, -1, obj_slimedebris);
@@ -12,7 +12,7 @@ if (other.state == 18)
 }
 else
 {
-    if (other.state != 8 && other.state != 31 && other.state != 70)
+    if (other.state != states.cheeseball && other.state != states.backbreaker && other.state != states.parrying)
     {
         movespeed = 0;
         other.xscale = image_xscale;
@@ -20,7 +20,7 @@ else
         other.vsp = vsp;
         other.x = x;
         other.y = y;
-        other.state = 8;
+        other.state = states.cheeseball;
         instance_create_depth(x, y, -1, obj_slimedebris);
         instance_create_depth(x, y, -1, obj_slimedebris);
         instance_create_depth(x, y, -1, obj_slimedebris);
@@ -33,7 +33,7 @@ else
         scr_fmod_soundeffectONESHOT("event:/sfx/player/transfo/transfo", x, y);
         instance_destroy();
     }
-    else if (other.state == 31 && place_meeting(x, y, obj_parryhitbox) && other.state != 70)
+    else if (other.state == states.backbreaker && place_meeting(x, y, obj_parryhitbox) && other.state != states.parrying)
     {
         with (other.id)
         {
@@ -54,7 +54,7 @@ else
             }
             
             sprite_index = choose(spr_parry1, spr_parry2, spr_parry3);
-            state = 70;
+            state = states.parrying;
             image_index = 0;
             flash = 1;
         }
@@ -62,7 +62,7 @@ else
         image_xscale *= -1;
     }
     
-    if (other.state == 8)
+    if (other.state == states.cheeseball)
     {
         instance_create_depth(x, y, -1, obj_slimedebris);
         instance_create_depth(x, y, -1, obj_slimedebris);

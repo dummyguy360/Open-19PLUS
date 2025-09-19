@@ -11,7 +11,7 @@ function scr_player_grab()
         if (sprite_index == spr_swingding)
         {
             scr_fmod_soundeffectONESHOT("event:/sfx/player/killingblow", x, y);
-            state = 103;
+            state = states.swingdingfinish;
             sprite_index = spr_swingdingend;
             image_index = 0;
             vsp = -6;
@@ -215,7 +215,7 @@ function scr_player_grab()
         if (move != 0)
             move = xscale;
         
-        state = 2;
+        state = states.finishingblow;
         
         if (!input_check("up"))
             sprite_index = choose(spr_finishingblow1, spr_finishingblow2, spr_finishingblow3, spr_finishingblow4, spr_finishingblow5);
@@ -228,7 +228,7 @@ function scr_player_grab()
     if (input_check("down") && !grounded)
     {
         sprite_index = spr_piledriver;
-        state = 25;
+        state = states.superslam;
         piledrivervsp = -9;
         image_index = 0;
         image_speed = 0.35;
@@ -247,7 +247,7 @@ function scr_player_grab()
     
     if (input_check("down") && grounded && !swingding)
     {
-        state = 43;
+        state = states.crouch;
         landAnim = 0;
         crouchAnim = 1;
         image_index = 0;
@@ -285,7 +285,7 @@ function scr_player_grab()
         {
             input_buffer_attack = 8;
             scr_fmod_soundeffectONESHOT("event:/sfx/player/killingblow", x, y);
-            state = 103;
+            state = states.swingdingfinish;
             sprite_index = spr_swingdingend;
             image_index = 0;
             vsp = -6;

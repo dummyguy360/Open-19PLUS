@@ -18,13 +18,13 @@ function scr_player_gunshoot()
     {
         if (input_check("dash"))
         {
-            state = 47;
+            state = states.mach2;
             sprite_index = spr_mach;
             movespeed = 10;
         }
         else if (!input_check("dash"))
         {
-            state = 0;
+            state = states.normal;
         }
     }
     

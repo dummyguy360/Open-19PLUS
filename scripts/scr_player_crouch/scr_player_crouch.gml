@@ -20,7 +20,7 @@ function scr_player_crouch()
     if (!grounded && !input_check_pressed("jump"))
     {
         jumpAnim = 0;
-        state = 44;
+        state = states.crouchjump;
         movespeed = 4;
         crouchAnim = 1;
         image_index = 0;
@@ -28,7 +28,7 @@ function scr_player_crouch()
     
     if (grounded && !input_check("down") && !scr_solid(x, y - 16) && !scr_solid(x, y - 32) && !input_check_pressed("jump"))
     {
-        state = 0;
+        state = states.normal;
         movespeed = 0;
         crouchAnim = 1;
         jumpAnim = 1;
@@ -66,7 +66,7 @@ function scr_player_crouch()
     {
         scr_fmod_soundeffect(char_jumpsnd, x, y);
         vsp = -8;
-        state = 44;
+        state = states.crouchjump;
         movespeed = 4;
         image_index = 0;
         crouchAnim = 1;

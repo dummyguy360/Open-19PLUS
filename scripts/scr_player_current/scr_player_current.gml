@@ -13,7 +13,7 @@ function scr_player_current()
     
     if (!place_meeting(x, y + 1, obj_current))
     {
-        state = 88;
+        state = states.slipbanan;
         vsp = -7;
         sprite_index = spr_slipbanan1;
         image_index = 0;

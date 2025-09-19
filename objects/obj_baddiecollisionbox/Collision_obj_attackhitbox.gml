@@ -19,7 +19,7 @@ if (instance_exists(baddieID))
             machpunchAnim = 1;
             image_index = 0;
             thrown = 1;
-            state = 104;
+            state = states.seat;
             stunned = 200;
             image_xscale = -obj_player.xscale;
             vsp = -4;

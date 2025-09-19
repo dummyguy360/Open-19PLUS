@@ -1,4 +1,4 @@
-if (obj_player.state == 91)
+if (obj_player.state == states.kungfu)
 {
     with (obj_player)
     {
@@ -6,7 +6,7 @@ if (obj_player.state == 91)
         
         if (input_check("up"))
         {
-            state = 25;
+            state = states.superslam;
             sprite_index = spr_piledriver;
             piledrivervsp = -14;
             movespeed = 0;
@@ -25,7 +25,7 @@ if (obj_player.state == 91)
                 sprite_index = spr_swingding;
             }
             
-            state = 28;
+            state = states.grab;
             
             if (!grounded)
                 vsp = -6;

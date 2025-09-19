@@ -4,7 +4,7 @@ if (instance_exists(baddieID))
     {
         if (object_index != obj_pizzagoblin)
         {
-            state = 104;
+            state = states.seat;
             stunned = 100;
             vsp = -5;
         }

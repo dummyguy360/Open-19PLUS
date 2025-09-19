@@ -18,5 +18,5 @@ function scr_playerC_attack()
     }
     
     if (floor(image_index) == (image_number - 1))
-        state = 112;
+        state = states.cheeseslime;
 }

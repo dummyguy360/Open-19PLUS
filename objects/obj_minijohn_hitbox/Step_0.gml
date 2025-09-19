@@ -10,7 +10,7 @@ if (instance_exists(ID))
     
     with (ID)
     {
-        if (state != 108 || obj_player.state == 66)
+        if (state != states.retrodeath || obj_player.state == states.mach3)
         {
             hitboxcreate = 0;
             instance_destroy(other);

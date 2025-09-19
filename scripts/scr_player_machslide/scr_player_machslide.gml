@@ -2,12 +2,12 @@ function scr_player_machslide()
 {
     hit_horizontal = function(arg0)
     {
-        if (state == 48)
+        if (state == states.machslide)
             movespeed = 0;
         
         if (sprite_index == spr_machslide || sprite_index == spr_machslidestart)
         {
-            state = 49;
+            state = states.bump;
             sprite_index = spr_wallsplat;
             image_index = 0;
             mach2 = 0;
@@ -34,7 +34,7 @@ function scr_player_machslide()
     {
         if (sprite_index == spr_machslide || sprite_index == spr_player_crouchslide)
         {
-            state = 0;
+            state = states.normal;
             image_index = 0;
             
             if (sprite_index == spr_machslide)
@@ -56,7 +56,7 @@ function scr_player_machslide()
             image_index = 0;
             xscale *= -1;
             movespeed = 8;
-            state = 47;
+            state = states.mach2;
         }
     }
     
@@ -73,7 +73,7 @@ function scr_player_machslide()
             xscale *= -1;
             image_index = 0;
             movespeed = 12;
-            state = 66;
+            state = states.mach3;
         }
     }
     
@@ -83,7 +83,7 @@ function scr_player_machslide()
         sprite_index = spr_mach4;
         image_index = 0;
         movespeed = 12;
-        state = 66;
+        state = states.mach3;
     }
     
     if (grounded && sprite_index == spr_machslideboostend)
@@ -91,7 +91,7 @@ function scr_player_machslide()
         image_index = 0;
         xscale *= -1;
         movespeed = 8;
-        state = 47;
+        state = states.mach2;
     }
     
     if (movespeed == 0 && grounded)
@@ -99,7 +99,7 @@ function scr_player_machslide()
         if (sprite_index == spr_player_crouchslide)
         {
             facehurt = 1;
-            state = 0;
+            state = states.normal;
             sprite_index = spr_facehurtup;
         }
     }

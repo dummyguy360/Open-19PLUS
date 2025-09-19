@@ -1,6 +1,6 @@
 with (obj_player)
 {
-    if (other.image_index == 1 && !other.cutscene && state != 31 && !global.panic)
+    if (other.image_index == 1 && !other.cutscene && state != states.backbreaker && !global.panic)
     {
         ds_list_add(global.saveroom, other.id);
         other.image_index = 0;
@@ -8,11 +8,11 @@ with (obj_player)
         image_blend = c_white;
         doorblend = 1;
         sprite_index = spr_slipbananimpact;
-        state = 126;
+        state = states.sagelevelentrance;
         other.cutscene = 1;
     }
     
-    if (input_check("up") && grounded && x > (other.x - 160) && x < (other.x + 160) && (state == 0 || state == 47 || (state == 66 && !rocket) || state == 42) && global.panic)
+    if (input_check("up") && grounded && x > (other.x - 160) && x < (other.x + 160) && (state == states.normal || state == states.mach2 || (state == states.mach3 && !rocket) || state == states.sjumpprep) && global.panic)
     {
         targetDoor = "none";
         obj_drawcontroller.alarm[1] = -1;
@@ -89,9 +89,9 @@ with (obj_player)
         
         with (obj_player)
         {
-            if (state != 54)
+            if (state != states.door)
             {
-                state = 54;
+                state = states.door;
                 sprite_index = spr_lookdoor;
             }
             

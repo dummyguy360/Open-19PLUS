@@ -1,11 +1,11 @@
-if (state == 50)
+if (state == states.hurt)
 {
     if (global.smallpep)
-        state = 106;
+        state = states.smallpep;
     else if (mask_index == spr_crouchmask)
-        state = 43;
+        state = states.crouch;
     else
-        state = 0;
+        state = states.normal;
     
     movespeed = 0;
 }

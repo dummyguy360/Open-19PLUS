@@ -16,7 +16,7 @@ if (bridgepiecey >= y)
     }
 }
 
-if (place_meeting(x, y - obj_player.vsp, obj_player) && obj_player.state == 51)
+if (place_meeting(x, y - obj_player.vsp, obj_player) && obj_player.state == states.freefall)
 {
     var _pos = bbox_left;
     

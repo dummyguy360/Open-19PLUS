@@ -43,7 +43,7 @@ switch (state)
         break;
 }
 
-if (state == 104 && stunned > 100 && birdcreated == 0)
+if (state == states.seat && stunned > 100 && birdcreated == 0)
 {
     birdcreated = 1;
     
@@ -51,10 +51,10 @@ if (state == 104 && stunned > 100 && birdcreated == 0)
         ID = other.id;
 }
 
-if (state != 104)
+if (state != states.seat)
     birdcreated = 0;
 
-if (state == 300)
+if (state == states.enemyhitstun)
     exit;
 
 scr_enemy_scared();
@@ -63,7 +63,7 @@ scr_escapeenemy();
 if (flash == 1 && alarm[2] <= 0)
     alarm[2] = 0.15 * room_speed;
 
-if (state != 104)
+if (state != states.seat)
     thrown = 0;
 
 if (bombreset > 0)
@@ -71,16 +71,16 @@ if (bombreset > 0)
 
 var __player = instance_nearest(x, y, obj_player);
 
-if (x != __player.x && __player.state != 19 && state != 95 && bombreset == 0 && grounded && visible == 1)
+if (x != __player.x && __player.state != states.bombpep && state != states.ramp && bombreset == 0 && grounded && visible == 1)
 {
     if (__player.x > (x - 400) && __player.x < (x + 400) && y <= (__player.y + 20) && y >= (__player.y - 20))
     {
-        if (state == 100)
+        if (state == states.homingattack)
         {
             sprite_index = spr_pizzagoblin_throwbomb;
             image_index = 0;
             image_xscale = -sign(x - __player.x);
-            state = 95;
+            state = states.ramp;
         }
     }
 }

@@ -39,7 +39,7 @@ if (!scr_hudroomcheck() && global.levelname != -4 && global.levelname != "tutori
                 var _yscale = framestruct.yscale * framestruct.scale_ys * framestruct.gravityflip;
                 var _angle = framestruct.angle;
                 
-                if (framestruct.state == 109)
+                if (framestruct.state == states.firework)
                     _angle = framestruct.fireworkangle - 90;
                 
                 var _xoff = -100 * _xscale;

@@ -15,7 +15,7 @@ function scr_player_slapdash()
     if (floor(image_index) == (image_number - 1) && sprite_index == spr_player_slapdash)
     {
         image_speed = 0.35;
-        state = 47;
+        state = states.mach2;
         vsp = -3;
     }
     
@@ -24,7 +24,7 @@ function scr_player_slapdash()
         grav = 0.5;
         sprite_index = spr_crouchslip;
         machhitAnim = 0;
-        state = 45;
+        state = states.crouchslide;
         movespeed = 15;
     }
     
@@ -33,7 +33,7 @@ function scr_player_slapdash()
         scr_fmod_soundeffectONESHOT("event:/sfx/player/bump", x, y);
         grav = 0.5;
         movespeed = 0;
-        state = 49;
+        state = states.bump;
         hsp = -2.5;
         vsp = -3;
         mach2 = 0;
@@ -48,7 +48,7 @@ function scr_player_slapdash()
         scr_fmod_soundeffectONESHOT("event:/sfx/player/bump", x, y);
         grav = 0.5;
         movespeed = 0;
-        state = 49;
+        state = states.bump;
         hsp = 2.5;
         vsp = -3;
         mach2 = 0;

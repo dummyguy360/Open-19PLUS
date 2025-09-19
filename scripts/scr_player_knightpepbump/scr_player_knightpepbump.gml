@@ -6,7 +6,7 @@ function scr_player_knightpepbump()
     
     if (grounded && vsp > 0)
     {
-        state = 18;
+        state = states.knightpep;
         sprite_index = spr_knightpepland;
         image_index = 0;
         scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);

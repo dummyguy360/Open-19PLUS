@@ -1,4 +1,4 @@
-savestate = 0;
+savestate = states.normal;
 savestr = "";
 walletstr = "";
 configstruct = {};

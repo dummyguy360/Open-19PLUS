@@ -20,7 +20,7 @@ function scr_player_cheeseball()
         visible = true;
         image_index = 0;
         flash = 1;
-        state = 49;
+        state = states.bump;
     }
     
     sprite_index = spr_Cheeseball;

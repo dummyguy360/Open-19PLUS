@@ -34,7 +34,7 @@ else
         if (place_meeting(x, y, obj_player))
         {
             global.panic = false;
-            obj_player.state = 94;
+            obj_player.state = states.timesup;
             
             with (obj_baddie)
                 persistent = false;

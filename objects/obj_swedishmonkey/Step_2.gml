@@ -45,7 +45,7 @@ switch (state)
 
 enemy_palettepoof();
 
-if (state == 104 && stunned > 100 && birdcreated == 0)
+if (state == states.seat && stunned > 100 && birdcreated == 0)
 {
     birdcreated = 1;
     
@@ -53,13 +53,13 @@ if (state == 104 && stunned > 100 && birdcreated == 0)
         ID = other.id;
 }
 
-if (state != 104)
+if (state != states.seat)
     birdcreated = 0;
 
-if (state != 94)
+if (state != states.timesup)
     playedsnd = false;
 
-if (state == 300)
+if (state == states.enemyhitstun)
     exit;
 
 scr_enemy_scared();
@@ -71,31 +71,31 @@ if (flash == 1 && alarm[2] <= 0)
 if (bombreset > 0)
     bombreset--;
 
-if (state != 104)
+if (state != states.seat)
     thrown = 0;
 
 if (bombreset == 0 && grounded && visible)
 {
-    if (state == 100)
+    if (state == states.homingattack)
     {
         if (global.stylethreshold < 2)
         {
             image_index = 0;
             sprite_index = spr_swedishmonkey_eat;
-            state = 95;
+            state = states.ramp;
         }
         
         if (global.stylethreshold >= 2)
         {
             var __player = instance_nearest(x, y, obj_player);
             
-            if (__player.state != 66 && !scr_transformationcheck() && __player.x > (x - 400) && __player.x < (x + 400) && y <= (__player.y + 30) && y >= (__player.y - 30))
+            if (__player.state != states.mach3 && !scr_transformationcheck() && __player.x > (x - 400) && __player.x < (x + 400) && y <= (__player.y + 30) && y >= (__player.y - 30))
             {
                 image_xscale = -sign(x - __player.x);
                 sprite_index = spr_swedishmonkey_rage1;
                 image_index = 0;
                 flash = 1;
-                state = 94;
+                state = states.timesup;
                 bombreset = 100;
             }
         }

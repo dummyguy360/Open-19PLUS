@@ -1,2 +1,2 @@
-if (state != 107 && other.parried)
+if (state != states.smallpepdash && other.parried)
     instance_destroy();

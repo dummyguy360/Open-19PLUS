@@ -7,11 +7,11 @@ if (stuntouchbuffer > 0)
 if (stuntouchbuffer <= 0)
     stuntouchbuffer = 0;
 
-if (state != 104 || !instance_exists(pummelled) || !pummelled.pummelpunch)
+if (state != states.seat || !instance_exists(pummelled) || !pummelled.pummelpunch)
 {
     pummelled = -4;
     
-    if (state != 107)
+    if (state != states.smallpepdash)
         depth = -2;
 }
 else
@@ -22,11 +22,11 @@ else
     x = _ray.x;
     y = _ray.y;
     
-    if (state != 107 || (state == 107 && grabbedby.sprite_index != grabbedby.spr_piledriver))
+    if (state != states.smallpepdash || (state == states.smallpepdash && grabbedby.sprite_index != grabbedby.spr_piledriver))
         depth = -6;
 }
 
-if (state == 104 && sprite_index == spr_dead && hsp != 0)
+if (state == states.seat && sprite_index == spr_dead && hsp != 0)
 {
     if (chargeeffectID == -4)
     {
@@ -38,7 +38,7 @@ if (state == 104 && sprite_index == spr_dead && hsp != 0)
     }
 }
 
-if (state != 107)
+if (state != states.smallpepdash)
     image_yscale = 1;
 
 if (insupertaunt && obj_player.sprite_index != obj_player.spr_supertaunt1 && obj_player.sprite_index != obj_player.spr_supertaunt2 && obj_player.sprite_index != obj_player.spr_supertaunt3 && obj_player.sprite_index != obj_player.spr_supertaunt4)
@@ -52,7 +52,7 @@ if (y > (room_height + 400) && !persistent)
 if (place_meeting(x, y + 1, obj_current))
     killed = 1;
 
-persistent = state == 107 || pummelled != -4;
+persistent = state == states.smallpepdash || pummelled != -4;
 
-if (state != 107)
+if (state != states.smallpepdash)
     scr_collide_enemy();

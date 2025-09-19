@@ -2,10 +2,10 @@ if (place_meeting(x, y - 1, obj_player))
 {
     with (obj_player)
     {
-        if (place_meeting(x, y + 1, obj_ladder) && input_check("down") && (state == 43 || (character == "S" && (state == 0 || state == 45))) && place_meeting(x, y + 1, obj_platform))
+        if (place_meeting(x, y + 1, obj_ladder) && input_check("down") && (state == states.crouch || (character == "S" && (state == states.normal || state == states.crouchslide))) && place_meeting(x, y + 1, obj_platform))
         {
             y += 5;
-            state = 37;
+            state = states.ladder;
             x = other.x + 16;
             y = floor(y);
             

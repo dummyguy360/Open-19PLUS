@@ -2,16 +2,16 @@ if (place_meeting(x, y - 1, obj_player))
 {
     with (obj_player)
     {
-        if (state == 18 || state == 115)
+        if (state == states.knightpep || state == states.knightpepbump)
         {
-            state = 13;
+            state = states.knightpepslopes;
             
             if (movespeed < 13)
                 movespeed = 13;
         }
-        else if (state != 13 && state != 38 && state != 87)
+        else if (state != states.knightpepslopes && state != states.slipnslide && state != states.hitstun)
         {
-            state = 38;
+            state = states.slipnslide;
             sprite_index = spr_slipnslide;
             scr_fmod_soundeffectONESHOT("event:/sfx/misc/slip", x, y);
         }

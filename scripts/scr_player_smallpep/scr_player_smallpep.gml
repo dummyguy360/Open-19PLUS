@@ -77,7 +77,7 @@ function scr_player_smallpep()
     
     if (input_check("dash") && grounded && !place_meeting(x + xscale, y, obj_solid))
     {
-        state = 107;
+        state = states.smallpepdash;
         movespeed = 0;
         sprite_index = spr_smalldashstart;
         image_index = 0;

@@ -81,7 +81,7 @@ function scr_player_Sjump()
             
             scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
             image_index = 0;
-            state = 68;
+            state = states.sjumpland;
             machhitAnim = 0;
         }
     }
@@ -125,7 +125,7 @@ function scr_player_Sjump()
         
         scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
         image_index = 0;
-        state = 68;
+        state = states.sjumpland;
         machhitAnim = 0;
     }
     
@@ -143,13 +143,13 @@ function scr_player_Sjump()
         
         if (character != "N")
         {
-            state = 45;
+            state = states.crouchslide;
             sprite_index = spr_player_sjumpcancelstart;
             scr_fmod_soundeffectONESHOT("event:/sfx/player/mach/superjumpcancel", x, y);
         }
         else
         {
-            state = 47;
+            state = states.mach2;
             vsp = -5;
             movespeed = 12;
             instance_create_depth(x, y, 0, obj_shoulderbashcrazyrunothereffect);

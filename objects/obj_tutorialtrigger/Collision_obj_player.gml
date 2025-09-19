@@ -4,7 +4,7 @@ if (global.tutorialdone || other.trapactivated)
 if (!other.grounded)
 {
     other.trapactivated = true;
-    other.state = 123;
+    other.state = states.forcedfall;
     var _dirt = instance_place(x, y, obj_tutorialdirt);
     
     repeat (12)

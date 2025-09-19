@@ -47,7 +47,7 @@ function scr_enemy_charge()
                 
                 if (floor(image_index) == (image_number - 1))
                 {
-                    state = 94;
+                    state = states.timesup;
                     movespeed = 5;
                     vsp = -7;
                     sprite_index = spr_fencer_chargestart;
@@ -69,7 +69,7 @@ function scr_enemy_charge()
                 
                 if (place_meeting(x + hsp, y, obj_solid))
                 {
-                    state = 104;
+                    state = states.seat;
                     stunned = 100;
                 }
             }
@@ -110,7 +110,7 @@ function scr_enemy_charge()
                 {
                     sprite_index = spr_ancho;
                     image_index = 0;
-                    state = 100;
+                    state = states.homingattack;
                 }
             }
             
@@ -173,7 +173,7 @@ function scr_enemy_charge()
                 
                 if (floor(image_index) == (image_number - 1))
                 {
-                    state = 100;
+                    state = states.homingattack;
                     sprite_index = spr_slimemove;
                     image_index = 0;
                     movespeed = 1;
@@ -248,7 +248,7 @@ function scr_enemy_charge()
                 
                 vsp = -8;
                 hsp = image_xscale * -5;
-                state = 104;
+                state = states.seat;
                 image_index = 0;
                 charging = false;
             }
@@ -301,7 +301,7 @@ function scr_enemy_charge()
             if (sprite_index == spr_minijohn_rage2 && floor(image_index) == (image_number - 1))
             {
                 movespeed = 4;
-                state = 108;
+                state = states.retrodeath;
                 sprite_index = spr_minijohn_charge;
                 bombreset = 100;
                 charging = false;
@@ -327,7 +327,7 @@ function scr_enemy_charge()
                 
                 vsp = -6;
                 hsp = image_xscale * -5;
-                state = 104;
+                state = states.seat;
                 image_index = 0;
                 charging = false;
                 scr_fmod_soundeffectONESHOT("event:/sfx/enemy/hit", x, y);
@@ -356,7 +356,7 @@ function scr_enemy_charge()
             
             if (sprite_index == spr_swedishmonkey_rage2 && floor(image_index) == (image_number - 1))
             {
-                state = 100;
+                state = states.homingattack;
                 bombreset = 100;
                 playedsnd = false;
             }

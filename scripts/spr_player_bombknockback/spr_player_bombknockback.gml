@@ -7,7 +7,7 @@ function scr_player_bombknockback()
         sprite_index = spr_land;
         image_index = 0;
         landAnim = true;
-        state = 0;
+        state = states.normal;
     }
     
     sprite_index = spr_rockethitwall;

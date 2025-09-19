@@ -1,5 +1,5 @@
 x = playerid.x;
 y = playerid.y;
 
-if (playerid.state != 51 && playerid.state != 25 && playerid.freefallsmash <= 0)
+if (playerid.state != states.freefall && playerid.state != states.superslam && playerid.freefallsmash <= 0)
     instance_destroy();

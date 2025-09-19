@@ -16,7 +16,7 @@ function scr_player_bump()
         hsp = lerp(hsp, 0, 0.1);
     
     if (sprite_index == spr_rockethitwall && grounded && vsp > 0)
-        state = 0;
+        state = states.normal;
     
     if (sprite_index == spr_tumbleend)
     {
@@ -32,9 +32,9 @@ function scr_player_bump()
     
     if (floor(image_index) == (image_number - 1) && sprite_index != spr_rockethitwall)
     {
-        state = grounded ? 0 : 36;
+        state = grounded ? states.normal : states.jump;
         
-        if (state != 0)
+        if (state != states.normal)
             sprite_index = spr_fall;
         
         exit;

@@ -14,7 +14,7 @@ function scr_player_tacklecharge()
     
     if (input_buffer_attack < 8)
     {
-        state = 29;
+        state = states.punch;
         image_index = 1;
         image_speed = 0.35;
         hsp = 0;
@@ -53,14 +53,14 @@ function scr_player_tacklecharge()
             thrown = 1;
             x = obj_player.x;
             y = obj_player.y;
-            state = 104;
+            state = states.seat;
             hsp = -image_xscale * 10;
             vsp = -10;
             camera_shake(3, 3);
         }
         
         movespeed = 0;
-        state = 49;
+        state = states.bump;
         hsp = -2.5 * xscale;
         vsp = -3;
         mach2 = 0;
@@ -78,13 +78,13 @@ function scr_player_tacklecharge()
         if (character == "P")
             machhitAnim = 0;
         
-        state = 45;
+        state = states.crouchslide;
     }
     
     if (!input_check("dash") && move != xscale && grounded)
     {
         image_index = 0;
-        state = 48;
+        state = states.machslide;
         scr_fmod_soundeffect(char_machbreaksnd, x, y);
         sprite_index = spr_machslidestart;
     }
@@ -92,12 +92,12 @@ function scr_player_tacklecharge()
     if (move == -xscale && grounded)
     {
         image_index = 0;
-        state = 48;
+        state = states.machslide;
         sprite_index = spr_machslideboost;
     }
     
     if (move == xscale && !input_check("dash") && grounded)
-        state = 0;
+        state = states.normal;
     
     if (!instance_exists(obj_dashcloud) && grounded)
         instance_create_depth(x, y, 0, obj_dashcloud);

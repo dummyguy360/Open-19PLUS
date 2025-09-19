@@ -63,7 +63,7 @@ function scr_player_Sjumpcancel()
     
     if (((movespeed <= 0 && !instance_place(x + xscale, y + 1, obj_slope)) || (scr_solid(x + 1, y) && xscale == 1) || (scr_solid(x - 1, y) && xscale == -1)) && !place_meeting(x + sign(hsp), y, obj_slope))
     {
-        state = 0;
+        state = states.normal;
         movespeed = 0;
         mach2 = 0;
         crouchslideAnim = 1;
@@ -76,7 +76,7 @@ function scr_player_Sjumpcancel()
     if (scr_solid(x + 1, y) && xscale == 1 && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles))
     {
         movespeed = 0;
-        state = 0;
+        state = states.normal;
         mach2 = 0;
         image_index = 0;
         machslideAnim = 1;
@@ -87,7 +87,7 @@ function scr_player_Sjumpcancel()
     if (scr_solid(x - 1, y) && xscale == -1 && !place_meeting(x + sign(hsp), y, obj_slope) && !place_meeting(x + sign(hsp), y, obj_destructibles))
     {
         movespeed = 0;
-        state = 0;
+        state = states.normal;
         mach2 = 0;
         image_index = 0;
         machslideAnim = 1;
@@ -105,7 +105,7 @@ function scr_player_Sjumpcancel()
     {
         instance_create_depth(x, y, 0, obj_jumpdust);
         flash = 0;
-        state = 23;
+        state = states.machroll;
         vsp = 10;
         
         if (movespeed < 8)
@@ -115,7 +115,7 @@ function scr_player_Sjumpcancel()
     {
         instance_create_depth(x, y, 0, obj_jumpdust);
         flash = 0;
-        state = 23;
+        state = states.machroll;
         vsp = 10;
         
         if (movespeed < 12)

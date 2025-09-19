@@ -3,5 +3,5 @@ image_xscale = playerid.xscale;
 x = playerid.x;
 y = playerid.y;
 
-if (playerid.state != 0 || global.combo < 50)
+if (playerid.state != states.normal || global.combo < 50)
     instance_destroy();

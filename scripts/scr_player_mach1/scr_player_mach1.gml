@@ -11,11 +11,11 @@ function scr_player_mach1()
         {
             sprite_index = spr_player_climbwall;
             wallspeed = movespeed;
-            state = 12;
+            state = states.climbwall;
         }
         else
         {
-            state = 49;
+            state = states.bump;
             sprite_index = spr_player_wallsplat;
             gamepadvibrate(0.4, 0, 7);
             image_index = 0;
@@ -53,13 +53,13 @@ function scr_player_mach1()
     
     if (grounded && !input_check("dash") && character != "S")
     {
-        state = 0;
+        state = states.normal;
         image_index = 0;
     }
     
     if (move == 0 && character == "S")
     {
-        state = 0;
+        state = states.normal;
         image_index = 0;
     }
     
@@ -105,7 +105,7 @@ function scr_player_mach1()
         
         if (sprite_index == spr_mach1 && floor(image_index) == (image_number - 1))
         {
-            state = 47;
+            state = states.mach2;
             
             with (instance_create_depth(x, y, 0, obj_jumpdust))
                 image_xscale = other.xscale;
@@ -122,7 +122,7 @@ function scr_player_mach1()
     {
         coyotetime = 0;
         scr_fmod_soundeffect(char_jumpsnd, x, y);
-        state = 47;
+        state = states.mach2;
         sprite_index = spr_secondjump1;
         dir = xscale;
         momemtum = 1;
@@ -133,7 +133,7 @@ function scr_player_mach1()
     
     if (!grounded && !input_check_pressed("jump"))
     {
-        state = 47;
+        state = states.mach2;
         sprite_index = spr_secondjump1;
         dir = xscale;
         jumpAnim = 1;
@@ -145,7 +145,7 @@ function scr_player_mach1()
     if (character == "P" && input_check("up") && input_buffer_attack < 8 && canuppercut && grounded)
     {
         input_buffer_attack = 8;
-        state = 75;
+        state = states.shoryuken;
         sprite_index = spr_shoryukenstart;
         image_index = 0;
         
@@ -174,7 +174,7 @@ function scr_player_mach1()
     if (input_check("shoot") && global.currentpowerup == 1)
     {
         scr_fmod_soundeffectONESHOT("event:/sfx/player/killingblow", x, y);
-        state = 103;
+        state = states.swingdingfinish;
         
         with (instance_create_depth(x, y, 0, obj_pistoleffect))
             image_xscale = other.xscale;
@@ -212,7 +212,7 @@ function scr_player_mach1()
             if (!kungfumove)
             {
                 kungfumove = 1;
-                state = 91;
+                state = states.kungfu;
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/kungfu", x, y);
                 
                 if (movespeed < 10)
@@ -236,7 +236,7 @@ function scr_player_mach1()
         {
             suplexmove = 1;
             fmod_studio_event_instance_start(suplexdashsnd);
-            state = 16;
+            state = states.suplexgrab;
             image_index = 0;
             
             if (global.currentpowerup != 1)
@@ -268,7 +268,7 @@ function scr_player_mach1()
         if (!grounded)
             vsp = -6;
         
-        state = 74;
+        state = states.gunshoot;
         sprite_index = spr_player_gunshoot;
         image_index = 0;
         
@@ -300,7 +300,7 @@ function scr_player_mach1()
             instance_create_depth(x, y, 0, obj_jumpdust);
         
         flash = 0;
-        state = 23;
+        state = states.machroll;
         image_index = 0;
         vsp = 10;
     }

@@ -10,7 +10,7 @@ with (other.id)
     if (!other.got)
     {
         other.alarm[0] = 150;
-        state = 17;
+        state = states.gottreasure;
         event_play_oneshot("event:/sfx/misc/secretfound");
     }
     

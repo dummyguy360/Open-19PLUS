@@ -1,4 +1,4 @@
-if (other.state == 126)
+if (other.state == states.sagelevelentrance)
     exit;
 
 if (!collectmode)

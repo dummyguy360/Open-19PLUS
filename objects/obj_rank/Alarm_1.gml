@@ -4,7 +4,7 @@ scr_leavelevel();
 
 with (obj_player)
 {
-    state = 88;
+    state = states.slipbanan;
     vsp = -8;
     hsp = 0;
     movespeed = 0;
@@ -21,7 +21,7 @@ with (obj_player)
         character = "P";
         scr_characterspr();
         paletteselect = 1;
-        state = 6;
+        state = states.titlescreen;
         sprite_index = spr_player_title;
         targetDoor = "A";
     }

@@ -9,7 +9,7 @@ function scr_player_chainsawbump()
         hsp = 0;
     
     if (floor(image_index) == (image_number - 1))
-        state = 0;
+        state = states.normal;
     
     sprite_index = spr_player_chainsawbumpwall;
     image_speed = 0.35;

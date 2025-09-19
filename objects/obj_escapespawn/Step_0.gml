@@ -1,4 +1,4 @@
-if (state == 0 || state == 1)
+if (state == states.normal || state == states.tumble)
     instance_deactivate_object(baddieID);
 
 switch (state)
@@ -7,7 +7,7 @@ switch (state)
         if (!global.panic)
             visible = false;
         else
-            state = 1;
+            state = states.tumble;
         
         break;
     
@@ -18,7 +18,7 @@ switch (state)
         
         if (p.x < (x + 500) && p.x > (x - 500) && p.y > (y - 100) && p.y < (y + 100))
         {
-            state = 2;
+            state = states.finishingblow;
             visible = true;
         }
         
@@ -36,7 +36,7 @@ switch (state)
                 
                 if (escapestun)
                 {
-                    state = 104;
+                    state = states.seat;
                     sprite_index = stunfallspr;
                     stunned = 20;
                 }
@@ -47,7 +47,7 @@ switch (state)
             }
             
             scr_fmod_soundeffectONESHOT("event:/sfx/enemy/spatout", x, y);
-            state = 3;
+            state = states.ejected;
         }
         
         break;

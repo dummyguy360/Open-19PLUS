@@ -12,7 +12,7 @@ if (instance_exists(ID))
     {
         if (object_index == obj_fencer || object_index == obj_ancho || object_index == obj_cheeseslime)
         {
-            if (state != 94)
+            if (state != states.timesup)
             {
                 hitboxcreate = 0;
                 instance_destroy(other.id);

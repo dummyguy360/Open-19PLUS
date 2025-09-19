@@ -1,1 +1,1 @@
-state = 2;
+state = states.finishingblow;

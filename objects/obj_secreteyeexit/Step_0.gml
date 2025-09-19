@@ -14,18 +14,18 @@ switch (sprite_index)
             
             with (obj_player)
             {
-                if (tauntstoredstate != 18 && tauntstoredstate != 13 && tauntstoredstate != 115 && tauntstoredstate != 5)
+                if (tauntstoredstate != states.knightpep && tauntstoredstate != states.knightpepslopes && tauntstoredstate != states.knightpepbump && tauntstoredstate != states.firemouth)
                 {
                     visible = true;
                     cutscene = false;
                     sprite_index = spr_bodyslamstart;
                     image_index = 0;
-                    state = 51;
+                    state = states.freefall;
                     vsp = (character == "P") ? -5 : -7;
                 }
                 else
                 {
-                    if (state == 18)
+                    if (state == states.knightpep)
                         hsp = 0;
                     
                     sprite_index = tauntstoredsprite;
@@ -60,7 +60,7 @@ switch (sprite_index)
                 {
                     enteringsecret = false;
                     
-                    if (tauntstoredstate == 18 || tauntstoredstate == 13 || tauntstoredstate == 115 || tauntstoredstate == 5)
+                    if (tauntstoredstate == states.knightpep || tauntstoredstate == states.knightpepslopes || tauntstoredstate == states.knightpepbump || tauntstoredstate == states.firemouth)
                     {
                         state = tauntstoredstate;
                         movespeed = tauntstoredmovespeed;
@@ -72,7 +72,7 @@ switch (sprite_index)
                     switch (state)
                     {
                         case 13:
-                            state = 18;
+                            state = states.knightpep;
                             sprite_index = spr_knightpepfall;
                             hsp = 0;
                             movespeed = 0;

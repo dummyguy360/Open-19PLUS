@@ -75,7 +75,7 @@ function scr_escapeenemy()
             grav = 0;
             thrown = 1;
             stunned = 10000;
-            state = 104;
+            state = states.seat;
             parried = 1;
             
             with (__player)
@@ -124,18 +124,18 @@ function scr_escapeenemy()
 
 function scr_enemy_scared()
 {
-    if (state == 300)
+    if (state == states.enemyhitstun)
         exit;
     
     var p = instance_nearest(x, y, obj_player);
     
     if (p.x > (x - 400) && p.x < (x + 400) && y <= (p.y + 60) && y >= (p.y - 60))
     {
-        if (state != 92 && state != 104 && (p.state == 66 || p.state == 13 || p.state == 118))
+        if (state != states.tackleold && state != states.seat && (p.state == states.mach3 || p.state == states.knightpepslopes || p.state == states.lunge))
         {
             scaredbuffer = 100;
             hsp = 0;
-            state = 92;
+            state = states.tackleold;
             image_index = 0;
             sprite_index = scaredspr;
             

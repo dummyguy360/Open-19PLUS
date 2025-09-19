@@ -2,7 +2,7 @@ uparrowid = create_uparrow();
 level = "";
 targetRoom = virtualinsanity;
 world = 1;
-state = 0;
+state = states.normal;
 metrequirement = true;
 
 create_func = function(arg0 = false)

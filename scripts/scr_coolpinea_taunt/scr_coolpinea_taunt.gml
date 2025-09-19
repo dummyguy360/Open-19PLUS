@@ -5,7 +5,7 @@ function scr_coolpinea_taunt()
     taunttimer--;
     
     if (taunttimer <= 0)
-        state = 100;
+        state = states.homingattack;
     
     image_speed = 0;
 }

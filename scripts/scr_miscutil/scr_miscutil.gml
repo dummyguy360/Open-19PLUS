@@ -12,7 +12,7 @@ function array_get_undefined(arg0, arg1)
 
 function is_player_grabbing(arg0 = obj_player)
 {
-    return arg0.state == 16 || arg0.state == 73 || arg0.state == 91 || arg0.state == 118;
+    return arg0.state == states.suplexgrab || arg0.state == states.shoulderbash || arg0.state == states.kungfu || arg0.state == states.lunge;
 }
 
 function draw_rotated_primcircle(arg0, arg1, arg2, arg3, arg4)
@@ -764,7 +764,7 @@ function get_toppincount()
 
 function restore_combo(arg0 = 60)
 {
-    if (global.currentbadge == 3 && global.combogalstate != 0 && global.levelname != "tutorial")
+    if (global.currentbadge == 3 && global.combogalstate != states.normal && global.levelname != "tutorial")
         exit;
     
     if (global.combo <= 0 || arg0 < 0)
@@ -774,12 +774,12 @@ function restore_combo(arg0 = 60)
     global.combotime = min(60, global.combotime);
     
     if (global.combogalstate < 1)
-        global.combogalstate = 1;
+        global.combogalstate = states.tumble;
 }
 
 function add_combo(arg0 = 1)
 {
-    if (global.currentbadge == 3 && global.combogalstate == 2 && global.levelname != "tutorial")
+    if (global.currentbadge == 3 && global.combogalstate == states.finishingblow && global.levelname != "tutorial")
         exit;
     
     global.combo += arg0;

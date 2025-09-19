@@ -10,7 +10,7 @@ switch (descstate)
         {
             descanim = 1.2;
             descspin = 0;
-            descstate = 1;
+            descstate = states.tumble;
             event_play_oneshot("event:/sfx/misc/disclamersplat");
         }
         
@@ -25,7 +25,7 @@ switch (descstate)
         
         if (descalpha <= 0)
         {
-            obj_player.state = 0;
+            obj_player.state = states.normal;
             instance_destroy();
         }
         
@@ -33,4 +33,4 @@ switch (descstate)
 }
 
 if (input_check_pressed("jump"))
-    descstate = 2;
+    descstate = states.finishingblow;

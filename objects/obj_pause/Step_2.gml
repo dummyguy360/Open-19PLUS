@@ -3,7 +3,7 @@ if (hubeject)
     with (obj_player)
     {
         targetDoor = "HUB";
-        state = 125;
+        state = states.hubeject;
         x = backtohubstartx;
         y = backtohubstarty;
         

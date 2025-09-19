@@ -2,9 +2,9 @@ visible = 1;
 
 with (obj_player)
 {
-    if (!place_meeting(x, y, other) && other.glist[id] && grounded && movespeed >= 8 && xscale == other.image_xscale && (state == 47 || state == 66))
+    if (!place_meeting(x, y, other) && other.glist[id] && grounded && movespeed >= 8 && xscale == other.image_xscale && (state == states.mach2 || state == states.mach3))
     {
-        if (state != 95 && state != 26)
+        if (state != states.ramp && state != states.skateboard)
         {
             if (character == "N")
                 sprite_index = spr_playerN_rampjump;
@@ -12,7 +12,7 @@ with (obj_player)
                 sprite_index = spr_player_rampjump;
             
             image_index = 0;
-            state = 95;
+            state = states.ramp;
             scr_tiptext(string_get("tips/other/ramp"), "ramptip");
             instance_destroy(obj_trickpoints);
             vsp = -13;
@@ -29,7 +29,7 @@ with (obj_player)
                 rampdotricks = 1;
             }
         }
-        else if (state == 26)
+        else if (state == states.skateboard)
         {
             vsp = -13;
             

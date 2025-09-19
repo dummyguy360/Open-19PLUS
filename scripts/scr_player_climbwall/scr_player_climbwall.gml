@@ -8,7 +8,7 @@ function scr_player_climbwall()
     
     step_vertical = function(arg0)
     {
-        if (state != 47 && wallspeed > 0 && !scr_solid_player(x + xscale, y))
+        if (state != states.mach2 && wallspeed > 0 && !scr_solid_player(x + xscale, y))
         {
             instance_create_depth(x, y, 0, obj_jumpdust);
             vsp = 0;
@@ -16,24 +16,24 @@ function scr_player_climbwall()
             
             if (wallspeed >= 6 && wallspeed < 12)
             {
-                state = 47;
+                state = states.mach2;
                 movespeed = wallspeed;
             }
             else
             {
                 if (character != "S")
                 {
-                    state = 66;
+                    state = states.mach3;
                     sprite_index = spr_mach4;
                 }
                 else if (!snickmach3mode)
                 {
-                    state = 47;
+                    state = states.mach2;
                     sprite_index = spr_mach;
                 }
                 else
                 {
-                    state = 66;
+                    state = states.mach3;
                     sprite_index = spr_mach4;
                 }
                 
@@ -52,7 +52,7 @@ function scr_player_climbwall()
         sprite_index = spr_superjumpland;
         scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
         image_index = 0;
-        state = 68;
+        state = states.sjumpland;
         machhitAnim = 0;
         wallclimbtime = 0;
         gamepadvibrate(0.4, 0, 7);
@@ -63,7 +63,7 @@ function scr_player_climbwall()
         with (instance_create_depth(x, y, obj_player.depth, obj_balloonpop))
             sprite_index = spr_noisewalljumpeffect;
         
-        state = 120;
+        state = states.nwalljump;
         savedmove = xscale;
         vsp = -(17 * (1 - (noisewalljump * 0.15)));
         noisewalljump++;
@@ -103,7 +103,7 @@ function scr_player_climbwall()
     
     if (!input_check("dash") && wallclimbtime == 0)
     {
-        state = 0;
+        state = states.normal;
         movespeed = 0;
         additionalhsp = -8 * xscale;
     }
@@ -124,7 +124,7 @@ function scr_player_climbwall()
         image_index = 0;
         jumpstop = 0;
         scr_fmod_soundeffect(char_jumpsnd, x, y);
-        state = 47;
+        state = states.mach2;
         sprite_index = spr_walljumpstart;
         movespeed = 10;
         vsp = -11;
@@ -133,7 +133,7 @@ function scr_player_climbwall()
     
     if (grounded && wallspeed <= 0)
     {
-        state = 0;
+        state = states.normal;
         jumpstop = 1;
     }
     

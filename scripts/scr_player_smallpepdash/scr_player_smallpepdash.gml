@@ -18,7 +18,7 @@ function scr_player_smallpepdash()
     
     if (!input_check("dash") || place_meeting(x + xscale, y, obj_solid) || !grounded)
     {
-        state = 106;
+        state = states.smallpep;
         sprite_index = spr_smallidle;
         movespeed = 0;
     }
