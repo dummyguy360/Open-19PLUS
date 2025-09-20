@@ -14,7 +14,7 @@ function MenuItem(arg0) constructor
     static draw = function(arg0, arg1, arg2)
     {
         if (is_string(name))
-            __draw_text_colour_hook(round(arg0), round(arg1), name, 16777215, 16777215, 16777215, 16777215, 1 / (2 - arg2));
+            __draw_text_colour_hook(round(arg0), round(arg1), name, c_white, c_white, c_white, c_white, 1 / (2 - arg2));
         else if (name != -1)
             draw_sprite_ext(name, 0, round(arg0), round(arg1), 1, 1, 0, c_white, 1 / (2 - arg2));
     };
@@ -228,7 +228,7 @@ function Slider(arg0 = 0, arg1 = 1, arg2 = 0.01, arg3 = 0) : Selection(-1, -1) c
                 break;
         }
         
-        __draw_text_colour_hook(arg0, arg1, _text, 16777215, 16777215, 16777215, 16777215, 1 / (2 - arg2));
+        __draw_text_colour_hook(arg0, arg1, _text, c_white, c_white, c_white, c_white, 1 / (2 - arg2));
     };
     
     static jump = function()
@@ -341,7 +341,7 @@ function StackedOption(arg0, arg1, arg2, arg3 = [new Selection(string_get("menu/
 {
     static draw = function(arg0, arg1, arg2)
     {
-        __draw_text_colour_hook(480, arg1, name, 16777215, 16777215, 16777215, 16777215, 1 / (2 - arg2));
+        __draw_text_colour_hook(480, arg1, name, c_white, c_white, c_white, c_white, 1 / (2 - arg2));
         var _len = array_length(selections);
         var _maxwidth = 0;
         
@@ -366,7 +366,7 @@ function SideOption(arg0, arg1, arg2, arg3 = [new Selection(string_get("menu/opt
     {
         var _sel = selections[chosensel];
         var _margin = 100;
-        __draw_text_colour_hook(round(nameoffset + _margin), round(arg1), name, 16777215, 16777215, 16777215, 16777215, 1 / (2 - arg2));
+        __draw_text_colour_hook(round(nameoffset + _margin), round(arg1), name, c_white, c_white, c_white, c_white, 1 / (2 - arg2));
         _sel.draw(round(get_game_width() - (_sel.getwidth() / 2) - _margin), round(arg1), true);
     };
     

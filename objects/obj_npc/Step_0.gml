@@ -6,7 +6,7 @@ if (!soundsetup)
     {
         var _charid = scenario.characters[i];
         var _charev = array_get(self.get_char(_charid), 2);
-        ds_map_set(sounds, _charid, event_instance(_charev));
+        sounds[? _charid] = event_instance(_charev);
     }
 }
 
@@ -58,7 +58,7 @@ switch (state)
         {
             if ((currentchar % 6.5) == 0)
             {
-                fmod_studio_event_instance_start(ds_map_find_value(sounds, scenario.lines[currentline].character));
+                fmod_studio_event_instance_start(sounds[? scenario.lines[currentline].character]);
                 talkspr = 7;
             }
             
@@ -69,7 +69,7 @@ switch (state)
         {
             if (ceil(currentchar) < string_length(_str))
             {
-                fmod_studio_event_instance_start(ds_map_find_value(sounds, scenario.lines[currentline].character));
+                fmod_studio_event_instance_start(sounds[? scenario.lines[currentline].character]);
                 currentchar = string_length(_str);
             }
             else if (currentline < (array_length(scenario.lines) - 1))

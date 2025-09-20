@@ -1,4 +1,4 @@
-var _id = ds_map_find_value(async_load, "id");
+var _id = async_load[? "id"];
 
 switch (savestate)
 {
@@ -12,7 +12,7 @@ switch (savestate)
                 buffer_delete(demosavebuff);
             
             savestate = states.normal;
-            trace("Game Save Status: ", ds_map_find_value(async_load, "status"));
+            trace("Game Save Status: ", async_load[? "status"]);
         }
         
         break;
@@ -50,26 +50,26 @@ switch (savestate)
                 
                 for (var i = 0; i < array_length(_demos); i++)
                 {
-                    var _uncompbuff = buffer_decompress(ds_map_find_value(demoloadbuffs, array_get(_demos, i)));
+                    var _uncompbuff = buffer_decompress(demoloadbuffs[? array_get(_demos, i)]);
                     var _demoversion = buffer_read(_uncompbuff, buffer_u8);
                     
                     if (_demoversion == 1)
                     {
                         var _buffsize = buffer_read(_uncompbuff, buffer_u64);
                         var _tick = buffer_read(_uncompbuff, buffer_u64);
-                        ds_map_set(global.timetrialreplays, array_get(_demos, i), [_tick, buffer_create(_buffsize - 17, buffer_fixed, 1)]);
-                        buffer_copy(_uncompbuff, 17, _buffsize - 17, array_get(ds_map_find_value(global.timetrialreplays, array_get(_demos, i)), 1), 0);
+                        global.timetrialreplays[? array_get(_demos, i)] = [_tick, buffer_create(_buffsize - 17, buffer_fixed, 1)];
+                        buffer_copy(_uncompbuff, 17, _buffsize - 17, array_get(global.timetrialreplays[? array_get(_demos, i)], 1), 0);
                         buffer_seek(_uncompbuff, buffer_seek_start, _buffsize);
                         
                         while (buffer_tell(_uncompbuff) != buffer_get_size(_uncompbuff))
                         {
                             var _key = buffer_read(_uncompbuff, buffer_string);
                             var _value = buffer_read(_uncompbuff, buffer_f64);
-                            ds_map_set(ds_map_find_value(global.timetrialsavedsplits, array_get(_demos, i)), _key, _value);
+                            ds_map_set(global.timetrialsavedsplits[? array_get(_demos, i)], _key, _value);
                         }
                     }
                     
-                    buffer_delete(ds_map_find_value(demoloadbuffs, array_get(_demos, i)));
+                    buffer_delete(demoloadbuffs[? array_get(_demos, i)]);
                     buffer_delete(_uncompbuff);
                 }
             }
@@ -77,7 +77,7 @@ switch (savestate)
             ds_map_destroy(demoloadbuffs);
             demoloadbuffs = -1;
             savestate = states.normal;
-            trace("Game Load Status: ", ds_map_find_value(async_load, "status"));
+            trace("Game Load Status: ", async_load[? "status"]);
         }
         
         break;
@@ -87,7 +87,7 @@ switch (savestate)
         {
             buffer_delete(configsavebuff);
             savestate = states.normal;
-            trace("Config Save Status: ", ds_map_find_value(async_load, "status"));
+            trace("Config Save Status: ", async_load[? "status"]);
         }
         
         break;

@@ -21,10 +21,10 @@ function scr_playerreset(arg0, arg1 = true)
         wallet_open();
         wallet_readcoins(global.levelname, true);
         wallet_close();
-        ds_map_copy(global.timetrialsplits, ds_map_find_value(global.timetrialsavedsplits, global.levelname));
+        ds_map_copy(global.timetrialsplits, global.timetrialsavedsplits[? global.levelname]);
         
-        if (ds_map_find_value(global.timetrialreplays, global.levelname) != -1)
-            buffer_seek(array_get(ds_map_find_value(global.timetrialreplays, global.levelname), 1), buffer_seek_start, 0);
+        if (global.timetrialreplays[? global.levelname] != -1)
+            buffer_seek(array_get(global.timetrialreplays[? global.levelname], 1), buffer_seek_start, 0);
     }
     
     achievements_reset();

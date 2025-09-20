@@ -95,7 +95,7 @@ function string_get(arg0)
 
 function dialogue_get(arg0)
 {
-    var _dialogue = ds_map_find_value(obj_pause.dialoguemap, arg0);
+    var _dialogue = obj_pause.dialoguemap[? arg0];
     
     if (is_undefined(_dialogue))
         _dialogue = parse_dialogue("{PP;SK;MR}\n\n[PP_Normal] ???\n[SK_Normal] ???\n[MR_Normal] Well this sucks.");

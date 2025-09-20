@@ -174,9 +174,9 @@ function draw_text_fancy(arg0, arg1, arg2, arg3 = c_white, arg4 = 1, arg5 = true
                     if (_wave)
                         _yoff = wave(-2, 2, 1, 0, current_time + arg0);
                     
-                    if (!is_undefined(ds_map_find_value(global.inputs, _input)))
+                    if (!is_undefined(global.inputs[? _input]))
                     {
-                        var _verb = ds_map_find_value(global.inputs, _input);
+                        var _verb = global.inputs[? _input];
                         array_push(_drawinputs, [round(arg0 + global.fontextra[_font][5] + _xoff), round(arg1 + global.fontextra[_font][6] + _yoff), _verb]);
                         arg0 += global.fontextra[_font][4];
                         i += 2;

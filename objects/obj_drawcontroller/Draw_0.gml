@@ -18,7 +18,7 @@ draw_set_font(global.smallnumber);
 draw_set_halign(fa_center);
 
 with (obj_smallnumber)
-    __draw_text_colour_hook(x, y, number, 16777215, 16777215, 16777215, 16777215, 1);
+    __draw_text_colour_hook(x, y, number, c_white, c_white, c_white, c_white, 1);
 
 if (instance_exists(obj_player))
 {

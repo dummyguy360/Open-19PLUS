@@ -97,9 +97,9 @@ if (place_meeting(x, y, obj_player) && !instance_exists(obj_sagegateplayer) && u
         {
             var _minutes, _seconds, _milliseconds;
             
-            if (ds_map_find_value(global.timetrialreplays, level) != -1)
+            if (global.timetrialreplays[? level] != -1)
             {
-                var _time = array_get(ds_map_find_value(global.timetrialreplays, level), 0);
+                var _time = array_get(global.timetrialreplays[? level], 0);
                 _milliseconds = string_padzeros(floor(((abs(_time) / 60) % 60 % 1) * 100));
                 _seconds = string_padzeros(floor((abs(_time) / 60) % 60));
                 _minutes = string_padzeros((abs(_time) div 60 div 60) % 60);
@@ -107,12 +107,12 @@ if (place_meeting(x, y, obj_player) && !instance_exists(obj_sagegateplayer) && u
             
             var _yoff = 0;
             
-            if (_ranksign != 3 && ds_map_find_value(global.timetrialreplays, level) != -1)
+            if (_ranksign != 3 && global.timetrialreplays[? level] != -1)
                 _yoff = -40;
             
             draw_sprite(spr_trialranks, _ranksign, x, y + ranky + _yoff);
             
-            if (ds_map_find_value(global.timetrialreplays, level) != -1)
+            if (global.timetrialreplays[? level] != -1)
             {
                 __draw_text_hook(x, y + highscorey + _yoff, string_concat(string_get("timetrial/currenttime"), _minutes, ":", _seconds, ".", _milliseconds));
                 

@@ -60,9 +60,9 @@ if (distance_to_object(obj_player) < 50)
         
         if (global.timetrial)
         {
-            if (ds_map_find_value(global.timetrialreplays, level) != -1)
+            if (global.timetrialreplays[? level] != -1)
             {
-                var _time = array_get(ds_map_find_value(global.timetrialreplays, level), 0);
+                var _time = array_get(global.timetrialreplays[? level], 0);
                 var _milliseconds = string_padzeros(floor(((abs(_time) / 60) % 60 % 1) * 100));
                 var _seconds = string_padzeros(floor((abs(_time) / 60) % 60));
                 var _minutes = string_padzeros((abs(_time) div 60 div 60) % 60);

@@ -11,7 +11,7 @@ if (instance_exists(obj_player))
             draw_set_font(global.smallfont);
             draw_set_halign(fa_center);
             draw_sprite(spr_minibosshealth, -1, 702, 72);
-            __draw_text_colour_hook(704, 80, string_hash_to_newline(global.boxhp), 16777215, 16777215, 16777215, 16777215, alpha);
+            __draw_text_colour_hook(704, 80, string_hash_to_newline(global.boxhp), c_white, c_white, c_white, c_white, alpha);
         }
         
         if (!_tutorial || scorehudvisible)
@@ -274,7 +274,7 @@ if (instance_exists(obj_player))
                     _text = string("{0}{1}", _text, _f);
                 
                 pal_swap_set(spr_nohitcombo_fontpal, visualprank, 0);
-                __draw_text_colour_hook(round(combonumbx + random_range(-shakeyshakey, shakeyshakey)), round(combonumby), _text, 16777215, 16777215, 16777215, 16777215, alpha);
+                __draw_text_colour_hook(round(combonumbx + random_range(-shakeyshakey, shakeyshakey)), round(combonumby), _text, c_white, c_white, c_white, c_white, alpha);
                 pal_swap_reset();
             }
             else
@@ -451,7 +451,7 @@ if (instance_exists(obj_player))
                 draw_set_font(global.font);
                 draw_set_halign(fa_center);
                 draw_set_valign(fa_top);
-                var c = 16777215;
+                var c = c_white;
                 
                 if (global.escapetime < 10)
                     c = 255;
@@ -496,7 +496,7 @@ if (instance_exists(obj_player))
     draw_set_font(global.thinfont);
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
-    draw_text_fancy(thintextx, thintexty + 16, thintext, 16777215, thintextalpha);
+    draw_text_fancy(thintextx, thintexty + 16, thintext, c_white, thintextalpha);
 }
 
 with (obj_giantfireball)

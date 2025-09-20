@@ -18,41 +18,41 @@ function add_achievement_variable(arg0, arg1, arg2 = 0, arg3 = false)
         else
             _varstruct.value = ds_list_create();
         
-        ds_map_set(variables, arg0, _varstruct);
+        variables[? arg0] = _varstruct;
     }
 }
 
 function get_achvariable(arg0)
 {
     with (obj_achievementtracker)
-        return ds_map_find_value(variables, arg0);
+        return variables[? arg0];
 }
 
 function set_achvariable(arg0, arg1)
 {
     with (obj_achievementtracker)
     {
-        if (ds_map_find_value(variables, arg0).type != 2)
-            ds_map_find_value(variables, arg0).value = arg1;
+        if (variables[? arg0].type != 2)
+            variables[? arg0].value = arg1;
         else
-            ds_list_add(ds_map_find_value(variables, arg0).value, arg1);
+            ds_list_add(variables[? arg0].value, arg1);
         
-        if (ds_map_find_value(variables, arg0).save)
+        if (variables[? arg0].save)
         {
             save_open();
             
-            switch (ds_map_find_value(variables, arg0).type)
+            switch (variables[? arg0].type)
             {
                 case 0:
-                    ini_write_real("GameProgress", arg0, ds_map_find_value(variables, arg0).value);
+                    ini_write_real("GameProgress", arg0, variables[? arg0].value);
                     break;
                 
                 case 1:
-                    ini_write_string("GameProgress", arg0, ds_map_find_value(variables, arg0).value);
+                    ini_write_string("GameProgress", arg0, variables[? arg0].value);
                     break;
                 
                 case 2:
-                    var _str = ds_list_write(ds_map_find_value(variables, arg0).value);
+                    var _str = ds_list_write(variables[? arg0].value);
                     ini_write_string("GameProgress", arg0, _str);
                     break;
             }
@@ -169,24 +169,24 @@ function achievements_load()
         
         for (var v = 0; v < array_length(_vars); v++)
         {
-            if (!ds_map_find_value(variables, array_get(_vars, v)).save)
+            if (!variables[? array_get(_vars, v)].save)
                 continue;
             
-            switch (ds_map_find_value(variables, array_get(_vars, v)).type)
+            switch (variables[? array_get(_vars, v)].type)
             {
                 case 0:
-                    ds_map_find_value(variables, array_get(_vars, v)).value = ini_read_real("GameProgress", _vars[v], ds_map_find_value(variables, array_get(_vars, v)).startingval);
+                    variables[? array_get(_vars, v)].value = ini_read_real("GameProgress", _vars[v], variables[? array_get(_vars, v)].startingval);
                     break;
                 
                 case 1:
-                    ds_map_find_value(variables, array_get(_vars, v)).value = ini_read_string("GameProgress", _vars[v], ds_map_find_value(variables, array_get(_vars, v)).startingval);
+                    variables[? array_get(_vars, v)].value = ini_read_string("GameProgress", _vars[v], variables[? array_get(_vars, v)].startingval);
                     break;
                 
                 case 2:
                     var _str = ini_read_string("GameProgress", _vars[v], "");
                     
                     if (_str != "")
-                        ds_list_read(ds_map_find_value(variables, array_get(_vars, v)).value, _str);
+                        ds_list_read(variables[? array_get(_vars, v)].value, _str);
                     
                     break;
             }
@@ -214,13 +214,13 @@ function achievements_reset()
         
         for (var v = 0; v < array_length(_vars); v++)
         {
-            if (ds_map_find_value(variables, array_get(_vars, v)).save)
+            if (variables[? array_get(_vars, v)].save)
                 continue;
             
-            if (ds_map_find_value(variables, array_get(_vars, v)).type != 2)
-                ds_map_find_value(variables, array_get(_vars, v)).value = ds_map_find_value(variables, array_get(_vars, v)).startingval;
+            if (variables[? array_get(_vars, v)].type != 2)
+                variables[? array_get(_vars, v)].value = variables[? array_get(_vars, v)].startingval;
             else
-                ds_list_clear(ds_map_find_value(variables, array_get(_vars, v)).value);
+                ds_list_clear(variables[? array_get(_vars, v)].value);
         }
     }
 }

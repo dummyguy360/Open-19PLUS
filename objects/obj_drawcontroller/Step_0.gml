@@ -620,7 +620,7 @@ if (instance_exists(obj_player))
         {
             shader_set(shd_hiddentile);
             shader_set_uniform_f(u_Player, obj_player.x, obj_player.y);
-            shader_set_uniform_f(u_Radius, ds_map_find_value(obj_drawcontroller.secretlayers, layer));
+            shader_set_uniform_f(u_Radius, obj_drawcontroller.secretlayers[? layer]);
             var _c = 1 - obj_drawcontroller.pummelalpha;
             shader_set_uniform_f(u_Blend, _c, _c, _c, 1);
         }
@@ -654,10 +654,10 @@ if (instance_exists(obj_player))
         with (obj_player)
         {
             var _notempty = !tile_get_empty(tilemap_get_at_pixel(_tm, x, y));
-            ds_map_set(other.secretlayers, _key, Approach(ds_map_find_value(other.secretlayers, _key), _notempty * 960, 960 / (60 / (1 + !_notempty))));
+            other.secretlayers[? _key] = Approach(other.secretlayers[? _key], _notempty * 960, 960 / (60 / (1 + !_notempty)));
         }
         
-        if (ds_map_find_value(secretlayers, _key) > 0)
+        if (secretlayers[? _key] > 0)
         {
             layer_script_begin(_key, hidden_tile_begin);
             layer_script_end(_key, hidden_tile_end);

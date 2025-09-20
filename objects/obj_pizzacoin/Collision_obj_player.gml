@@ -4,7 +4,7 @@ if (other.state == states.sagelevelentrance)
 if (!collectmode)
 {
     var _id = string_concat(room_get_name(room), "|", xstart, "|", ystart);
-    ds_list_add(ds_map_find_value(global.pizzacointracker, global.levelname), _id);
+    ds_list_add(global.pizzacointracker[? global.levelname], _id);
     
     if (get_levelcoincount(global.levelname) < 25)
     {

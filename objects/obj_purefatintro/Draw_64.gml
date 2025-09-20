@@ -1,6 +1,6 @@
 introstate = fmod_studio_event_instance_get_parameter_by_name(introaudio, "purefat").final_value;
 var _yoff = (get_game_height() - 540) / 2;
-var _c = 16777215;
+var _c = c_white;
 
 if (introstate == states.titlescreen || introstate == states.tacklecharge)
     _c = 0;

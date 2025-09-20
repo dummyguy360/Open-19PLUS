@@ -33,7 +33,7 @@ else
     _count = string_concat(_coinstr, "/", _maxcoins);
 }
 
-__draw_text_transformed_colour_hook(roundlower(obj_player.x) - 0.1, _y + (32 * _squishhhhh), _count, 1 + _squishhhhh, 1 - _squishhhhh, 0, 16777215, 16777215, 16777215, 16777215, image_alpha);
+__draw_text_transformed_colour_hook(roundlower(obj_player.x) - 0.1, _y + (32 * _squishhhhh), _count, 1 + _squishhhhh, 1 - _squishhhhh, 0, c_white, c_white, c_white, c_white, image_alpha);
 draw_set_font(global.smallfont);
 draw_set_valign(fa_middle);
 draw_set_halign(fa_center);
@@ -48,4 +48,4 @@ else if (obj_player.textalpha > 0)
     obj_player.textalpha -= 0.05;
 }
 
-__draw_text_colour_hook(roundlower(obj_player.x), roundlower(obj_player.y) - 50, string(obj_player.combopointstogive), 16777215, 16777215, 16777215, 16777215, obj_player.textalpha);
+__draw_text_colour_hook(roundlower(obj_player.x), roundlower(obj_player.y) - 50, string(obj_player.combopointstogive), c_white, c_white, c_white, c_white, obj_player.textalpha);

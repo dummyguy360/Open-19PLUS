@@ -11,14 +11,14 @@ function save_clear()
     
     for (var i = 0; i < array_length(global.levels); i++)
     {
-        if (ds_map_find_value(global.timetrialreplays, global.levels[i]) != -1)
+        if (global.timetrialreplays[? global.levels[i]] != -1)
         {
-            buffer_delete(array_get(ds_map_find_value(global.timetrialreplays, global.levels[i]), 1));
-            ds_map_set(global.timetrialreplays, global.levels[i], -1);
+            buffer_delete(array_get(global.timetrialreplays[? global.levels[i]], 1));
+            global.timetrialreplays[? global.levels[i]] = -1;
         }
         
-        ds_map_clear(ds_map_find_value(global.timetrialsavedsplits, global.levels[i]));
-        ds_list_clear(ds_map_find_value(global.pizzacointracker, global.levels[i]));
+        ds_map_clear(global.timetrialsavedsplits[? global.levels[i]]);
+        ds_list_clear(global.pizzacointracker[? global.levels[i]]);
     }
     
     with (obj_savesystem)
@@ -72,8 +72,8 @@ function save_load()
                     continue;
                 
                 _democount++;
-                ds_map_set(demoloadbuffs, global.levels[i], buffer_create(1, buffer_grow, 1));
-                buffer_load_async(ds_map_find_value(demoloadbuffs, global.levels[i]), _filename, 0, -1);
+                demoloadbuffs[? global.levels[i]] = buffer_create(1, buffer_grow, 1);
+                buffer_load_async(demoloadbuffs[? global.levels[i]], _filename, 0, -1);
             }
             
             trace("Found ", _democount, " Demo(s)");
@@ -105,7 +105,7 @@ function save_dump(arg0 = noone)
             
             if (arg0 != noone && arg0 != "tutorial" && global.timetrial)
             {
-                if (ds_map_find_value(global.timetrialreplays, arg0) == -1 || global.timetrialtick < array_get(ds_map_find_value(global.timetrialreplays, arg0), 0))
+                if (global.timetrialreplays[? arg0] == -1 || global.timetrialtick < array_get(global.timetrialreplays[? arg0], 0))
                 {
                     var _filename = string_concat(arg0, "Replay.demo");
                     var _buffsize = buffer_tell(global.timetrialrecording);
@@ -122,7 +122,7 @@ function save_dump(arg0 = noone)
                     repeat (_mapsize)
                     {
                         buffer_write(_tempbuff, buffer_string, _key);
-                        buffer_write(_tempbuff, buffer_f64, ds_map_find_value(global.timetrialsplits, _key));
+                        buffer_write(_tempbuff, buffer_f64, global.timetrialsplits[? _key]);
                         _key = ds_map_find_next(global.timetrialsplits, _key);
                     }
                     
@@ -130,14 +130,14 @@ function save_dump(arg0 = noone)
                     buffer_delete(_tempbuff);
                     buffer_save_async(demosavebuff, _filename, 0, buffer_get_size(demosavebuff));
                     
-                    if (ds_map_find_value(global.timetrialreplays, arg0) == -1)
-                        ds_map_set(global.timetrialreplays, arg0, [-1, -1]);
+                    if (global.timetrialreplays[? arg0] == -1)
+                        global.timetrialreplays[? arg0] = [-1, -1];
                     else
-                        buffer_delete(array_get(ds_map_find_value(global.timetrialreplays, arg0), 1));
+                        buffer_delete(array_get(global.timetrialreplays[? arg0], 1));
                     
-                    array_set(ds_map_find_value(global.timetrialreplays, arg0), 0, global.timetrialtick);
-                    array_set(ds_map_find_value(global.timetrialreplays, arg0), 1, global.timetrialrecording);
-                    ds_map_copy(ds_map_find_value(global.timetrialsavedsplits, arg0), global.timetrialsplits);
+                    array_set(global.timetrialreplays[? arg0], 0, global.timetrialtick);
+                    array_set(global.timetrialreplays[? arg0], 1, global.timetrialrecording);
+                    ds_map_copy(global.timetrialsavedsplits[? arg0], global.timetrialsplits);
                     global.timetrialrecording = buffer_create(0, buffer_grow, 1);
                     ds_map_clear(global.timetrialsplits);
                 }
@@ -214,9 +214,9 @@ function wallet_writecoins(arg0 = -3)
         for (var i = 0; i < array_length(global.levels); i++)
             wallet_writecoins(global.levels[i]);
     }
-    else if (!ds_list_empty(ds_map_find_value(global.pizzacointracker, arg0)))
+    else if (!ds_list_empty(global.pizzacointracker[? arg0]))
     {
-        var _str = ds_list_write(ds_map_find_value(global.pizzacointracker, arg0));
+        var _str = ds_list_write(global.pizzacointracker[? arg0]);
         ini_write_string("Data", arg0, _str);
     }
 }
@@ -233,9 +233,9 @@ function wallet_readcoins(arg0 = -3, arg1 = false)
         var _str = ini_read_string("Data", arg0, "");
         
         if (_str != "")
-            ds_list_read(ds_map_find_value(global.pizzacointracker, arg0), _str);
+            ds_list_read(global.pizzacointracker[? arg0], _str);
         else if (arg1)
-            ds_list_clear(ds_map_find_value(global.pizzacointracker, arg0));
+            ds_list_clear(global.pizzacointracker[? arg0]);
     }
 }
 
@@ -284,7 +284,7 @@ function calc_perc(arg0 = global.pizzacointracker)
     
     for (var i = 0; i < array_length(global.levels); i++)
     {
-        _coins += ds_list_size(ds_map_find_value(arg0, global.levels[i]));
+        _coins += ds_list_size(arg0[? global.levels[i]]);
         _rankperc += (ini_read_real("Ranks", global.levels[i], -1) >= 4);
         _prankperc += (ini_read_real("Ranks", global.levels[i], -1) >= 5);
         _ttrankperc += (ini_read_real("TrialRanks", global.levels[i], -1) >= 2);

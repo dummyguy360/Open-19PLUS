@@ -10,10 +10,10 @@ function destroy_sounds(arg0)
 
 function scr_sound_multiple(arg0, arg1, arg2)
 {
-    if (ds_map_find_value(global.sound_map, arg0) == undefined)
-        ds_map_set(global.sound_map, arg0, ds_list_create());
+    if (global.sound_map[? arg0] == undefined)
+        global.sound_map[? arg0] = ds_list_create();
     
-    var _list = ds_map_find_value(global.sound_map, arg0);
+    var _list = global.sound_map[? arg0];
     
     for (var i = 0; i < ds_list_size(_list); i++)
     {

@@ -26,7 +26,7 @@ function add_music(arg0, arg1, arg2, arg3, arg4 = noone)
         }
     }
     
-    ds_map_set(musicmap, arg0, musicstruct);
+    musicmap[? arg0] = musicstruct;
 }
 
 function stop_music()

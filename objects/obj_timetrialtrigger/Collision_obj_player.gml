@@ -1,6 +1,6 @@
 var _id = string_concat(room_get_name(room), "|", xstart, "|", ystart);
-var _prevtime = ds_map_find_value(global.timetrialsplits, _id);
-ds_map_set(global.timetrialsplits, _id, global.timetrialtick);
+var _prevtime = global.timetrialsplits[? _id];
+global.timetrialsplits[? _id] = global.timetrialtick;
 
 if (!is_undefined(_prevtime))
 {
@@ -10,7 +10,7 @@ if (!is_undefined(_prevtime))
     var _minutes = string_padzeros((abs(_timechange) div 60 div 60) % 60);
     var _text = (sign(_timechange) == -1) ? "-" : "+";
     _text += string_concat(_minutes, ":", _seconds, ".", _milliseconds);
-    var _col = (sign(_timechange) == -1) ? 16777215 : 255;
+    var _col = (sign(_timechange) == -1) ? c_white : 255;
     
     with (instance_create_depth(-50, -50, 0, obj_timetrialtime))
     {

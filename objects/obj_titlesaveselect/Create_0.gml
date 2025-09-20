@@ -12,7 +12,7 @@ function get_file_percentage()
         _cointracker = ds_map_create();
         
         for (var i = 0; i < array_length(global.levels); i++)
-            ds_map_set(_cointracker, global.levels[i], ds_list_create());
+            _cointracker[? global.levels[i]] = ds_list_create();
         
         var _walletbuff = buffer_load(get_savedir() + "/playerWallet.save");
         var _walletuncomp = buffer_decompress(_walletbuff);
@@ -30,7 +30,7 @@ function get_file_percentage()
                     var _str = ini_read_string("Data", global.levels[i], "");
                     
                     if (_str != "")
-                        ds_list_read(ds_map_find_value(_cointracker, global.levels[i]), _str);
+                        ds_list_read(_cointracker[? global.levels[i]], _str);
                 }
             }
             
@@ -53,8 +53,8 @@ function get_file_percentage()
     
     for (var i = 0; i < array_length(global.levels); i++)
     {
-        ds_list_destroy(ds_map_find_value(_cointracker, global.levels[i]));
-        ds_map_set(_cointracker, global.levels[i], -1);
+        ds_list_destroy(_cointracker[? global.levels[i]]);
+        _cointracker[? global.levels[i]] = -1;
     }
     
     ds_map_destroy(_cointracker);

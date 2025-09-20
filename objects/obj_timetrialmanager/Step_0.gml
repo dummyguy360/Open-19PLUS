@@ -3,7 +3,7 @@ if (!global.timetrial)
 
 if (!scr_hudroomcheck() && global.levelname != noone && global.levelname != "tutorial" && room != timesuproom && room != rank_room && !instance_exists(obj_endlevelfade))
 {
-    var _buff = ds_map_find_value(global.timetrialreplays, global.levelname);
+    var _buff = global.timetrialreplays[? global.levelname];
     
     if (_buff != -1)
     {

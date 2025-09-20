@@ -637,7 +637,7 @@ function get_coins()
     var _coins = 0;
     
     for (var i = 0; i < array_length(global.levels); i++)
-        _coins += ds_list_size(ds_map_find_value(global.pizzacointracker, global.levels[i]));
+        _coins += ds_list_size(global.pizzacointracker[? global.levels[i]]);
     
     _coins -= ini_read_real("GameProgress", "usedcoins", 0);
     return _coins;
@@ -804,7 +804,7 @@ function ach_perc()
 
 function get_levelcoincount(arg0)
 {
-    return ds_list_size(ds_map_find_value(global.pizzacointracker, arg0));
+    return ds_list_size(global.pizzacointracker[? arg0]);
 }
 
 function string_width_fancy(arg0)

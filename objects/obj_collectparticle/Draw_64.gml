@@ -8,7 +8,7 @@ draw_set_halign(fa_center);
 if (!numbermode)
     draw_sprite_ext(sprite_index, -1, collectx, collecty, 1, 1, 0, c_white, image_alpha);
 else
-    __draw_text_colour_hook(collectx, collecty, string(number), 16777215, 16777215, 16777215, 16777215, 1);
+    __draw_text_colour_hook(collectx, collecty, string(number), c_white, c_white, c_white, c_white, 1);
 
 if (point_in_circle(collectx, collecty, targetx, targety, spd))
 {

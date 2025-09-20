@@ -80,9 +80,9 @@ global.levels = ["entry", "medieval", "ruin", "dungeon", "dragonslair"];
 
 for (var i = 0; i < array_length(global.levels); i++)
 {
-    ds_map_set(global.timetrialreplays, global.levels[i], -1);
-    ds_map_set(global.timetrialsavedsplits, global.levels[i], ds_map_create());
-    ds_map_set(global.pizzacointracker, global.levels[i], ds_list_create());
+    global.timetrialreplays[? global.levels[i]] = -1;
+    global.timetrialsavedsplits[? global.levels[i]] = ds_map_create();
+    global.pizzacointracker[? global.levels[i]] = ds_list_create();
 }
 
 saveiconspr = spr_saveindicator;

@@ -25,11 +25,11 @@ function raycast(arg0, arg1, arg2, arg3, arg4)
             _yA = lengthdir_y(_rangeCount, _dir);
         }
         
-        ds_map_replace(_list, "distance", _rangeCount);
-        ds_map_replace(_list, "x", _x + _xA);
-        ds_map_replace(_list, "y", _y + _yA);
-        ds_map_replace(_list, "x_origin", _x);
-        ds_map_replace(_list, "y_origin", _y);
+        _list[? "distance"] = _rangeCount;
+        _list[? "x"] = _x + _xA;
+        _list[? "y"] = _y + _yA;
+        _list[? "x_origin"] = _x;
+        _list[? "y_origin"] = _y;
         _col = collision_line(_x, _y, _x + _xA, _y + _yA, _objToCollide, true, true);
     }
     

@@ -1,13 +1,13 @@
 for (var i = 0; i < array_length(global.levels); i++)
 {
-    if (ds_map_find_value(global.timetrialreplays, global.levels[i]) != -1)
-        buffer_delete(array_get(ds_map_find_value(global.timetrialreplays, global.levels[i]), 1));
+    if (global.timetrialreplays[? global.levels[i]] != -1)
+        buffer_delete(array_get(global.timetrialreplays[? global.levels[i]], 1));
     
-    ds_map_set(global.timetrialreplays, global.levels[i], -1);
-    ds_map_destroy(ds_map_find_value(global.timetrialsavedsplits, global.levels[i]));
-    ds_map_set(global.timetrialsavedsplits, global.levels[i], -1);
-    ds_list_destroy(ds_map_find_value(global.pizzacointracker, global.levels[i]));
-    ds_map_set(global.pizzacointracker, global.levels[i], -1);
+    global.timetrialreplays[? global.levels[i]] = -1;
+    ds_map_destroy(global.timetrialsavedsplits[? global.levels[i]]);
+    global.timetrialsavedsplits[? global.levels[i]] = -1;
+    ds_list_destroy(global.pizzacointracker[? global.levels[i]]);
+    global.pizzacointracker[? global.levels[i]] = -1;
 }
 
 ds_map_destroy(global.timetrialreplays);
@@ -27,11 +27,9 @@ try
         var _demos = ds_map_keys_to_array(demoloadbuffs);
         
         for (var i = 0; i < array_length(_demos); i++)
-            buffer_delete(ds_map_find_value(demoloadbuffs, array_get(_demos, i)));
+            buffer_delete(demoloadbuffs[? array_get(_demos, i)]);
     }
     
     ds_map_destroy(demoloadbuffs);
-}
-catch (_ex)
-{
-}
+	
+} catch (_ex) { }
