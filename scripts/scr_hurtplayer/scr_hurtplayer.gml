@@ -1,10 +1,10 @@
-function scr_hurtplayer(arg0 = other.id, arg1 = true)
+function scr_hurtplayer(_player = other.id, check_hurttype = true)
 {
-    with (arg0)
+    with (_player)
     {
         var _hurttype = 0;
         
-        if (arg1)
+        if (check_hurttype)
         {
             switch (other.object_index)
             {
@@ -150,9 +150,7 @@ function scr_hurtplayer(arg0 = other.id, arg1 = true)
                     global.combotime = 0;
             }
             else
-            {
                 global.combotime = 0;
-            }
             
             global.hurtcounter += 1;
             add_collect(-50);

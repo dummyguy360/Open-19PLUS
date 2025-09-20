@@ -1,3 +1,2 @@
-function scr_enemy_heat()
-{
-}
+// unused
+function scr_enemy_heat() { }

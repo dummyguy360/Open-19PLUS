@@ -228,18 +228,18 @@ function scr_collide_destructibles(arg0, arg1)
     }
 }
 
-function scr_bump_rat(arg0 = 0, arg1 = 0, arg2 = true)
+function scr_bump_rat(_x = 0, _y = 0, playerbump = true)
 {
     var _dobump = false;
     
-    with (instance_place(x + arg0, y + arg1, obj_ratblock))
+    with (instance_place(x + _x, y + _y, obj_ratblock))
     {
         sprite_index = bumpspr;
         image_index = 0;
         _dobump = true;
     }
     
-    if (_dobump && arg2)
+    if (_dobump && playerbump)
     {
         state = states.bump;
         sprite_index = spr_bump;
@@ -254,34 +254,34 @@ function scr_bump_rat(arg0 = 0, arg1 = 0, arg2 = true)
     return _dobump;
 }
 
-function scr_enemy_destructibles(arg0, arg1)
+function scr_enemy_destructibles(_x, _y)
 {
     if (thrown || parried || pummelled != noone)
     {
-        var _i = instance_place(x + arg0, y + arg1, [obj_destructibles, obj_enemyblock]);
+        var _i = instance_place(x + _x, y + _y, [obj_destructibles, obj_enemyblock]);
         
         while (_i != noone)
         {
             instance_destroy(_i);
-            _i = instance_place(x + arg0, y + arg1, [obj_destructibles, obj_enemyblock]);
+            _i = instance_place(x + _x, y + _y, [obj_destructibles, obj_enemyblock]);
         }
     }
 }
 
-function scr_enemy_enemies(arg0, arg1)
+function scr_enemy_enemies(_x, _y)
 {
     var _hit = false;
     
     if (state == states.seat && thrown)
     {
-        var _i = instance_place(x + arg0, y + arg1, obj_baddiecollisionbox);
+        var _i = instance_place(x + _x, y + _y, obj_baddiecollisionbox);
         
         while (_i != noone)
         {
             _hit = true;
             instance_destroy(_i.baddieID);
             instance_destroy(_i);
-            _i = instance_place(x + arg0, y + arg1, obj_baddiecollisionbox);
+            _i = instance_place(x + _x, y + _y, obj_baddiecollisionbox);
         }
     }
     

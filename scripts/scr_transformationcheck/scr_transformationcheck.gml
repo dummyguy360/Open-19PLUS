@@ -1,8 +1,8 @@
-function scr_transformationcheck(arg0 = instance_nearest(x, y, obj_player))
+function scr_transformationcheck(p = instance_nearest(x, y, obj_player))
 {
-    if (arg0.state == states.knightpep || arg0.state == states.knightpepslopes || arg0.state == states.knightpepbump || arg0.state == states.bombpep 
-	|| arg0.state == states.cheesepep || arg0.state == states.cheesepepstick || arg0.state == states.cheeseball || arg0.state == states.heropep 
-	|| arg0.state == states.boxxedpep || arg0.state == states.firemouth || arg0.state == states.fireass || arg0.state == states.firemove || arg0.state == states.barrel)
+    if (p.state == states.knightpep || p.state == states.knightpepslopes || p.state == states.knightpepbump || p.state == states.bombpep 
+	|| p.state == states.cheesepep || p.state == states.cheesepepstick || p.state == states.cheeseball || p.state == states.heropep 
+	|| p.state == states.boxxedpep || p.state == states.firemouth || p.state == states.fireass || p.state == states.firemove || p.state == states.barrel)
         return true;
     
     return false;

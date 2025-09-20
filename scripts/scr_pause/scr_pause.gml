@@ -17,9 +17,9 @@ function pause_unpause_music()
     event_stop(pausemusicID, true);
 }
 
-function scr_pause_activate_objects(arg0 = true)
+function scr_pause_activate_objects(pauseMusic = true)
 {
-    if (arg0)
+    if (pauseMusic)
         event_pause_all(false);
     
     instance_activate_all();
@@ -38,9 +38,9 @@ function scr_pause_activate_objects(arg0 = true)
     pause = false;
 }
 
-function scr_pause_deactivate_objects(arg0 = true)
+function scr_pause_deactivate_objects(pauseMusic = true)
 {
-    if (arg0)
+    if (pauseMusic)
         event_pause_all(true);
     
     instance_deactivate_all(true);

@@ -1,15 +1,15 @@
-function scr_saveleveldata(arg0)
+function scr_saveleveldata(levelname)
 {
     wallet_open();
-    wallet_writecoins(arg0);
+    wallet_writecoins(levelname);
     wallet_close();
     save_open();
     
-    if (global.secretfound > ini_read_real("Secrets", arg0, 0))
-        ini_write_real("Secrets", arg0, global.secretfound);
+    if (global.secretfound > ini_read_real("Secrets", levelname, 0))
+        ini_write_real("Secrets", levelname, global.secretfound);
     
-    if (!ini_read_real("Treasures", arg0, false))
-        ini_write_string("Treasures", arg0, global.treasure);
+    if (!ini_read_real("Treasures", levelname, false))
+        ini_write_string("Treasures", levelname, global.treasure);
     
     for (var i = 1; i <= 5; i++)
     {
@@ -38,26 +38,26 @@ function scr_saveleveldata(arg0)
                 break;
         }
         
-        if (!ini_read_real("Toppins", arg0 + string(i), false))
-            ini_write_real("Toppins", arg0 + string(i), there_is_follower_obj(top));
+        if (!ini_read_real("Toppins", levelname + string(i), false))
+            ini_write_real("Toppins", levelname + string(i), there_is_follower_obj(top));
     }
     
     if (!global.timetrial)
     {
-        var prevrank = ini_read_real("Ranks", arg0, -1);
+        var prevrank = ini_read_real("Ranks", levelname, -1);
         
         if (global.rank > prevrank)
-            ini_write_real("Ranks", arg0, global.rank);
+            ini_write_real("Ranks", levelname, global.rank);
         
-        if (ini_read_real("Highscores", arg0, 0) < global.collect)
-            ini_write_string("Highscores", arg0, global.collect);
+        if (ini_read_real("Highscores", levelname, 0) < global.collect)
+            ini_write_string("Highscores", levelname, global.collect);
     }
     else
     {
-        var _prevrank = ini_read_real("TrialRanks", arg0, -1);
+        var _prevrank = ini_read_real("TrialRanks", levelname, -1);
         
         if (global.timetrialrank > _prevrank)
-            ini_write_real("TrialRanks", arg0, global.timetrialrank);
+            ini_write_real("TrialRanks", levelname, global.timetrialrank);
     }
     
     save_close();

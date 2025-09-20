@@ -6,10 +6,12 @@ function scr_enemy_throw()
         global.throw_frame[obj_pizzagoblin] = 11;
         global.throw_frame[obj_pepgoblin] = 2;
         global.throw_frame[obj_swedishmonkey] = 15;
+		
         global.throw_sprite = spr_plug;
         global.throw_sprite[obj_pizzagoblin] = spr_pizzagoblin_throwbomb;
         global.throw_sprite[obj_pepgoblin] = spr_pepgoblin_kick;
         global.throw_sprite[obj_swedishmonkey] = spr_swedishmonkey_eat;
+		
         global.reset_timer = 0;
         global.reset_timer[obj_pizzagoblin] = 200 / (global.stylethreshold + 1);
         global.reset_timer[obj_pepgoblin] = 100 / (global.stylethreshold + 1);

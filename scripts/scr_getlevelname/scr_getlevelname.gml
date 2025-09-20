@@ -1,6 +1,6 @@
-function scr_getlevelname(arg0)
+function scr_getlevelname(level)
 {
-    switch (arg0)
+    switch (level)
     {
         case "tutorial":
             return "Buried Pizza Ruins";

@@ -1,4 +1,4 @@
-function scr_hud(arg0)
+function scr_hud(state)
 {
     with (obj_drawcontroller)
     {
@@ -6,7 +6,7 @@ function scr_hud(arg0)
         {
             statichud = 1;
             staticind = 0;
-            hudstate = arg0;
+            hudstate = state;
         }
     }
 }
@@ -40,7 +40,7 @@ function tv_defaulthud()
     }
 }
 
-function tv_bgcolor(arg0, arg1, arg2)
+function tv_bgcolor(_r, _g, _b)
 {
-    tvbgcolor = make_color_rgb(arg0, arg1, arg2);
+    tvbgcolor = make_color_rgb(_r, _g, _b);
 }

@@ -1,22 +1,22 @@
-function trigger_news(arg0 = -1, arg1 = -1)
+function trigger_news(_text = -1, _hud = -1)
 {
     with (obj_drawcontroller)
     {
-        news = arg0;
-        newshud = arg1;
+        news = _text;
+        newshud = _hud;
         newsscrl = 0;
         newspopup = 0;
         newsarr = 0;
     }
 }
 
-function scr_newsscript(arg0)
+function scr_newsscript(level)
 {
     with (obj_drawcontroller)
     {
         newshud = -1;
         
-        switch (arg0)
+        switch (level)
         {
             case "tutorial1":
                 news = ["Press " + input_verb_get_icon("jump") + " to jump!", "Hold " + input_verb_get_icon("down") + " to crawl!"];

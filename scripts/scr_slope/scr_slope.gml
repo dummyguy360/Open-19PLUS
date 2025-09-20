@@ -30,11 +30,11 @@ function scr_slope()
             if (other.bbox_bottom >= slope)
             {
                 other.y--;
-                return 1;
+                return true;
             }
         }
     }
     
     y--;
-    return 0;
+    return false;
 }

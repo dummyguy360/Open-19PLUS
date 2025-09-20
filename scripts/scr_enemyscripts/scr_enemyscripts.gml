@@ -1,19 +1,19 @@
-function scr_enemygibs(arg0 = 3, arg1 = x, arg2 = y)
+function scr_enemygibs(_repeat = 3, _x = x, _y = y)
 {
-    repeat (arg0)
+    repeat (_repeat)
     {
         instance_create_depth(x, y, -1, obj_slapstar);
         instance_create_depth(x, y, -1, obj_baddiegibs);
     }
 }
 
-function scr_enemycorpse(arg0 = spr_dead, arg1 = enemypalette, arg2 = global.enemypalette, arg3 = x, arg4 = y)
+function scr_enemycorpse(_spr = spr_dead, _palspr = enemypalette, _pal = global.enemypalette, _x = x, _y = y)
 {
     with (instance_create_depth(x, y, 0, obj_baddiedead))
     {
-        sprite_index = arg0;
-        palettespr = arg1;
-        pal = arg2;
+        sprite_index = _spr;
+        palettespr = _palspr;
+        pal = _pal;
     }
 }
 

@@ -1,9 +1,9 @@
-function scr_parrallax(arg0 = false)
+function scr_parrallax(secret_scroll = false)
 {
     var _cam_x = camera_get_view_x(view_camera[0]);
     var _cam_y = camera_get_view_y(view_camera[0]);
     
-    if (arg0)
+    if (secret_scroll)
         secretspeed++;
     
     layer_x("Backgrounds_1", _cam_x * 0.25);

@@ -8,9 +8,7 @@ var i = 0;
 while (i < array_length(badges))
 {
     if (badges[i][3] == -1)
-    {
         i++;
-    }
     else
     {
         save_open();
@@ -23,9 +21,7 @@ while (i < array_length(badges))
             break;
         }
         else
-        {
             i++;
-        }
     }
 }
 

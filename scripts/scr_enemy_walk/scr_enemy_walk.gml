@@ -23,9 +23,7 @@ function scr_enemy_walk()
                 state = states.tackleold;
             }
             else
-            {
                 image_xscale *= -1;
-            }
         }
     }
     
@@ -43,9 +41,7 @@ function scr_enemy_walk()
                     state = states.tackleold;
                 }
                 else
-                {
                     image_xscale *= -1;
-                }
             }
         }
     }

@@ -1,38 +1,38 @@
-function camera_zoom(arg0, arg1 = noone)
+function camera_zoom(_zoom, _zoomSpd = noone)
 {
     with (obj_drawcontroller)
     {
-        targetzoom = arg0;
+        targetzoom = _zoom;
         targetzoom = clamp(targetzoom, 0, max_zoom);
         
-        if (arg1 != noone)
-            zoomspd = abs(arg1);
+        if (_zoomSpd != noone)
+            zoomspd = abs(_zoomSpd);
     }
 }
 
-function camera_set_zoom(arg0)
+function camera_set_zoom(_zoom)
 {
     with (obj_drawcontroller)
-        zoom = arg0;
+        zoom = _zoom;
 }
 
-function bbox_in_camera(arg0, arg1, arg2 = 0)
+function bbox_in_camera(_cam, _rm, _offset = 0)
 {
-    var camx = camera_get_view_x(view_camera[arg0]);
-    var camy = camera_get_view_y(view_camera[arg0]);
-    var camw = camera_get_view_width(view_camera[arg0]);
-    var camh = camera_get_view_height(view_camera[arg0]);
-    return rectangle_in_rectangle(arg1.bbox_left, arg1.bbox_top, arg1.bbox_right, arg1.bbox_bottom, camx - arg2, camy - arg2, camx + camw + arg2, camy + camh + arg2);
+    var camx = camera_get_view_x(view_camera[_cam]);
+    var camy = camera_get_view_y(view_camera[_cam]);
+    var camw = camera_get_view_width(view_camera[_cam]);
+    var camh = camera_get_view_height(view_camera[_cam]);
+    return rectangle_in_rectangle(_rm.bbox_left, _rm.bbox_top, _rm.bbox_right, _rm.bbox_bottom, camx - _offset, camy - _offset, camx + camw + _offset, camy + camh + _offset);
 }
 
-function camera_shake(arg0, arg1)
+function camera_shake(_shake, _shake_acc)
 {
     with (obj_drawcontroller)
     {
         if (global.camerashake)
         {
-            shake_mag = arg0;
-            shake_mag_acc = arg1 / room_speed;
+            shake_mag = _shake;
+            shake_mag_acc = _shake_acc / room_speed;
         }
     }
 }

@@ -1,11 +1,11 @@
-function scr_solid(arg0, arg1)
+function scr_solid(_x, _y)
 {
     static il = global.instancelist;
     
     var old_x = x;
     var old_y = y;
-    x = arg0;
-    y = arg1;
+    x = _x;
+    y = _y;
     var collisioncheck = [obj_solid, obj_slope];
     
     if (y > old_y)
@@ -67,7 +67,7 @@ function scr_solid(arg0, arg1)
                 ds_list_clear(il);
                 x = old_x;
                 y = old_y;
-                return 1;
+                return true;
             }
         }
         
@@ -76,17 +76,17 @@ function scr_solid(arg0, arg1)
     
     x = old_x;
     y = old_y;
-    return 0;
+    return false;
 }
 
-function scr_solid_exclude_destructibles(arg0, arg1)
+function scr_solid_exclude_destructibles(_x, _y)
 {
     static il = global.instancelist;
     
     var old_x = x;
     var old_y = y;
-    x = arg0;
-    y = arg1;
+    x = _x;
+    y = _y;
     var collisioncheck = [obj_solid, obj_slope];
     
     if (y > old_y)
@@ -161,9 +161,9 @@ function scr_solid_exclude_destructibles(arg0, arg1)
     return false;
 }
 
-function check_slope(arg0)
+function check_slope(_obj)
 {
-    var slope = instance_place(x, y, arg0);
+    var slope = instance_place(x, y, _obj);
     
     if (slope)
     {
@@ -190,9 +190,9 @@ function check_slope(arg0)
             slope = slope_start - round(m * (object_side - bbox_left));
             
             if (other.bbox_bottom >= slope)
-                return 1;
+                return true;
         }
     }
     
-    return 0;
+    return false;
 }

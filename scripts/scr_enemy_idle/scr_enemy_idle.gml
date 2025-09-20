@@ -30,9 +30,7 @@ function scr_enemy_idle()
                         state = states.homingattack;
                 }
                 else
-                {
                     state = states.homingattack;
-                }
             }
         }
     }

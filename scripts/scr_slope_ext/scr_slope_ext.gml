@@ -1,9 +1,9 @@
-function scr_slope_ext(arg0, arg1)
+function scr_slope_ext(_x, _y)
 {
     var old_x = x;
     var old_y = y;
-    x = arg0;
-    y = arg1;
+    x = _x;
+    y = _y;
     var slope = instance_place(x, y, obj_slope);
     
     if (slope)
