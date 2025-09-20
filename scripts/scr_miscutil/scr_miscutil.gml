@@ -1,8 +1,8 @@
-function array_get_undefined(arg0, arg1)
+function array_get_undefined(_var, _index)
 {
     try
     {
-        return array_get(arg0, arg1);
+        return array_get(_var, _index);
     }
     catch (_ex)
     {
@@ -10,9 +10,9 @@ function array_get_undefined(arg0, arg1)
     }
 }
 
-function is_player_grabbing(arg0 = obj_player)
+function is_player_grabbing(p = obj_player)
 {
-    return arg0.state == states.suplexgrab || arg0.state == states.shoulderbash || arg0.state == states.kungfu || arg0.state == states.lunge;
+    return p.state == states.suplexgrab || p.state == states.shoulderbash || p.state == states.kungfu || p.state == states.lunge;
 }
 
 function draw_rotated_primcircle(arg0, arg1, arg2, arg3, arg4)
@@ -27,18 +27,18 @@ function draw_rotated_primcircle(arg0, arg1, arg2, arg3, arg4)
     draw_primitive_end();
 }
 
-function roundlower(arg0)
+function roundlower(val)
 {
-    if (frac(arg0) <= 0.5)
-        return floor(arg0);
+    if (frac(val) <= 0.5)
+        return floor(val);
     
-    if (frac(arg0) > 0.5)
-        return ceil(arg0);
+    if (frac(val) > 0.5)
+        return ceil(val);
 }
 
-function delete_covered_tiles(arg0 = id, arg1 = false)
+function delete_covered_tiles(_obj = id, create_debris = false)
 {
-    with (arg0)
+    with (_obj)
     {
         var _layers = layer_get_all();
         
@@ -67,7 +67,7 @@ function delete_covered_tiles(arg0 = id, arg1 = false)
                     var _tiley = floor(y + (_gridH * _y));
                     var _data = tilemap_get_at_pixel(_mapid, _tilex + 1, _tiley + 1);
                     
-                    if (arg1)
+                    if (create_debris)
                     {
                         with (instance_create_depth(_tilex, _tiley, 0, obj_tiledebris))
                         {
@@ -86,7 +86,7 @@ function delete_covered_tiles(arg0 = id, arg1 = false)
 
 function destroy_clips()
 {
-    var _checks = [[x - 1, y], [x + 1, y], [x, y - 1], [x, y + 1]];
+    var _checks = [ [x - 1, y], [x + 1, y], [x, y - 1], [x, y + 1] ];
     
     for (var _i = 0; _i < array_length(_checks); _i++)
     {
@@ -101,9 +101,9 @@ function destroy_clips()
     }
 }
 
-function object_is_parent_or_ancestor(arg0, arg1 = object_index)
+function object_is_parent_or_ancestor(_obj_par, _obj_to_check = object_index)
 {
-    return arg1 == arg0 || object_is_ancestor(arg1, arg0);
+    return _obj_to_check == _obj_par || object_is_ancestor(_obj_to_check, _obj_par);
 }
 
 function reset_aspectratio()
@@ -145,17 +145,17 @@ function apply_videoglobals()
 
 function apply_inputglobals()
 {
-    input_axis_threshold_set(32785, global.horizdeadzone, 1);
-    input_axis_threshold_set(32787, global.horizdeadzone, 1);
-    input_axis_threshold_set(32786, global.vertdeadzone, 1);
-    input_axis_threshold_set(32788, global.vertdeadzone, 1);
+    input_axis_threshold_set(gp_axislh, global.horizdeadzone, 1);
+    input_axis_threshold_set(gp_axisrh, global.horizdeadzone, 1);
+    input_axis_threshold_set(gp_axislv, global.vertdeadzone, 1);
+    input_axis_threshold_set(gp_axisrv, global.vertdeadzone, 1);
 }
 
-function array_find_pos(arg0, arg1)
+function array_find_pos(array, entry)
 {
-    for (var i = 0; i < array_length(arg0); i++)
+    for (var i = 0; i < array_length(array); i++)
     {
-        if (arg0[i] == arg1)
+        if (array[i] == entry)
             return i;
     }
     
@@ -205,9 +205,9 @@ function string_wordwrap_width(arg0, arg1, arg2, arg3)
     return text_output;
 }
 
-function there_is_follower_obj(arg0)
+function there_is_follower_obj(_obj)
 {
-    with (arg0)
+    with (_obj)
     {
         if (array_get_index(global.followers, id) != -1)
             return true;
@@ -216,9 +216,9 @@ function there_is_follower_obj(arg0)
     return false;
 }
 
-function there_is_follower_id(arg0)
+function there_is_follower_id(_obj)
 {
-    return instance_exists(arg0) && array_get_index(global.followers, arg0) != -1;
+    return instance_exists(_obj) && array_get_index(global.followers, _obj) != -1;
 }
 
 function create_uparrow()
@@ -265,14 +265,10 @@ function fire_ray(arg0, arg1, arg2, arg3, arg4 = 1, arg5 = noone, arg6 = noone, 
                     break;
                 }
                 else
-                {
                     i += arg4;
-                }
             }
             else
-            {
                 i += arg4;
-            }
         }
     }
     
@@ -322,16 +318,14 @@ function fast_ray(arg0, arg1, arg2, arg3)
             }
         }
         else
-        {
             _y = min(_y, _instance.bbox_top);
-        }
     }
     
     ds_list_clear(_il);
     return _y - 1;
 }
 
-function get_escapetime(arg0)
+function get_escapetime(_unused)
 {
     switch (global.levelname)
     {
@@ -386,24 +380,21 @@ function add_ghostcollect()
     }
 }
 
-function create_key(arg0)
+function create_key(_key)
 {
-    return 
-    {
-        key: arg0
-    };
+    return { key: _key };
 }
 
-function scr_tiptext(arg0, arg1 = noone)
+function scr_tiptext(_text, save_progress = noone)
 {
     var _dothing = true;
     var _id = noone;
     
-    if (arg1 != noone)
+    if (save_progress != noone)
     {
         save_open();
-        _dothing = !ini_read_real("GameProgress", arg1, false);
-        ini_write_real("GameProgress", arg1, true);
+        _dothing = !ini_read_real("GameProgress", save_progress, false);
+        ini_write_real("GameProgress", save_progress, true);
         save_close();
     }
     
@@ -413,7 +404,7 @@ function scr_tiptext(arg0, arg1 = noone)
         
         with (instance_create_depth(0, 0, -11500, obj_tiptext))
         {
-            text = arg0;
+            text = _text;
             _id = id;
         }
     }
@@ -439,9 +430,7 @@ function draw_input(arg0, arg1, arg2, arg3, arg4 = true, arg5 = input_profile_ge
                 draw_set_font(_prevfont);
             }
             else
-            {
                 draw_sprite_ext(arg9, _icon.key, arg0, arg1, 1, 1, 0, arg11, arg2);
-            }
         }
         else
         {
@@ -481,9 +470,7 @@ function draw_input(arg0, arg1, arg2, arg3, arg4 = true, arg5 = input_profile_ge
         }
     }
     else
-    {
         draw_sprite_ext(arg7, 35, arg0, arg1, 1, 1, 0, c_white, arg2);
-    }
 }
 
 function end_combo_abrupt()
@@ -587,38 +574,38 @@ function json_are_equal(arg0, arg1)
     }
 }
 
-function obj_moved(arg0, arg1)
+function obj_moved(init_val, final_val)
 {
-    return abs(arg1 - arg0) >= 1;
+    return abs(final_val - init_val) >= 1;
 }
 
-function update_object_coordinates(arg0 = id)
+function update_object_coordinates(_obj = id)
 {
     if (room != rank_room && room != rank_roomtutorial)
     {
         with (obj_pizzaface)
         {
-            x = arg0.x;
-            y = arg0.y;
+            x = _obj.x;
+            y = _obj.y;
         }
     }
     
     with (obj_keyinv)
     {
-        x = (arg0.xscale == 1) ? (arg0.x - 32) : (arg0.x + 32);
-        y = arg0.y - 16;
+        x = (_obj.xscale == 1) ? (_obj.x - 32) : (_obj.x + 32);
+        y = _obj.y - 16;
     }
     
     with (obj_cowboyhat)
     {
         if (persistent)
         {
-            x = arg0.x;
-            y = (arg0.y + sprite_get_bbox_top(arg0.sprite_index)) - 15;
+            x = _obj.x;
+            y = (_obj.y + sprite_get_bbox_top(_obj.sprite_index)) - 15;
         }
     }
     
-    with (arg0)
+    with (_obj)
     {
         array_foreach(global.followers, function(arg0, arg1)
         {
@@ -762,34 +749,34 @@ function get_toppincount()
     return _num;
 }
 
-function restore_combo(arg0 = 60)
+function restore_combo(amount = 60)
 {
     if (global.currentbadge == 3 && global.combogalstate != states.normal && global.levelname != "tutorial")
         exit;
     
-    if (global.combo <= 0 || arg0 < 0)
+    if (global.combo <= 0 || amount < 0)
         exit;
     
-    global.combotime += arg0;
+    global.combotime += amount;
     global.combotime = min(60, global.combotime);
     
     if (global.combogalstate < 1)
         global.combogalstate = states.tumble;
 }
 
-function add_combo(arg0 = 1)
+function add_combo(amount = 1)
 {
     if (global.currentbadge == 3 && global.combogalstate == states.finishingblow && global.levelname != "tutorial")
         exit;
     
-    global.combo += arg0;
+    global.combo += amount;
     obj_player.supertauntcooldown += 1;
     restore_combo();
 }
 
-function add_collect(arg0 = 5)
+function add_collect(amount = 5)
 {
-    global.collect += arg0;
+    global.collect += amount;
 }
 
 function ach_perc()

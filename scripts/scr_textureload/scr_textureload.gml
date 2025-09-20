@@ -1,41 +1,41 @@
-function scr_textureload(arg0)
+function scr_textureload(level)
 {
     static prevtex = -1;
-    static prevtex = arg0;
+    static prevtex = level;
     
-    if (arg0 == undefined)
-        arg0 = global.levelname;
+    if (level == undefined)
+        level = global.levelname;
     
-    if (arg0 == noone && string_starts_with(room_get_name(room), "hub"))
-        arg0 = "hub";
-    else if (arg0 == "dragonslair")
+    if (level == noone && string_starts_with(room_get_name(room), "hub"))
+        level = "hub";
+    else if (level == "dragonslair")
     {
         switch (room)
         {
             case dragonslair_5:
             case dragonslair_7:
-                arg0 = "medieval";
+                level = "medieval";
                 break;
             
             case dragonslair_8:
             case dragonslair_10:
-                arg0 = "ruin";
+                level = "ruin";
                 break;
             
             case dragonslair_11:
-                arg0 = "dungeon";
+                level = "dungeon";
                 break;
         }
     }
     
     var groups = ["chateau", "beach", "city", "dungeon", "desert", "entrance", "etb", "factory", "golf", "graveyard", "hub", "mansion", "medieval", "sewer", "smb", "space", "strongcold", "ruin", "war", "kungfu"];
     
-    if (prevtex == arg0 || array_get_index(groups, arg0) == -1)
+    if (prevtex == level || array_get_index(groups, level) == -1)
         exit;
     
     for (var i = 0; i < array_length(groups); i++)
     {
-        if (arg0 != groups[i])
+        if (level != groups[i])
         {
             t = texturegroup_get_textures(groups[i]);
             

@@ -1,3 +1,4 @@
+// unused in code, but code works maybe
 function scr_level_object_count(arg0, arg1)
 {
     var count = 0;

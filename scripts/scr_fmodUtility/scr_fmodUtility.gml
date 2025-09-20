@@ -1,86 +1,84 @@
-function scr_fmod_soundeffect(arg0, arg1, arg2)
+function scr_fmod_soundeffect(event_inst, xx, yy)
 {
-    fmod_studio_event_instance_start(arg0);
-    event_set_3d_position(arg0, arg1, arg2, 0);
+    fmod_studio_event_instance_start(event_inst);
+    event_set_3d_position(event_inst, xx, yy, 0);
 }
 
-function scr_fmod_soundeffectONESHOT(arg0, arg1, arg2)
+function scr_fmod_soundeffectONESHOT(event_path, xx, yy)
 {
-    var event_id = event_instance(arg0);
+    var event_id = event_instance(event_path);
     fmod_studio_event_instance_start(event_id);
-    event_set_3d_position(event_id, arg1, arg2, 0);
+    event_set_3d_position(event_id, xx, yy, 0);
     fmod_studio_event_instance_release(event_id);
     return event_id;
 }
 
-function event_play_oneshot(arg0)
+function event_play_oneshot(event_path)
 {
-    var event_id = event_instance(arg0);
+    var event_id = event_instance(event_path);
     fmod_studio_event_instance_start(event_id);
     fmod_studio_event_instance_release(event_id);
     return event_id;
 }
 
-function event_isplaying(arg0)
+function event_isplaying(event_inst)
 {
-    var _playback = fmod_studio_event_instance_get_playback_state(arg0);
+    var _playback = fmod_studio_event_instance_get_playback_state(event_inst);
     return _playback != 2 && _playback != 4;
 }
 
-function event_instance(arg0)
+function event_instance(event_path)
 {
-    return fmod_studio_event_description_create_instance(fmod_studio_system_get_event(arg0));
+    return fmod_studio_event_description_create_instance(fmod_studio_system_get_event(event_path));
 }
 
-function event_pause_all(arg0)
+function event_pause_all(pause)
 {
-    fmod_studio_bus_set_paused(fmod_studio_system_get_bus("bus:/Music/Pausable"), arg0);
-    fmod_studio_bus_set_paused(fmod_studio_system_get_bus("bus:/SFX/Pausable"), arg0);
+    fmod_studio_bus_set_paused(fmod_studio_system_get_bus("bus:/Music/Pausable"), pause);
+    fmod_studio_bus_set_paused(fmod_studio_system_get_bus("bus:/SFX/Pausable"), pause);
 }
 
-function event_set_3d_position(arg0, arg1, arg2, arg3 = 0)
+function event_set_3d_position(event_inst, xx, yy, zz = 0)
 {
-    if (!event_isplaying(arg0))
-    {
-    }
+    if (!event_isplaying(event_inst)) { }
     
     var _attr = new Fmod3DAttributes();
-    _attr.position.x = arg1;
-    _attr.position.y = arg2;
-    _attr.position.z = arg3;
+    _attr.position.x = xx;
+    _attr.position.y = yy;
+    _attr.position.z = zz;
     _attr.forward.z = 1;
     _attr.up.y = 1;
-    fmod_studio_event_instance_set_3d_attributes(arg0, _attr);
+    fmod_studio_event_instance_set_3d_attributes(event_inst, _attr);
 }
 
-function event_set_3d_position_struct(arg0, arg1)
+function event_set_3d_position_struct(event_inst, attr_struct)
 {
-    if (!event_isplaying(arg0))
+    if (!event_isplaying(event_inst))
         exit;
     
-    fmod_studio_event_instance_set_3d_attributes(arg0, arg1);
+    fmod_studio_event_instance_set_3d_attributes(event_inst, attr_struct);
 }
 
-function event_stop(arg0, arg1)
+function event_stop(event_inst, mode)
 {
-    fmod_studio_event_instance_stop(arg0, arg1 ? 1 : 0);
+    fmod_studio_event_instance_stop(event_inst, mode ? 1 : 0);
 }
 
-function event_stop_description(arg0, arg1)
+function event_stop_description(event_path, mode)
 {
-    var _insts = fmod_studio_event_description_get_instance_list(fmod_studio_system_get_event(arg0));
+    var _insts = fmod_studio_event_description_get_instance_list(fmod_studio_system_get_event(event_path));
     
     for (var _i = 0; _i < array_length(_insts); _i++)
-        event_stop(_insts[_i], arg1);
+        event_stop(_insts[_i], mode);
 }
 
-function listener_setPosition(arg0, arg1, arg2, arg3 = 0)
+function listener_setPosition(index, xx, yy, zz = 0)
 {
     var _attr = new Fmod3DAttributes();
-    _attr.position.x = arg1;
-    _attr.position.y = arg2;
-    _attr.position.z = arg3;
+    _attr.position.x = xx;
+    _attr.position.y = yy;
+    _attr.position.z = zz;
     _attr.forward.z = 1;
     _attr.up.y = 1;
-    fmod_studio_system_set_listener_attributes(arg0, _attr);
+    fmod_studio_system_set_listener_attributes(index, _attr);
 }

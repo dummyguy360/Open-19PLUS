@@ -7,15 +7,15 @@ function wrap(arg0, arg1, arg2)
     return ((((arg0 - _min) % range) + range) % range) + _min;
 }
 
-function wrap_angle(arg0)
+function wrap_angle(val)
 {
-    while (arg0 < 0)
-        arg0 += 360;
+    while (val < 0)
+        val += 360;
     
-    while (arg0 > 359)
-        arg0 -= 360;
+    while (val > 359)
+        val -= 360;
     
-    return arg0;
+    return val;
 }
 
 function wave(arg0, arg1, arg2, arg3, arg4 = current_time)

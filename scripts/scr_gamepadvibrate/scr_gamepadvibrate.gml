@@ -1,5 +1,5 @@
-function gamepadvibrate(arg0, arg1, arg2, arg3 = 0, arg4 = false)
+function gamepadvibrate(strength, pan, duration, index = 0, force = false)
 {
     if (global.rumble)
-        input_vibrate_constant(arg0, arg1, arg2, arg3, arg4);
+        input_vibrate_constant(strength, pan, duration, index, force);
 }

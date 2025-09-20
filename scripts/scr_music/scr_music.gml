@@ -1,8 +1,8 @@
-function add_music(arg0, arg1, arg2, arg3, arg4 = noone)
+function add_music(_rm, _music, _secret_music, _is_continuous, _func = noone)
 {
     var musicstruct = 
     {
-        continuous: arg3,
+        continuous: _is_continuous,
         event: noone,
         eventsecret: noone,
         mumethod: noone
@@ -10,23 +10,23 @@ function add_music(arg0, arg1, arg2, arg3, arg4 = noone)
     
     with (musicstruct)
     {
-        if (arg4 != noone)
-            mumethod = method(self, arg4);
+        if (_func != noone)
+            mumethod = method(self, _func);
         
-        if (arg1 != noone)
+        if (_music != noone)
         {
-            eventname = arg1;
-            event = event_instance(arg1);
+            eventname = _music;
+            event = event_instance(_music);
         }
         
-        if (arg2 != noone)
+        if (_secret_music != noone)
         {
-            eventsecretname = arg2;
-            eventsecret = event_instance(arg2);
+            eventsecretname = _secret_music;
+            eventsecret = event_instance(_secret_music);
         }
     }
     
-    musicmap[? arg0] = musicstruct;
+    musicmap[? _rm] = musicstruct;
 }
 
 function stop_music()
@@ -48,9 +48,9 @@ function stop_music()
     }
 }
 
-function timeline_wrapauto(arg0, arg1, arg2)
+function timeline_wrapauto(_pos, _length, event_inst)
 {
-    var pos = fmod_studio_event_instance_get_timeline_position(arg0);
-    var length = fmod_studio_event_description_get_length(fmod_studio_system_get_event(arg1));
-    fmod_studio_event_instance_set_timeline_position(arg2, wrap(pos, 1, length - 1));
+    var pos = fmod_studio_event_instance_get_timeline_position(_pos);
+    var length = fmod_studio_event_description_get_length(fmod_studio_system_get_event(_length));
+    fmod_studio_event_instance_set_timeline_position(event_inst, wrap(pos, 1, length - 1));
 }

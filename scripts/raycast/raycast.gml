@@ -1,10 +1,5 @@
-function raycast(arg0, arg1, arg2, arg3, arg4)
+function raycast(_x, _y, _dir, _range, _objToCollide)
 {
-    var _x = argument[0];
-    var _y = argument[1];
-    var _dir = argument[2];
-    var _range = argument[3];
-    var _objToCollide = argument[4];
     var _list = ds_map_create();
     ds_map_add(_list, "distance", _range);
     ds_map_add(_list, "x", _x + lengthdir_x(_range, _dir));
