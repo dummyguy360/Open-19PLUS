@@ -43,7 +43,7 @@ scr_sound_multiple("event:/sfx/player/collect/pizzacoin", x, y);
 with (instance_create_depth(x, y, 0, obj_parryeffect))
     sprite_index = choose(spr_collectsparkleeffect, spr_collectsparkleeffect2);
 
-if (global.currentbadge != 3)
+if (global.currentbadge != badge.nohit)
     restore_combo(30);
 
 instance_destroy();

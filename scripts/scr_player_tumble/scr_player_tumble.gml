@@ -2,7 +2,7 @@ function scr_player_tumble()
 {
     collide_destructibles = function(arg0, arg1)
     {
-        scr_destroy_horizontal(arg0, 2);
+        scr_destroy_horizontal(arg0, destroy.ballblock);
     };
     
     mask_index = spr_crouchmask;

@@ -1,5 +1,5 @@
 event_inherited();
-sprite_index = get_collectspr(0, obj_player.character);
+sprite_index = get_collectspr(collect_type.big, obj_player.character);
 image_speed = 0.35;
 global.collected = 0;
 global.collectsound = 0;

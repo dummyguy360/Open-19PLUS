@@ -39,19 +39,19 @@ if (pause)
         
         switch (currentbadge)
         {
-            case 0:
+            case badge.none:
                 _badgespr = spr_badge_none;
                 break;
             
-            case 1:
+            case badge.kungfu:
                 _badgespr = spr_badge_kungfu;
                 break;
             
-            case 2:
+            case badge.bdance:
                 _badgespr = spr_badge_breakdance;
                 break;
             
-            case 3:
+            case badge.nohit:
                 _badgespr = spr_badge_nohit;
                 break;
         }

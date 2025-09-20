@@ -10,7 +10,7 @@ if (ds_list_find_index(global.saveroom, id) == -1)
     
     with (instance_create_depth(x, y, -9999999, obj_collectparticle))
     {
-        sprite_index = get_collectspr(0, obj_player.character);
+        sprite_index = get_collectspr(collect_type.big, obj_player.character);
         image_speed = 0.35;
         image_index = other.id.image_index;
         value = 10;

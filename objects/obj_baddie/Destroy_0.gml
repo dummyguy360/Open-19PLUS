@@ -21,19 +21,19 @@ if (ds_list_find_index(global.baddieroom, id) == -1)
     instance_create_depth(x, y, -100, obj_genericpoofeffect);
     camera_shake(3, 3);
     scr_enemycorpse(undefined, undefined, ((object_index == obj_cheeseslime && snotty) || (object_index == obj_forknight && yellow)) ? 2 : global.enemypalette);
-    push_notif(12, [object_index]);
+    push_notif(achieve_type.killenemy, [object_index]);
     
     if (killedbyknightslide)
     {
         obj_player.knightslidekills++;
-        push_notif(16, [obj_player.knightslidekills]);
+        push_notif(achieve_type.medieval3, [obj_player.knightslidekills]);
     }
     
     if (killedbyfireassstoredsprite != noone)
-        push_notif(14, [killedbyfireassstoredsprite]);
+        push_notif(achieve_type.dungeon2, [killedbyfireassstoredsprite]);
     
     if (killedwithbypiledrive != noone)
-        push_notif(15, [object_index, killedwithbypiledrive]);
+        push_notif(achieve_type.dungeon3, [object_index, killedwithbypiledrive]);
     
     var _num = instance_place_list(x, y, obj_baddie, global.baddiecollidelist, false);
     

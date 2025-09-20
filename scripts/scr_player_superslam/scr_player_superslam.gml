@@ -11,7 +11,7 @@ function scr_player_superslam()
         hit_vertical = function(arg0)
         {
             if (arg0 >= 0 && piledrivervsp > 0)
-                scr_destroy_vertical(arg0, 1 * (freefallsmash > 10));
+                scr_destroy_vertical(arg0, destroy.metalblock * (freefallsmash > 10));
         };
         
         move = input_check_opposing("left", "right");

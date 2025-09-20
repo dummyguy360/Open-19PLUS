@@ -18,6 +18,6 @@ with (other.id)
     with (instance_create_depth(x, y, -100, obj_baddiedead))
         sprite_index = _bananaid.sprite_index;
     
-    push_notif(11, [_bananaid, _bananaid.baddieID]);
+    push_notif(achieve_type.entry3, [_bananaid, _bananaid.baddieID]);
     instance_destroy(_bananaid);
 }

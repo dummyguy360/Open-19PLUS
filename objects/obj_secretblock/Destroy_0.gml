@@ -33,7 +33,7 @@ if (ds_list_find_index(global.saveroom, id) == -1)
                     sprite_index = spr_smallruindebris1;
             }
             
-            push_notif(8, [object_index]);
+            push_notif(achieve_type.ruin3, [object_index]);
             break;
         
         case 276:

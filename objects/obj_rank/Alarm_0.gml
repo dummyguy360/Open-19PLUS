@@ -1,4 +1,4 @@
-if (global.timetrial && global.timetrialrank == 3)
+if (global.timetrial && global.timetrialrank == tt_rank.purple)
     image_speed = 0.4;
 else
     image_speed = 0.5;

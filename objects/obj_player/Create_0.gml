@@ -383,8 +383,27 @@ calmroom[hub_snicksoft] = true;
 global.timer = 0;
 global.stylethreshold = 0;
 global.lastbadge = 0;
-global.rank = 0;
-global.timetrialrank = 0;
+
+enum rank
+{
+	D = 0,
+	C = 1,
+	B = 2,
+	A = 3,
+	S = 4,
+	P = 5
+}
+global.rank = rank.D;
+
+enum tt_rank
+{
+	bronze = 0,
+	silver = 1,
+	gold = 2,
+	purple = 3
+}
+global.timetrialrank = tt_rank.bronze;
+
 global.mach2hitstun = 4;
 global.mach3hitstun = 6;
 global.otherimpactfulhitstun = 8;
@@ -392,5 +411,21 @@ global.mach3effectred = 255;
 global.mach3effectgreen = 65280;
 global.mach3effectspecial = 16711820;
 scr_definestates();
-global.currentpowerup = 0;
-global.currentbadge = 0;
+
+enum powerup
+{
+	none = 0,
+	shotgun = 1,
+	pistol = 2,
+	mort = 3
+}
+global.currentpowerup = powerup.none;
+
+enum badge
+{
+	none = 0,
+	kungfu = 1,
+	bdance = 2,
+	nohit = 3
+}
+global.currentbadge = badge.none;

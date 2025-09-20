@@ -18,7 +18,7 @@ with (obj_player)
         obj_drawcontroller.alarm[1] = -1;
         obj_drawcontroller.alarm[6] = -1;
         obj_drawcontroller.givetime = 0;
-        push_notif(18, [global.escapetime]);
+        push_notif(achieve_type.shared_achievement, [global.escapetime]);
         stop_music();
         
         if (global.levelname == "tutorial")
@@ -51,30 +51,30 @@ with (obj_player)
             if (!global.timetrial)
             {
                 if (global.collect >= global.srank && global.prank)
-                    global.rank = 5;
+                    global.rank = rank.P;
                 else if (global.collect >= global.srank)
-                    global.rank = 4;
+                    global.rank = rank.S;
                 else if (global.collect > global.arank)
-                    global.rank = 3;
+                    global.rank = rank.A;
                 else if (global.collect > global.brank)
-                    global.rank = 2;
+                    global.rank = rank.B;
                 else if (global.collect > global.crank)
-                    global.rank = 1;
+                    global.rank = rank.C;
                 else
-                    global.rank = 0;
+                    global.rank = rank.D;
                 
                 fmod_studio_event_instance_set_parameter_by_name(global.ranksnd, "rank", global.rank, true);
             }
             else
             {
                 if (global.timetrialtick <= global.purplerank)
-                    global.timetrialrank = 3;
+                    global.timetrialrank = tt_rank.purple;
                 else if (global.timetrialtick <= global.goldrank)
-                    global.timetrialrank = 2;
+                    global.timetrialrank = tt_rank.gold;
                 else if (global.timetrialtick <= global.silverrank)
-                    global.timetrialrank = 1;
+                    global.timetrialrank = tt_rank.silver;
                 else
-                    global.timetrialrank = 0;
+                    global.timetrialrank = tt_rank.bronze;
                 
                 fmod_studio_event_instance_set_parameter_by_name(global.ranksnd, "rank", global.timetrialrank + 2, true);
             }

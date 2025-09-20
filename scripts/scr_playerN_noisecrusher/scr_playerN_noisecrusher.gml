@@ -5,7 +5,7 @@ function scr_player_noisecrusher()
     collide_destructibles = function(arg0, arg1)
     {
         if (arg1 >= 0)
-            scr_destroy_vertical(arg1, 1);
+            scr_destroy_vertical(arg1, destroy.metalblock);
     };
     
     if (sprite_index == spr_playerN_noisecrusherland)

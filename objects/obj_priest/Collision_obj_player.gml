@@ -40,7 +40,7 @@ with (__player)
                     givepointmultiplier = 5;
                 }
                 
-                if (global.currentbadge != 3)
+                if (global.currentbadge != badge.nohit)
                     restore_combo();
             }
         }

@@ -23,19 +23,19 @@ if (global.timetrial)
 {
     switch (global.timetrialrank)
     {
-        case 3:
+        case tt_rank.purple:
             sprite_index = spr_TTrankPURPLE;
             break;
         
-        case 2:
+        case tt_rank.gold:
             sprite_index = spr_TTrankGOLD;
             break;
         
-        case 1:
+        case tt_rank.silver:
             sprite_index = spr_TTrankSILVER;
             break;
         
-        case 0:
+        case tt_rank.bronze:
             sprite_index = spr_TTrankBRONZE;
             break;
     }
@@ -44,27 +44,27 @@ else
 {
     switch (global.rank)
     {
-        case 5:
+        case rank.P:
             sprite_index = obj_player.spr_prank;
             break;
         
-        case 4:
+        case rank.S:
             sprite_index = obj_player.spr_srank;
             break;
         
-        case 3:
+        case rank.A:
             sprite_index = obj_player.spr_arank;
             break;
         
-        case 2:
+        case rank.B:
             sprite_index = obj_player.spr_brank;
             break;
         
-        case 1:
+        case rank.C:
             sprite_index = obj_player.spr_crank;
             break;
         
-        case 0:
+        case rank.D:
             sprite_index = obj_player.spr_drank;
             break;
     }

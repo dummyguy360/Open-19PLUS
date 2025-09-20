@@ -18,9 +18,7 @@ if (state != states.noclip && state != states.nothing && state != states.sagelev
     }
 }
 else
-{
     mask_index = spr_masknull;
-}
 
 if (input_check_pressed("jump"))
     input_buffer_jump = 0;
@@ -62,15 +60,13 @@ if (_player == 1)
         global.combopointmultipler = min(8, global.combo);
         global.combopoints = ceil((global.combo * 5 * global.combopointmultipler) / 10) * 10;
         
-        if (global.currentbadge != 3)
+        if (global.currentbadge != badge.nohit)
         {
             if (state != states.taxi && state != states.pitfall && state != states.pipe && state != states.door && state != states.comingoutdoor && sprite_index != spr_player_catched && !instance_exists(obj_fadeout) && !cutscene)
                 global.combotime -= 0.15;
         }
         else
-        {
             global.combopoints *= 2;
-        }
     }
     else if (global.combo > 0)
     {
@@ -101,7 +97,7 @@ if (_player == 1)
         global.combo = 0;
         global.prankattempt = true;
         
-        if (global.currentbadge == 3)
+        if (global.currentbadge == badge.nohit)
         {
             global.combopoints *= 0.25;
             global.combogalstate = states.finishingblow;
@@ -121,7 +117,7 @@ if (scr_hudroomcheck() || global.levelname == "tutorial")
     global.combotime = 0;
 }
 
-global.stylethreshold = min(floor(((global.currentbadge == 3) ? (global.combo + 25) : global.combo) / 25), 3);
+global.stylethreshold = min(floor(((global.currentbadge == badge.nohit) ? (global.combo + 25) : global.combo) / 25), 3);
 
 if (global.timetrial)
     global.collect = 0;
@@ -187,7 +183,7 @@ else
 
 if (state == states.normal || state == states.jump || state == states.mach2 || state == states.mach3)
 {
-    if (input_check("shoot") && global.currentpowerup == 1 && !rocket && shotgunbuffer == 0)
+    if (input_check("shoot") && global.currentpowerup == powerup.shotgun && !rocket && shotgunbuffer == 0)
     {
         shotgunbuffer = 3;
         scr_fmod_soundeffectONESHOT("event:/sfx/player/killingblow", x, y);
@@ -299,7 +295,7 @@ if (givepoints)
         
         with (instance_create_depth(x + random_range(-3, 3), y + random_range(-3, 3), -9999999, obj_collectparticle))
         {
-            sprite_index = get_collectspr(0, other.character);
+            sprite_index = get_collectspr(collect_type.big, other.character);
             image_speed = 0.35;
             value = 1 * obj_player.givepointmultiplier;
             shake = 2.5;
@@ -634,7 +630,7 @@ if (state != states.hitstun && state != states.climbwall)
 }
 
 if (inmach4)
-    push_notif(4, [mach4time]);
+    push_notif(achieve_type.entry1, [mach4time]);
 
 if (grounded && vsp >= 0 && bumped)
     bumped = 0;

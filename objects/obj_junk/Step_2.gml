@@ -250,7 +250,7 @@ else
             if (!hitblock)
             {
                 trace("junk missed");
-                push_notif(17, [image_index]);
+                push_notif(achieve_type.dragonslair2, [image_index]);
             }
             
             hitblock = false;
@@ -281,7 +281,7 @@ else
             {
                 falling = 1;
                 image_speed = 0.35;
-                push_notif(1, [id]);
+                push_notif(achieve_type.ruin1, [id]);
                 _arr[_i++] = id;
                 y -= room_height;
             }

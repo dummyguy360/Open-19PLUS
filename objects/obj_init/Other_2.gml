@@ -50,7 +50,7 @@ global.smallpep = false;
 global.prank = 0;
 global.prankattempt = false;
 global.levelname = noone;
-global.currentbadge = 0;
+global.currentbadge = badge.none;
 global.cheeseblocknumb = 0;
 
 function checkCheese(arg0, arg1)

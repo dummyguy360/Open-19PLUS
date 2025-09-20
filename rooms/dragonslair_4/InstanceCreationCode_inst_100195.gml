@@ -1,3 +1,3 @@
-attackcycle = [1, 0, 0];
+attackcycle = [dragonattk.fireball, dragonattk.stomp, dragonattk.stomp];
 brickwaveamount = 4;
 attackrate = 300;

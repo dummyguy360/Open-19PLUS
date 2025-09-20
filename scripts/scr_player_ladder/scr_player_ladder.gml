@@ -60,7 +60,7 @@ function scr_player_ladder()
     {
         sprite_index = spr_jump;
         
-        if (global.currentpowerup == 1)
+        if (global.currentpowerup == powerup.shotgun)
             sprite_index = spr_shotgunjump;
         
         ladderbuffer = 20;

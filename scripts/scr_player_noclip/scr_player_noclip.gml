@@ -21,7 +21,7 @@ function scr_player_noclip()
         state = states.suplexgrab;
         image_index = 0;
         
-        if (global.currentpowerup != 1)
+        if (global.currentpowerup != powerup.shotgun)
             sprite_index = spr_suplexdash;
         else
             sprite_index = spr_shotgunsuplexdash;

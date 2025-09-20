@@ -1,4 +1,4 @@
-if (!instance_exists(ID) && global.currentpowerup != 3 && place_meeting(x, y, obj_player))
+if (!instance_exists(ID) && global.currentpowerup != powerup.mort && place_meeting(x, y, obj_player))
 {
     instance_destroy(obj_mort);
     

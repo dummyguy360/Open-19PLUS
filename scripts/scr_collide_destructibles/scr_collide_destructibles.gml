@@ -1,34 +1,50 @@
-function scr_destroy_horizontal(arg0, arg1 = 0)
+enum destroy
+{
+	none = 0,
+	metalblock = 1,
+	ballblock = 2,
+	tntblock = 4,
+	breakableice = 8,
+	ratblock = 16,
+	
+	whitelist_destructibles = 32,
+	whitelist_onewaybigblock = 64,
+	whitelist_smbitembox = 128,
+	
+	create_bangeffect = 256
+}
+
+function scr_destroy_horizontal(arg0, arg1 = destroy.none)
 {
     if (arg0 != 0)
     {
         var _hitblock = false;
         var _arr = [obj_destructibles, obj_onewaybigblock, obj_smbitembox, noone, noone, noone, noone, noone, noone];
         
-        if (arg1 & 32)
+        if (arg1 & destroy.whitelist_destructibles)
             _arr[0] = noone;
         
-        if (arg1 & 64)
+        if (arg1 & destroy.whitelist_onewaybigblock)
             _arr[1] = noone;
         
-        if (arg1 & 128)
+        if (arg1 & destroy.whitelist_smbitembox)
             _arr[2] = noone;
         
-        if (arg1 & 1)
+        if (arg1 & destroy.metalblock)
             _arr[3] = obj_metalblock;
         
         _arr[4] = obj_mrcar;
         
-        if (arg1 & 2)
+        if (arg1 & destroy.ballblock)
             _arr[5] = obj_ballblock;
         
-        if (arg1 & 4)
+        if (arg1 & destroy.tntblock)
             _arr[6] = obj_tntblock;
         
-        if (arg1 & 8)
+        if (arg1 & destroy.breakableice)
             _arr[7] = obj_breakableice;
         
-        if (arg1 & 16)
+        if (arg1 & destroy.ratblock)
             _arr[8] = obj_ratblock;
         
         var _inst = instance_place(x + arg0, y, _arr);
@@ -87,7 +103,7 @@ function scr_destroy_horizontal(arg0, arg1 = 0)
                         instance_create_depth(x + 32, y + 32, -100, obj_genericpoofeffect);
                         gamepadvibrate(1, 0, 8);
                         
-                        if (arg1 & 256 && (object_index == obj_bigdestructibles || object_is_ancestor(object_index, obj_bigdestructibles)))
+                        if (arg1 & destroy.create_bangeffect && (object_index == obj_bigdestructibles || object_is_ancestor(object_index, obj_bigdestructibles)))
                             instance_create_depth(other.x + (4 * other.xscale), other.y, -10, obj_bangeffect);
                         
                         instance_destroy();
@@ -95,7 +111,7 @@ function scr_destroy_horizontal(arg0, arg1 = 0)
                         break;
                     
                     default:
-                        if (arg1 & 256 && (object_index == obj_bigdestructibles || object_is_ancestor(object_index, obj_bigdestructibles)))
+                        if (arg1 & destroy.create_bangeffect && (object_index == obj_bigdestructibles || object_is_ancestor(object_index, obj_bigdestructibles)))
                             instance_create_depth(other.x + (4 * other.xscale), other.y, -10, obj_bangeffect);
                         
                         instance_destroy();
@@ -108,35 +124,35 @@ function scr_destroy_horizontal(arg0, arg1 = 0)
         }
         
         if (_hitblock)
-            push_notif(7, _dest);
+            push_notif(achieve_type.hitblock, _dest);
         
         return _hitblock;
     }
 }
 
-function scr_destroy_vertical(arg0, arg1 = 0)
+function scr_destroy_vertical(arg0, arg1 = destroy.none)
 {
     if (arg0 != 0)
     {
         var _hitblock = false;
         var _arr = [obj_destructibles, obj_smbitembox, noone, noone, noone, noone];
         
-        if (arg1 & 32)
+        if (arg1 & destroy.whitelist_destructibles)
             _arr[0] = noone;
         
-        if (arg1 & 128)
+        if (arg1 & destroy.whitelist_smbitembox)
             _arr[1] = noone;
         
-        if (arg1 & 1)
+        if (arg1 & destroy.metalblock)
             _arr[2] = obj_metalblock;
         
-        if (arg1 & 4)
+        if (arg1 & destroy.tntblock)
             _arr[3] = obj_tntblock;
         
-        if (arg1 & 8)
+        if (arg1 & destroy.breakableice)
             _arr[4] = obj_breakableice;
         
-        if (arg1 & 16)
+        if (arg1 & destroy.ratblock)
             _arr[5] = obj_ratblock;
         
         var _inst = instance_place(x, y + arg0, _arr);
@@ -179,7 +195,7 @@ function scr_destroy_vertical(arg0, arg1 = 0)
         }
         
         if (_hitblock)
-            push_notif(7, _dest);
+            push_notif(achieve_type.hitblock, _dest);
         
         return _hitblock;
     }
@@ -202,7 +218,7 @@ function scr_collide_destructibles(arg0, arg1)
             {
                 falling = 1;
                 image_speed = 0.35;
-                push_notif(1, [id]);
+                push_notif(achieve_type.ruin1, [id]);
                 
                 if (global.levelname == "ruin" && !obj_music.secret)
                     ds_list_add(global.saveroom, id);

@@ -30,7 +30,7 @@ if (place_meeting(x, y, obj_player) && sprite_index == spr_pizzaboxunopen)
             alarm[10] = 120;
         }
         
-        if (global.currentbadge != 3)
+        if (global.currentbadge != badge.nohit)
             restore_combo();
     }
     

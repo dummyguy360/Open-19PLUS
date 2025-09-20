@@ -9,7 +9,7 @@ function scr_player_normal()
     var _animoverride = false;
     var _fallanim = spr_fall;
     
-    if (global.currentpowerup == 1)
+    if (global.currentpowerup == powerup.shotgun)
     {
         _suplexanim = spr_shotgunsuplexdash;
         _jumpanim = spr_shotgunjump;
@@ -20,7 +20,7 @@ function scr_player_normal()
         _fallanim = spr_shotgunfall;
     }
     
-    if (global.currentpowerup == 2)
+    if (global.currentpowerup == powerup.pistol)
     {
         _jumpanim = spr_player_pistoljump;
         _landanim = spr_player_pistolland;
@@ -272,13 +272,13 @@ function scr_player_normal()
     
     if (!landAnim)
     {
-        if (global.currentpowerup == 1)
+        if (global.currentpowerup == powerup.shotgun)
         {
             if (sprite_index != spr_Shotgun)
                 sprite_index = (move == 0) ? spr_shotgunidle : spr_shotgunwalk;
         }
         
-        if (global.currentpowerup == 2)
+        if (global.currentpowerup == powerup.pistol)
         {
             var _idle = spr_player_pistolidle;
             
@@ -435,7 +435,7 @@ function scr_player_normal()
     {
         input_buffer_attack = 8;
         
-        if (global.currentbadge == 1)
+        if (global.currentbadge == badge.kungfu)
         {
             if (!kungfumove)
             {
@@ -520,7 +520,7 @@ function scr_player_normal()
         introscared = 0;
     }
     
-    if (input_check_pressed("shoot") && global.currentpowerup == 2)
+    if (input_check_pressed("shoot") && global.currentpowerup == powerup.pistol)
     {
         state = states.gunshoot;
         sprite_index = spr_player_gunshoot;

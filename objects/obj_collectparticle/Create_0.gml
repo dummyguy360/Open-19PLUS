@@ -1,4 +1,4 @@
-sprite_index = get_collectspr(0, obj_player.character);
+sprite_index = get_collectspr(collect_type.big, obj_player.character);
 depth = 1;
 spd = 20;
 var viewx = camera_get_view_x(view_camera[0]);

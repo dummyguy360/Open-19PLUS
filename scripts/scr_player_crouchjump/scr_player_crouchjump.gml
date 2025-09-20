@@ -3,7 +3,7 @@ function scr_player_crouchjump()
     var _crouchjumpanim = spr_crouchjump;
     var _crouchfallanim = spr_crouchfall;
     
-    if (global.currentpowerup == 1)
+    if (global.currentpowerup == powerup.shotgun)
     {
         _crouchjumpanim = spr_shotguncrouchjump1;
         _crouchfallanim = spr_shotguncrouchjump2;

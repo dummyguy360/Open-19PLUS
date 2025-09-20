@@ -171,7 +171,7 @@ function scr_player_mach1()
         introscared = 0;
     }
     
-    if (input_check("shoot") && global.currentpowerup == 1)
+    if (input_check("shoot") && global.currentpowerup == powerup.shotgun)
     {
         scr_fmod_soundeffectONESHOT("event:/sfx/player/killingblow", x, y);
         state = states.swingdingfinish;
@@ -239,7 +239,7 @@ function scr_player_mach1()
             state = states.suplexgrab;
             image_index = 0;
             
-            if (global.currentpowerup != 1)
+            if (global.currentpowerup != powerup.shotgun)
                 sprite_index = spr_suplexdash;
             else
                 sprite_index = spr_shotgunsuplexdash;
@@ -263,7 +263,7 @@ function scr_player_mach1()
         momemtum = 1;
     }
     
-    if (input_check_pressed("shoot") && global.currentpowerup == 2)
+    if (input_check_pressed("shoot") && global.currentpowerup == powerup.pistol)
     {
         if (!grounded)
             vsp = -6;

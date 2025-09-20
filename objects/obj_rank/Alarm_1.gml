@@ -1,4 +1,4 @@
-push_notif(19, [global.levelname]);
+push_notif(achieve_type.timetrial, [global.levelname]);
 scr_playerreset(0);
 scr_leavelevel();
 

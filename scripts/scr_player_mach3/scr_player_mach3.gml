@@ -2,10 +2,10 @@ function scr_player_mach3()
 {
     collide_destructibles = function(arg0, arg1)
     {
-        var f = 1;
+        var f = destroy.metalblock;
         
         if (rocket)
-            f |= 16;
+            f |= destroy.ratblock;
         
         scr_destroy_horizontal(arg0, f);
     };
@@ -386,7 +386,7 @@ function scr_player_mach3()
     {
         input_buffer_attack = 8;
         
-        if (global.currentbadge == 1)
+        if (global.currentbadge == badge.kungfu)
         {
             if (!kungfumove)
             {
@@ -415,7 +415,7 @@ function scr_player_mach3()
             state = states.suplexgrab;
             image_index = 0;
             
-            if (global.currentpowerup == 1)
+            if (global.currentpowerup == powerup.shotgun)
                 sprite_index = spr_shotgunsuplexdash;
             else
                 sprite_index = spr_suplexdash;
@@ -435,7 +435,7 @@ function scr_player_mach3()
         }
     }
     
-    if (input_check_pressed("shoot") && global.currentpowerup == 2)
+    if (input_check_pressed("shoot") && global.currentpowerup == powerup.pistol)
     {
         if (!grounded)
             vsp = -6;
@@ -468,7 +468,7 @@ function scr_player_mach3()
     
     throwmort();
     
-    if (global.currentpowerup == 3 && !mortjump && input_check_pressed("jump") && !grounded && sprite_index != spr_player_mortdoublejump && sprite_index != spr_player_mortjump)
+    if (global.currentpowerup == powerup.mort && !mortjump && input_check_pressed("jump") && !grounded && sprite_index != spr_player_mortdoublejump && sprite_index != spr_player_mortjump)
     {
         mortjump = 1;
         momemtum = 1;

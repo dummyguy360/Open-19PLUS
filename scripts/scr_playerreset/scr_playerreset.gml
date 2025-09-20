@@ -12,7 +12,7 @@ function scr_playerreset(arg0, arg1 = true)
     global.timetrialtime = 0;
     scr_unrevokeprank();
     global.smallpep = false;
-    global.currentpowerup = 0;
+    global.currentpowerup = powerup.none;
     global.timer = 0;
     global.followers = [];
     
@@ -300,5 +300,5 @@ function scr_unrevokeprank()
 function scr_leavelevel()
 {
     global.levelname = noone;
-    global.currentbadge = 0;
+    global.currentbadge = badge.none;
 }

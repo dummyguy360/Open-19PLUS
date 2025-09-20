@@ -186,7 +186,7 @@ if (__player.state != states.kungfu && __player.state != states.hurt)
                 }
             }
             
-            if ((_bid.state == states.seat || _bid.state == states.tackleold) && state == states.normal && global.currentbadge == 1 && !_bid.thrown && !_bid.ishurt)
+            if ((_bid.state == states.seat || _bid.state == states.tackleold) && state == states.normal && global.currentbadge == badge.kungfu && !_bid.thrown && !_bid.ishurt)
             {
                 _bid.state = states.smallpepdash;
                 _bid.grabbedby = id;

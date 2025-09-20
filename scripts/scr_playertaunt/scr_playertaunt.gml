@@ -2,7 +2,7 @@ function scr_playertaunt()
 {
     if (input_check_pressed("taunt"))
     {
-        if (global.currentbadge == 2)
+        if (global.currentbadge == badge.bdance)
         {
             state = states.breakdance;
             

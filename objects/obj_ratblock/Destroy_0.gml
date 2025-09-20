@@ -12,4 +12,4 @@ camera_shake(3, 3);
 scr_enemycorpse(deadspr, spr_ratpalette, 0, x + deadxoff, y + deadyoff);
 ds_list_add(global.saveroom, id);
 add_combo();
-push_notif(9, []);
+push_notif(achieve_type.medieval2, []);

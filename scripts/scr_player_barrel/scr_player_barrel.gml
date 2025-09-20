@@ -6,6 +6,6 @@ function scr_player_barrel()
             scr_destroy_vertical(arg1);
         
         if (sprite_index == spr_barrelroll || sprite_index == spr_barrelslipnslide)
-            scr_destroy_horizontal(arg0, 16);
+            scr_destroy_horizontal(arg0, destroy.ratblock);
     };
 }

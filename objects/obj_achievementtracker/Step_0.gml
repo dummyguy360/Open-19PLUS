@@ -35,6 +35,4 @@ if (popuptime > 0)
     popuptime--;
 }
 else if (popupy > 0)
-{
     popupy -= 0.025;
-}

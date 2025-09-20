@@ -86,7 +86,7 @@ if (room != rank_room && room != rank_roomtutorial)
     }
 }
 
-if (global.currentpowerup == 3)
+if (global.currentpowerup == powerup.mort)
     instance_create_depth(x, y, 0, obj_mortfollow);
 
 roomstartx = x;

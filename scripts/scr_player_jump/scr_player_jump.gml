@@ -43,7 +43,7 @@ function scr_player_jump()
     
     var _suplexanim = spr_suplexgrabjumpstart;
     
-    if (global.currentpowerup == 1)
+    if (global.currentpowerup == powerup.shotgun)
         _suplexanim = spr_shotgunsuplexdash;
     
     if (!momemtum)
@@ -103,7 +103,7 @@ function scr_player_jump()
         scr_fmod_soundeffect(char_jumpsnd, x, y);
         sprite_index = spr_jump;
         
-        if (global.currentpowerup == 1)
+        if (global.currentpowerup == powerup.shotgun)
             sprite_index = spr_shotgunjump;
         
         instance_create_depth(x, y, 0, obj_highjumpcloud2);
@@ -198,7 +198,7 @@ function scr_player_jump()
         }
     }
     
-    if (global.currentpowerup == 3 && !mortjump && input_check_pressed("jump") && sprite_index != spr_player_mortdoublejump && sprite_index != spr_player_mortjump)
+    if (global.currentpowerup == powerup.mort && !mortjump && input_check_pressed("jump") && sprite_index != spr_player_mortdoublejump && sprite_index != spr_player_mortjump)
     {
         mortjump = 1;
         stompAnim = 0;
@@ -228,7 +228,7 @@ function scr_player_jump()
     
     if (input_check("groundpound"))
     {
-        if (global.currentpowerup != 1)
+        if (global.currentpowerup != powerup.shotgun)
         {
             movespeed *= _analogue;
             image_index = 0;
@@ -310,7 +310,7 @@ function scr_player_jump()
     {
         input_buffer_attack = 8;
         
-        if (global.currentbadge == 1)
+        if (global.currentbadge == badge.kungfu)
         {
             if (!kungfumove)
             {
@@ -418,7 +418,7 @@ function scr_player_jump()
     
     scr_playertaunt();
     
-    if (input_check_pressed("shoot") && global.currentpowerup == 2)
+    if (input_check_pressed("shoot") && global.currentpowerup == powerup.pistol)
     {
         state = states.gunshoot;
         sprite_index = spr_player_gunshoot;

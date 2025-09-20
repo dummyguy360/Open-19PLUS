@@ -4,7 +4,7 @@ function scr_player_crouch()
     var _crouchanim = spr_crouch;
     var _crawlanim = spr_crawl;
     
-    if (global.currentpowerup == 1)
+    if (global.currentpowerup == powerup.shotgun)
     {
         _crouchstartanim = spr_shotgungoduck;
         _crouchanim = spr_shotgunduck;

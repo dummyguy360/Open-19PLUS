@@ -5,7 +5,7 @@ function scr_player_bombpep()
         if (state != states.bombpep)
             exit;
         
-        if (scr_destroy_horizontal(arg0, 240))
+        if (scr_destroy_horizontal(arg0, destroy.whitelist_destructibles | destroy.whitelist_onewaybigblock | destroy.whitelist_smbitembox))
         {
             instance_create_depth(x, y, 0, obj_bombexplosion2);
             movespeed = 4;

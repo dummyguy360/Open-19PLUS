@@ -90,7 +90,7 @@ if (instance_exists(obj_player))
                     var ry = (yshiftl + collectHUDY) - 22;
                     var rank_ix = 0;
                     
-                    if (_score >= global.srank && (global.prank || (instance_exists(obj_endlevelfade) && global.rank == 5)))
+                    if (_score >= global.srank && (global.prank || (instance_exists(obj_endlevelfade) && global.rank == rank.P)))
                         rank_ix = 5;
                     else if (_score >= global.srank)
                         rank_ix = 4;
@@ -220,7 +220,7 @@ if (instance_exists(obj_player))
         
         if (!_tutorial)
         {
-            if (global.currentbadge == 3)
+            if (global.currentbadge == badge.nohit)
             {
                 var combox = tvX + wave(-2 + (8 * min(1, combobary / -120)), 6, 2, 0);
                 var comboy = tvY + yshiftr + 120 + combobary;

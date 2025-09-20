@@ -2,5 +2,5 @@ if (other.state != states.smallpepdash && other.state != states.enemyhitstun && 
 {
     instance_destroy(other.id);
     instance_destroy();
-    push_notif(13, [object_index]);
+    push_notif(achieve_type.dragonslair1, [object_index]);
 }

@@ -9,7 +9,7 @@ switch (sprite_index)
             currentattack %= array_length(attackcycle);
             scr_fmod_soundeffectONESHOT("event:/sfx/misc/dragonattack", x, y);
             
-            if (attackcycle[currentattack] == 1)
+            if (attackcycle[currentattack] == dragonattk.fireball)
             {
                 if (!bbox_in_camera(view_camera[1], id))
                 {
@@ -25,7 +25,7 @@ switch (sprite_index)
                 sprite_index = spr_cheesedragon_flames;
             }
             
-            if (attackcycle[currentattack] == 0)
+            if (attackcycle[currentattack] == dragonattk.stomp)
                 sprite_index = spr_cheesedragon_stomp;
             
             image_index = 0;

@@ -51,27 +51,27 @@ switch (room)
         {
             switch (global.rank)
             {
-                case 5:
+                case rank.P:
                     _state = "a SPECTACULAR P!!!";
                     break;
                 
-                case 4:
+                case rank.S:
                     _state = "a PERFECT S!!";
                     break;
                 
-                case 3:
+                case rank.A:
                     _state = "a Nice A!";
                     break;
                 
-                case 2:
+                case rank.B:
                     _state = "a Subpar B.";
                     break;
                 
-                case 1:
+                case rank.C:
                     _state = "a Decent C... Could've been better.";
                     break;
                 
-                case 0:
+                case rank.D:
                     _state = "a TERRIBLE D. Shameful.";
                     break;
             }
@@ -80,19 +80,19 @@ switch (room)
         {
             switch (global.timetrialrank)
             {
-                case 3:
+                case tt_rank.purple:
                     _state = "a SPECTACULAR Purple medal!!!";
                     break;
                 
-                case 2:
+                case tt_rank.gold:
                     _state = "a PERFECT Gold medal!!";
                     break;
                 
-                case 1:
+                case tt_rank.silver:
                     _state = "a Nice Silver medal!";
                     break;
                 
-                case 0:
+                case tt_rank.bronze:
                     _state = "a Subpar Bronze medal.";
                     break;
             }
@@ -110,17 +110,17 @@ var _smalltext = "";
 
 switch (global.currentbadge)
 {
-    case 1:
+    case badge.kungfu:
         _smallimage = "blackbelt";
         _smalltext = "Current Badge: Kung Fu";
         break;
     
-    case 2:
+    case badge.bdance:
         _smallimage = "boombox";
         _smalltext = "Current Badge: Breakdance";
         break;
     
-    case 3:
+    case badge.nohit:
         _smallimage = "puppet";
         _smalltext = "Current Badge: No Hit";
         break;
@@ -136,6 +136,4 @@ if (instance_exists(obj_player))
         np_setpresence_more(_smalltext, "Peppino!", true);
 }
 else
-{
     np_setpresence_more(_smalltext, "Peppino!", true);
-}

@@ -3,14 +3,14 @@ function scr_player_freefall()
     collide_destructibles = function(arg0, arg1)
     {
         if (arg1 >= 0)
-            scr_destroy_vertical(arg1, 1 * (character == "M" && freefallsmash > 10));
+            scr_destroy_vertical(arg1, destroy.metalblock * (character == "M" && freefallsmash > 10));
     };
     
     hit_vertical = function(arg0)
     {
         if (arg0 >= 0 && bodyslamvsp > 0)
         {
-            scr_destroy_vertical(arg0, 1 * (freefallsmash > 10));
+            scr_destroy_vertical(arg0, destroy.metalblock * (freefallsmash > 10));
             freefallsmash = 0;
             combo = 0;
             bounce = 0;
@@ -43,7 +43,7 @@ function scr_player_freefall()
                 {
                     if (sprite_index != spr_player_poundcancel1)
                     {
-                        if (global.currentpowerup != 1)
+                        if (global.currentpowerup != powerup.shotgun)
                             sprite_index = spr_bodyslamland;
                         else
                             sprite_index = spr_shotgunjump2;

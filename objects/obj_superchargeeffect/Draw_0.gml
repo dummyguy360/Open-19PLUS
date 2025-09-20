@@ -1,4 +1,4 @@
-if (!scr_hudroomcheck() && global.battle == 0 && global.currentbadge != 2)
+if (!scr_hudroomcheck() && global.battle == 0 && global.currentbadge != badge.bdance)
 {
     var check;
     

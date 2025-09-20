@@ -46,7 +46,7 @@ function scr_hurtplayer(_player = other.id, check_hurttype = true)
         {
             mariodeathid = event_play_oneshot("event:/sfx/player/retrodeath");
             state = states.retrodeath;
-            push_notif(2, [_hurttype]);
+            push_notif(achieve_type.gethurt, [_hurttype]);
             return true;
         }
         
@@ -70,7 +70,7 @@ function scr_hurtplayer(_player = other.id, check_hurttype = true)
             obj_player.image_index = 0;
             obj_player.flash = 1;
             state = states.bump;
-            push_notif(2, [_hurttype]);
+            push_notif(achieve_type.gethurt, [_hurttype]);
             return true;
         }
         
@@ -92,7 +92,7 @@ function scr_hurtplayer(_player = other.id, check_hurttype = true)
             obj_player.image_index = 0;
             obj_player.flash = 1;
             state = states.bump;
-            push_notif(2, [_hurttype]);
+            push_notif(achieve_type.gethurt, [_hurttype]);
             return true;
         }
         
@@ -142,7 +142,7 @@ function scr_hurtplayer(_player = other.id, check_hurttype = true)
             image_index = 0;
             flash = 1;
             
-            if (global.currentbadge != 3)
+            if (global.currentbadge != badge.nohit)
             {
                 global.combotime -= 25;
                 
@@ -163,7 +163,7 @@ function scr_hurtplayer(_player = other.id, check_hurttype = true)
                     instance_create_depth(x, y, 0, obj_pizzaloss);
             }
             
-            push_notif(2, [_hurttype]);
+            push_notif(achieve_type.gethurt, [_hurttype]);
             return true;
         }
         
@@ -198,7 +198,7 @@ function scr_hurtplayer(_player = other.id, check_hurttype = true)
                     sprite_index = spr_pizzashield_collectible;
             }
             
-            push_notif(2, [_hurttype]);
+            push_notif(achieve_type.gethurt, [_hurttype]);
             return true;
         }
     }

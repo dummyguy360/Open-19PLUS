@@ -1,4 +1,4 @@
 var _hurt = scr_hurtplayer();
 
 if (_hurt)
-    push_notif(3, [id]);
+    push_notif(achieve_type.dungeon1, [id]);

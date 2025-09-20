@@ -50,6 +50,6 @@ if (active && sprite_index != spr_secretportal_open && ds_list_find_index(global
 
 if (sprite_index != spr_secretportal_close || (sprite_index == spr_secretportal_close && image_index < (image_number - 1)))
 {
-    if (global.currentbadge != 3)
+    if (global.currentbadge != badge.nohit)
         restore_combo();
 }

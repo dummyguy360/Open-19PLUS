@@ -4,5 +4,5 @@ if (!global.panic)
         shakex = 10;
     
     bothered = true;
-    push_notif(0, [id]);
+    push_notif(achieve_type.entry2, [id]);
 }

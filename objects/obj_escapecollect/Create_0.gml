@@ -32,6 +32,6 @@ function collectGrabbed()
     
     instance_destroy();
     
-    if (global.currentbadge != 3)
+    if (global.currentbadge != badge.nohit)
         restore_combo(10);
 }

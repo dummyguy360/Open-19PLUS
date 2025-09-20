@@ -3,7 +3,13 @@ image_index = 0;
 image_speed = 0.35;
 flamehitbox = instance_create_depth(x, y, depth, obj_dragonflamehitbox);
 flamehitbox.image_xscale = image_xscale;
-attackcycle = [1, 0, 0];
+
+enum dragonattk
+{
+	stomp = 0,
+	fireball = 1
+}
+attackcycle = [dragonattk.fireball, dragonattk.stomp, dragonattk.stomp];
 currentattack = 0;
 die = false;
 timereward = 60;

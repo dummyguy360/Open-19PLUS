@@ -810,7 +810,7 @@ if (global.combo <= 0)
 
 if (global.combo > 0)
 {
-    if (global.currentbadge == 3)
+    if (global.currentbadge == badge.nohit)
         visualcombo = global.combopoints;
     else
         visualcombo = global.combo;

@@ -2,7 +2,7 @@ function scr_player_knightpepslopes()
 {
     collide_destructibles = function(arg0, arg1)
     {
-        scr_destroy_horizontal(arg0, 17);
+        scr_destroy_horizontal(arg0, destroy.metalblock | destroy.ratblock);
     };
     
     hit_horizontal = function(arg0)
@@ -18,7 +18,7 @@ function scr_player_knightpepslopes()
             state = states.knightpepbump;
             gamepadvibrate(0.4, 0, 7);
             scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
-            push_notif(6, [arg0]);
+            push_notif(achieve_type.medieval1, [arg0]);
         }
         else
         {
@@ -28,7 +28,7 @@ function scr_player_knightpepslopes()
             image_index = 0;
             gamepadvibrate(0.4, 0, 7);
             scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
-            push_notif(6, [arg0]);
+            push_notif(achieve_type.medieval1, [arg0]);
         }
     };
     

@@ -54,7 +54,7 @@ function scr_player_freefallprep()
     {
         state = states.freefall;
         
-        if (global.currentpowerup != 1)
+        if (global.currentpowerup != powerup.shotgun)
             sprite_index = spr_bodyslamfall;
         else
             sprite_index = spr_shotgunjump3;

@@ -482,13 +482,13 @@ function end_combo_abrupt()
             global.combo = 0;
             global.combotime = 0;
             add_collect(global.combopoints);
-            var _pizzas = (global.currentbadge == 3) + 1;
+            var _pizzas = (global.currentbadge == badge.nohit) + 1;
             
             repeat (_pizzas)
             {
                 with (instance_create_depth(x + irandom_range(-3, 3), y + irandom_range(-3, 3), -15000, obj_collectparticle))
                 {
-                    sprite_index = get_collectspr(2, obj_player.character);
+                    sprite_index = get_collectspr(collect_type.small, obj_player.character);
                     image_speed = 0.35;
                     value = global.combopoints;
                     shake = 10;
@@ -507,13 +507,13 @@ function end_combopoint_abrupt()
         if (combopointduration)
         {
             add_collect(combopointstogive);
-            var _pizzas = (global.currentbadge == 3) + 1;
+            var _pizzas = (global.currentbadge == badge.nohit) + 1;
             
             repeat (_pizzas)
             {
                 with (instance_create_depth(x + irandom_range(-3, 3), y + irandom_range(-3, 3), -15000, obj_collectparticle))
                 {
-                    sprite_index = get_collectspr(2, obj_player.character);
+                    sprite_index = get_collectspr(collect_type.small, obj_player.character);
                     image_speed = 0.35;
                     value = other.combopointstogive;
                     shake = 10;
@@ -675,60 +675,73 @@ function badge_at_pos(arg0, arg1, arg2, arg3, arg4 = 0, arg5 = 0)
     return _badgestruct;
 }
 
-function get_collectspr(arg0, arg1)
+enum collect_type
 {
-    switch (arg0)
+	big = 0,
+	pizzaslice = 1,
+	small = 2,
+	giant = 3,
+	
+	destroyable = 4,
+	destroyabledead = 5,
+	destroyablebig = 6,
+	destroyablebigdead = 7
+}
+
+function get_collectspr(type, char)
+{
+    switch (type)
     {
-        case 0:
-            if (arg1 == "N")
+        case collect_type.big:
+            if (char == "N")
                 return choose(spr_halloweencollectibles1, spr_halloweencollectibles2, spr_halloweencollectibles3, spr_halloweencollectibles4, spr_halloweencollectibles5);
             
-            if (arg1 == "S")
+            if (char == "S")
                 return spr_snickcollectible1;
             
             return choose(spr_shroomcollect, spr_tomatocollect, spr_cheesecollect, spr_sausagecollect, spr_pineapplecollect);
         
-        case 1:
+        case collect_type.pizzaslice:
             return spr_pizzaslice;
         
-        case 2:
-            if (arg1 == "N")
+        case collect_type.small:
+            if (char == "N")
                 return choose(spr_pizzacollect1halloween, spr_pizzacollect2halloween, spr_pizzacollect3halloween);
             
-            if (arg1 == "S")
+            if (char == "S")
                 return spr_snickcollectible2;
             
             return choose(spr_pizzacollect, spr_pizzacollect2, spr_pizzacollect3, spr_pizzacollect4, spr_pizzacollect5);
         
-        case 3:
-            if (arg1 == "N")
+        case collect_type.giant:
+            if (char == "N")
                 return spr_giantpizzahalloween;
             
-            if (arg1 == "S")
+            if (char == "S")
                 return spr_snickcollectible3;
             
             return spr_giantpizza;
         
-        case 4:
-            if (arg1 == "N")
+        case collect_type.destroyable:
+            if (char == "N")
                 return spr_noisedestroyable2;
             
             return spr_destroyable2;
         
-        case 5:
-            if (arg1 == "N")
+        case collect_type.destroyabledead:
+            if (char == "N")
                 return spr_noisedestroyable2dead;
             
             return spr_destroyable2dead;
         
-        case 6:
-            if (arg1 == "N")
+        case collect_type.destroyablebig:
+            if (char == "N")
                 return spr_noisedestroyable2big;
             
             return spr_destroyable2big;
         
-        case 7:
-            if (arg1 == "N")
+        case collect_type.destroyablebigdead:
+            if (char == "N")
                 return spr_noisedestroyable2bigdead;
             
             return spr_destroyable2bigdead;
@@ -751,7 +764,7 @@ function get_toppincount()
 
 function restore_combo(amount = 60)
 {
-    if (global.currentbadge == 3 && global.combogalstate != states.normal && global.levelname != "tutorial")
+    if (global.currentbadge == badge.nohit && global.combogalstate != states.normal && global.levelname != "tutorial")
         exit;
     
     if (global.combo <= 0 || amount < 0)
@@ -766,7 +779,7 @@ function restore_combo(amount = 60)
 
 function add_combo(amount = 1)
 {
-    if (global.currentbadge == 3 && global.combogalstate == states.finishingblow && global.levelname != "tutorial")
+    if (global.currentbadge == badge.nohit && global.combogalstate == states.finishingblow && global.levelname != "tutorial")
         exit;
     
     global.combo += amount;

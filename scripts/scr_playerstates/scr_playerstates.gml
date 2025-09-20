@@ -76,7 +76,7 @@ function scr_playerstates()
 
 function throwmort()
 {
-    if (input_check_pressed("shoot") && character == "P" && global.currentpowerup == 3 && !instance_exists(obj_mortprojectile))
+    if (input_check_pressed("shoot") && character == "P" && global.currentpowerup == powerup.mort && !instance_exists(obj_mortprojectile))
     {
         state = states.gunshoot;
         sprite_index = spr_player_mortthrow;

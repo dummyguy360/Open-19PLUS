@@ -1,6 +1,6 @@
-if (global.currentpowerup != 1 && is_player_grabbing(other.id))
+if (global.currentpowerup != powerup.shotgun && is_player_grabbing(other.id))
 {
-    global.currentpowerup = 1;
+    global.currentpowerup = powerup.shotgun;
     other.state = states.shotgun;
     other.image_index = 0;
     other.sprite_index = other.spr_shotgunpullout;

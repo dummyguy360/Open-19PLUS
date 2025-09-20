@@ -376,7 +376,7 @@ function scr_player_mach2()
     {
         input_buffer_attack = 8;
         
-        if (global.currentbadge == 1)
+        if (global.currentbadge == badge.kungfu)
         {
             if (!kungfumove)
             {
@@ -405,7 +405,7 @@ function scr_player_mach2()
             state = states.suplexgrab;
             image_index = 0;
             
-            if (global.currentpowerup != 1)
+            if (global.currentpowerup != powerup.shotgun)
                 sprite_index = spr_suplexdash;
             else
                 sprite_index = spr_shotgunsuplexdash;
@@ -425,7 +425,7 @@ function scr_player_mach2()
         }
     }
     
-    if (input_check_pressed("shoot") && global.currentpowerup == 2)
+    if (input_check_pressed("shoot") && global.currentpowerup == powerup.pistol)
     {
         if (!grounded)
             vsp = -6;
@@ -456,7 +456,7 @@ function scr_player_mach2()
         scr_fmod_soundeffect(revolversnd, x, y);
     }
     
-    if (global.currentpowerup == 3 && !mortjump && input_check_pressed("jump") && !grounded && sprite_index != spr_player_mortdoublejump && sprite_index != spr_player_mortjump)
+    if (global.currentpowerup == powerup.mort && !mortjump && input_check_pressed("jump") && !grounded && sprite_index != spr_player_mortdoublejump && sprite_index != spr_player_mortjump)
     {
         mortjump = 1;
         state = states.jump;

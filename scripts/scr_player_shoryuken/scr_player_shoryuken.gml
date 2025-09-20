@@ -2,7 +2,7 @@ function scr_player_shoryuken()
 {
     collide_destructibles = function(arg0, arg1)
     {
-        scr_destroy_horizontal(arg0, 256);
+        scr_destroy_horizontal(arg0, destroy.create_bangeffect);
     };
     
     hit_vertical = function(arg0)
@@ -48,7 +48,7 @@ function scr_player_shoryuken()
     {
         input_buffer_attack = 8;
         
-        if (global.currentbadge == 1)
+        if (global.currentbadge == badge.kungfu)
         {
             if (!kungfumove)
             {

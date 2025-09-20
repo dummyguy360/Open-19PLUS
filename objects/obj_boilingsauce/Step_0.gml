@@ -15,7 +15,7 @@ if (place_meeting(x, y - 1, obj_player) && obj_player.state != states.ejected2 &
         }
         
         if (state != states.fireass)
-            push_notif(5, [other.id]);
+            push_notif(achieve_type.fireass, [other.id]);
         
         state = states.fireass;
         vsp = -25;

@@ -1,4 +1,4 @@
-function add_achievement_variable(arg0, arg1, arg2 = 0, arg3 = false)
+function add_achievement_variable(arg0, arg1, arg2 = popup_type.cowboytask, arg3 = false)
 {
     with (obj_achievementtracker)
     {
@@ -10,7 +10,7 @@ function add_achievement_variable(arg0, arg1, arg2 = 0, arg3 = false)
             save: arg3
         };
         
-        if (arg2 != 2)
+        if (arg2 != popup_type.other)
         {
             _varstruct.value = arg1;
             _varstruct.startingval = _varstruct.value;
@@ -32,7 +32,7 @@ function set_achvariable(arg0, arg1)
 {
     with (obj_achievementtracker)
     {
-        if (variables[? arg0].type != 2)
+        if (variables[? arg0].type != popup_type.other)
             variables[? arg0].value = arg1;
         else
             ds_list_add(variables[? arg0].value, arg1);
@@ -43,15 +43,15 @@ function set_achvariable(arg0, arg1)
             
             switch (variables[? arg0].type)
             {
-                case 0:
+                case popup_type.cowboytask:
                     ini_write_real("GameProgress", arg0, variables[? arg0].value);
                     break;
                 
-                case 1:
+                case popup_type.silent:
                     ini_write_string("GameProgress", arg0, variables[? arg0].value);
                     break;
                 
-                case 2:
+                case popup_type.other:
                     var _str = ds_list_write(variables[? arg0].value);
                     ini_write_string("GameProgress", arg0, _str);
                     break;
@@ -68,7 +68,7 @@ function add_achievement(arg0, arg1, arg2, arg3 = function() { } )
     {
         var _achstruct = 
         {
-            type: 0,
+            type: popup_type.cowboytask,
             saveid: arg0,
             setupfunc: -1,
             updatefunc: -1,
@@ -88,7 +88,7 @@ function add_unlock(arg0, arg1, arg2, arg3 = function() { } )
     {
         var _achstruct = 
         {
-            type: 2,
+            type: popup_type.other,
             saveid: arg0,
             setupfunc: -1,
             updatefunc: -1,
@@ -114,7 +114,7 @@ function achievement_get(arg0, arg1, arg2)
     {
         var _popupstruct = 
         {
-            type: 0,
+            type: popup_type.cowboytask,
             sprite: arg1,
             index: arg2
         };
@@ -134,7 +134,7 @@ function unlockable_unlock(arg0, arg1, arg2)
     {
         var _popupstruct = 
         {
-            type: 2,
+            type: popup_type.other,
             sprite: arg1,
             index: arg2
         };
@@ -174,15 +174,15 @@ function achievements_load()
             
             switch (variables[? array_get(_vars, v)].type)
             {
-                case 0:
+                case popup_type.cowboytask:
                     variables[? array_get(_vars, v)].value = ini_read_real("GameProgress", _vars[v], variables[? array_get(_vars, v)].startingval);
                     break;
                 
-                case 1:
+                case popup_type.silent:
                     variables[? array_get(_vars, v)].value = ini_read_string("GameProgress", _vars[v], variables[? array_get(_vars, v)].startingval);
                     break;
                 
-                case 2:
+                case popup_type.other:
                     var _str = ini_read_string("GameProgress", _vars[v], "");
                     
                     if (_str != "")
@@ -196,7 +196,7 @@ function achievements_load()
         {
             var _section = "GameProgress";
             
-            if (achievements[a].type == 0)
+            if (achievements[a].type == popup_type.cowboytask)
                 _section = "Achievements";
             
             achievements[a].done = ini_read_real(_section, achievements[a].saveid, false);
@@ -217,7 +217,7 @@ function achievements_reset()
             if (variables[? array_get(_vars, v)].save)
                 continue;
             
-            if (variables[? array_get(_vars, v)].type != 2)
+            if (variables[? array_get(_vars, v)].type != popup_type.other)
                 variables[? array_get(_vars, v)].value = variables[? array_get(_vars, v)].startingval;
             else
                 ds_list_clear(variables[? array_get(_vars, v)].value);

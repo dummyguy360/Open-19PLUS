@@ -2,7 +2,7 @@ function scr_player_sidejump()
 {
     collide_destructibles = function(arg0, arg1)
     {
-        scr_destroy_horizontal(arg0, 1);
+        scr_destroy_horizontal(arg0, destroy.metalblock);
     };
     
     hit_vertical = function(arg0)

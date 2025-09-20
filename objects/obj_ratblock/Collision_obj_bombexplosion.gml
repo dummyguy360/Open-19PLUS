@@ -1,2 +1,2 @@
-push_notif(10, [other.bygoblin]);
+push_notif(achieve_type.ruin2, [other.bygoblin]);
 instance_destroy();

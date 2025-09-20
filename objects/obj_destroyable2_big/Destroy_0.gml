@@ -11,7 +11,7 @@ if (ds_list_find_index(global.saveroom, id) == -1)
     
     with (instance_create_depth(x + irandom_range(-32, 32), y + irandom_range(-32, 32), -9999999, obj_collectparticle))
     {
-        sprite_index = get_collectspr(1, obj_player.character);
+        sprite_index = get_collectspr(collect_type.pizzaslice, obj_player.character);
         image_speed = 0.35;
         image_index = other.id.image_index;
         value = 25;
@@ -20,7 +20,7 @@ if (ds_list_find_index(global.saveroom, id) == -1)
     
     with (instance_create_depth(x + irandom_range(-32, 32), y + irandom_range(-32, 32), -9999999, obj_collectparticle))
     {
-        sprite_index = get_collectspr(1, obj_player.character);
+        sprite_index = get_collectspr(collect_type.pizzaslice, obj_player.character);
         image_speed = 0.35;
         image_index = other.id.image_index + irandom(9);
         value = 25;
