@@ -10,7 +10,7 @@ function add_achievement_variable(arg0, arg1, arg2 = popup_type.cowboytask, arg3
             save: arg3
         };
         
-        if (arg2 != popup_type.other)
+        if (arg2 != popup_type.othertask)
         {
             _varstruct.value = arg1;
             _varstruct.startingval = _varstruct.value;
@@ -32,7 +32,7 @@ function set_achvariable(arg0, arg1)
 {
     with (obj_achievementtracker)
     {
-        if (variables[? arg0].type != popup_type.other)
+        if (variables[? arg0].type != popup_type.othertask)
             variables[? arg0].value = arg1;
         else
             ds_list_add(variables[? arg0].value, arg1);
@@ -51,7 +51,7 @@ function set_achvariable(arg0, arg1)
                     ini_write_string("GameProgress", arg0, variables[? arg0].value);
                     break;
                 
-                case popup_type.other:
+                case popup_type.othertask:
                     var _str = ds_list_write(variables[? arg0].value);
                     ini_write_string("GameProgress", arg0, _str);
                     break;
@@ -88,7 +88,7 @@ function add_unlock(arg0, arg1, arg2, arg3 = function() { } )
     {
         var _achstruct = 
         {
-            type: popup_type.other,
+            type: popup_type.othertask,
             saveid: arg0,
             setupfunc: -1,
             updatefunc: -1,
@@ -134,7 +134,7 @@ function unlockable_unlock(arg0, arg1, arg2)
     {
         var _popupstruct = 
         {
-            type: popup_type.other,
+            type: popup_type.othertask,
             sprite: arg1,
             index: arg2
         };
@@ -182,7 +182,7 @@ function achievements_load()
                     variables[? array_get(_vars, v)].value = ini_read_string("GameProgress", _vars[v], variables[? array_get(_vars, v)].startingval);
                     break;
                 
-                case popup_type.other:
+                case popup_type.othertask:
                     var _str = ini_read_string("GameProgress", _vars[v], "");
                     
                     if (_str != "")
@@ -217,7 +217,7 @@ function achievements_reset()
             if (variables[? array_get(_vars, v)].save)
                 continue;
             
-            if (variables[? array_get(_vars, v)].type != popup_type.other)
+            if (variables[? array_get(_vars, v)].type != popup_type.othertask)
                 variables[? array_get(_vars, v)].value = variables[? array_get(_vars, v)].startingval;
             else
                 ds_list_clear(variables[? array_get(_vars, v)].value);

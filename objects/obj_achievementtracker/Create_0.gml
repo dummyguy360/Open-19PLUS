@@ -2,7 +2,7 @@ enum popup_type
 {
 	cowboytask = 0,
 	silent = 1,
-	other = 2
+	othertask = 2
 }
 popupstruct = { type: -1 };
 popupy = 0;
@@ -12,26 +12,26 @@ notifications = ds_list_create();
 popupqueue = ds_list_create();
 variables = ds_map_create();
 
-// numbers are fucked up for some reason
-// probably inaccurate naming, but idc
+// numbers are fucked up, probably because the devs probably just added them randomly during development
+// also yeah i know, the naming could be better, but idc
 enum achieve_type
 {
 	// individual level achievements
-	entry1 = 4,
-	entry2 = 0,
-	entry3 = 11,
+	entry1 = 4, // Road Runner
+	entry2 = 0, // Bit Orange
+	entry3 = 11,// Monkey Business
 	
-	medieval1 = 6,
-	medieval2 = 9,
-	medieval3 = 16,
+	medieval1 = 6, // Shining Armor
+	medieval2 = 9, // Pest Control
+	medieval3 = 16,// Ye Ol' Bowling
 	
-	ruin1 = 1,
-	ruin2 = 10,
-	ruin3 = 8,
+	ruin1 = 1, // Ancient Delicacy
+	ruin2 = 10,// Friendly Fire
+	ruin3 = 8, // Archeological Nightmare
 	
-	dungeon1 = 3,
-	dungeon2 = 14,
-	dungeon3 = 15,
+	dungeon1 = 3, // Cutter Caution
+	dungeon2 = 14,// Flaming Demise
+	dungeon3 = 15,// Pepper Flavored Sardine
 	
 	dragonslair1 = 13,
 	dragonslair2 = 17,
