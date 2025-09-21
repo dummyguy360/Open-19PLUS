@@ -7,9 +7,7 @@ if (!collectmode)
     ds_list_add(global.pizzacointracker[? global.levelname], _id);
     
     if (get_levelcoincount(global.levelname) < 25)
-    {
         obj_pizzacoinindicator.show = 70;
-    }
     else
     {
         obj_pizzacoinindicator.show = 0;

@@ -4,16 +4,12 @@ if (unlockedanim >= 1 && unlocked)
         uparrowid = create_uparrow();
 }
 else if (instance_exists(uparrowid))
-{
     instance_destroy(uparrowid);
-}
 
 targetDoor = "A";
 
 if (place_meeting(x, y, obj_player))
-{
     image_speed = 0.35;
-}
 else
 {
     image_speed = 0;

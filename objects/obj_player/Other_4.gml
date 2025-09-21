@@ -32,9 +32,7 @@ if (room != rank_room && room != rank_roomtutorial)
                         grounded = false;
                     }
                     else if (sprite_index == spr_uppizzabox)
-                    {
                         grounded = true;
-                    }
                     
                     state = grounded ? states.normal : states.jump;
                     

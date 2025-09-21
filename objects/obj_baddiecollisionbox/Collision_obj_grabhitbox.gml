@@ -60,9 +60,7 @@ if (instance_exists(baddieID))
                         jumpstop = 0;
                     }
                     else
-                    {
                         state = states.normal;
-                    }
                     
                     hitstun -= 1;
                     do_hitstun(global.otherimpactfulhitstun);
@@ -112,9 +110,7 @@ if (instance_exists(baddieID))
                 }
             }
             else
-            {
                 player_pummelhit();
-            }
         }
     }
 }

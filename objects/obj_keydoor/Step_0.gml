@@ -4,9 +4,7 @@ if ((sprite_index == spr_doorkey && global.key_inv) || sprite_index == spr_door)
         uparrowid = create_uparrow();
 }
 else if (instance_exists(uparrowid))
-{
     instance_destroy(uparrowid);
-}
 
 if (obj_player.grounded && (obj_player.state == states.normal || obj_player.state == states.mach1 || obj_player.state == states.mach2 || obj_player.state == states.mach3 || obj_player.state == states.sjumpprep) && (sprite_index == spr_doorkey || sprite_index == spr_factorydoorkey) && input_check("up") && global.key_inv == 1 && place_meeting(x, y, obj_player))
 {

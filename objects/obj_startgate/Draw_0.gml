@@ -17,9 +17,7 @@ if (unlocked)
         }
     }
     else if (event_isplaying(unlockingsound))
-    {
         event_stop(unlockingsound, false);
-    }
     
     if (unlockedanim > 1)
         unlockedanim = 1;

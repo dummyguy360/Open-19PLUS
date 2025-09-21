@@ -7,9 +7,7 @@ if (global.panic)
         uparrowid = create_uparrow();
 }
 else if (instance_exists(uparrowid))
-{
     instance_destroy(uparrowid);
-}
 
 if (place_meeting(x, y, obj_player) && obj_player.state == states.comingoutdoor && image_index == 1 && !global.panic && obj_player.sprite_index != obj_player.spr_lookdoor && floor(obj_player.image_index) >= 14)
 {

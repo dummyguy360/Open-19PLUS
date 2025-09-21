@@ -53,9 +53,7 @@ if (shieldblocking)
         shieldblocking = false;
 }
 else
-{
     shieldind %= sprite_get_number(spr_pizzashield);
-}
 
 for (var i = 0; i < shield; i++)
 {

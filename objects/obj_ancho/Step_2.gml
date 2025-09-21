@@ -3,43 +3,43 @@ event_inherited();
 
 switch (state)
 {
-    case 92:
+    case states.tackleold:
         scr_enemy_idle();
         break;
     
-    case 94:
+    case states.timesup:
         scr_enemy_charge();
         break;
     
-    case 96:
+    case states.weeniemount:
         scr_enemy_turn();
         break;
     
-    case 100:
+    case states.homingattack:
         scr_enemy_walk();
         break;
     
-    case 102:
+    case states.start:
         scr_enemy_land();
         break;
     
-    case 103:
+    case states.swingdingfinish:
         scr_enemy_hit();
         break;
     
-    case 104:
+    case states.seat:
         scr_enemy_stun();
         break;
     
-    case 95:
+    case states.ramp:
         scr_enemy_throw();
         break;
     
-    case 107:
+    case states.smallpepdash:
         scr_enemy_grabbed();
         break;
     
-    case 300:
+    case states.enemyhitstun:
         scr_enemy_hitstun();
         break;
 }

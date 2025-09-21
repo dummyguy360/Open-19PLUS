@@ -169,9 +169,7 @@ if (pause)
                         event_play_oneshot("event:/sfx/pausemenu/impact");
                     }
                     else
-                    {
                         event_play_oneshot("event:/sfx/pausemenu/buzzer");
-                    }
                     
                     break;
                 
@@ -245,9 +243,7 @@ if (pause)
                                 obj_player.targetDoor = "A";
                             }
                             else
-                            {
                                 event_play_oneshot("event:/sfx/enemy/projectile");
-                            }
                             
                             break;
                         }
@@ -284,9 +280,7 @@ if (pause)
                             obj_player.targetDoor = "A";
                         }
                         else
-                        {
                             event_play_oneshot("event:/sfx/enemy/projectile");
-                        }
                         
                         break;
                     }
@@ -322,9 +316,7 @@ if (pause)
                         obj_player.targetDoor = "A";
                     }
                     else
-                    {
                         event_play_oneshot("event:/sfx/enemy/projectile");
-                    }
                     
                     break;
             }

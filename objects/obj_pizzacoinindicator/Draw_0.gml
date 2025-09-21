@@ -11,9 +11,7 @@ draw_sprite_ext(spr_pizzacoin, -1, (roundlower(obj_player.x) - 32) + (16 * (1 - 
 var _count = "0/0";
 
 if (global.levelname != noone && global.levelname != "tutorial")
-{
     _count = string_padzeros(get_levelcoincount(global.levelname)) + "/25";
-}
 else
 {
     var _maxcoins = 25 * array_length(global.levels);
@@ -44,8 +42,6 @@ if (obj_player.combopointduration)
         obj_player.textalpha += 0.05;
 }
 else if (obj_player.textalpha > 0)
-{
     obj_player.textalpha -= 0.05;
-}
 
 __draw_text_colour_hook(roundlower(obj_player.x), roundlower(obj_player.y) - 50, string(obj_player.combopointstogive), c_white, c_white, c_white, c_white, obj_player.textalpha);

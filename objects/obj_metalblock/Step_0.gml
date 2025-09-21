@@ -8,9 +8,7 @@ if (place_meeting(x, y, obj_shotgunblast))
     shot = true;
 }
 else
-{
     shot = false;
-}
 
 if (hp <= 0)
     instance_destroy();

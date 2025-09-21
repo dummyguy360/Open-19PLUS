@@ -146,9 +146,7 @@ if (__player.state != states.kungfu && __player.state != states.hurt)
                             vsp = -11;
                     }
                     else if (!grounded && vsp > 0 && state != states.nwalljump && state != states.superslam && state != states.freefall && state != states.firemouth && sprite_index != spr_freefall && sprite_index != spr_facestomp)
-                    {
                         vsp = 0;
-                    }
                     
                     do_hitstun(global.mach2hitstun);
                     gamepadvibrate(0.7, 0, 7);

@@ -12,9 +12,7 @@ if (state != states.noclip && state != states.nothing && state != states.sagelev
                 mask_index = player_crouchmask;
         }
         else
-        {
             mask_index = player_crouchmask;
-        }
     }
 }
 else
@@ -500,7 +498,7 @@ if (state == states.mach3)
 }
 
 mach3effect = state == states.mach2 || state == states.mach3 || (state == states.finishingblow && hsp != 0) || state == states.pogo || state == states.climbwall || state == states.tacklecharge || (state == states.shoryuken && vsp <= 0) || state == states.breakdance || state == states.sjump || (state == states.smallpepdash && sprite_index == spr_smalldash) || (sprite_index == spr_swingding && movespeed > 12) || sprite_index == spr_piledriver || state == states.ramp || state == states.weeniemount || state == states.firemove || state == states.nwalljump || state == states.skateboard || state == states.swingdingfinish || (state == states.jump && character == "S" && snickmach2mode);
-global.mach3effectspecial = (character != "N") ? 16711820 : 8454143;
+global.mach3effectspecial = (character != "N") ? #8C00FF : #FFFF80;
 
 if (mach3effect && !instance_exists(obj_mach3effect))
 {
@@ -555,11 +553,11 @@ if (!instance_exists(obj_blueeffect) && blueeffect && sprite_index != spr_kungfu
         sprite_index = other.sprite_index;
         
         if (other.state == states.firemouth)
-            flashcolor = 1601784;
+            flashcolor = #F87018;
         else if (other.character == "N")
-            flashcolor = 8454143;
+            flashcolor = #FFFF80;
         else
-            flashcolor = 14646571;
+            flashcolor = #2B7DDF;
     }
 }
 

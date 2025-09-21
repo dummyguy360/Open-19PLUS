@@ -34,9 +34,7 @@ if (persistent)
     }
 }
 else
-{
     _targety += 20;
-}
 
 if (global.hatbounce)
 {

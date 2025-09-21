@@ -2,6 +2,8 @@ if (instance_exists(obj_player))
 {
     var c = 0;
     
+	// E and I are only here to spell out funny word
+	// other than this these chars dont exist
     switch (obj_player.character)
     {
         case "P":
