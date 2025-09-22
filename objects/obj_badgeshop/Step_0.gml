@@ -6,9 +6,7 @@ if (closing)
         instance_destroy();
 }
 else
-{
     fade = clamp(fade + 0.05, 0, 1);
-}
 
 bubbleind = (bubbleind + 0.35) % sprite_get_number(spr_badgemenu_explanationbox);
 headind = (headind + 0.35) % sprite_get_number(headspr);

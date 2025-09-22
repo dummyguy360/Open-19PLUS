@@ -47,9 +47,7 @@ if (instance_exists(obj_wavyRoom) && global.screeneffect)
     shader_set_uniform_f(wave_id, current_time / 2000);
 }
 else
-{
     shader_set(shd_noalpha);
-}
 
 draw_surface_stretched(application_surface, 0, 0, global.currentres[0], global.currentres[1]);
 shader_reset();

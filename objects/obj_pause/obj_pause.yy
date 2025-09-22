@@ -14,8 +14,8 @@
   "name":"obj_pause",
   "overriddenProperties":[],
   "parent":{
-    "name":"Game Settings",
-    "path":"folders/Objects/Game Settings.yy",
+    "name":"HUD",
+    "path":"folders/Objects/Game Settings/HUD.yy",
   },
   "parentObjectId":null,
   "persistent":true,

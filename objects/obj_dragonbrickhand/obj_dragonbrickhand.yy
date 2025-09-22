@@ -10,8 +10,8 @@
   "name":"obj_dragonbrickhand",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Dragon's Lair",
+    "path":"folders/Objects/Baddie/Dragon's Lair.yy",
   },
   "parentObjectId":null,
   "persistent":false,

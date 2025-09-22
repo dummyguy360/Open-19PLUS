@@ -1,9 +1,7 @@
 if (input_check_pressed("attack"))
 {
     if (!skipconfirm)
-    {
         skipconfirm = true;
-    }
     else if (skipconfirm && !skip && !instance_exists(obj_sonicfadeout))
     {
         skip = true;

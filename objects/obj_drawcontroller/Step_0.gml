@@ -110,9 +110,7 @@ if (global.panic && !obj_music.secret && global.levelname != "tutorial" && !glob
     }
 }
 else
-{
     pointlosstimer = 60;
-}
 
 if (global.panic)
 {
@@ -343,21 +341,21 @@ if (instance_exists(obj_player))
     {
         switch (p.state)
         {
-            case 1:
+            case states.tumble:
                 if (sprite_index != p.spr_newhudball && hudstate != "ball")
                     scr_hud("ball");
                 
                 break;
             
-            case 18:
-            case 13:
-            case 115:
+            case states.knightpep:
+            case states.knightpepslopes:
+            case states.knightpepbump:
                 if (p.sprite_index != p.spr_knightpepstart && sprite_index != p.spr_newhudknight && hudstate != "knight")
                     scr_hud("knight");
                 
                 break;
             
-            case 4:
+            case states.fireass:
                 if (sprite_index != p.spr_newhudfireass && hudstate != "fireass" && p.sprite_index == p.spr_fireass)
                     scr_hud("fireass");
                 else if ((sprite_index != p.spr_newhudscaredjump && hudstate != "scaredjump" && p.sprite_index == p.spr_scaredjump) || p.sprite_index == p.spr_scaredjumpstart)
@@ -367,67 +365,67 @@ if (instance_exists(obj_player))
                 
                 break;
             
-            case 19:
+            case states.bombpep:
                 if (sprite_index != p.spr_newhudbomb && hudstate != "bomb")
                     scr_hud("bomb");
                 
                 break;
             
-            case 79:
+            case states.golf:
                 if (sprite_index != p.spr_newhudgolf && hudstate != "golf")
                     scr_hud("golf");
                 
                 break;
             
-            case 8:
+            case states.cheeseball:
                 if (sprite_index != p.spr_newhudcheeseball && hudstate != "cheeseball")
                     scr_hud("cheeseball");
                 
                 break;
             
-            case 97:
+            case states.firemove:
                 if (sprite_index != p.spr_newhudfiremove && hudstate != "firemove")
                     scr_hud("firemove");
                 
                 break;
             
-            case 11:
+            case states.boxxedpep:
                 if (sprite_index != p.spr_newhudboxxed && hudstate != "boxxed")
                     scr_hud("boxxed");
                 
                 break;
             
-            case 5:
+            case states.firemouth:
                 if (sprite_index != p.spr_newhudfiremouth && hudstate != "firemouth")
                     scr_hud("firemouth");
                 
                 break;
             
-            case 105:
-            case 55:
+            case states.barrel:
+            case states.barrelbounce:
                 if (sprite_index != p.spr_newhudbarrel && hudstate != "barrel")
                     scr_hud("barrel");
                 
                 break;
             
-            case 24:
+            case states.shotgun:
                 if (sprite_index != p.spr_newhudshotgun && hudstate != "shotgun")
                     scr_hud("shotgun");
                 
                 break;
             
-            case 96:
+            case states.weeniemount:
                 if (sprite_index != p.spr_newhudweenie && hudstate != "weenie")
                     scr_hud("weenie");
                 
                 break;
             
-            case 66:
-            case 12:
-            case 23:
-            case 50:
-            case 34:
-            case 41:
+            case states.mach3:
+            case states.climbwall:
+            case states.machroll:
+            case states.hurt:
+            case states.keyget:
+            case states.victory:
             default:
                 if (p.sprite_index != p.spr_entergate && (happyhud || p.sprite_index == p.spr_levelcomplete || p.state == states.keyget))
                 {
@@ -487,9 +485,7 @@ if (instance_exists(obj_player))
                         break;
                     }
                     else
-                    {
                         tv_defaulthud();
-                    }
                     
                     break;
                 }
@@ -527,9 +523,7 @@ if (instance_exists(obj_player))
 }
 
 if (obj_music.secret)
-{
-    tvbgcolor = 10174456;
-}
+    tvbgcolor = #F83F9B;
 else
 {
     var _check = variable_struct_get(tvbgs, global.levelname);
@@ -675,23 +669,23 @@ if (instance_exists(obj_player))
 switch (global.stylethreshold)
 {
     case 0:
-        stylecolor = 8446200;
+        stylecolor = #F8E080;
         break;
     
     case 1:
-        stylecolor = 3705040;
+        stylecolor = #D08838;
         break;
     
     case 2:
-        stylecolor = 248;
+        stylecolor = #F80000;
         break;
     
     case 3:
-        stylecolor = 16295984;
+        stylecolor = #30A8F8;
         break;
     
     case 4:
-        stylecolor = 16273560;
+        stylecolor = #9850F8;
         break;
 }
 
@@ -730,9 +724,7 @@ thintexty = get_game_height() - 100;
 if (thintextshow)
 {
     if (!thintextfade)
-    {
         thintextalpha += 0.05;
-    }
     else
     {
         thintextalpha -= 0.05;

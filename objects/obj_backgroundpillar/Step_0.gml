@@ -10,9 +10,7 @@ if (side)
             sprite_index = spr_backgroundpillarside_idle;
     }
     else
-    {
         sprite_index = spr_backgroundpillarside_panic;
-    }
 }
 else if (!global.panic)
 {
@@ -22,8 +20,6 @@ else if (!global.panic)
         sprite_index = spr_backgroundpillar_idle;
 }
 else
-{
     sprite_index = spr_backgroundpillar_panic;
-}
 
 x = xstart + random_range(-shakex, shakex);

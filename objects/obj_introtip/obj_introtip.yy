@@ -11,8 +11,8 @@
   "name":"obj_introtip",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Intro",
+    "path":"folders/Objects/Game Settings/Intro.yy",
   },
   "parentObjectId":null,
   "persistent":true,

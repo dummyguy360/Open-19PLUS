@@ -10,8 +10,8 @@
   "name":"obj_introfadeout",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Intro",
+    "path":"folders/Objects/Game Settings/Intro.yy",
   },
   "parentObjectId":{
     "name":"obj_fadeparent",

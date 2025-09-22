@@ -37,9 +37,16 @@ global.borders = [-1, bg_entry4, bg_medievallibrairy1, bg_ruinmerged, bg_dungeon
 var _highestaspectratio = array_length(global.screensizes) - 1;
 global.maxscreenwidth = global.screensizes[_highestaspectratio][1][0];
 global.maxscreenheight = global.screensizes[_highestaspectratio][1][1];
-global.resmode = config_get_option("Video", "resmode", 1);
+
+enum aspectratio
+{
+	res16_9 = 1,
+	res16_10 = 2
+}
+
+global.resmode = config_get_option("Video", "resmode", aspectratio.res16_9);
 global.resnumb = config_get_option("Video", "resnumb", 1);
-global.scalemode = config_get_option("Video", "scalemode", 0);
+global.scalemode = config_get_option("Video", "scalemode", scaletype.fit);
 global.fullscreen = config_get_option("Video", "fullscreen", false);
 global.antialiasing = config_get_option("Video", "antialiasing", false);
 global.vsync = config_get_option("Video", "vsync", false);
@@ -55,8 +62,8 @@ var _bindings = config_get_option("Input", "bindings", -1);
 if (_bindings != -1)
     input_system_import(_bindings);
 
-global.horizdeadzone = mean(input_axis_threshold_get(32785).__mini, input_axis_threshold_get(32787).__mini);
-global.vertdeadzone = mean(input_axis_threshold_get(32786).__mini, input_axis_threshold_get(32788).__mini);
+global.horizdeadzone = mean(input_axis_threshold_get(gp_axislh).__mini, input_axis_threshold_get(gp_axisrh).__mini);
+global.vertdeadzone = mean(input_axis_threshold_get(gp_axislv).__mini, input_axis_threshold_get(gp_axisrv).__mini);
 global.rumble = config_get_option("Accessibility", "rumble", true);
 global.escapetilt = config_get_option("Accessibility", "escapetilt", 5);
 global.scorecolours = config_get_option("Accessibility", "scorecolours", true);

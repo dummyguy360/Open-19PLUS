@@ -9,8 +9,8 @@
   "name":"obj_chainsawpogohitbox",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Hitboxes",
+    "path":"folders/Objects/Game Settings/Player/Hitboxes.yy",
   },
   "parentObjectId":{
     "name":"obj_chainsawhitbox",

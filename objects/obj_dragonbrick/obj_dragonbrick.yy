@@ -15,8 +15,8 @@
   "name":"obj_dragonbrick",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Projectiles",
+    "path":"folders/Objects/Baddie/Projectiles.yy",
   },
   "parentObjectId":null,
   "persistent":false,

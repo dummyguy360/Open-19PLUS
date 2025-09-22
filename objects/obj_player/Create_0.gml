@@ -407,9 +407,9 @@ global.timetrialrank = tt_rank.bronze;
 global.mach2hitstun = 4;
 global.mach3hitstun = 6;
 global.otherimpactfulhitstun = 8;
-global.mach3effectred = 255;
-global.mach3effectgreen = 65280;
-global.mach3effectspecial = 16711820;
+global.mach3effectred = #FF0000;
+global.mach3effectgreen = #00FF00;
+global.mach3effectspecial = #8C00FF;
 scr_definestates();
 
 enum powerup

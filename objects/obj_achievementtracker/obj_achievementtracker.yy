@@ -11,8 +11,8 @@
   "name":"obj_achievementtracker",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"HUD",
+    "path":"folders/Objects/Game Settings/HUD.yy",
   },
   "parentObjectId":null,
   "persistent":true,

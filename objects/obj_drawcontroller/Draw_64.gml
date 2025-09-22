@@ -67,7 +67,7 @@ if (instance_exists(obj_player))
                         {
                             collectcolor[i] = irandom_range(1, 4);
                             scorey[i] = 0;
-                            scorebounce[i] = -4;
+                            scorebounce[i] = noone;
                         }
                     }
                     
@@ -88,18 +88,18 @@ if (instance_exists(obj_player))
                     var _score = global.collect;
                     var rx = collectHUDX + 142;
                     var ry = (yshiftl + collectHUDY) - 22;
-                    var rank_ix = 0;
+                    var rank_ix = rank.D;
                     
                     if (_score >= global.srank && (global.prank || (instance_exists(obj_endlevelfade) && global.rank == rank.P)))
-                        rank_ix = 5;
+                        rank_ix = rank.P;
                     else if (_score >= global.srank)
-                        rank_ix = 4;
+                        rank_ix = rank.S;
                     else if (_score >= global.arank)
-                        rank_ix = 3;
+                        rank_ix = rank.A;
                     else if (_score >= global.brank)
-                        rank_ix = 2;
+                        rank_ix = rank.B;
                     else if (_score >= global.crank)
-                        rank_ix = 1;
+                        rank_ix = rank.C;
                     
                     if (previousrank != rank_ix)
                     {
@@ -116,20 +116,20 @@ if (instance_exists(obj_player))
                     
                     switch (rank_ix)
                     {
-                        case 5:
-                        case 4:
+                        case rank.P:
+                        case rank.S:
                             perc = 1;
                             break;
                         
-                        case 3:
+                        case rank.A:
                             perc = (_score - global.arank) / (global.srank - global.arank);
                             break;
                         
-                        case 2:
+                        case rank.B:
                             perc = (_score - global.brank) / (global.arank - global.brank);
                             break;
                         
-                        case 1:
+                        case rank.C:
                             perc = (_score - global.crank) / (global.brank - global.crank);
                             break;
                         
@@ -164,16 +164,16 @@ if (instance_exists(obj_player))
                 var _time = global.timetrialtick;
                 var rx = collectHUDX + 142;
                 var ry = (yshiftl + collectHUDY) - 22;
-                var rank_ix = 0;
+                var rank_ix = tt_rank.bronze;
                 
                 if (global.timetrialtick <= global.purplerank)
-                    rank_ix = 3;
+                    rank_ix = tt_rank.purple;
                 else if (global.timetrialtick <= global.goldrank)
-                    rank_ix = 2;
+                    rank_ix = tt_rank.gold;
                 else if (global.timetrialtick <= global.silverrank)
-                    rank_ix = 1;
+                    rank_ix = tt_rank.silver;
                 else
-                    rank_ix = 0;
+                    rank_ix = tt_rank.bronze;
                 
                 if (previousrank != rank_ix)
                 {
@@ -191,19 +191,19 @@ if (instance_exists(obj_player))
                 
                 switch (rank_ix)
                 {
-                    case 3:
+                    case tt_rank.purple:
                         perc = abs(global.timetrialtick - global.purplerank) / global.purplerank;
                         break;
                     
-                    case 2:
+                    case tt_rank.gold:
                         perc = abs(global.timetrialtick - global.goldrank) / (global.goldrank - global.purplerank);
                         break;
                     
-                    case 1:
+                    case tt_rank.silver:
                         perc = abs(global.timetrialtick - global.silverrank) / (global.silverrank - global.goldrank);
                         break;
                     
-                    case 0:
+                    case tt_rank.bronze:
                         perc = 1;
                         break;
                 }
@@ -403,9 +403,7 @@ if (instance_exists(obj_player))
                     }
                 }
                 else
-                {
                     tvplayedstart = false;
-                }
                 
                 draw_sprite_ext(bubblespr, floor(newspopup), 528, 51 + yshiftr, 1, 1, 0, c_white, alpha * global.tvtextalpha);
                 draw_surface_ext(newssurf, 352, 32 + yshiftr, 1, 1, 0, c_white, alpha);
@@ -414,9 +412,7 @@ if (instance_exists(obj_player))
             }
         }
         else
-        {
             tvplayedstart = false;
-        }
         
         if (newspopup < 0)
         {
@@ -438,9 +434,7 @@ if (instance_exists(obj_player))
             }
         }
         else
-        {
             tvplayedend = false;
-        }
         
         if (!_tutorial)
         {
@@ -454,7 +448,7 @@ if (instance_exists(obj_player))
                 var c = c_white;
                 
                 if (global.escapetime < 10)
-                    c = 255;
+                    c = #FF0000;
                 
                 var m = ceil(global.escapetime) div 60;
                 var s = string(ceil(global.escapetime) % 60);

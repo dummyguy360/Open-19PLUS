@@ -1,7 +1,14 @@
 badgeslots = 4;
 badgerows = 1;
 selectedbadge = global.lastbadge;
-badges = [[spr_badge_none, 0, string_get("menu/badge/none"), -1], [spr_badge_kungfu, 1, string_get("menu/badge/kungfu"), "kungfu"], [spr_badge_breakdance, 2, string_get("menu/badge/breakdance"), "breakdance"], [spr_badge_nohit, 3, string_get("menu/badge/nohit"), "nohit"]];
+badges = 
+[
+	[spr_badge_none, badge.none, string_get("menu/badge/none"), -1], 
+	[spr_badge_kungfu, badge.kungfu, string_get("menu/badge/kungfu"), "kungfu"], 
+	[spr_badge_breakdance, badge.bdance, string_get("menu/badge/breakdance"), "breakdance"], 
+	[spr_badge_nohit, badge.nohit, string_get("menu/badge/nohit"), "nohit"]
+];
+
 var _anyunlocked = false;
 var i = 0;
 

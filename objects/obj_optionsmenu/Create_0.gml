@@ -1,15 +1,11 @@
 draw_set_font(global.font);
 optiontip = string_get("menu/options/tips/generic");
 
+#region Menu Functions
 function MenuItem(arg0) constructor
 {
-    static update = function()
-    {
-    };
-    
-    static highlighted = function(arg0)
-    {
-    };
+    static update = function() { };
+    static highlighted = function(arg0) { };
     
     static draw = function(arg0, arg1, arg2)
     {
@@ -19,25 +15,11 @@ function MenuItem(arg0) constructor
             draw_sprite_ext(name, 0, round(arg0), round(arg1), 1, 1, 0, c_white, 1 / (2 - arg2));
     };
     
-    static parented = function()
-    {
-    };
-    
-    static left_right = function(arg0, arg1)
-    {
-    };
-    
-    static jump = function(arg0)
-    {
-    };
-    
-    static taunt = function(arg0)
-    {
-    };
-    
-    static unlock = function(arg0)
-    {
-    };
+    static parented = function() { };
+    static left_right = function(arg0, arg1) { };
+    static jump = function(arg0) { };
+    static taunt = function(arg0) { };
+    static unlock = function(arg0) { };
     
     parent = noone;
     yspacing = 50;
@@ -50,7 +32,9 @@ function Spacer(arg0 = "") : MenuItem(arg0) constructor
     skip = true;
 }
 
-function Option(arg0, arg1, arg2, arg3 = [new Selection(string_get("menu/options/generic/no"), false), new Selection(string_get("menu/options/generic/yes"), true)], arg4 = noone, arg5 = false) : MenuItem(arg0) constructor
+function Option(arg0, arg1, arg2, arg3 = [
+	new Selection(string_get("menu/options/generic/no"), false), 
+	new Selection(string_get("menu/options/generic/yes"), true)], arg4 = noone, arg5 = false) : MenuItem(arg0) constructor
 {
     static updatevar = function(arg0, arg1 = true)
     {
@@ -176,7 +160,18 @@ function VideoSelection(arg0) : Selection(-1, arg0) constructor
     };
 }
 
-function Slider(arg0 = 0, arg1 = 1, arg2 = 0.01, arg3 = 0) : Selection(-1, -1) constructor
+enum sliderval
+{
+	hidden = 0,
+	normal = 1,
+	int = 2,
+	percent = 3,
+	percentalt = 4,
+	percentaltALT = 5,
+	degree = 6
+}
+
+function Slider(arg0 = 0, arg1 = 1, arg2 = 0.01, arg3 = sliderval.hidden) : Selection(-1, -1) constructor
 {
     static parented = function()
     {
@@ -203,27 +198,27 @@ function Slider(arg0 = 0, arg1 = 1, arg2 = 0.01, arg3 = 0) : Selection(-1, -1) c
         
         switch (visual)
         {
-            case 1:
+            case sliderval.normal:
                 _text = string(value);
                 break;
             
-            case 2:
+            case sliderval.int:
                 _text = string(int64(value));
                 break;
             
-            case 3:
+            case sliderval.percent:
                 _text = string("{0}%", int64(_percent));
                 break;
             
-            case 4:
+            case sliderval.percentalt:
                 _text = string("{0}%", int64(_percentalt));
                 break;
             
-            case 5:
+            case sliderval.percentaltALT:
                 _text = string("{0}%", int64(_percentaltalt));
                 break;
             
-            case 6:
+            case sliderval.degree:
                 _text = string("{0}°", round(value));
                 break;
         }
@@ -302,7 +297,15 @@ function Keybinder(arg0, arg1) : Selection(-1, -1) constructor
             selected = true;
             event_play_oneshot("event:/sfx/pausemenu/impact");
             getfolder().locked++;
-            input_binding_scan_params_set([112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 45, 46, 44, 145, 19, 36, 35, 33, 34, 91, 92, 144, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 111, 107, 109, 110], undefined, filter, player);
+            input_binding_scan_params_set(
+				[
+					vk_f1, vk_f2, vk_f3, vk_f4, vk_f5, vk_f6, vk_f7, vk_f8, vk_f9, vk_f10, vk_f11, vk_f12, vk_insert, vk_delete, 
+					vk_printscreen, vk_scrollock, vk_tab, vk_home, vk_end, vk_pageup, vk_pagedown, vk_lmeta, vk_rmeta, vk_numlock,
+					vk_numpad0, vk_numpad1, vk_numpad2, vk_numpad3, vk_numpad4, vk_numpad5, vk_numpad6, vk_numpad7, 
+					vk_numpad8, vk_numpad9, vk_multiply, vk_divide, vk_add, vk_subtract, vk_decimal
+				], 
+				undefined, filter, player);
+				
             input_binding_scan_start(function(arg0)
             {
                 var _prevbind = input_binding_get(parent.variable, 0, 0, parent.section);
@@ -486,7 +489,8 @@ function KeyFolder(arg0, arg1 = [], arg2 = bg_options, arg3 = false) : Folder(ar
     
     tempprofile = "pauseprofile";
 }
-
+#endregion
+#region Reset Binds
 var _resetbindskey = new MenuItem(string_get("menu/options/input/resetbinds"));
 
 _resetbindskey.jump = function()
@@ -504,13 +508,237 @@ _resetbindspad.jump = function()
     config_set_option("Input", "bindings", input_system_export(false));
     scr_tiptext(string_get("tips/menu/options/padbindsreset"));
 };
-
-var _baseoptions = new Folder("Base", [new Folder(string_get("menu/options/input/mainname"), [new Folder(string_get("menu/options/input/keyname"), [new KeyFolder(string_get("menu/options/input/bindname"), [new SideOption(string_get("menu/options/input/up"), "up", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)]), new SideOption(string_get("menu/options/input/down"), "down", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)]), new SideOption(string_get("menu/options/input/left"), "left", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)]), new SideOption(string_get("menu/options/input/right"), "right", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)]), new Spacer(), new SideOption(string_get("menu/options/input/jump"), "jump", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)]), new SideOption(string_get("menu/options/input/attack"), "attack", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)]), new SideOption(string_get("menu/options/input/taunt"), "taunt", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)]), new SideOption(string_get("menu/options/input/dash"), "dash", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)]), new Spacer(), new SideOption(string_get("menu/options/input/superjump"), "superjump", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)]), new SideOption(string_get("menu/options/input/groundpound"), "groundpound", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)]), new Spacer(), new SideOption(string_get("menu/options/input/pause"), "pause", "keyboard_and_mouse", [new Keybinder(0, __input_global().__source_keyboard)])], bg_controls), _resetbindskey], bg_controls, true), new Folder(string_get("menu/options/input/padname"), [new KeyFolder(string_get("menu/options/input/bindname"), [new SideOption(string_get("menu/options/input/up"), "up", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)]), new SideOption(string_get("menu/options/input/down"), "down", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)]), new SideOption(string_get("menu/options/input/left"), "left", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)]), new SideOption(string_get("menu/options/input/right"), "right", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)]), new Spacer(), new SideOption(string_get("menu/options/input/jump"), "jump", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)]), new SideOption(string_get("menu/options/input/attack"), "attack", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)]), new SideOption(string_get("menu/options/input/taunt"), "taunt", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)]), new SideOption(string_get("menu/options/input/dash"), "dash", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)]), new Spacer(), new SideOption(string_get("menu/options/input/superjump"), "superjump", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)]), new SideOption(string_get("menu/options/input/groundpound"), "groundpound", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)]), new Spacer(), new SideOption(string_get("menu/options/input/pause"), "pause", "gamepad", [new Keybinder(0, __input_global().__source_gamepad)])], bg_controls), new KeyFolder(string_get("menu/options/input/deadzones/name"), [new SideOption(string_get("menu/options/input/deadzones/horizdeadzone"), "horizdeadzone", "Input", [new Slider(0, 1, 0.01, 3)], apply_inputglobals), new SideOption(string_get("menu/options/input/deadzones/vertdeadzone"), "vertdeadzone", "Input", [new Slider(0, 1, 0.01, 3)], apply_inputglobals)], bg_controls, true), _resetbindspad], bg_controls, true)], bg_controls, true), new Folder(string_get("menu/options/video/name"), [new SideOption(string_get("menu/options/video/fullscreen/name"), "fullscreen", "Video", [new Selection(string_get("menu/options/video/fullscreen/windowed"), 0), new Selection(string_get("menu/options/video/fullscreen/exclusive"), 1), new Selection(string_get("menu/options/video/fullscreen/borderless"), 2)], apply_videoglobals, false), new SideOption(string_get("menu/options/video/aspectratio"), "resmode", "Video", [new Selection("16:9", 1), new Selection("16:10", 2)], apply_videoglobals, false), new SideOption(string_get("menu/options/video/resolution"), "resnumb", "Video", [new VideoSelection(0), new VideoSelection(1), new VideoSelection(2), new VideoSelection(3), new VideoSelection(4)], apply_videoglobals, false), new SideOption(string_get("menu/options/video/scalemode/name"), "scalemode", "Video", [new Selection(string_get("menu/options/video/scalemode/fit"), 0), new Selection(string_get("menu/options/video/scalemode/fill"), 1), new Selection(string_get("menu/options/video/scalemode/perfect"), 2), new Selection(string_get("menu/options/video/scalemode/exact"), 3)], apply_videoglobals, false), new SideOption(string_get("menu/options/video/border/name"), "border", "Video", [new Selection(string_get("menu/options/video/border/none"), 0), new Selection(string_get("menu/options/video/border/entry"), 1), new Selection(string_get("menu/options/video/border/medieval"), 2), new Selection(string_get("menu/options/video/border/ruin"), 3), new Selection(string_get("menu/options/video/border/dungeon"), 4), new Selection(string_get("menu/options/video/border/90s"), 5), new Selection(string_get("menu/options/video/border/genesis"), 6), new Selection(string_get("menu/options/video/border/steam"), 7)], apply_videoglobals, false), new SideOption(string_get("menu/options/video/aa"), "antialiasing", "Video", undefined, apply_videoglobals, false), new SideOption(string_get("menu/options/video/vsync"), "vsync", "Video", undefined, apply_videoglobals, false)], bg_video, true), new Folder(string_get("menu/options/audio/name"), [new SideOption(string_get("menu/options/audio/mastervolume"), "mastervolume", "Audio", [new Slider(0, 1, 0.01, 3)]), new SideOption(string_get("menu/options/audio/musicvolume"), "musicvolume", "Audio", [new Slider(0, 1, 0.01, 3)]), new SideOption(string_get("menu/options/audio/sfxvolume"), "sfxvolume", "Audio", [new Slider(0, 1, 0.01, 3)]), new SideOption(string_get("menu/options/audio/unfocusedmute"), "unfocusedmute", "Audio")], bg_audio, true), new Folder(string_get("menu/options/access/name"), [new SideOption(string_get("menu/options/access/escapetilt"), "escapetilt", "Accessibility", [new Slider(-10, 10, 0.1, 6)]), new SideOption(string_get("menu/options/access/screenshake"), "screenshake", "Accessibility"), new SideOption(string_get("menu/options/access/rumble"), "rumble", "Accessibility"), new SideOption(string_get("menu/options/access/scorecolours"), "scorecolours", "Accessibility"), new SideOption(string_get("menu/options/access/timertype/name"), "timertype", "Accessibility", [new Selection(string_get("menu/options/access/timertype/none"), 0), new Selection(string_get("menu/options/access/timertype/perlevel"), 1), new Selection(string_get("menu/options/access/timertype/persave"), 2), new Selection(string_get("menu/options/access/timertype/both"), 3)]), new SideOption(string_get("menu/options/access/ghostalpha"), "ghostalpha", "Accessibility", [new Slider(0, 1, 0.01, 3)]), new SideOption(string_get("menu/options/access/ghostoutlinealpha"), "ghostoutlinealpha", "Accessibility", [new Slider(0, 1, 0.01, 3)]), new SideOption(string_get("menu/options/access/tvscrollspd"), "tvscrollspd", "Accessibility", [new Slider(1, 3, 0.01, 2)]), new SideOption(string_get("menu/options/access/tvtextalpha"), "tvtextalpha", "Accessibility", [new Slider(0.4, 1, 0.01, 5)]), new SideOption(string_get("menu/options/access/hatbounce"), "hatbounce", "Accessibility"), new SideOption(string_get("menu/options/access/screeneffect"), "screeneffect", "Accessibility")], bg_accessibility)], bg_options, true);
-
+#endregion
+#region Base Options
+var _baseoptions = new Folder("Base", [new Folder(string_get("menu/options/input/mainname"), [
+	
+	// Input
+	// Keyboard Bindings
+	new Folder(string_get("menu/options/input/keyname"), [
+		new KeyFolder(string_get("menu/options/input/bindname"), [
+			// Up
+			new SideOption(string_get("menu/options/input/up"), "up", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)]), 
+			// Down
+			new SideOption(string_get("menu/options/input/down"), "down", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)]), 
+			// Left
+			new SideOption(string_get("menu/options/input/left"), "left", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)]), 
+			// Right
+			new SideOption(string_get("menu/options/input/right"), "right", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)]), 
+			
+			new Spacer(), 
+		
+			// Jump
+			new SideOption(string_get("menu/options/input/jump"), "jump", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)]), 
+			// Attack
+			new SideOption(string_get("menu/options/input/attack"), "attack", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)]), 
+			// Taunt
+			new SideOption(string_get("menu/options/input/taunt"), "taunt", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)]), 
+			// Dash
+			new SideOption(string_get("menu/options/input/dash"), "dash", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)]), 
+			
+			new Spacer(), 
+		
+			// Super Jump
+			new SideOption(string_get("menu/options/input/superjump"), "superjump", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)]), 
+			// Groundpound
+			new SideOption(string_get("menu/options/input/groundpound"), "groundpound", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)]), 
+			
+			new Spacer(), 
+		
+			// Pause
+			new SideOption(string_get("menu/options/input/pause"), "pause", "keyboard_and_mouse", 
+				[new Keybinder(0, __input_global().__source_keyboard)])
+			], 	
+		bg_controls), _resetbindskey], 	
+	bg_controls, true), 
+	
+	// Controller Bindings
+	new Folder(string_get("menu/options/input/padname"), [
+		new KeyFolder(string_get("menu/options/input/bindname"), [
+			// Up
+			new SideOption(string_get("menu/options/input/up"), "up", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)]), 
+			// Down
+			new SideOption(string_get("menu/options/input/down"), "down", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)]), 
+			// Left
+			new SideOption(string_get("menu/options/input/left"), "left", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)]), 
+			// Right
+			new SideOption(string_get("menu/options/input/right"), "right", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)]), 
+				
+			new Spacer(), 
+			
+			// Jump
+			new SideOption(string_get("menu/options/input/jump"), "jump", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)]), 
+			// Attack
+			new SideOption(string_get("menu/options/input/attack"), "attack", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)]), 
+			// Taunt
+			new SideOption(string_get("menu/options/input/taunt"), "taunt", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)]), 
+			// Dash
+			new SideOption(string_get("menu/options/input/dash"), "dash", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)]),
+			
+			new Spacer(), 
+			
+			// Super Jump
+			new SideOption(string_get("menu/options/input/superjump"), "superjump", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)]), 
+			// Groundpound
+			new SideOption(string_get("menu/options/input/groundpound"), "groundpound", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)]), 
+			
+			new Spacer(), 
+			
+			// Pause
+			new SideOption(string_get("menu/options/input/pause"), "pause", "gamepad", 
+				[new Keybinder(0, __input_global().__source_gamepad)])
+		], bg_controls), 
+		
+		// Controller Deadzone
+		new KeyFolder(string_get("menu/options/input/deadzones/name"), [
+			new SideOption(string_get("menu/options/input/deadzones/horizdeadzone"), "horizdeadzone", "Input", 
+				[new Slider(0, 1, 0.01, sliderval.percent)], apply_inputglobals), 
+			new SideOption(string_get("menu/options/input/deadzones/vertdeadzone"), "vertdeadzone", "Input", 
+				[new Slider(0, 1, 0.01, sliderval.percent)], apply_inputglobals)
+			], 
+		bg_controls, true), _resetbindspad
+		
+	], bg_controls, true)], bg_controls, true), 
+	
+	// Video
+	new Folder(string_get("menu/options/video/name"), [
+		// Fullscreen
+		new SideOption(string_get("menu/options/video/fullscreen/name"), "fullscreen", "Video", [
+			new Selection(string_get("menu/options/video/fullscreen/windowed"), 0), 
+			new Selection(string_get("menu/options/video/fullscreen/exclusive"), 1), 
+			new Selection(string_get("menu/options/video/fullscreen/borderless"), 2)
+			], 
+			apply_videoglobals, false), 
+		
+		// Aspect Ratio (Mode)
+		new SideOption(string_get("menu/options/video/aspectratio"), "resmode", "Video", [
+			new Selection("16:9", aspectratio.res16_9), 
+			new Selection("16:10", aspectratio.res16_10)
+			], 
+			apply_videoglobals, false), 
+		
+		// Aspect Ratio
+		new SideOption(string_get("menu/options/video/resolution"), "resnumb", "Video", [
+			new VideoSelection(0), 
+			new VideoSelection(1), 
+			new VideoSelection(2), 
+			new VideoSelection(3), 
+			new VideoSelection(4)
+			], 
+			apply_videoglobals, false), 
+		
+		// Scale Mode
+		new SideOption(string_get("menu/options/video/scalemode/name"), "scalemode", "Video", [
+			new Selection(string_get("menu/options/video/scalemode/fit"), scaletype.fit), 
+			new Selection(string_get("menu/options/video/scalemode/fill"), scaletype.fill), 
+			new Selection(string_get("menu/options/video/scalemode/perfect"), scaletype.pixelperfect), 
+			new Selection(string_get("menu/options/video/scalemode/exact"), scaletype.exact)
+			], 
+			apply_videoglobals, false), 
+		
+		// Border
+		new SideOption(string_get("menu/options/video/border/name"), "border", "Video", [
+			new Selection(string_get("menu/options/video/border/none"), 0), 
+			new Selection(string_get("menu/options/video/border/entry"), 1), 
+			new Selection(string_get("menu/options/video/border/medieval"), 2), 
+			new Selection(string_get("menu/options/video/border/ruin"), 3), 
+			new Selection(string_get("menu/options/video/border/dungeon"), 4), 
+			new Selection(string_get("menu/options/video/border/90s"), 5), 
+			new Selection(string_get("menu/options/video/border/genesis"), 6), 
+			new Selection(string_get("menu/options/video/border/steam"), 7)
+			], 
+			apply_videoglobals, false), 
+		
+		new SideOption(string_get("menu/options/video/aa"), "antialiasing", "Video", undefined, apply_videoglobals, false), 
+		new SideOption(string_get("menu/options/video/vsync"), "vsync", "Video", undefined, apply_videoglobals, false)
+		],
+	
+	bg_video, true),
+	
+	// Audio
+	new Folder(string_get("menu/options/audio/name"), [
+		new SideOption(string_get("menu/options/audio/mastervolume"), "mastervolume", "Audio", 
+			[new Slider(0, 1, 0.01, sliderval.percent)]), 
+		new SideOption(string_get("menu/options/audio/musicvolume"), "musicvolume", "Audio", 
+			[new Slider(0, 1, 0.01, sliderval.percent)]), 
+		new SideOption(string_get("menu/options/audio/sfxvolume"), "sfxvolume", "Audio", 
+			[new Slider(0, 1, 0.01, sliderval.percent)]), 
+		new SideOption(string_get("menu/options/audio/unfocusedmute"), "unfocusedmute", "Audio")
+		], 
+	bg_audio, true), 
+	
+	// Accessibility
+	new Folder(string_get("menu/options/access/name"), [
+		// Escape Screen Tilt
+		new SideOption(string_get("menu/options/access/escapetilt"), "escapetilt", "Accessibility", 
+			[new Slider(-10, 10, 0.1, sliderval.degree)]), 
+			
+		new SideOption(string_get("menu/options/access/screenshake"), "screenshake", "Accessibility"), 
+		new SideOption(string_get("menu/options/access/rumble"), "rumble", "Accessibility"), 
+		new SideOption(string_get("menu/options/access/scorecolours"), "scorecolours", "Accessibility"), 
+		
+		// Speedrun Timer Type
+		new SideOption(string_get("menu/options/access/timertype/name"), "timertype", "Accessibility", [
+			new Selection(string_get("menu/options/access/timertype/none"), 0), 
+			new Selection(string_get("menu/options/access/timertype/perlevel"), 1), 
+			new Selection(string_get("menu/options/access/timertype/persave"), 2), 
+			new Selection(string_get("menu/options/access/timertype/both"), 3)
+			]), 
+			
+		new SideOption(string_get("menu/options/access/ghostalpha"), "ghostalpha", "Accessibility", 
+			[new Slider(0, 1, 0.01, sliderval.percent)]), 
+			
+		new SideOption(string_get("menu/options/access/ghostoutlinealpha"), "ghostoutlinealpha", "Accessibility", 
+			[new Slider(0, 1, 0.01, sliderval.percent)]), 
+			
+		new SideOption(string_get("menu/options/access/tvscrollspd"), "tvscrollspd", "Accessibility", 
+			[new Slider(1, 3, 0.01, sliderval.int)]), 
+			
+		new SideOption(string_get("menu/options/access/tvtextalpha"), "tvtextalpha", "Accessibility", 
+			[new Slider(0.4, 1, 0.01, sliderval.percentaltALT)]), 
+			
+		new SideOption(string_get("menu/options/access/hatbounce"), "hatbounce", "Accessibility"), 
+		new SideOption(string_get("menu/options/access/screeneffect"), "screeneffect", "Accessibility")
+		], 
+		
+	bg_accessibility)
+	], 
+	
+bg_options, true);
+#endregion
+#region Title Screen only Options
 if (room == TitlescreenRoom)
 {
-    var _datadel = new Folder(string_get("menu/options/savedelete/name"), [new StackedOption(string_get("menu/options/savedelete/question"), "", "", [new Selection(string_get("menu/options/generic/no"), 0), new Selection(string_get("menu/options/generic/yes"), 0)], noone, false)], bg_delete, true);
+	#region Delete Save
+    var _datadel = new Folder(string_get("menu/options/savedelete/name"), [
+		// Are you sure you want to delete your save?
+		new StackedOption(string_get("menu/options/savedelete/question"), "", "", [
+			new Selection(string_get("menu/options/generic/no"), 0), // No
+			new Selection(string_get("menu/options/generic/yes"), 0) // Yes
+		], noone, false)
+	], bg_delete, true);
     
+	// Selected No
     with (_datadel.options[0].selections[0])
     {
         jump = function(arg0)
@@ -520,6 +748,7 @@ if (room == TitlescreenRoom)
         };
     }
     
+	// Selected Yes
     with (_datadel.options[0].selections[1])
     {
         jump = function(arg0)
@@ -535,7 +764,15 @@ if (room == TitlescreenRoom)
     }
     
     array_push(_baseoptions.options, _datadel);
-    var _closegame = new Folder(string_get("menu/options/closegame/name"), [new StackedOption(string_get("menu/options/closegame/question"), "", "", [new Selection(string_get("menu/options/generic/no"), 0), new Selection(string_get("menu/options/generic/yes"), 0)], noone, false)], bg_close, true);
+	#endregion
+	#region Close Game
+    var _closegame = new Folder(string_get("menu/options/closegame/name"), [
+		// Close Game?
+		new StackedOption(string_get("menu/options/closegame/question"), "", "", [
+			new Selection(string_get("menu/options/generic/no"), 0), // No
+			new Selection(string_get("menu/options/generic/yes"), 0) // Yes
+		], noone, false)
+	], bg_close, true);
     
     with (_closegame.options[0].selections[0])
     {
@@ -555,7 +792,9 @@ if (room == TitlescreenRoom)
     }
     
     array_push(_baseoptions.options, _closegame);
+	#endregion
 }
+#endregion
 
 bgqueue = [];
 optionstack = ds_stack_create();

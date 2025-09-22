@@ -70,9 +70,7 @@ switch (sprite_index)
                     sprite_index = spr_cheesedragon_idle;
             }
             else
-            {
                 fireball = false;
-            }
         }
         
         if (floor(image_index) >= 13 && floor(image_index) <= 26 && firetimer <= 0)

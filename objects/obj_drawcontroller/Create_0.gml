@@ -1,9 +1,6 @@
-function update_camera(arg0)
+function update_camera(arg0 = true)
 {
     static p = noone;
-    
-    if (arg0 == undefined)
-        arg0 = true;
     
     if (instance_exists(obj_player) && (!obj_pause.pause || copyapp))
         p = obj_player.id;
@@ -42,13 +39,9 @@ function update_camera(arg0)
                 chargecamera = Approach(chargecamera, _targetcharge, _tspeed);
             }
             else if (state == states.machslide)
-            {
                 chargecamera = Approach(chargecamera, 0, 10);
-            }
             else
-            {
                 chargecamera = Approach(chargecamera, 0, 6);
-            }
             
             camerashakex = irandom_range(-shake_mag, shake_mag);
             camerashakey = irandom_range(-shake_mag, shake_mag);
@@ -144,6 +137,7 @@ finalsurf = -1;
 copyapp = false;
 surface_depth_disable(true);
 application_surface_draw_enable(false);
+
 global.inputs = ds_map_create();
 global.inputs[? "[U]"] = "up";
 global.inputs[? "[D]"] = "down";
@@ -157,6 +151,7 @@ global.inputs[? "[M]"] = "dash";
 global.inputs[? "[G]"] = "groundpound";
 global.inputs[? "[P]"] = "superjump";
 global.inputs[? "[?]"] = "any";
+
 depth = -4;
 image_speed = 0.35;
 alpha = 1;
@@ -166,11 +161,13 @@ secretlayers = ds_map_create();
 hold_alarm = array_create(12);
 hold_image_speed = image_speed;
 pummelalpha = 0;
+
 gameframe_init();
 global.gameframe_caption_font = font_caption;
 global.gameframe_caption_text = window_get_caption();
 global.gameframe_caption_icon = spr_icon;
 global.gameframe_border_width = 2;
+
 mouse_xprev = mouse_x;
 mouse_yprev = mouse_y;
 goawaytimer = 100;
@@ -352,16 +349,18 @@ visualcombo = 0;
 visualheat = 0;
 visualprank = 0;
 roomname = "";
+
 tvbgs = 
 {
-    tutorial: 8207191,
-    entry: 6830208,
-    medieval: 5251152,
-    ruin: 5216456,
-    dungeon: 4210843,
-    dragonslair: 11955612
+    tutorial: #573B7D,
+    entry: #803868,
+    medieval: #502050,
+    ruin: #C8984F,
+    dungeon: #9B4040,
+    dragonslair: #9C6DB6
 };
-tvbgcolor = 5251152;
+tvbgcolor = #502050;
+
 dark = 0;
 tutorialdrop = false;
 tutorialintroanim = -180;

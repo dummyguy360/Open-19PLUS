@@ -11,8 +11,8 @@
   "name":"obj_init",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Game Settings",
+    "path":"folders/Objects/Game Settings.yy",
   },
   "parentObjectId":null,
   "persistent":false,
