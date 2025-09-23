@@ -4,16 +4,16 @@ draw_set_valign(fa_middle);
 draw_set_color(c_white);
 bgqueue = array_unique(bgqueue, -1, -infinity);
 bgqueue = array_reverse(bgqueue);
-array_foreach(bgqueue, function(arg0, arg1)
+array_foreach(bgqueue, function(_layer, _unused)
 {
-    draw_sprite_tiled_ext(arg0.background, -1, bgx, bgy, 1, 1, c_white, arg0.fade);
+    draw_sprite_tiled_ext(_layer.background, -1, bgx, bgy, 1, 1, c_white, _layer.fade);
     var _temp_local_var_3 = -9;
-    arg0.fade = arg0.fade + (arg0.dofade ? -0.1 : 0.1);
-    arg0.fade = clamp(arg0.fade, 0, 1);
+    _layer.fade = _layer.fade + (_layer.dofade ? -0.1 : 0.1);
+    _layer.fade = clamp(_layer.fade, 0, 1);
 });
-bgqueue = array_filter(bgqueue, function(arg0, arg1)
+bgqueue = array_filter(bgqueue, function(_layer, _unused)
 {
-    return arg0.fade > 0;
+    return _layer.fade > 0;
 });
 ds_stack_top(optionstack).drawoptions();
 draw_set_font(global.thinfont);

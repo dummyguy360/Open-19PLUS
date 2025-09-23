@@ -52,10 +52,10 @@ enum achieve_type
 
 #region Entry
 
-add_achievement("entry1", function() { }, function(arg0)
+add_achievement("entry1", function() { }, function(_achievement)
 {
-    var _type = arg0[0];
-    var _info = arg0[1];
+    var _type = _achievement[0];
+    var _info = _achievement[1];
     
     if (_type == achieve_type.entry1 && _info[0] >= 480 && global.levelname == "entry")
         achievement_get(saveid, spr_cowboytask_entry1, 1);
@@ -63,10 +63,10 @@ add_achievement("entry1", function() { }, function(arg0)
 
 add_achievement("entry2", function() {
     add_achievement_variable("entry2tracker", -1, 2);
-}, function(arg0)
+}, function(_achievement)
 {
-    var _type = arg0[0];
-    var _info = arg0[1];
+    var _type = _achievement[0];
+    var _info = _achievement[1];
     
     if (_type == achieve_type.entry2 && global.levelname == "entry")
     {
@@ -82,10 +82,10 @@ add_achievement("entry2", function() {
 
 add_achievement("entry3", function() {
     add_achievement_variable("entry3tracker", -1, 2);
-}, function(arg0)
+}, function(_achievement)
 {
-    var _type = arg0[0];
-    var _info = arg0[1];
+    var _type = _achievement[0];
+    var _info = _achievement[1];
     
     if (_type == achieve_type.entry3 && global.levelname == "entry")
     {
@@ -104,9 +104,9 @@ add_achievement("entry3", function() {
 
 add_achievement("medieval1", function() {
     add_achievement_variable("medieval1tracker", false, 0);
-}, function(arg0)
+}, function(_achievement)
 {
-    var _type = arg0[0];
+    var _type = _achievement[0];
     
     if (global.levelname == "medieval")
     {
@@ -120,9 +120,9 @@ add_achievement("medieval1", function() {
 
 add_achievement("medieval2", function() {
     add_achievement_variable("medieval2tracker", 0, 0);
-}, function(arg0)
+}, function(_achievement)
 {
-    var _type = arg0[0];
+    var _type = _achievement[0];
     
     if (_type == achieve_type.medieval2 && global.levelname == "medieval" && !obj_music.secret)
     {
@@ -133,10 +133,10 @@ add_achievement("medieval2", function() {
     }
 });
 
-add_achievement("medieval3", function() { }, function(arg0)
+add_achievement("medieval3", function() { }, function(_achievement)
 {
-    var _type = arg0[0];
-    var _info = arg0[1];
+    var _type = _achievement[0];
+    var _info = _achievement[1];
     
     if (_type == achieve_type.medieval3 && global.levelname == "medieval" && _info[0] >= 5)
         achievement_get(saveid, spr_cowboytask_medieval3, 1);
@@ -147,10 +147,10 @@ add_achievement("medieval3", function() { }, function(arg0)
 
 add_achievement("ruin1", function() {
     add_achievement_variable("ruin1tracker", -1, 2);
-}, function(arg0)
+}, function(_achievement)
 {
-    var _type = arg0[0];
-    var _info = arg0[1];
+    var _type = _achievement[0];
+    var _info = _achievement[1];
     
     if (_type == achieve_type.ruin1 && global.levelname == "ruin" && !obj_music.secret)
     {
@@ -164,10 +164,10 @@ add_achievement("ruin1", function() {
     ds_list_destroy(get_achvariable("ruin1tracker").value);
 });
 
-add_achievement("ruin2", function() { }, function(arg0)
+add_achievement("ruin2", function() { }, function(_achievement)
 {
-    var _type = arg0[0];
-    var _info = arg0[1];
+    var _type = _achievement[0];
+    var _info = _achievement[1];
     
     if (_type == achieve_type.ruin2 && global.levelname == "ruin" && _info[0])
         achievement_get(saveid, spr_cowboytask_ruin2, 1);
@@ -175,9 +175,9 @@ add_achievement("ruin2", function() { }, function(arg0)
 
 add_achievement("ruin3", function() {
     add_achievement_variable("ruin3tracker", 0, 0);
-}, function(arg0)
+}, function(_achievement)
 {
-    var _type = arg0[0];
+    var _type = _achievement[0];
     
     if (_type == achieve_type.ruin3 && global.levelname == "ruin")
     {
@@ -193,9 +193,9 @@ add_achievement("ruin3", function() {
 
 add_achievement("dungeon1", function() {
     add_achievement_variable("dungeon1tracker", false, 0);
-}, function(arg0)
+}, function(_achievement)
 {
-    var _type = arg0[0];
+    var _type = _achievement[0];
     
     if (global.levelname == "dungeon")
     {
@@ -209,9 +209,9 @@ add_achievement("dungeon1", function() {
 
 add_achievement("dungeon2", function() {
     add_achievement_variable("dungeon2tracker", 0, 0);
-}, function(arg0)
+}, function(_achievement)
 {
-    var _type = arg0[0];
+    var _type = _achievement[0];
     
     if (global.levelname == "dungeon")
     {
@@ -227,10 +227,10 @@ add_achievement("dungeon2", function() {
 
 add_achievement("dungeon3", function() {
     add_achievement_variable("dungeon3tracker", 0, 0);
-}, function(arg0)
+}, function(_achievement)
 {
-    var _type = arg0[0];
-    var _info = arg0[1];
+    var _type = _achievement[0];
+    var _info = _achievement[1];
     
     if (global.levelname == "dungeon")
     {
@@ -247,9 +247,9 @@ add_achievement("dungeon3", function() {
 #endregion
 #region Dragon's Lair
 
-add_achievement("dragonslair1", function() { }, function(arg0)
+add_achievement("dragonslair1", function() { }, function(_achievement)
 {
-    var _type = arg0[0];
+    var _type = _achievement[0];
     
     if (global.levelname == "dragonslair")
     {
@@ -260,9 +260,9 @@ add_achievement("dragonslair1", function() { }, function(arg0)
 
 add_achievement("dragonslair2", function() {
     add_achievement_variable("dragonslair2tracker", 0, 0);
-}, function(arg0)
+}, function(_achievement)
 {
-    var _type = arg0[0];
+    var _type = _achievement[0];
     
     if (global.levelname == "dragonslair")
     {
@@ -274,10 +274,10 @@ add_achievement("dragonslair2", function() {
     }
 });
 
-add_achievement("dragonslair3", function() { }, function(arg0)
+add_achievement("dragonslair3", function() { }, function(_achievement)
 {
-    var _type = arg0[0];
-    var _info = arg0[1];
+    var _type = _achievement[0];
+    var _info = _achievement[1];
     
     if (global.levelname == "dragonslair")
     {
@@ -289,9 +289,9 @@ add_achievement("dragonslair3", function() { }, function(arg0)
 #endregion
 #region Time Trial
 
-add_unlock("timetrialunlocked", function() { }, function(arg0)
+add_unlock("timetrialunlocked", function() { }, function(_achievement)
 {
-    var _type = arg0[0];
+    var _type = _achievement[0];
     
     if (_type == achieve_type.timetrial)
     {
