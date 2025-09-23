@@ -11,8 +11,8 @@
   "name":"obj_pizzaboxunopen",
   "overriddenProperties":[],
   "parent":{
-    "name":"Toppins",
-    "path":"folders/Objects/Level Structure/Collectibles/Toppins.yy",
+    "name":"Toppins & Gerome",
+    "path":"folders/Objects/Level Structure/Toppins & Gerome.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -11,9 +11,7 @@ if (obj_player.state != states.titlescreen)
     visible = vis;
 }
 else
-{
     visible = false;
-}
 
 if (place_meeting(x, y, obj_player) && !instance_exists(obj_manual) && !showtext)
 {

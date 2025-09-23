@@ -9,8 +9,8 @@
   "name":"obj_spike",
   "overriddenProperties":[],
   "parent":{
-    "name":"Level Structure",
-    "path":"folders/Objects/Level Structure.yy",
+    "name":"Unused",
+    "path":"folders/Objects/Unused.yy",
   },
   "parentObjectId":{
     "name":"obj_hurtbox",

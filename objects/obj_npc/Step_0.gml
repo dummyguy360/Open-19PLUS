@@ -86,9 +86,7 @@ switch (state)
                 }
             }
             else
-            {
                 state = states.fireass;
-            }
         }
         
         bubbletilttimer++;

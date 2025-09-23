@@ -44,8 +44,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"Unused",
-    "path":"folders/Sprites/Unused.yy",
+    "name":"Destroyables",
+    "path":"folders/Sprites/Level Structure/Destroyables.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

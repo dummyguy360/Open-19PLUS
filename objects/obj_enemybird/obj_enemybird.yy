@@ -11,8 +11,8 @@
   "name":"obj_enemybird",
   "overriddenProperties":[],
   "parent":{
-    "name":"Visual Effects & Particles",
-    "path":"folders/Objects/Visual Effects & Particles.yy",
+    "name":"Baddie",
+    "path":"folders/Objects/Baddie.yy",
   },
   "parentObjectId":null,
   "persistent":false,

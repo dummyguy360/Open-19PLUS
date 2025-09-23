@@ -11,7 +11,5 @@ if (spd <= 1)
         image_yscale = image_xscale;
     }
     else
-    {
         instance_destroy();
-    }
 }

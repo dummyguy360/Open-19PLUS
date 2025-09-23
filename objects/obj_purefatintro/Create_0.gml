@@ -1,4 +1,4 @@
-introstate = states.normal;
+introstate = 0;
 frontx = 352;
 fronty = 64;
 frontind = 0;

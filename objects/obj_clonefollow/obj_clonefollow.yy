@@ -10,8 +10,8 @@
   "name":"obj_clonefollow",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"General",
+    "path":"folders/Objects/General.yy",
   },
   "parentObjectId":{
     "name":"obj_follower",

@@ -5,4 +5,4 @@ image_speed = 0.35;
 groundpoundsound = 0;
 offsound = 0;
 event_play_oneshot("event:/sfx/misc/tvmessageon");
-bgcolor = 13150344;
+bgcolor = #88A8C8;

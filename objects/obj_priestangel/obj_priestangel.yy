@@ -11,8 +11,8 @@
   "name":"obj_priestangel",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Visual Effects & Particles",
+    "path":"folders/Objects/Visual Effects & Particles.yy",
   },
   "parentObjectId":null,
   "persistent":false,

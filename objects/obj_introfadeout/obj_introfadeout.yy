@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Intro",
-    "path":"folders/Objects/Game Settings/Intro.yy",
+    "path":"folders/Objects/General/Intro.yy",
   },
   "parentObjectId":{
     "name":"obj_fadeparent",

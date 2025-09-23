@@ -10,8 +10,8 @@
   "name":"obj_tutorialdirt",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Main Menu",
+    "path":"folders/Objects/Level Structure/Main Menu.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -4,9 +4,7 @@ if ((sprite_index == spr_geromedoorunopened && there_is_follower_obj(obj_gerome)
         uparrowid = create_uparrow();
 }
 else if (instance_exists(uparrowid))
-{
     instance_destroy(uparrowid);
-}
 
 var p = obj_player;
 

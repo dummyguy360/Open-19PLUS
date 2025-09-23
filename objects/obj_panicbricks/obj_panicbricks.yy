@@ -10,8 +10,8 @@
   "name":"obj_panicbricks",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Particles",
+    "path":"folders/Objects/Visual Effects & Particles/Particles.yy",
   },
   "parentObjectId":{
     "name":"obj_parentparticle",

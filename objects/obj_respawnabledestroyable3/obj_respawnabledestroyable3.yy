@@ -10,8 +10,8 @@
   "name":"obj_respawnabledestroyable3",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Destroyables",
+    "path":"folders/Objects/Level Structure/Destroyables.yy",
   },
   "parentObjectId":{
     "name":"obj_destroyable3",

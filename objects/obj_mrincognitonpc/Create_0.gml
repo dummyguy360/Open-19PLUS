@@ -29,9 +29,7 @@ scenarioupdatefunc = function()
         }
     }
     else
-    {
         scenario = dialogue_get("incog/allbought");
-    }
     
     save_close();
 };

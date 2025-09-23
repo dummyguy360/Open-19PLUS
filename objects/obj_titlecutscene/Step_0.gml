@@ -12,9 +12,7 @@ if (sprite_index == spr_pepcooter && move)
     x += xspeed;
     
     if (x < 250)
-    {
         xspeed = Approach(xspeed, 8, 0.4);
-    }
     else if (speeding == 0)
     {
         if (xspeed == 0 && obj_player.character == "N")
@@ -26,9 +24,7 @@ if (sprite_index == spr_pepcooter && move)
         xspeed = Approach(xspeed, 0, 0.2);
     }
     else if (speeding == 2)
-    {
         xspeed += 0.1;
-    }
 }
 
 if (sprite_index == spr_player_facehurtup && floor(image_index) == (image_number - 1))
@@ -74,9 +70,7 @@ if (state == states.normal && x > 1400)
 else if (state == states.tumble)
 {
     if (bgspd < 0)
-    {
         bgspd += 0.1706;
-    }
     else
     {
         bgspd = 0;

@@ -13,8 +13,8 @@
   "name":"obj_tauntafterimage",
   "overriddenProperties":[],
   "parent":{
-    "name":"Visual Effects & Particles",
-    "path":"folders/Objects/Visual Effects & Particles.yy",
+    "name":"Particles",
+    "path":"folders/Objects/Visual Effects & Particles/Particles.yy",
   },
   "parentObjectId":null,
   "persistent":false,

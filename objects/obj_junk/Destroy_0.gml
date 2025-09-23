@@ -1,7 +1,5 @@
 if (image_index == 3)
-{
     instance_create_depth(x, y, depth, obj_bombexplosion2);
-}
 else
 {
     with (instance_create_depth(x, y, depth, obj_baddiedead))

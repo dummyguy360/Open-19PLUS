@@ -9,8 +9,8 @@
   "name":"obj_grindeffect",
   "overriddenProperties":[],
   "parent":{
-    "name":"Unused",
-    "path":"folders/Objects/Unused.yy",
+    "name":"Particles",
+    "path":"folders/Objects/Visual Effects & Particles/Particles.yy",
   },
   "parentObjectId":null,
   "persistent":false,

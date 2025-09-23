@@ -6,6 +6,4 @@ if (room == rank_room || room == rank_roomtutorial)
     errors += "\nERROR!: Can't find sprite ref 526";
 }
 else
-{
     image_alpha = 0;
-}

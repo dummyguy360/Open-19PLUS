@@ -10,8 +10,8 @@
   "name":"obj_smbitembox",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Collision",
+    "path":"folders/Objects/Collision.yy",
   },
   "parentObjectId":{
     "name":"obj_solid",

@@ -12,9 +12,7 @@ if (!surface_exists(surf))
     draw_clear_alpha(c_black, 0);
 }
 else
-{
     surface_set_target(surf);
-}
 
 if (smacked)
 {

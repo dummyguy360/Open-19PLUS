@@ -20,7 +20,5 @@ if (obj_title.done)
         }
     }
     else
-    {
         wavespd *= 0.99;
-    }
 }

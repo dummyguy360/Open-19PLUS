@@ -12,8 +12,8 @@
   "name":"obj_startgate",
   "overriddenProperties":[],
   "parent":{
-    "name":"Hub",
-    "path":"folders/Objects/Level Structure/Hub.yy",
+    "name":"Unused",
+    "path":"folders/Objects/Unused.yy",
   },
   "parentObjectId":null,
   "persistent":false,

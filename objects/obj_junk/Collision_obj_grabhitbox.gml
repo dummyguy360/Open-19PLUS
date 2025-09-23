@@ -21,9 +21,7 @@ if (obj_player.state == states.suplexgrab)
                 scr_fmod_soundeffectONESHOT("event:/sfx/player/grabthing", x, y);
             }
             else if (movespeed > 10)
-            {
                 sprite_index = spr_swingding;
-            }
             
             state = states.grab;
             

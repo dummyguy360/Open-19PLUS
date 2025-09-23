@@ -8,8 +8,8 @@
   "name":"obj_dungeon3debris",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Particles",
+    "path":"folders/Objects/Visual Effects & Particles/Particles.yy",
   },
   "parentObjectId":{
     "name":"obj_stepdebris",

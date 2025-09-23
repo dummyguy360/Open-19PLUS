@@ -9,8 +9,8 @@
   "name":"obj_firework",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Particles",
+    "path":"folders/Objects/Visual Effects & Particles/Particles.yy",
   },
   "parentObjectId":null,
   "persistent":false,

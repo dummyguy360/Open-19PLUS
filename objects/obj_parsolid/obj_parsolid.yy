@@ -6,8 +6,8 @@
   "name":"obj_parsolid",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Collision",
+    "path":"folders/Objects/Collision.yy",
   },
   "parentObjectId":null,
   "persistent":false,

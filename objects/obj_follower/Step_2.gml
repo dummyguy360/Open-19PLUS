@@ -19,9 +19,7 @@ if (ds_queue_size(followerqueue) > (lag * 2))
     if (!taunting)
     {
         if (!obj_moved(lastfollowerx, _xnext) && !obj_moved(lastfollowery, _ynext) && interpfirstmove >= 1 && obj_player.state != states.door)
-        {
             colliding = true;
-        }
         else
         {
             if (colliding)
@@ -50,9 +48,7 @@ if (ds_queue_size(followerqueue) > (lag * 2))
         }
     }
     else
-    {
         colliding = false;
-    }
     
     lastfollowerx = _xnext;
     lastfollowery = _ynext;

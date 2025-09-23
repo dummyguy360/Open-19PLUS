@@ -293,9 +293,7 @@ else
             _arr[--_i].y += room_height;
     }
     else
-    {
         midair = true;
-    }
     
     depth = 0;
 }

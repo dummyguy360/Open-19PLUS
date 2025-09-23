@@ -11,8 +11,8 @@
   "name":"obj_timetrialmanager",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Time Trial",
+    "path":"folders/Objects/General/Time Trial.yy",
   },
   "parentObjectId":null,
   "persistent":true,

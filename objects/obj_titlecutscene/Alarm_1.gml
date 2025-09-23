@@ -11,6 +11,4 @@ else if (sprite_index == spr_player_facehurt)
     image_index = 0;
 }
 else if (sprite_index == spr_player_lookdoor)
-{
     room_goto(intro);
-}

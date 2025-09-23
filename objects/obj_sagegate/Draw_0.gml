@@ -50,9 +50,7 @@ if (unlocked)
         }
     }
     else if (event_isplaying(unlockingsound))
-    {
         event_stop(unlockingsound, false);
-    }
     
     if (unlockedanim > 1)
         unlockedanim = 1;
@@ -126,9 +124,7 @@ if (place_meeting(x, y, obj_player) && !instance_exists(obj_sagegateplayer) && u
                 }
             }
             else
-            {
                 __draw_text_hook(x, y + highscorey + _yoff, "--:--.--");
-            }
         }
     }
     else

@@ -2,8 +2,8 @@ introstate = fmod_studio_event_instance_get_parameter_by_name(introaudio, "puref
 var _yoff = (get_game_height() - 540) / 2;
 var _c = c_white;
 
-if (introstate == states.titlescreen || introstate == states.tacklecharge)
-    _c = 0;
+if (introstate == 6 || introstate == 7)
+    _c = #000000;
 
 draw_rectangle_colour(0, 0, get_game_width(), get_game_height(), _c, _c, _c, _c, false);
 

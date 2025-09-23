@@ -15,7 +15,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Intro",
-    "path":"folders/Objects/Game Settings/Intro.yy",
+    "path":"folders/Objects/General/Intro.yy",
   },
   "parentObjectId":null,
   "persistent":false,

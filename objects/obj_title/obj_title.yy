@@ -10,8 +10,8 @@
   "name":"obj_title",
   "overriddenProperties":[],
   "parent":{
-    "name":"Unused",
-    "path":"folders/Objects/Unused.yy",
+    "name":"Main Menu",
+    "path":"folders/Objects/Level Structure/Main Menu.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -6,8 +6,8 @@
   "name":"obj_screenlockdown",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"HUD",
+    "path":"folders/Objects/General/HUD.yy",
   },
   "parentObjectId":null,
   "persistent":false,

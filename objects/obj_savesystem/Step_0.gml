@@ -1,8 +1,8 @@
-if (savestate != states.normal)
+if (savestate != 0)
 {
     saveiconalpha = 3;
     
-    if (savestate == states.ejected)
+    if (savestate == 3)
         saveiconspr = spr_configsaveindicator;
     else
         saveiconspr = spr_saveindicator;

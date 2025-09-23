@@ -8,8 +8,8 @@
   "name":"obj_pizzaloss",
   "overriddenProperties":[],
   "parent":{
-    "name":"Game Settings",
-    "path":"folders/Objects/Game Settings.yy",
+    "name":"General",
+    "path":"folders/Objects/General.yy",
   },
   "parentObjectId":{
     "name":"obj_parentparticle",

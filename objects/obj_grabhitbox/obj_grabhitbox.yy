@@ -9,8 +9,8 @@
   "name":"obj_grabhitbox",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Hitboxes",
+    "path":"folders/Objects/Hitboxes.yy",
   },
   "parentObjectId":null,
   "persistent":false,

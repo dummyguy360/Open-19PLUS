@@ -10,8 +10,8 @@
   "name":"obj_slimedebris",
   "overriddenProperties":[],
   "parent":{
-    "name":"Visual Effects & Particles",
-    "path":"folders/Objects/Visual Effects & Particles.yy",
+    "name":"Particles",
+    "path":"folders/Objects/Visual Effects & Particles/Particles.yy",
   },
   "parentObjectId":{
     "name":"obj_parentparticle",

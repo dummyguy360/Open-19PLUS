@@ -12,8 +12,8 @@
   "name":"obj_secreteye",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Warps",
+    "path":"folders/Objects/Level Structure/Doors/Warps.yy",
   },
   "parentObjectId":null,
   "persistent":false,

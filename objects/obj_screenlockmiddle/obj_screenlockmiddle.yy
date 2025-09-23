@@ -6,8 +6,8 @@
   "name":"obj_screenlockmiddle",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"HUD",
+    "path":"folders/Objects/General/HUD.yy",
   },
   "parentObjectId":null,
   "persistent":false,

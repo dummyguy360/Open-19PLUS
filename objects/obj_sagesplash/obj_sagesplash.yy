@@ -10,8 +10,8 @@
   "name":"obj_sagesplash",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Intro",
+    "path":"folders/Objects/General/Intro.yy",
   },
   "parentObjectId":null,
   "persistent":false,

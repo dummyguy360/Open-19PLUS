@@ -8,8 +8,8 @@
   "name":"obj_coincountarea",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Unused",
+    "path":"folders/Objects/Unused.yy",
   },
   "parentObjectId":null,
   "persistent":false,

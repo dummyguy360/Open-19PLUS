@@ -9,8 +9,8 @@
   "name":"obj_lampost",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Level Decor",
+    "path":"folders/Objects/Level Structure/Level Decor.yy",
   },
   "parentObjectId":null,
   "persistent":false,

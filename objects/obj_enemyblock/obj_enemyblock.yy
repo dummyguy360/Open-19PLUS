@@ -11,8 +11,8 @@
   "name":"obj_enemyblock",
   "overriddenProperties":[],
   "parent":{
-    "name":"Level Structure",
-    "path":"folders/Objects/Level Structure.yy",
+    "name":"Destroyables",
+    "path":"folders/Objects/Level Structure/Destroyables.yy",
   },
   "parentObjectId":{
     "name":"obj_solid",

@@ -31,7 +31,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"HUD",
-    "path":"folders/Objects/Game Settings/HUD.yy",
+    "path":"folders/Objects/General/HUD.yy",
   },
   "parentObjectId":null,
   "persistent":true,

@@ -98,7 +98,5 @@ else
         }
     }
     else
-    {
         toomuchalarm = 0;
-    }
 }

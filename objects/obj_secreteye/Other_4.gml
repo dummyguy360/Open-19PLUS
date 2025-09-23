@@ -18,9 +18,7 @@ with (obj_player)
 if (ds_list_find_index(global.saveroom, id) != -1)
 {
     if (!_start)
-    {
         instance_destroy();
-    }
     else
     {
         active = false;

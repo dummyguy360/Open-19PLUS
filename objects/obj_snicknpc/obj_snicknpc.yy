@@ -8,8 +8,8 @@
   "name":"obj_snicknpc",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"NPCs",
+    "path":"folders/Objects/NPCs.yy",
   },
   "parentObjectId":{
     "name":"obj_npc",

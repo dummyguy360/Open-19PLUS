@@ -4,9 +4,7 @@ if (unlockedanim >= 1 && unlocked)
         uparrowid = create_uparrow();
 }
 else if (instance_exists(uparrowid))
-{
     instance_destroy(uparrowid);
-}
 
 targetDoor = "A";
 

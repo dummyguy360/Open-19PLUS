@@ -9,9 +9,7 @@ with (instance_place(x + sign(lengthdir_x(spd, dir)), y + sign(lengthdir_y(spd, 
             instance_destroy();
     }
     else if (object_index != obj_onewaybigblock)
-    {
         instance_destroy();
-    }
 }
 
 if (sprite_index == spr_peppinobullet_land && floor(image_index) == (image_number - 1))

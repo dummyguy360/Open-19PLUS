@@ -10,8 +10,8 @@
   "name":"obj_pizzacoinindicator",
   "overriddenProperties":[],
   "parent":{
-    "name":"Game Settings",
-    "path":"folders/Objects/Game Settings.yy",
+    "name":"General",
+    "path":"folders/Objects/General.yy",
   },
   "parentObjectId":null,
   "persistent":true,

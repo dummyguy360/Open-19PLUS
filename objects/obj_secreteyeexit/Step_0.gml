@@ -71,19 +71,19 @@ switch (sprite_index)
                     
                     switch (state)
                     {
-                        case 13:
+                        case states.knightpepslopes:
                             state = states.knightpep;
                             sprite_index = spr_knightpepfall;
                             hsp = 0;
                             movespeed = 0;
                             break;
                         
-                        case 18:
+                        case states.knightpep:
                             hsp = 0;
                             movespeed = 0;
                             break;
                         
-                        case 5:
+                        case states.firemouth:
                             if (sprite_index == spr_player_firemouthdash)
                             {
                                 hsp = 0;
@@ -100,9 +100,7 @@ switch (sprite_index)
         if (drop)
         {
             if (waitbuffer > 0)
-            {
                 waitbuffer--;
-            }
             else
             {
                 sprite_index = spr_secretportal_spawnclose;

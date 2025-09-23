@@ -58,6 +58,4 @@ if (!scr_hudroomcheck() && global.levelname != noone && global.levelname != "tut
     global.timetrialtick++;
 }
 else
-{
     framestruct = {};
-}

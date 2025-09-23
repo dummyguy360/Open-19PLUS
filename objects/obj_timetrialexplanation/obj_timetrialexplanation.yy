@@ -10,8 +10,8 @@
   "name":"obj_timetrialexplanation",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Time Trial",
+    "path":"folders/Objects/General/Time Trial.yy",
   },
   "parentObjectId":null,
   "persistent":false,

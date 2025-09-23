@@ -10,8 +10,8 @@
   "name":"obj_timesup",
   "overriddenProperties":[],
   "parent":{
-    "name":"Unused",
-    "path":"folders/Objects/Unused.yy",
+    "name":"Visual Effects & Particles",
+    "path":"folders/Objects/Visual Effects & Particles.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -11,8 +11,8 @@
   "name":"obj_confetti",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Unused",
+    "path":"folders/Objects/Unused.yy",
   },
   "parentObjectId":{
     "name":"obj_parentparticle",

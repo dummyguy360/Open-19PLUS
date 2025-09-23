@@ -15,9 +15,7 @@ if (!_unlocked)
     exit;
 }
 else if (!instance_exists(uparrowid))
-{
     uparrowid = create_uparrow();
-}
 
 if (place_meeting(x, y, obj_player) && obj_player.state == states.normal && obj_player.grounded && input_check_pressed("up") && (clockspr == spr_timetrialactivator_clock || clockspr == spr_timetrialactivator_clockopened) && clonespr == noone)
 {

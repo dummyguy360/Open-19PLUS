@@ -6,8 +6,8 @@
   "name":"obj_pizzacutterthwomp2",
   "overriddenProperties":[],
   "parent":{
-    "name":"Unused",
-    "path":"folders/Objects/Unused.yy",
+    "name":"Level Structure",
+    "path":"folders/Objects/Level Structure.yy",
   },
   "parentObjectId":null,
   "persistent":false,

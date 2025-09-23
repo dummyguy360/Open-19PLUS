@@ -10,8 +10,8 @@
   "name":"obj_pizzataleexit",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Warps",
+    "path":"folders/Objects/Level Structure/Doors/Warps.yy",
   },
   "parentObjectId":{
     "name":"obj_verticalhallway",

@@ -8,8 +8,8 @@
   "name":"obj_doorletterpar",
   "overriddenProperties":[],
   "parent":{
-    "name":"Warps",
-    "path":"folders/Objects/Level Structure/Doors/Warps.yy",
+    "name":"Debug Doors",
+    "path":"folders/Objects/Level Structure/Doors/Debug Doors.yy",
   },
   "parentObjectId":null,
   "persistent":false,

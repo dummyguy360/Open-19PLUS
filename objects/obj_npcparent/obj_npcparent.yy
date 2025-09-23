@@ -6,8 +6,8 @@
   "name":"obj_npcparent",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"NPCs",
+    "path":"folders/Objects/NPCs.yy",
   },
   "parentObjectId":null,
   "persistent":false,

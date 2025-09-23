@@ -33,4 +33,4 @@ switch (descstate)
 }
 
 if (input_check_pressed("jump"))
-    descstate = states.finishingblow;
+    descstate = 2;

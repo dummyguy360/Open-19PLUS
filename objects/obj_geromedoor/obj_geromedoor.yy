@@ -10,8 +10,8 @@
   "name":"obj_geromedoor",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Doors",
+    "path":"folders/Objects/Level Structure/Doors.yy",
   },
   "parentObjectId":null,
   "persistent":false,

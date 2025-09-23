@@ -8,8 +8,8 @@
   "name":"obj_timetrialtriggerescape",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Time Trial",
+    "path":"folders/Objects/General/Time Trial.yy",
   },
   "parentObjectId":{
     "name":"obj_timetrialtrigger",

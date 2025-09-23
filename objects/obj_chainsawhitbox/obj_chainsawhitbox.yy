@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"Hitboxes",
-    "path":"folders/Objects/Game Settings/Player/Hitboxes.yy",
+    "path":"folders/Objects/Hitboxes.yy",
   },
   "parentObjectId":null,
   "persistent":true,

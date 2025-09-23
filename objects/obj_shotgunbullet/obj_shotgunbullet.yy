@@ -13,8 +13,8 @@
   "name":"obj_shotgunbullet",
   "overriddenProperties":[],
   "parent":{
-    "name":"Player",
-    "path":"folders/Objects/Game Settings/Player.yy",
+    "name":"Particles",
+    "path":"folders/Objects/Visual Effects & Particles/Particles.yy",
   },
   "parentObjectId":null,
   "persistent":false,

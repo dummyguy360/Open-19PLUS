@@ -11,8 +11,8 @@
   "name":"obj_pizzacutter",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Level Structure",
+    "path":"folders/Objects/Level Structure.yy",
   },
   "parentObjectId":null,
   "persistent":false,

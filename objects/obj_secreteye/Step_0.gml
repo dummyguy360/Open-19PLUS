@@ -66,9 +66,7 @@ if (floor(image_index) == (image_number - 1))
                         }
                     }
                     else
-                    {
                         targetRoom = lastroom;
-                    }
                 }
                 
                 if (!isexit)

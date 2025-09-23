@@ -11,8 +11,8 @@
   "name":"obj_afterimage",
   "overriddenProperties":[],
   "parent":{
-    "name":"Game Settings",
-    "path":"folders/Objects/Game Settings.yy",
+    "name":"Player",
+    "path":"folders/Objects/Player.yy",
   },
   "parentObjectId":null,
   "persistent":false,

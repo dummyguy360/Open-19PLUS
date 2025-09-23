@@ -11,8 +11,8 @@
   "name":"obj_panicdebris",
   "overriddenProperties":[],
   "parent":{
-    "name":"Game Settings",
-    "path":"folders/Objects/Game Settings.yy",
+    "name":"Particles",
+    "path":"folders/Objects/Visual Effects & Particles/Particles.yy",
   },
   "parentObjectId":null,
   "persistent":true,

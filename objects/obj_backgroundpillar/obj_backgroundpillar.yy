@@ -10,8 +10,8 @@
   "name":"obj_backgroundpillar",
   "overriddenProperties":[],
   "parent":{
-    "name":"Level Structure",
-    "path":"folders/Objects/Level Structure.yy",
+    "name":"Level Decor",
+    "path":"folders/Objects/Level Structure/Level Decor.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -12,8 +12,8 @@
   "name":"obj_timetrialtoggle",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Hub",
+    "path":"folders/Objects/Level Structure/Hub.yy",
   },
   "parentObjectId":null,
   "persistent":false,

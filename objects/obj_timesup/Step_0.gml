@@ -1,7 +1,5 @@
 if (!grounded)
-{
     image_speed = 0;
-}
 else
 {
     if (!landed)

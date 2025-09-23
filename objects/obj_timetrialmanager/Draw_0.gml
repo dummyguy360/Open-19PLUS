@@ -53,9 +53,7 @@ if (!scr_hudroomcheck() && global.levelname != noone && global.levelname != "tut
                 draw_surface_ext(ghostsurf, _x + _xoff, _y + _yoff, _xscale, _yscale, _angle, framestruct.image_blend, framestruct.image_alpha * global.ghostalpha);
             }
             else
-            {
                 ghostvisible = false;
-            }
         }
         else if (dopoof && (global.ghostalpha > 0 || global.ghostoutlinealpha > 0) && ghostvisible)
         {

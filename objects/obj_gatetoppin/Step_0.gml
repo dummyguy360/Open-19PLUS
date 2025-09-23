@@ -42,9 +42,7 @@ if (visible)
             }
         }
         else
-        {
             sprite_index = idlespr;
-        }
     }
     
     if (_area != noone && bbox_in_camera(1, id, 100))

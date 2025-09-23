@@ -8,8 +8,8 @@
   "name":"obj_pizzakinshroom",
   "overriddenProperties":[],
   "parent":{
-    "name":"Toppins",
-    "path":"folders/Objects/Level Structure/Collectibles/Toppins.yy",
+    "name":"Toppins & Gerome",
+    "path":"folders/Objects/Level Structure/Toppins & Gerome.yy",
   },
   "parentObjectId":{
     "name":"obj_toppinpar",

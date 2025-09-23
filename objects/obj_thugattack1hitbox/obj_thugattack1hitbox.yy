@@ -9,8 +9,8 @@
   "name":"obj_thugattack1hitbox",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Hitboxes",
+    "path":"folders/Objects/Hitboxes.yy",
   },
   "parentObjectId":{
     "name":"obj_hurtbox",

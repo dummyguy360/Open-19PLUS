@@ -11,8 +11,8 @@
   "name":"obj_playablecheeseattackhitbox",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Hitboxes",
+    "path":"folders/Objects/Hitboxes.yy",
   },
   "parentObjectId":{
     "name":"obj_attackhitbox",

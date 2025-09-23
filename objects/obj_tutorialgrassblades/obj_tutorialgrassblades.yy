@@ -9,8 +9,8 @@
   "name":"obj_tutorialgrassblades",
   "overriddenProperties":[],
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Objects/UNSORTED.yy",
+    "name":"Main Menu",
+    "path":"folders/Objects/Level Structure/Main Menu.yy",
   },
   "parentObjectId":{
     "name":"obj_parentparticle",

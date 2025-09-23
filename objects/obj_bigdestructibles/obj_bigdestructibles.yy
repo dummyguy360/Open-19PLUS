@@ -8,8 +8,8 @@
   "name":"obj_bigdestructibles",
   "overriddenProperties":[],
   "parent":{
-    "name":"Game Settings",
-    "path":"folders/Objects/Game Settings.yy",
+    "name":"Destroyables",
+    "path":"folders/Objects/Level Structure/Destroyables.yy",
   },
   "parentObjectId":{
     "name":"obj_destructibles",

@@ -1,9 +1,7 @@
 if (!scr_hudroomcheck() && global.battle == 0 && global.currentbadge != badge.bdance)
 {
-    var check;
-    
     with (obj_player)
-        check = state != states.door && state != states.victory && state != states.comingoutdoor && state != states.actor && state != states.noclip && state != states.pipe && state != states.portal && state != states.stunned && state != states.keyget && state != states.nothing && !scr_transformationcheck(self);
+        var check = state != states.door && state != states.victory && state != states.comingoutdoor && state != states.actor && state != states.noclip && state != states.pipe && state != states.portal && state != states.stunned && state != states.keyget && state != states.nothing && !scr_transformationcheck(self);
     
     with (obj_player)
     {

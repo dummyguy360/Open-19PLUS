@@ -4,9 +4,7 @@ if (get_savestate() != 0)
         instance_destroy(uparrowid);
 }
 else if (!instance_exists(uparrowid))
-{
     uparrowid = create_uparrow();
-}
 
 if (!file_exists(get_savedir() + "/saveData.save"))
 {
@@ -14,9 +12,7 @@ if (!file_exists(get_savedir() + "/saveData.save"))
     time = -1;
 }
 else if (perc == -1)
-{
     self.get_file_percentage();
-}
 
 if (place_meeting(x, y, obj_player) && !showtext)
 {

@@ -77,9 +77,7 @@ if (ceil(currentchar) >= string_length(_str) && 2)
     draw_sprite_ext(spr_npcnextbutton, nextbuttonind, 822, _yoff + 501, 1, 1, 0, c_white, 1);
 }
 else
-{
     nextbuttonind = 0;
-}
 
 draw_set_valign(fa_top);
 draw_set_colour(c_black);

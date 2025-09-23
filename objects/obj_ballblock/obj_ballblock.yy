@@ -11,8 +11,8 @@
   "name":"obj_ballblock",
   "overriddenProperties":[],
   "parent":{
-    "name":"Unused",
-    "path":"folders/Objects/Unused.yy",
+    "name":"Destroyables",
+    "path":"folders/Objects/Level Structure/Destroyables.yy",
   },
   "parentObjectId":{
     "name":"obj_solid",
