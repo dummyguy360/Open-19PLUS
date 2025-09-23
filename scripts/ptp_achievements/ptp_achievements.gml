@@ -1,4 +1,4 @@
-function add_achievement_variable(arg0, arg1, arg2 = popup_type.cowboytask, arg3 = false)
+function add_achievement_variable(_name, _value, _type = popup_type.cowboytask, _save = false)
 {
     with (obj_achievementtracker)
     {
@@ -6,54 +6,54 @@ function add_achievement_variable(arg0, arg1, arg2 = popup_type.cowboytask, arg3
         {
             value: -1,
             startingval: -1,
-            type: arg2,
-            save: arg3
+            type: _type,
+            save: _save
         };
         
-        if (arg2 != popup_type.othertask)
+        if (_type != popup_type.othertask)
         {
-            _varstruct.value = arg1;
+            _varstruct.value = _value;
             _varstruct.startingval = _varstruct.value;
         }
         else
             _varstruct.value = ds_list_create();
         
-        variables[? arg0] = _varstruct;
+        variables[? _name] = _varstruct;
     }
 }
 
-function get_achvariable(arg0)
+function get_achvariable(_name)
 {
     with (obj_achievementtracker)
-        return variables[? arg0];
+        return variables[? _name];
 }
 
-function set_achvariable(arg0, arg1)
+function set_achvariable(_name, _value)
 {
     with (obj_achievementtracker)
     {
-        if (variables[? arg0].type != popup_type.othertask)
-            variables[? arg0].value = arg1;
+        if (variables[? _name].type != popup_type.othertask)
+            variables[? _name].value = _value;
         else
-            ds_list_add(variables[? arg0].value, arg1);
+            ds_list_add(variables[? _name].value, _value);
         
-        if (variables[? arg0].save)
+        if (variables[? _name].save)
         {
             save_open();
             
-            switch (variables[? arg0].type)
+            switch (variables[? _name].type)
             {
                 case popup_type.cowboytask:
-                    ini_write_real("GameProgress", arg0, variables[? arg0].value);
+                    ini_write_real("GameProgress", _name, variables[? _name].value);
                     break;
                 
                 case popup_type.silent:
-                    ini_write_string("GameProgress", arg0, variables[? arg0].value);
+                    ini_write_string("GameProgress", _name, variables[? _name].value);
                     break;
                 
                 case popup_type.othertask:
-                    var _str = ds_list_write(variables[? arg0].value);
-                    ini_write_string("GameProgress", arg0, _str);
+                    var _str = ds_list_write(variables[? _name].value);
+                    ini_write_string("GameProgress", _name, _str);
                     break;
             }
             
@@ -62,99 +62,99 @@ function set_achvariable(arg0, arg1)
     }
 }
 
-function add_achievement(arg0, arg1, arg2, arg3 = function() { } )
+function add_achievement(_saveid, _setupfunc, _updatefunc, _cleanfunc = function() { } )
 {
     with (obj_achievementtracker)
     {
         var _achstruct = 
         {
             type: popup_type.cowboytask,
-            saveid: arg0,
+            saveid: _saveid,
             setupfunc: -1,
             updatefunc: -1,
             cleanfunc: -1,
             done: false
         };
-        _achstruct.setupfunc = method(_achstruct, arg1);
-        _achstruct.updatefunc = method(_achstruct, arg2);
-        _achstruct.cleanfunc = method(_achstruct, arg3);
+        _achstruct.setupfunc = method(_achstruct, _setupfunc);
+        _achstruct.updatefunc = method(_achstruct, _updatefunc);
+        _achstruct.cleanfunc = method(_achstruct, _cleanfunc);
         array_push(achievements, _achstruct);
     }
 }
 
-function add_unlock(arg0, arg1, arg2, arg3 = function() { } )
+function add_unlock(_saveid, _setupfunc, _updatefunc, _cleanfunc = function() { } )
 {
     with (obj_achievementtracker)
     {
         var _achstruct = 
         {
             type: popup_type.othertask,
-            saveid: arg0,
+            saveid: _saveid,
             setupfunc: -1,
             updatefunc: -1,
             cleanfunc: -1,
             done: false
         };
-        _achstruct.setupfunc = method(_achstruct, arg1);
-        _achstruct.updatefunc = method(_achstruct, arg2);
-        _achstruct.cleanfunc = method(_achstruct, arg3);
+        _achstruct.setupfunc = method(_achstruct, _setupfunc);
+        _achstruct.updatefunc = method(_achstruct, _updatefunc);
+        _achstruct.cleanfunc = method(_achstruct, _cleanfunc);
         array_push(achievements, _achstruct);
     }
 }
 
-function push_notif(arg0, arg1)
+function push_notif(_notif_type, _conditions)
 {
     with (obj_achievementtracker)
-        ds_list_add(notifications, [arg0, arg1]);
+        ds_list_add(notifications, [_notif_type, _conditions]);
 }
 
-function achievement_get(arg0, arg1, arg2)
+function achievement_get(_name, _sprite, _index)
 {
     with (obj_achievementtracker)
     {
         var _popupstruct = 
         {
             type: popup_type.cowboytask,
-            sprite: arg1,
-            index: arg2
+            sprite: _sprite,
+            index: _index
         };
         save_open();
-        ini_write_real("Achievements", arg0, true);
+        ini_write_real("Achievements", _name, true);
         save_close();
         save_dump();
-        var _ach = achievement_get_ind(arg0);
+        var _ach = achievement_get_ind(_name);
         achievements[_ach].done = true;
         ds_list_add(popupqueue, _popupstruct);
     }
 }
 
-function unlockable_unlock(arg0, arg1, arg2)
+function unlockable_unlock(_name, _sprite, _index)
 {
     with (obj_achievementtracker)
     {
         var _popupstruct = 
         {
             type: popup_type.othertask,
-            sprite: arg1,
-            index: arg2
+            sprite: _sprite,
+            index: _index
         };
         save_open();
-        ini_write_real("GameProgress", arg0, true);
+        ini_write_real("GameProgress", _name, true);
         save_close();
         save_dump();
-        var _ach = achievement_get_ind(arg0);
+        var _ach = achievement_get_ind(_name);
         achievements[_ach].done = true;
         ds_list_add(popupqueue, _popupstruct);
     }
 }
 
-function achievement_get_ind(arg0)
+function achievement_get_ind(_saveid)
 {
     with (obj_achievementtracker)
     {
         for (var i = 0; i < array_length(achievements); i++)
         {
-            if (achievements[i].saveid == arg0)
+            if (achievements[i].saveid == _saveid)
                 return i;
         }
     }
