@@ -1,16 +1,16 @@
 function scr_player_knightpep()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        if (arg1 >= 0)
-            scr_destroy_vertical(arg1, destroy.metalblock);
+        if (_v >= 0)
+            scr_destroy_vertical(_v, destroy.metalblock);
         
-        scr_destroy_horizontal(arg0);
+        scr_destroy_horizontal(_h);
     };
     
-    hit_vertical = function(arg0)
+    hit_vertical = function(_v)
     {
-        if ((sprite_index == spr_knightpepdownthrust || sprite_index == spr_knightpepfall || sprite_index == spr_knightpepdoublejump) && arg0 >= 0 && !scr_slope())
+        if ((sprite_index == spr_knightpepdownthrust || sprite_index == spr_knightpepfall || sprite_index == spr_knightpepdoublejump) && _v >= 0 && !scr_slope())
         {
             with (obj_baddie)
             {

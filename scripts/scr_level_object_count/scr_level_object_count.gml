@@ -1,11 +1,11 @@
 // unused in code, but code works maybe
-function scr_level_object_count(arg0, arg1)
+function scr_level_object_count(rm_array, obj_inst)
 {
     var count = 0;
     
-    for (var i = 0; i < array_length(arg0); i++)
+    for (var i = 0; i < array_length(rm_array); i++)
     {
-        layer_set_target_room(arg0[i]);
+        layer_set_target_room(rm_array[i]);
         var layers = layer_get_all();
         
         for (i = 0; i < array_length(layers); i++)
@@ -16,7 +16,7 @@ function scr_level_object_count(arg0, arg1)
                 
                 for (i = 0; i < array_length(elements); i++)
                 {
-                    if (object_is_ancestor(layer_instance_get_instance(elements[i]), arg1) || layer_instance_get_instance(elements[i]) == arg1)
+                    if (object_is_ancestor(layer_instance_get_instance(elements[i]), obj_inst) || layer_instance_get_instance(elements[i]) == obj_inst)
                         count++;
                 }
             }

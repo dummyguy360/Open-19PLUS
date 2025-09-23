@@ -196,7 +196,7 @@ function scr_collide_enemy()
         y += room_height;
 }
 
-function scr_collide_and_destroy(arg0)
+function scr_collide_and_destroy(_obj)
 {
     grounded = false;
     var _destroyedsomething = false;
@@ -205,13 +205,13 @@ function scr_collide_and_destroy(arg0)
     repeat (ceil(abs(vy)))
     {
         var v = clamp(vy, -1, 1);
-        var _i = instance_place(x, y + v, arg0);
+        var _i = instance_place(x, y + v, _obj);
         
         while (_i != noone)
         {
             _destroyedsomething = true;
             instance_destroy(_i);
-            _i = instance_place(x, y + v, arg0);
+            _i = instance_place(x, y + v, _obj);
         }
         
         if (!scr_solid(x, y + v))
@@ -231,13 +231,13 @@ function scr_collide_and_destroy(arg0)
     repeat (ceil(abs(vx)))
     {
         var v = clamp(vx, -1, 1);
-        var _i = instance_place(x + v, y, arg0);
+        var _i = instance_place(x + v, y, _obj);
         
         while (_i != noone)
         {
             _destroyedsomething = true;
             instance_destroy(_i);
-            _i = instance_place(x + v, y, arg0);
+            _i = instance_place(x + v, y, _obj);
         }
         
         var cDefault = scr_solid(x + v, y);

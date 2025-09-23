@@ -105,9 +105,9 @@ function scr_collide_player()
     test_ground();
 }
 
-function test_ground(arg0 = false)
+function test_ground(force_check = false)
 {
-    if (arg0 || vsp >= 0)
+    if (force_check || vsp >= 0)
     {
         if (state != states.cheeseball && state != states.cheesepep && state != states.cheesepepstick && state != states.boxxedpep && state != states.knightpep && state != states.bombpep && state != states.superslam && state != states.sjump && state != states.bump)
         {

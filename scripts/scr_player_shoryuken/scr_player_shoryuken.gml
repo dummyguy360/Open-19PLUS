@@ -1,14 +1,14 @@
 function scr_player_shoryuken()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        scr_destroy_horizontal(arg0, destroy.create_bangeffect);
+        scr_destroy_horizontal(_h, destroy.create_bangeffect);
     };
     
-    hit_vertical = function(arg0)
+    hit_vertical = function(_v)
     {
-        if (arg0 < 0)
-            scr_destroy_vertical(arg0);
+        if (_v < 0)
+            scr_destroy_vertical(_v);
     };
     
     vsp = shoryukenvsp;

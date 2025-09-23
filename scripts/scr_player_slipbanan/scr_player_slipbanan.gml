@@ -1,16 +1,16 @@
 function scr_player_slipbanan()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        if (arg1 < 0)
-            scr_destroy_vertical(arg1, destroy.metalblock);
+        if (_v < 0)
+            scr_destroy_vertical(_v, destroy.metalblock);
         
-        scr_destroy_horizontal(arg0);
+        scr_destroy_horizontal(_h);
     };
     
-    hit_vertical = function(arg0)
+    hit_vertical = function(_v)
     {
-        if (!place_meeting(x, y + 1, obj_current) && arg0 > 0 && sprite_index != spr_slipbanan3)
+        if (!place_meeting(x, y + 1, obj_current) && _v > 0 && sprite_index != spr_slipbanan3)
         {
             if (!slipbounce)
             {
@@ -34,7 +34,7 @@ function scr_player_slipbanan()
         }
     };
     
-    hit_horizontal = function(arg0)
+    hit_horizontal = function(_h)
     {
         instance_create_depth(x + (xscale * 10), y + 10, 0, obj_bumpeffect);
         instance_create_depth(x + (xscale * 4), y, 0, obj_bangeffect);

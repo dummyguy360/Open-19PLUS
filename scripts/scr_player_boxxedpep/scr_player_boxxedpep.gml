@@ -1,10 +1,10 @@
 function scr_player_boxxedpep()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
         if (sprite_index == spr_boxxeddash || boxxedslide)
 			// 3rd arg does nothing, just here because it was there in the og code
-            scr_destroy_horizontal(arg0, destroy.whitelist_destructibles | destroy.whitelist_onewaybigblock | destroy.whitelist_smbitembox, destroy.ratblock);
+            scr_destroy_horizontal(_h, destroy.whitelist_destructibles | destroy.whitelist_onewaybigblock | destroy.whitelist_smbitembox, destroy.ratblock);
     };
     
     mask_index = spr_crouchmask;

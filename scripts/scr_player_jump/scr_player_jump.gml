@@ -2,21 +2,21 @@ function scr_player_jump()
 {
     var _analogue = input_value("left") + input_value("right");
     
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        if ((sprite_index == spr_freefall || sprite_index == spr_facestomp) && arg1 >= 0)
-            scr_destroy_vertical(arg1);
+        if ((sprite_index == spr_freefall || sprite_index == spr_facestomp) && _v >= 0)
+            scr_destroy_vertical(_v);
     };
     
-    hit_vertical = function(arg0)
+    hit_vertical = function(_v)
     {
-        if (arg0 < 0)
-            scr_destroy_vertical(arg0);
+        if (_v < 0)
+            scr_destroy_vertical(_v);
     };
     
-    hit_horizontal = function(arg0)
+    hit_horizontal = function(_h)
     {
-        if (sign(arg0) != xscale || state != states.jump)
+        if (sign(_h) != xscale || state != states.jump)
             exit;
         
         if (character == "S")

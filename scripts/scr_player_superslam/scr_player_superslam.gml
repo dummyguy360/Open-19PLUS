@@ -1,17 +1,17 @@
 function scr_player_superslam()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        if (arg1 >= 0)
-            scr_destroy_vertical(arg1);
+        if (_v >= 0)
+            scr_destroy_vertical(_v);
     };
     
     if (sprite_index == spr_piledriver)
     {
-        hit_vertical = function(arg0)
+        hit_vertical = function(_v)
         {
-            if (arg0 >= 0 && piledrivervsp > 0)
-                scr_destroy_vertical(arg0, destroy.metalblock * (freefallsmash > 10));
+            if (_v >= 0 && piledrivervsp > 0)
+                scr_destroy_vertical(_v, destroy.metalblock * (freefallsmash > 10));
         };
         
         move = input_check_opposing("left", "right");

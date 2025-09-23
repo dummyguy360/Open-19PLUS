@@ -3,24 +3,24 @@ function scr_player_mach2()
     move2 = input_check_opposing_pressed("left", "right");
     move = input_check_opposing("left", "right");
     
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        if (arg1 < 0)
-            scr_destroy_vertical(arg1);
+        if (_v < 0)
+            scr_destroy_vertical(_v);
         
-        scr_destroy_horizontal(arg0);
+        scr_destroy_horizontal(_h);
     };
     
-    hit_horizontal = function(arg0)
+    hit_horizontal = function(_h)
     {
-        if (sign(arg0) != xscale)
+        if (sign(_h) != xscale)
         {
             state = states.bump;
             sprite_index = spr_wallsplat;
             image_index = 0;
             
-            if (sign(arg0) != 0)
-                xscale = sign(arg0);
+            if (sign(_h) != 0)
+                xscale = sign(_h);
             
             mach2 = 0;
             gamepadvibrate(0.4, 0, 7);
@@ -39,7 +39,7 @@ function scr_player_mach2()
         }
         else
         {
-            if (scr_bump_rat(arg0))
+            if (scr_bump_rat(_h))
                 exit;
             
             state = states.bump;

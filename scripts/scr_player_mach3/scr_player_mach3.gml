@@ -1,22 +1,22 @@
 function scr_player_mach3()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
         var f = destroy.metalblock;
         
         if (rocket)
             f |= destroy.ratblock;
         
-        scr_destroy_horizontal(arg0, f);
+        scr_destroy_horizontal(_h, f);
     };
     
-    hit_vertical = function(arg0)
+    hit_vertical = function(_v)
     {
-        if (arg0 < 0)
-            scr_destroy_vertical(arg0);
+        if (_v < 0)
+            scr_destroy_vertical(_v);
     };
     
-    hit_horizontal = function(arg0)
+    hit_horizontal = function(_h)
     {
         if ((!grounded || (grounded && scr_slope())) && !rocket)
         {
@@ -31,7 +31,7 @@ function scr_player_mach3()
         }
         else
         {
-            if (scr_bump_rat(arg0))
+            if (scr_bump_rat(_h))
                 exit;
             
             scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);

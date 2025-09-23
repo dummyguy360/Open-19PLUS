@@ -1,9 +1,9 @@
 function scr_player_Sjump()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        if (arg1 < 0)
-            scr_destroy_vertical(arg1, destroy.metalblock * (sprite_index == spr_presentjump || sprite_index == spr_player_bombjump || sprite_index == spr_playerN_bombjump));
+        if (_v < 0)
+            scr_destroy_vertical(_v, destroy.metalblock * (sprite_index == spr_presentjump || sprite_index == spr_player_bombjump || sprite_index == spr_playerN_bombjump));
     };
     
     hsp = 0;

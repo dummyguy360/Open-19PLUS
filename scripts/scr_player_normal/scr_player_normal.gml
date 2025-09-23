@@ -29,9 +29,9 @@ function scr_player_normal()
         _animoverride = true;
     }
     
-    hit_horizontal = function(arg0)
+    hit_horizontal = function(_h)
     {
-        if (sign(arg0) == xscale && state == states.normal)
+        if (sign(_h) == xscale && state == states.normal)
         {
             movespeed = 0;
             momemtum = 0;

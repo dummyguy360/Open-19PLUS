@@ -1,9 +1,9 @@
 function scr_player_swingdingfinish()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
         if (sprite_index == spr_swingdingend)
-            scr_destroy_horizontal(arg0);
+            scr_destroy_horizontal(_h);
     };
     
     hsp = xscale * movespeed;

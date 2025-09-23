@@ -1,4 +1,4 @@
-function update_camera(arg0 = true)
+function update_camera(static_cam = true)
 {
     static p = noone;
     
@@ -17,7 +17,7 @@ function update_camera(arg0 = true)
         var camy_minus = 30;
         var state = target.state;
         
-        if (!arg0)
+        if (!static_cam)
         {
             var _targetcharge = 0;
             var _tspeed = 0;
@@ -116,7 +116,7 @@ function update_camera(arg0 = true)
         listener_setPosition(0, myx + (cam_width / 2), myy + (cam_height / 2), 0);
     }
     
-    if (!arg0)
+    if (!static_cam)
     {
         cameraxoff = Approach(cameraxoff, 0, 3);
         camerayoff = Approach(camerayoff, 0, 3);
@@ -125,7 +125,7 @@ function update_camera(arg0 = true)
     }
     
     if (!obj_pause.pause || copyapp)
-        scr_parrallax(!arg0);
+        scr_parrallax(!static_cam);
 }
 
 windowwidth = window_get_width();

@@ -1,15 +1,15 @@
 function scr_player_lunge()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        scr_destroy_horizontal(arg0);
+        scr_destroy_horizontal(_h);
     };
     
-    hit_horizontal = function(arg0)
+    hit_horizontal = function(_h)
     {
         if (grounded)
         {
-            if (scr_bump_rat(arg0))
+            if (scr_bump_rat(_h))
                 exit;
             
             scr_fmod_soundeffectONESHOT("event:/sfx/player/bump", x, y);

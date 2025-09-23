@@ -1,4 +1,4 @@
-function scr_playerreset(arg0, arg1 = true)
+function scr_playerreset(keep_state, stop_mus = true)
 {
     global.timeractive = 0;
     global.wavenum = 0;
@@ -89,7 +89,7 @@ function scr_playerreset(arg0, arg1 = true)
         image_alpha = 0;
     }
     
-    if (arg1)
+    if (stop_mus)
     {
         with (obj_music)
         {
@@ -125,7 +125,7 @@ function scr_playerreset(arg0, arg1 = true)
     
     with (obj_player)
     {
-        if (!arg0)
+        if (!keep_state)
         {
             state = states.normal;
             punchedenemy = false;

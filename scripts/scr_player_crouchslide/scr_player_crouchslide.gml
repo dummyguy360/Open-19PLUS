@@ -2,12 +2,12 @@ function scr_player_crouchslide()
 {
     move = input_check_opposing("left", "right");
     
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        scr_destroy_horizontal(arg0);
+        scr_destroy_horizontal(_h);
     };
     
-    hit_horizontal = function(arg0)
+    hit_horizontal = function(_h)
     {
         if (sprite_index != spr_sjumpcancelstart && sprite_index != spr_sjumpcancel)
         {
@@ -16,8 +16,8 @@ function scr_player_crouchslide()
                 state = states.bump;
                 sprite_index = spr_wallsplat;
                 
-                if (sign(arg0) != 0)
-                    xscale = sign(arg0);
+                if (sign(_h) != 0)
+                    xscale = sign(_h);
                 
                 gamepadvibrate(0.4, 0, 7);
                 image_index = 0;

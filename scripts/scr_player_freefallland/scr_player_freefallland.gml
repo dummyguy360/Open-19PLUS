@@ -1,9 +1,9 @@
 function scr_player_freefallland()
 {
-    hit_vertical = function(arg0)
+    hit_vertical = function(_v)
     {
-        if (arg0 >= 0)
-            scr_destroy_vertical(arg0, destroy.metalblock * (freefallsmash > 10));
+        if (_v >= 0)
+            scr_destroy_vertical(_v, destroy.metalblock * (freefallsmash > 10));
     };
     
     mach2 = 0;

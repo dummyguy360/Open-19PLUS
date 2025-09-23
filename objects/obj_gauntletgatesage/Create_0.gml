@@ -1,6 +1,6 @@
 event_inherited();
 
-create_func = function(arg0 = false)
+create_func = function(_unlockanim = false)
 {
     with (instance_create_depth(x, y, depth, obj_sagegate))
     {
@@ -10,7 +10,7 @@ create_func = function(arg0 = false)
         gateox = other.gateox;
         gateoy = other.gateoy;
         unlocked = true;
-        unlockedanim = arg0;
+        unlockedanim = _unlockanim;
     }
 };
 

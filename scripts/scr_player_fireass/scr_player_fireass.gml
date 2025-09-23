@@ -1,14 +1,14 @@
 function scr_player_fireass()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        scr_destroy_vertical(arg1, destroy.ratblock);
-        scr_destroy_horizontal(arg0, destroy.ratblock | destroy.whitelist_destructibles | destroy.whitelist_onewaybigblock | destroy.whitelist_smbitembox);
+        scr_destroy_vertical(_v, destroy.ratblock);
+        scr_destroy_horizontal(_h, destroy.ratblock | destroy.whitelist_destructibles | destroy.whitelist_onewaybigblock | destroy.whitelist_smbitembox);
     };
     
-    hit_vertical = function(arg0)
+    hit_vertical = function(_v)
     {
-        if (arg0 >= 0)
+        if (_v >= 0)
         {
             if (sprite_index == spr_fireass)
             {

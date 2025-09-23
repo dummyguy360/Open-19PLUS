@@ -53,9 +53,9 @@ global.levelname = noone;
 global.currentbadge = badge.none;
 global.cheeseblocknumb = 0;
 
-function checkCheese(arg0, arg1)
+function checkCheese(_obj, _unused)
 {
-    return arg0.object_index == object_get_name(obj_destructibleplatform);
+    return _obj.object_index == object_get_name(obj_destructibleplatform);
 }
 
 var _rooms = 

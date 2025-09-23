@@ -1,8 +1,8 @@
 function scr_player_cheeseball()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        scr_destroy_horizontal(arg0, destroy.ratblock);
+        scr_destroy_horizontal(_h, destroy.ratblock);
     };
     
     hsp = xscale * 12;

@@ -5,14 +5,14 @@ world = 1;
 state = states.normal;
 metrequirement = true;
 
-create_func = function(arg0 = false)
+create_func = function(_unlockanim = false)
 {
     with (instance_create_depth(x, y, depth, obj_startgate))
     {
         level = other.level;
         targetRoom = other.targetRoom;
         unlocked = true;
-        unlockedanim = arg0;
+        unlockedanim = _unlockanim;
     }
 };
 

@@ -1,6 +1,6 @@
-function get_char(arg0)
+function get_char(char_name)
 {
-    switch (arg0)
+    switch (char_name)
     {
         case "PP":
             return ["Peppino", #786898, "event:/sfx/npc/peppino"];

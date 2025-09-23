@@ -1,9 +1,9 @@
 function scr_playerN_walljump()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_v, _h)
     {
-        scr_destroy_vertical(arg1);
-        scr_destroy_horizontal(arg0);
+        scr_destroy_vertical(_v);
+        scr_destroy_horizontal(_h);
     };
     
     noisemachcancelbuffer = 10;
@@ -23,9 +23,7 @@ function scr_playerN_walljump()
                 movespeed = Approach(movespeed, move * abs(movespeed), 1);
         }
         else
-        {
             movespeed = Approach(movespeed, 0, 0.25);
-        }
         
         var xx = movespeed;
         
@@ -56,13 +54,9 @@ function scr_playerN_walljump()
         }
     }
     else if (move != 0)
-    {
         movespeed = Approach(movespeed, move * 8, 1);
-    }
     else
-    {
         movespeed = Approach(movespeed, 0, 0.5);
-    }
     
     if (input_check("down") && !grounded && sprite_index != spr_playerN_divebombfall && !grounded)
     {
@@ -189,14 +183,10 @@ function scr_playerN_walljump()
         image_speed = (abs(movespeed) / 40) + 0.4;
     }
     else
-    {
         image_speed = 0.5;
-    }
     
     if (punch_afterimage > 0)
-    {
         punch_afterimage--;
-    }
     else
     {
         punch_afterimage = 5;

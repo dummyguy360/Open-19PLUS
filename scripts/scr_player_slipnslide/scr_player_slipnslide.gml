@@ -1,9 +1,9 @@
 function scr_player_slipnslide()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        scr_destroy_horizontal(arg0);
-        scr_destroy_vertical(arg1);
+        scr_destroy_horizontal(_h);
+        scr_destroy_vertical(_v);
     };
     
     mach2 = 0;

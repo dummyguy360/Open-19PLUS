@@ -1,16 +1,16 @@
 function scr_player_freefall()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        if (arg1 >= 0)
-            scr_destroy_vertical(arg1, destroy.metalblock * (character == "M" && freefallsmash > 10));
+        if (_v >= 0)
+            scr_destroy_vertical(_v, destroy.metalblock * (character == "M" && freefallsmash > 10));
     };
     
-    hit_vertical = function(arg0)
+    hit_vertical = function(_v)
     {
-        if (arg0 >= 0 && bodyslamvsp > 0)
+        if (_v >= 0 && bodyslamvsp > 0)
         {
-            scr_destroy_vertical(arg0, destroy.metalblock * (freefallsmash > 10));
+            scr_destroy_vertical(_v, destroy.metalblock * (freefallsmash > 10));
             freefallsmash = 0;
             combo = 0;
             bounce = 0;

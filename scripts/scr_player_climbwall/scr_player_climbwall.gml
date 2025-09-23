@@ -1,12 +1,12 @@
 function scr_player_climbwall()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        if (arg1 < 0)
-            scr_destroy_vertical(arg1);
+        if (_v < 0)
+            scr_destroy_vertical(_v);
     };
     
-    step_vertical = function(arg0)
+    step_vertical = function(_v)
     {
         if (state != states.mach2 && wallspeed > 0 && !scr_solid_player(x + xscale, y))
         {
@@ -47,7 +47,7 @@ function scr_player_climbwall()
         return true;
     };
     
-    hit_vertical = function(arg0)
+    hit_vertical = function(_v)
     {
         sprite_index = spr_superjumpland;
         scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);

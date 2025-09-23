@@ -1,11 +1,11 @@
-function scr_solid_player(arg0, arg1)
+function scr_solid_player(xx, yy)
 {
     static il = global.instancelist;
     
     var old_x = x;
     var old_y = y;
-    x = arg0;
-    y = arg1;
+    x = xx;
+    y = yy;
     var collisioncheck = [obj_solid, obj_slope, noone, noone, noone, noone];
     
     if (y > old_y && state != states.ladder)
@@ -33,9 +33,7 @@ function scr_solid_player(arg0, arg1)
         var obj = b.object_index;
         
         if (object_is_parent_or_ancestor(obj_platform, obj) || object_is_parent_or_ancestor(obj_infestedwater, obj) || object_is_parent_or_ancestor(obj_grindrail, obj))
-        {
             _collided = !place_meeting(x, old_y, b);
-        }
         else if (object_is_parent_or_ancestor(obj_slope, obj) || object_is_parent_or_ancestor(obj_grindrailslope, obj))
         {
             with (b)
@@ -65,32 +63,30 @@ function scr_solid_player(arg0, arg1)
             }
         }
         else
-        {
             _collided = true;
-        }
         
         if (_collided)
         {
             ds_list_clear(il);
             x = old_x;
             y = old_y;
-            return 1;
+            return true;
         }
     }
     
     ds_list_clear(il);
     x = old_x;
     y = old_y;
-    return 0;
+    return false;
 }
 
-function check_slope_player(arg0, arg1 = x, arg2 = y)
+function check_slope_player(_obj, xx = x, yy = y)
 {
-    if (!place_meeting(x, y, arg0))
+    if (!place_meeting(x, y, _obj))
         exit;
     
     var il = global.instancelist;
-    var num = instance_place_list(arg1, arg2, arg0, il, true);
+    var num = instance_place_list(xx, yy, _obj, il, true);
     
     for (var i = 0; i < num; i++)
     {
@@ -121,11 +117,11 @@ function check_slope_player(arg0, arg1 = x, arg2 = y)
             if (other.bbox_bottom >= slope)
             {
                 ds_list_clear(il);
-                return 1;
+                return true;
             }
         }
     }
     
     ds_list_clear(il);
-    return 0;
+    return false;
 }

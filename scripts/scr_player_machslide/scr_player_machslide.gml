@@ -1,6 +1,6 @@
 function scr_player_machslide()
 {
-    hit_horizontal = function(arg0)
+    hit_horizontal = function(_h)
     {
         if (state == states.machslide)
             movespeed = 0;

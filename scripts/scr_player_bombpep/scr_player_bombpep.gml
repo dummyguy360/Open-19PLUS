@@ -1,11 +1,11 @@
 function scr_player_bombpep()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
         if (state != states.bombpep)
             exit;
         
-        if (scr_destroy_horizontal(arg0, destroy.ratblock | destroy.whitelist_destructibles | destroy.whitelist_onewaybigblock | destroy.whitelist_smbitembox))
+        if (scr_destroy_horizontal(_h, destroy.ratblock | destroy.whitelist_destructibles | destroy.whitelist_onewaybigblock | destroy.whitelist_smbitembox))
         {
             instance_create_depth(x, y, 0, obj_bombexplosion2);
             movespeed = 4;
@@ -16,9 +16,9 @@ function scr_player_bombpep()
         }
     };
     
-    hit_horizontal = function(arg0)
+    hit_horizontal = function(_h)
     {
-        if (sign(arg0) == xscale && state == states.bombpep)
+        if (sign(_h) == xscale && state == states.bombpep)
         {
             instance_create_depth(x + 10, y + 10, 0, obj_bumpeffect);
             xscale *= -1;

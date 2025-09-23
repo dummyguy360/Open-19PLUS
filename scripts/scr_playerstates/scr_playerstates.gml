@@ -13,7 +13,6 @@ function scr_playerstates()
     };
     
     hit_vertical = function() { }
-    
     hit_horizontal = function() { }
     
     noisesnapvalue = (character == "N") ? 32 : 22;
@@ -125,20 +124,20 @@ function parry()
     }
 }
 
-function blurafterimageeffect(arg0, arg1)
+function blurafterimageeffect(_buff, _alpha_acc)
 {
     if (blurafterimagebuffer > 0)
         blurafterimagebuffer--;
     
     if (blurafterimagebuffer <= 0)
     {
-        blurafterimagebuffer = arg0;
+        blurafterimagebuffer = _buff;
         
         with (instance_create_depth(x, y, depth + 1, obj_blurafterimage))
         {
             sprite_index = other.sprite_index;
             image_xscale = other.xscale;
-            alphaacc = arg1;
+            alphaacc = _alpha_acc;
             
             if (floor(other.image_index) == 0)
                 image_index = 0;
@@ -285,7 +284,7 @@ function enterdoor()
     instance_create_depth(x, y, -9999, obj_fadeout);
 }
 
-function do_hitstun(arg0)
+function do_hitstun(_hit_timer)
 {
     if (state != states.hitstun)
     {
@@ -295,12 +294,12 @@ function do_hitstun(arg0)
         hitstunstoredvsp = vsp;
         hitstunstoredimagespeed = image_speed;
         hitstunstoredhsp = hsp;
-        hittimer = arg0;
+        hittimer = _hit_timer;
         state = states.hitstun;
     }
 }
 
-function enterboxofpizza(arg0)
+function enterboxofpizza(_sprite)
 {
     other.depth = -10;
     event_play_oneshot("event:/sfx/player/boxenter");
@@ -311,7 +310,7 @@ function enterboxofpizza(arg0)
     obj_player.targetDoor = other.targetDoor;
     obj_player.targetRoom = other.targetRoom;
     obj_player.enteredDoor = other.id;
-    sprite_index = arg0;
+    sprite_index = _sprite;
     image_index = 0;
     state = states.door;
 }
@@ -380,8 +379,7 @@ function voice_hurt(_player = id)
     }
 }
 
-// arg0 is unused
-function voice_scream(arg0 = 1, _player = id)
+function voice_scream(_unused = 1, _player = id)
 {
     with (_player)
     {

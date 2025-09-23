@@ -1,10 +1,10 @@
 function scr_player_smallpep()
 {
-    collide_destructibles = function(arg0, arg1)
+    collide_destructibles = function(_h, _v)
     {
-        if (arg1 < 0)
+        if (_v < 0)
         {
-            if (scr_destroy_vertical(arg0))
+            if (scr_destroy_vertical(_v))
                 vsp = 0;
         }
     };

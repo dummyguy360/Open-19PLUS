@@ -1,6 +1,6 @@
-function get_sprite(arg0 = "")
+function get_sprite(gatespr_suffix = "")
 {
-    return asset_get_index(sprite_get_name(gatespr) + arg0);
+    return asset_get_index(sprite_get_name(gatespr) + gatespr_suffix);
 }
 
 depth = 10;
