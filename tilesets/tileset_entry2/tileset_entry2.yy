@@ -13,7 +13,7 @@
   "out_tilevborder":2,
   "parent":{
     "name":"Archaic Entry",
-    "path":"folders/Tilesets/Archaic Entry.yy",
+    "path":"folders/Tilesets/Levels/Archaic Entry.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",

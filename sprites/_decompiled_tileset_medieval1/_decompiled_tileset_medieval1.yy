@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"Used Sprites",
-    "path":"folders/Tilesets/Pizzascape/Used Sprites.yy",
+    "path":"folders/Tilesets/Levels/Pizzascape/Used Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -51,8 +51,8 @@
   },
   "origin":9,
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Sprites/UNSORTED.yy",
+    "name":"Key",
+    "path":"folders/Sprites/Level Structure/Key.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

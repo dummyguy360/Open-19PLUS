@@ -53,8 +53,8 @@
   },
   "origin":9,
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Sprites/UNSORTED.yy",
+    "name":"Cheese Blocks",
+    "path":"folders/Sprites/Level Structure/Cheese Blocks.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

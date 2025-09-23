@@ -46,8 +46,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Sprites/UNSORTED.yy",
+    "name":"Miscellanous",
+    "path":"folders/Sprites/Miscellanous.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

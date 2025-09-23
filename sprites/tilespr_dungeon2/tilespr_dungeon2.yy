@@ -45,7 +45,7 @@
   "origin":0,
   "parent":{
     "name":"Fixed Sprites",
-    "path":"folders/Tilesets/Bloodsauce Dungeon/Fixed Sprites.yy",
+    "path":"folders/Tilesets/Levels/Bloodsauce Dungeon/Fixed Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -53,8 +53,8 @@
   },
   "origin":4,
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Sprites/UNSORTED.yy",
+    "name":"Priest",
+    "path":"folders/Sprites/Level Structure/Priest.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

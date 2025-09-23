@@ -45,7 +45,7 @@
   "origin":0,
   "parent":{
     "name":"Fixed Sprites",
-    "path":"folders/Tilesets/Pizzascape/Fixed Sprites.yy",
+    "path":"folders/Tilesets/Levels/Pizzascape/Fixed Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -13,7 +13,7 @@
   "out_tilevborder":2,
   "parent":{
     "name":"The Ancient Cheese",
-    "path":"folders/Tilesets/The Ancient Cheese.yy",
+    "path":"folders/Tilesets/Levels/The Ancient Cheese.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",

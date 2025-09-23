@@ -44,8 +44,8 @@
   },
   "origin":4,
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Sprites/UNSORTED.yy",
+    "name":"spr_heropep",
+    "path":"folders/Sprites/Player/Peppino/spr_heropep.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

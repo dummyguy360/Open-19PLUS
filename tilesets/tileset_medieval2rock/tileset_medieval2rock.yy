@@ -13,7 +13,7 @@
   "out_tilevborder":2,
   "parent":{
     "name":"Pizzascape",
-    "path":"folders/Tilesets/Pizzascape.yy",
+    "path":"folders/Tilesets/Levels/Pizzascape.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",

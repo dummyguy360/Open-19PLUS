@@ -50,8 +50,8 @@
   },
   "origin":9,
   "parent":{
-    "name":"Level Structure",
-    "path":"folders/Sprites/Level Structure.yy",
+    "name":"Cheese Blocks",
+    "path":"folders/Sprites/Level Structure/Cheese Blocks.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

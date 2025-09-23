@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"Used Sprites",
-    "path":"folders/Tilesets/The Ancient Cheese/Used Sprites.yy",
+    "path":"folders/Tilesets/Levels/The Ancient Cheese/Used Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

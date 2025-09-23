@@ -45,7 +45,7 @@
   "origin":0,
   "parent":{
     "name":"Fixed Sprites",
-    "path":"folders/Tilesets/The Ancient Cheese/Fixed Sprites.yy",
+    "path":"folders/Tilesets/Levels/The Ancient Cheese/Fixed Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

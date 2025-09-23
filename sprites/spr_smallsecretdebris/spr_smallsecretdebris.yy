@@ -46,8 +46,8 @@
   },
   "origin":4,
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Sprites/UNSORTED.yy",
+    "name":"Visual Effects & Particles",
+    "path":"folders/Sprites/Visual Effects & Particles.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

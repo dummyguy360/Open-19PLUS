@@ -26,7 +26,7 @@
   "origin":0,
   "parent":{
     "name":"Used Sprites",
-    "path":"folders/Tilesets/Bloodsauce Dungeon/Used Sprites.yy",
+    "path":"folders/Tilesets/Levels/Bloodsauce Dungeon/Used Sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

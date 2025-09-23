@@ -44,8 +44,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"UNSORTED",
-    "path":"folders/Sprites/UNSORTED.yy",
+    "name":"Pillar John",
+    "path":"folders/Sprites/Level Structure/Pillar John.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
