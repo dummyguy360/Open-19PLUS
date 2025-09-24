@@ -1,20 +1,11 @@
 // unused in code, but works
-function pattern_set(_pal_spr, _target_spr, _target_spr_index, _mask_col)
+function pattern_set(_pal_spr, _target_spr = sprite_index, _target_spr_index = image_index, _mask_col = #FFFF40)
 {
     static u_mask = shader_get_uniform(shd_pattern, "u_Mask");
     static u_spr = shader_get_uniform(shd_pattern, "u_SprRect");
     static u_pat = shader_get_uniform(shd_pattern, "u_PatRect");
     static u_texel = shader_get_uniform(shd_pattern, "u_TexelScl");
     static u_offset = shader_get_uniform(shd_pattern, "u_SprOffset");
-    
-    if (_target_spr == undefined)
-        _target_spr = sprite_index;
-    
-    if (_target_spr_index == undefined)
-        _target_spr_index = image_index;
-    
-    if (_mask_col == undefined)
-        _mask_col = 4259839;
     
     var _s_pat = shader_get_sampler_index(shd_pattern, "s_Pattern");
     var _tex = sprite_get_texture(_pal_spr, 0);
@@ -31,18 +22,12 @@ function pattern_set(_pal_spr, _target_spr, _target_spr_index, _mask_col)
 }
 
 // used only for peppino cheese clone
-function clone_set(_target_spr, _target_spr_index)
+function clone_set(_target_spr = sprite_index, _target_spr_index = image_index)
 {
     static u_spr = shader_get_uniform(shd_pizzaclone, "u_SprRect");
     static u_pat = shader_get_uniform(shd_pizzaclone, "u_PatRect");
     static u_texel = shader_get_uniform(shd_pizzaclone, "u_TexelScl");
     static u_offset = shader_get_uniform(shd_pizzaclone, "u_SprOffset");
-    
-    if (_target_spr == undefined)
-        _target_spr = sprite_index;
-    
-    if (_target_spr_index == undefined)
-        _target_spr_index = image_index;
     
     var _s_pat = shader_get_sampler_index(shd_pizzaclone, "s_Pattern");
     var _tex = sprite_get_texture(spr_pizzaclonepattern, 0);
