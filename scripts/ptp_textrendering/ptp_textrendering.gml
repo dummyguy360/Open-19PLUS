@@ -1,4 +1,5 @@
-function __ptp_draw_text(arg0, arg1, arg2, arg3 = 1, arg4 = 1, arg5 = 0, arg6 = draw_get_color(), arg7 = draw_get_color(), arg8 = draw_get_color(), arg9 = draw_get_color(), arg10 = draw_get_alpha())
+#region PTP System Draw Functions
+function __ptp_draw_text(_x, _y, _str, _xscale = 1, _yscale = 1, _angle = 0, _c1 = draw_get_color(), _c2 = draw_get_color(), _c3 = draw_get_color(), _c4 = draw_get_color(), _alpha = draw_get_alpha())
 {
     var _prevshader = shader_current();
     var _sdf = font_get_sdf_enabled(draw_get_font());
@@ -6,13 +7,13 @@ function __ptp_draw_text(arg0, arg1, arg2, arg3 = 1, arg4 = 1, arg5 = 0, arg6 = 
     if (_sdf && _prevshader == shd_premultiply)
         shader_set(shd_sdf_premultiply);
     
-    draw_text_transformed_colour(arg0 - 0.01, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
+    draw_text_transformed_colour(_x - 0.01, _y, _str, _xscale, _yscale, _angle, _c1, _c2, _c3, _c4, _alpha);
     
     if (_sdf && _prevshader == shd_premultiply)
         shader_set(_prevshader);
 }
 
-function __ptp_draw_text_ext(arg0, arg1, arg2, arg3, arg4, arg5 = 1, arg6 = 1, arg7 = 0, arg8 = draw_get_color(), arg9 = draw_get_color(), arg10 = draw_get_color(), arg11 = draw_get_color(), arg12 = draw_get_alpha())
+function __ptp_draw_text_ext(_x, _y, _str, _sep, _w, _xscale = 1, _yscale = 1, _angle = 0, _c1 = draw_get_color(), _c2 = draw_get_color(), _c3 = draw_get_color(), _c4 = draw_get_color(), _alpha = draw_get_alpha())
 {
     var _prevshader = shader_current();
     var _sdf = font_get_sdf_enabled(draw_get_font());
@@ -20,53 +21,54 @@ function __ptp_draw_text_ext(arg0, arg1, arg2, arg3, arg4, arg5 = 1, arg6 = 1, a
     if (_sdf && _prevshader == shd_premultiply)
         shader_set(shd_sdf_premultiply);
     
-    draw_text_ext_transformed_colour(arg0 - 0.01, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12);
+    draw_text_ext_transformed_colour(_x - 0.01, _y, _str, _sep, _w, _xscale, _yscale, _angle, _c1, _c2, _c3, _c4, _alpha);
     
     if (_sdf && _prevshader == shd_premultiply)
         shader_set(_prevshader);
 }
+#endregion
 
-function __draw_text_hook(arg0, arg1, arg2)
+function __draw_text_hook(_x, _y, _str)
 {
-    __ptp_draw_text(arg0, arg1, arg2);
+    __ptp_draw_text(_x, _y, _str);
 }
 
-function __draw_text_ext_hook(arg0, arg1, arg2, arg3, arg4)
+function __draw_text_ext_hook(_x, _y, _str, _sep, _w)
 {
-    __ptp_draw_text_ext(arg0, arg1, arg2, arg3, arg4);
+    __ptp_draw_text_ext(_x, _y, _str, _sep, _w);
 }
 
-function __draw_text_colour_hook(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
+function __draw_text_colour_hook(_x, _y, _str, _c1, _c2, _c3, _c4, _alpha)
 {
-    __ptp_draw_text(arg0, arg1, arg2, 1, 1, 0, arg3, arg4, arg5, arg6, arg7);
+    __ptp_draw_text(_x, _y, _str, 1, 1, 0, _c1, _c2, _c3, _c4, _alpha);
 }
 
-function __draw_text_transformed_hook(arg0, arg1, arg2, arg3, arg4, arg5)
+function __draw_text_transformed_hook(_x, _y, _str, _xscale, _yscale, _angle)
 {
-    __ptp_draw_text(arg0, arg1, arg2, arg3, arg4, arg5);
+    __ptp_draw_text(_x, _y, _str, _xscale, _yscale, _angle);
 }
 
-function __draw_text_ext_colour_hook(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9)
+function __draw_text_ext_colour_hook(_x, _y, _str, _sep, _w, _c1, _c2, _c3, _c4, _alpha)
 {
-    __ptp_draw_text_ext(arg0, arg1, arg2, arg3, arg4, 1, 1, 0, arg5, arg6, arg7, arg8, arg9);
+    __ptp_draw_text_ext(_x, _y, _str, _sep, _w, 1, 1, 0, _c1, _c2, _c3, _c4, _alpha);
 }
 
-function __draw_text_ext_transformed_hook(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7)
+function __draw_text_ext_transformed_hook(_x, _y, _str, _sep, _w, _xscale, _yscale, _angle)
 {
-    __ptp_draw_text_ext(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
+    __ptp_draw_text_ext(_x, _y, _str, _sep, _w, _xscale, _yscale, _angle);
 }
 
-function __draw_text_transformed_colour_hook(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10)
+function __draw_text_transformed_colour_hook(_x, _y, _str, _xscale, _yscale, _angle, _c1, _c2, _c3, _c4, _alpha)
 {
-    __ptp_draw_text(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10);
+    __ptp_draw_text(_x, _y, _str, _xscale, _yscale, _angle, _c1, _c2, _c3, _c4, _alpha);
 }
 
-function __draw_text_ext_transformed_colour_hook(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12)
+function __draw_text_ext_transformed_colour_hook(_x, _y, _str, _sep, _w, _xscale, _yscale, _angle, _c1, _c2, _c3, _c4, _alpha)
 {
-    __ptp_draw_text_ext(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12);
+    __ptp_draw_text_ext(_x, _y, _str, _sep, _w, _xscale, _yscale, _angle, _c1, _c2, _c3, _c4, _alpha);
 }
 
-function draw_text_fancy(arg0, arg1, arg2, arg3 = c_white, arg4 = 1, arg5 = true, arg6 = input_profile_get(), arg7 = 0)
+function draw_text_fancy(_x, _y, _str, _color = c_white, _alpha = 1, _remapkeys = true, _profile = input_profile_get(), _alternate = 0)
 {
     var _font = draw_get_font();
     var _halign = draw_get_halign();
@@ -74,7 +76,7 @@ function draw_text_fancy(arg0, arg1, arg2, arg3 = c_white, arg4 = 1, arg5 = true
     draw_set_valign(fa_top);
     draw_set_halign(fa_left);
     var _width = -5;
-    var _lines = string_split(arg2, "\n");
+    var _lines = string_split(_str, "\n");
     
     for (var l = 0; l < array_length(_lines); l++)
     {
@@ -82,20 +84,20 @@ function draw_text_fancy(arg0, arg1, arg2, arg3 = c_white, arg4 = 1, arg5 = true
             _width = string_width_fancy(_lines[l]);
     }
     
-    var _startingx = arg0;
+    var _startingx = _x;
     
     if (_halign == 1)
-        arg0 -= (_width / 2);
+        _x -= (_width / 2);
     else if (_halign == 2)
-        arg0 -= _width;
+        _x -= _width;
     
     var _lineheight = string_height("A") + global.fontextra[_font][7];
-    var _height = (string_count("\n", arg2) + 1) * _lineheight;
+    var _height = (string_count("\n", _str) + 1) * _lineheight;
     
     if (_valign == 1)
-        arg1 -= (_height / 2);
+        _y -= (_height / 2);
     else if (_valign == 2)
-        arg1 -= _height;
+        _y -= _height;
     
     var _frame = floor(current_time / 16.666666666666668);
     var _shake = false;
@@ -109,30 +111,30 @@ function draw_text_fancy(arg0, arg1, arg2, arg3 = c_white, arg4 = 1, arg5 = true
     if (_sdf && _prevshader == shd_premultiply)
         shader_set(shd_sdf_premultiply);
     
-    for (var i = 1; i < (string_length(arg2) + 1); i++)
+    for (var i = 1; i < (string_length(_str) + 1); i++)
     {
-        var _char = string_char_at(arg2, i);
-        var _input = string_copy(arg2, i, 3);
+        var _char = string_char_at(_str, i);
+        var _input = string_copy(_str, i, 3);
         var _xoff = 0;
         var _yoff = 0;
         
         if (_char == "\n")
         {
-            arg1 += _lineheight;
-            var _nextlineendpos = string_pos_ext("\n", arg2, i + 1);
+            _y += _lineheight;
+            var _nextlineendpos = string_pos_ext("\n", _str, i + 1);
             
             if (_nextlineendpos == 0)
-                _nextlineendpos = string_length(arg2);
+                _nextlineendpos = string_length(_str);
             
             _nextlineendpos -= i;
-            var _nextlinestr = string_copy(arg2, i + 1, _nextlineendpos);
-            arg0 = _startingx;
+            var _nextlinestr = string_copy(_str, i + 1, _nextlineendpos);
+            _x = _startingx;
             
             if (_halign == 1)
-                arg0 -= (string_width_fancy(_nextlinestr) / 2);
+                _x -= (string_width_fancy(_nextlinestr) / 2);
             
             if (_halign == 2)
-                arg0 -= string_width_fancy(_nextlinestr);
+                _x -= string_width_fancy(_nextlinestr);
         }
         else
         {
@@ -172,20 +174,20 @@ function draw_text_fancy(arg0, arg1, arg2, arg3 = c_white, arg4 = 1, arg5 = true
                         _yoff = _vertshakedir;
                     
                     if (_wave)
-                        _yoff = wave(-2, 2, 1, 0, current_time + arg0);
+                        _yoff = wave(-2, 2, 1, 0, current_time + _x);
                     
                     if (!is_undefined(global.inputs[? _input]))
                     {
                         var _verb = global.inputs[? _input];
-                        array_push(_drawinputs, [round(arg0 + global.fontextra[_font][5] + _xoff), round(arg1 + global.fontextra[_font][6] + _yoff), _verb]);
-                        arg0 += global.fontextra[_font][4];
+                        array_push(_drawinputs, [round(_x + global.fontextra[_font][5] + _xoff), round(_y + global.fontextra[_font][6] + _yoff), _verb]);
+                        _x += global.fontextra[_font][4];
                         i += 2;
                         break;
                         break;
                     }
                     
-                    draw_text_colour(round(arg0 + _xoff), round(arg1 + _yoff), _char, arg3, arg3, arg3, arg3, arg4);
-                    arg0 += string_width(_char);
+                    draw_text_colour(round(_x + _xoff), round(_y + _yoff), _char, _color, _color, _color, _color, _alpha);
+                    _x += string_width(_char);
             }
         }
     }
@@ -194,7 +196,7 @@ function draw_text_fancy(arg0, arg1, arg2, arg3 = c_white, arg4 = 1, arg5 = true
         shader_set(_prevshader);
     
     for (var _i = 0; _i < array_length(_drawinputs); _i++)
-        draw_input(_drawinputs[_i][0], _drawinputs[_i][1], arg4, _drawinputs[_i][2], arg5, arg6, arg7, global.fontextra[_font][0], global.fontextra[_font][1], global.fontextra[_font][2], global.fontextra[_font][3]);
+        draw_input(_drawinputs[_i][0], _drawinputs[_i][1], _alpha, _drawinputs[_i][2], _remapkeys, _profile, _alternate, global.fontextra[_font][0], global.fontextra[_font][1], global.fontextra[_font][2], global.fontextra[_font][3]);
     
     draw_set_halign(_halign);
     draw_set_valign(_valign);

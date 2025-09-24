@@ -116,7 +116,7 @@ if (place_meeting(x, y, obj_player) && !instance_exists(obj_sagegateplayer) && u
                 
                 if (_ranksign != 3)
                 {
-                    var _ntime = get_level_tt_time(level, min(_ranksign + 1, 3));
+                    var _ntime = get_level_tt_time(level, min(_ranksign + tt_rank.silver, tt_rank.purple));
                     var _nmilliseconds = string_padzeros(floor(((abs(_ntime) / 60) % 60 % 1) * 100));
                     var _nseconds = string_padzeros(floor((abs(_ntime) / 60) % 60));
                     var _nminutes = string_padzeros((abs(_ntime) div 60 div 60) % 60);

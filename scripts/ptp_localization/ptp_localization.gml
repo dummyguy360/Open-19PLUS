@@ -1,15 +1,15 @@
-function strings_read(arg0)
+function strings_read(_str_file)
 {
-    var _stringsfile = buffer_load(arg0);
+    var _stringsfile = buffer_load(_str_file);
     var _strings = buffer_read(_stringsfile, buffer_string);
     obj_pause.stringsstruct = json_parse(_strings);
     buffer_delete(_stringsfile);
 }
 
-function dialogue_read(arg0)
+function dialogue_read(_str_file)
 {
     var _folders = [];
-    var _folder = file_find_first(arg0 + "/*", 16);
+    var _folder = file_find_first(_str_file + "/*", 16);
     
     while (_folder != "")
     {
@@ -21,11 +21,11 @@ function dialogue_read(arg0)
     
     for (var i = 0; i < array_length(_folders); i++)
     {
-        var _dialogue = file_find_first(string("{0}/{1}/*", arg0, _folders[i]), 0);
+        var _dialogue = file_find_first(string("{0}/{1}/*", _str_file, _folders[i]), 0);
         
         while (_dialogue != "")
         {
-            ds_map_add(obj_pause.dialoguemap, string("{0}/{1}", _folders[i], string_replace(_dialogue, ".psn", "")), parse_dialogue(string("{0}/{1}/{2}", arg0, _folders[i], _dialogue)));
+            ds_map_add(obj_pause.dialoguemap, string("{0}/{1}", _folders[i], string_replace(_dialogue, ".psn", "")), parse_dialogue(string("{0}/{1}/{2}", _str_file, _folders[i], _dialogue)));
             _dialogue = file_find_next();
         }
         
@@ -33,9 +33,9 @@ function dialogue_read(arg0)
     }
 }
 
-function string_get(arg0)
+function string_get(_str)
 {
-    var _vars = string_split(arg0, "/");
+    var _vars = string_split(_str, "/");
     var _prevvar = obj_pause.stringsstruct;
     
     for (var i = 0; i < array_length(_vars); i++)
@@ -73,9 +73,7 @@ function string_get(arg0)
             }
         }
         else
-        {
             _isdirectory = false;
-        }
         
         _replace = _isdirectory ? _aroot : string(_replace);
         
@@ -85,17 +83,15 @@ function string_get(arg0)
                 _prevvar[i] = string_replace(_prevvar[i], string("{{0}}", p - 1), _replace);
         }
         else
-        {
             _prevvar = string_replace(_prevvar, string("{{0}}", p - 1), _replace);
-        }
     }
     
     return _prevvar;
 }
 
-function dialogue_get(arg0)
+function dialogue_get(_str)
 {
-    var _dialogue = obj_pause.dialoguemap[? arg0];
+    var _dialogue = obj_pause.dialoguemap[? _str];
     
     if (is_undefined(_dialogue))
         _dialogue = parse_dialogue("{PP;SK;MR}\n\n[PP_Normal] ???\n[SK_Normal] ???\n[MR_Normal] Well this sucks.");
@@ -103,20 +99,19 @@ function dialogue_get(arg0)
     return _dialogue;
 }
 
-function parse_dialogue(arg0 = -1)
+function parse_dialogue(_str_file = -1)
 {
     var _str = "";
     
-    if (file_exists(arg0) && arg0 != -1)
+    if (file_exists(_str_file) && _str_file != -1)
     {
-        var _txtbuff = buffer_load(arg0);
+        var _txtbuff = buffer_load(_str_file);
         _str = buffer_read(_txtbuff, buffer_string);
         buffer_delete(_txtbuff);
     }
+	// Default Dialogue
     else
-    {
         _str = "{PP;SK;MR}\n\n[PP_Normal] ???\n[SK_Normal] ???\n[MR_Normal] Well this sucks.";
-    }
     
     _str = string_replace_all(_str, "\r\n", "\n");
     var _lines = string_split(_str, "\n", true);

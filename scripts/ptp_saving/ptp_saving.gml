@@ -82,7 +82,7 @@ function save_load()
     }
 }
 
-function save_dump(arg0 = noone)
+function save_dump(level_name = noone)
 {
     with (obj_savesystem)
     {
@@ -103,11 +103,11 @@ function save_dump(arg0 = noone)
             buffer_delete(_wallettempbuff);
             buffer_save_async(walletsavebuff, "playerWallet.save", 0, buffer_get_size(walletsavebuff));
             
-            if (arg0 != noone && arg0 != "tutorial" && global.timetrial)
+            if (level_name != noone && level_name != "tutorial" && global.timetrial)
             {
-                if (global.timetrialreplays[? arg0] == -1 || global.timetrialtick < array_get(global.timetrialreplays[? arg0], 0))
+                if (global.timetrialreplays[? level_name] == -1 || global.timetrialtick < array_get(global.timetrialreplays[? level_name], 0))
                 {
-                    var _filename = string_concat(arg0, "Replay.demo");
+                    var _filename = string_concat(level_name, "Replay.demo");
                     var _buffsize = buffer_tell(global.timetrialrecording);
                     var _mapsize = ds_map_size(global.timetrialsplits);
                     var _tempbuff = buffer_create(_buffsize + 17, buffer_grow, 1);
@@ -130,22 +130,20 @@ function save_dump(arg0 = noone)
                     buffer_delete(_tempbuff);
                     buffer_save_async(demosavebuff, _filename, 0, buffer_get_size(demosavebuff));
                     
-                    if (global.timetrialreplays[? arg0] == -1)
-                        global.timetrialreplays[? arg0] = [-1, -1];
+                    if (global.timetrialreplays[? level_name] == -1)
+                        global.timetrialreplays[? level_name] = [-1, -1];
                     else
-                        buffer_delete(array_get(global.timetrialreplays[? arg0], 1));
+                        buffer_delete(array_get(global.timetrialreplays[? level_name], 1));
                     
-                    array_set(global.timetrialreplays[? arg0], 0, global.timetrialtick);
-                    array_set(global.timetrialreplays[? arg0], 1, global.timetrialrecording);
-                    ds_map_copy(global.timetrialsavedsplits[? arg0], global.timetrialsplits);
+                    array_set(global.timetrialreplays[? level_name], 0, global.timetrialtick);
+                    array_set(global.timetrialreplays[? level_name], 1, global.timetrialrecording);
+                    ds_map_copy(global.timetrialsavedsplits[? level_name], global.timetrialsplits);
                     global.timetrialrecording = buffer_create(0, buffer_grow, 1);
                     ds_map_clear(global.timetrialsplits);
                 }
             }
             else
-            {
                 demosavebuff = -1;
-            }
             
             asyncsaveid = buffer_async_group_end();
         }
@@ -207,68 +205,68 @@ function wallet_close()
     obj_savesystem.walletstr = ini_close();
 }
 
-function wallet_writecoins(arg0 = -3)
+function wallet_writecoins(_level = -3)
 {
-    if (arg0 == -3)
+    if (_level == -3)
     {
         for (var i = 0; i < array_length(global.levels); i++)
             wallet_writecoins(global.levels[i]);
     }
-    else if (!ds_list_empty(global.pizzacointracker[? arg0]))
+    else if (!ds_list_empty(global.pizzacointracker[? _level]))
     {
-        var _str = ds_list_write(global.pizzacointracker[? arg0]);
-        ini_write_string("Data", arg0, _str);
+        var _str = ds_list_write(global.pizzacointracker[? _level]);
+        ini_write_string("Data", _level, _str);
     }
 }
 
-function wallet_readcoins(arg0 = -3, arg1 = false)
+function wallet_readcoins(_level = -3, _clear_lvl_data = false)
 {
-    if (arg0 == -3)
+    if (_level == -3)
     {
         for (var i = 0; i < array_length(global.levels); i++)
             wallet_readcoins(global.levels[i]);
     }
     else
     {
-        var _str = ini_read_string("Data", arg0, "");
+        var _str = ini_read_string("Data", _level, "");
         
         if (_str != "")
-            ds_list_read(global.pizzacointracker[? arg0], _str);
-        else if (arg1)
-            ds_list_clear(global.pizzacointracker[? arg0]);
+            ds_list_read(global.pizzacointracker[? _level], _str);
+        else if (_clear_lvl_data)
+            ds_list_clear(global.pizzacointracker[? _level]);
     }
 }
 
-function config_get_option(arg0, arg1, arg2)
+function config_get_option(_section_name, _option_name, _value)
 {
     with (obj_savesystem)
     {
-        if (!variable_struct_exists(configstruct, arg0))
-            return arg2;
+        if (!variable_struct_exists(configstruct, _section_name))
+            return _value;
         
-        var _sect = variable_struct_get(configstruct, arg0);
+        var _sect = variable_struct_get(configstruct, _section_name);
         
-        if (!variable_struct_exists(_sect, arg1))
-            return arg2;
+        if (!variable_struct_exists(_sect, _option_name))
+            return _value;
         
-        arg2 = variable_struct_get(_sect, arg1);
-        return arg2;
+        _value = variable_struct_get(_sect, _option_name);
+        return _value;
     }
 }
 
-function config_set_option(arg0, arg1, arg2)
+function config_set_option(_section_name, _option_name, _value)
 {
     with (obj_savesystem)
     {
-        if (!variable_struct_exists(configstruct, arg0))
-            variable_struct_set(configstruct, arg0, {});
+        if (!variable_struct_exists(configstruct, _section_name))
+            variable_struct_set(configstruct, _section_name, {});
         
-        var _sect = variable_struct_get(configstruct, arg0);
-        variable_struct_set(_sect, arg1, arg2);
+        var _sect = variable_struct_get(configstruct, _section_name);
+        variable_struct_set(_sect, _option_name, _value);
     }
 }
 
-function calc_perc(arg0 = global.pizzacointracker)
+function calc_perc(_coin_amount = global.pizzacointracker)
 {
     var _lcount = array_length(global.levels);
     var _tcount = 0;
@@ -284,7 +282,7 @@ function calc_perc(arg0 = global.pizzacointracker)
     
     for (var i = 0; i < array_length(global.levels); i++)
     {
-        _coins += ds_list_size(arg0[? global.levels[i]]);
+        _coins += ds_list_size(_coin_amount[? global.levels[i]]);
         _rankperc += (ini_read_real("Ranks", global.levels[i], -1) >= 4);
         _prankperc += (ini_read_real("Ranks", global.levels[i], -1) >= 5);
         _ttrankperc += (ini_read_real("TrialRanks", global.levels[i], -1) >= 2);

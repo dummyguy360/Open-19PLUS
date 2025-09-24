@@ -89,7 +89,7 @@ function scr_destroy_horizontal(_hspeed, _flags = destroy.none)
                         break;
                     
                     case obj_onewaybigblock:
-                        if (sign(arg0) == -sign(image_xscale))
+                        if (sign(_hspeed) == -sign(image_xscale))
                             instance_destroy();
                         
                         gamepadvibrate(0.4, 0, 8);

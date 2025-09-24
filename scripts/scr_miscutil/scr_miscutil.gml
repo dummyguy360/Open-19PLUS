@@ -15,14 +15,14 @@ function is_player_grabbing(p = obj_player)
     return p.state == states.suplexgrab || p.state == states.shoulderbash || p.state == states.kungfu || p.state == states.lunge;
 }
 
-function draw_rotated_primcircle(arg0, arg1, arg2, arg3, arg4)
+function draw_rotated_primcircle(_x, _y, _len, _dir, _vertex_amount)
 {
-    var _add = 360 / arg4;
+    var _add = 360 / _vertex_amount;
     draw_primitive_begin(pr_trianglefan);
-    draw_vertex(arg0, arg1);
+    draw_vertex(_x, _y);
     
-    for (var i = 0; i < arg4; i++)
-        draw_vertex(arg0 + lengthdir_x(arg2, arg3 + (_add * i)), arg1 + lengthdir_y(arg2, arg3 + (_add * i)));
+    for (var i = 0; i < _vertex_amount; i++)
+        draw_vertex(_x + lengthdir_x(_len, _dir + (_add * i)), _y + lengthdir_y(_len, _dir + (_add * i)));
     
     draw_primitive_end();
 }
@@ -162,31 +162,31 @@ function array_find_pos(array, entry)
     return -1;
 }
 
-function string_wordwrap_width(arg0, arg1, arg2, arg3)
+function string_wordwrap_width(_str, _spacing, _spacing_str, _pos_type)
 {
     var pos_space = -1;
     var pos_current = 1;
-    var text_current = arg0;
+    var text_current = _str;
     
-    if (is_real(arg2))
-        arg2 = "#";
+    if (is_real(_spacing_str))
+        _spacing_str = "#";
     
     var text_output = "";
     
     while (string_length(text_current) >= pos_current)
     {
-        if (string_width(string_copy(text_current, 1, pos_current)) > arg1)
+        if (string_width(string_copy(text_current, 1, pos_current)) > _spacing)
         {
             if (pos_space != -1)
             {
-                text_output += (string_copy(text_current, 1, pos_space) + string(arg2));
+                text_output += (string_copy(text_current, 1, pos_space) + string(_spacing_str));
                 text_current = string_copy(text_current, pos_space + 1, string_length(text_current) - pos_space);
                 pos_current = 1;
                 pos_space = -1;
             }
-            else if (arg3)
+            else if (_pos_type)
             {
-                text_output += (string_copy(text_current, 1, pos_current - 1) + string(arg2));
+                text_output += (string_copy(text_current, 1, pos_current - 1) + string(_spacing_str));
                 text_current = string_copy(text_current, pos_current, string_length(text_current) - (pos_current - 1));
                 pos_current = 1;
                 pos_space = -1;
@@ -230,10 +230,10 @@ function create_uparrow()
     return _createdID;
 }
 
-function fire_ray(arg0, arg1, arg2, arg3, arg4 = 1, arg5 = noone, arg6 = noone, arg7 = spr_1x1)
+function fire_ray(_x1, _y1, _x2, _y2, _check = 1, _obj = noone, _unused = noone, _mask_index = spr_1x1)
 {
-    var _dist = point_distance(arg0, arg1, arg2, arg3);
-    var _dir = point_direction(arg0, arg1, arg2, arg3);
+    var _dist = point_distance(_x1, _y1, _x2, _y2);
+    var _dir = point_direction(_x1, _y1, _x2, _y2);
     var _mask = mask_index;
     var _raystruct = 
     {
@@ -243,7 +243,7 @@ function fire_ray(arg0, arg1, arg2, arg3, arg4 = 1, arg5 = noone, arg6 = noone, 
     };
     var _ogx = x;
     var _ogy = y;
-    mask_index = arg7;
+    mask_index = _mask_index;
     
     if (_dist > 0)
     {
@@ -251,24 +251,24 @@ function fire_ray(arg0, arg1, arg2, arg3, arg4 = 1, arg5 = noone, arg6 = noone, 
         
         while (i < _dist)
         {
-            _raystruct.x = arg0 + lengthdir_x(i, _dir);
-            _raystruct.y = arg1 + lengthdir_y(i, _dir);
+            _raystruct.x = _x1 + lengthdir_x(i, _dir);
+            _raystruct.y = _y1 + lengthdir_y(i, _dir);
             x = _raystruct.x;
             y = _raystruct.y;
             _raystruct.clear = true;
             
             if (scr_solid(x + sign(lengthdir_x(1, _dir)), y + sign(lengthdir_y(1, _dir))))
             {
-                if (arg5 == noone || !place_meeting(x + sign(lengthdir_x(1, _dir)), y + sign(lengthdir_y(1, _dir)), arg5))
+                if (_obj == noone || !place_meeting(x + sign(lengthdir_x(1, _dir)), y + sign(lengthdir_y(1, _dir)), _obj))
                 {
                     _raystruct.clear = false;
                     break;
                 }
                 else
-                    i += arg4;
+                    i += _check;
             }
             else
-                i += arg4;
+                i += _check;
         }
     }
     
@@ -278,12 +278,12 @@ function fire_ray(arg0, arg1, arg2, arg3, arg4 = 1, arg5 = noone, arg6 = noone, 
     return _raystruct;
 }
 
-function fast_ray(arg0, arg1, arg2, arg3)
+function fast_ray(_x1, _y1, _x2, _y2)
 {
     static _il = global.instancelist;
     
-    var _y = arg3;
-    var _num = collision_rectangle_list(arg0, arg1, arg2, arg3, [obj_solid, obj_slope, (arg3 > arg1) ? obj_platform : noone], false, true, _il, true);
+    var _y = _y2;
+    var _num = collision_rectangle_list(_x1, _y1, _x2, _y2, [obj_solid, obj_slope, (_y2 > _y1) ? obj_platform : noone], false, true, _il, true);
     
     for (var _i = 0; _i < _num; _i++)
     {
@@ -302,13 +302,13 @@ function fast_ray(arg0, arg1, arg2, arg3)
                 
                 if (image_xscale > 0)
                 {
-                    object_side = max(arg0, arg2);
+                    object_side = max(_x1, _x2);
                     slope_start = bbox_bottom;
                     slope_end = bbox_top;
                 }
                 else
                 {
-                    object_side = min(arg0, arg2);
+                    object_side = min(_x1, _x2);
                     slope_start = bbox_top;
                     slope_end = bbox_bottom;
                 }
@@ -412,31 +412,31 @@ function scr_tiptext(_text, save_progress = noone)
     return _id;
 }
 
-function draw_input(arg0, arg1, arg2, arg3, arg4 = true, arg5 = input_profile_get(), arg6 = 0, arg7 = spr_controllerbuttons, arg8 = spr_keyboardkey, arg9 = spr_keyfunctions, arg10 = global.keyfont, arg11 = 0)
+function draw_input(_x, _y, _alpha, _verb, _remap_check = true, _profile = input_profile_get(), _alternate = 0, _controller_button_spr = spr_controllerbuttons, _keyboard_key_spr = spr_keyboardkey, _func_key_spr = spr_keyfunctions, _key_fnt = global.keyfont, _color = #FFFFFF)
 {
-    if (arg3 != "any")
+    if (_verb != "any")
     {
-        var _icon = input_verb_get_icon(arg3, 0, arg6, arg5);
+        var _icon = input_verb_get_icon(_verb, 0, _alternate, _profile);
         
         if (is_struct(_icon) || is_string(_icon))
         {
-            draw_sprite_ext(arg8, 0, arg0, arg1, 1, 1, 0, c_white, arg2);
+            draw_sprite_ext(_keyboard_key_spr, 0, _x, _y, 1, 1, 0, c_white, _alpha);
             
             if (is_string(_icon))
             {
                 var _prevfont = draw_get_font();
-                draw_set_font(arg10);
-                __draw_text_colour_hook(arg0, arg1, _icon, arg11, arg11, arg11, arg11, arg2);
+                draw_set_font(_key_fnt);
+                __draw_text_colour_hook(_x, _y, _icon, _color, _color, _color, _color, _alpha);
                 draw_set_font(_prevfont);
             }
             else
-                draw_sprite_ext(arg9, _icon.key, arg0, arg1, 1, 1, 0, arg11, arg2);
+                draw_sprite_ext(_func_key_spr, _icon.key, _x, _y, 1, 1, 0, _color, _alpha);
         }
         else
         {
             var _ind = _icon;
             
-            if (arg4)
+            if (_remap_check)
             {
                 switch (_ind)
                 {
@@ -466,11 +466,11 @@ function draw_input(arg0, arg1, arg2, arg3, arg4 = true, arg5 = input_profile_ge
                 }
             }
             
-            draw_sprite_ext(arg7, _ind, arg0, arg1, 1, 1, 0, c_white, arg2);
+            draw_sprite_ext(_controller_button_spr, _ind, _x, _y, 1, 1, 0, c_white, _alpha);
         }
     }
     else
-        draw_sprite_ext(arg7, 35, arg0, arg1, 1, 1, 0, c_white, arg2);
+        draw_sprite_ext(_controller_button_spr, 35, _x, _y, 1, 1, 0, c_white, _alpha);
 }
 
 function end_combo_abrupt()
@@ -527,33 +527,33 @@ function end_combopoint_abrupt()
     }
 }
 
-function json_are_equal(arg0, arg1)
+function json_are_equal(_json_file1, _json_file2)
 {
-    var type = typeof(arg0);
+    var type = typeof(_json_file1);
     
-    if (type != typeof(arg1))
+    if (type != typeof(_json_file2))
         return false;
     
     switch (type)
     {
         case "array":
-            var n = array_length(arg0);
+            var n = array_length(_json_file1);
             
-            if (n != array_length(arg1))
+            if (n != array_length(_json_file2))
                 return false;
             
             for (var i = 0; i < n; i++)
             {
-                if (!json_are_equal(arg0[i], arg1[i]))
+                if (!json_are_equal(_json_file1[i], _json_file2[i]))
                     return false;
             }
             
             break;
         
         case "struct":
-            var ks = variable_struct_get_names(arg0);
+            var ks = variable_struct_get_names(_json_file1);
             var n = array_length(ks);
-            var ksb = variable_struct_get_names(arg1);
+            var ksb = variable_struct_get_names(_json_file2);
             
             if (n != array_length(ksb))
                 return false;
@@ -562,14 +562,14 @@ function json_are_equal(arg0, arg1)
             {
                 var k = ks[i];
                 
-                if (!(variable_struct_exists(arg1, k) && json_are_equal(variable_struct_get(arg0, k), variable_struct_get(arg1, k))))
+                if (!(variable_struct_exists(_json_file2, k) && json_are_equal(variable_struct_get(_json_file1, k), variable_struct_get(_json_file2, k))))
                     return false;
             }
             
             break;
         
         default:
-            if (arg0 != arg1)
+            if (_json_file1 != _json_file2)
                 return false;
     }
 }
@@ -607,9 +607,9 @@ function update_object_coordinates(_obj = id)
     
     with (_obj)
     {
-        array_foreach(global.followers, function(arg0, arg1)
+        array_foreach(global.followers, function(_follower, _unused)
         {
-            with (arg0)
+            with (_follower)
             {
                 ds_queue_clear(followerqueue);
                 x = other.x;
@@ -643,33 +643,33 @@ function all_badges_bought()
     return true;
 }
 
-function badge_at_pos(arg0, arg1, arg2, arg3, arg4 = 0, arg5 = 0)
+function badge_at_pos(_badgeslots, _badgerows, _badge_amount, _badge_selected, _total_width = 0, _backing_y = 0)
 {
     var _badgewidth = 128;
     var _badgeheight = 128;
-    var _badgeswidth = arg0 / arg1;
+    var _badgeswidth = _badgeslots / _badgerows;
     _badgeswidth *= _badgewidth;
-    var _badgesheight = arg1 * _badgeheight;
+    var _badgesheight = _badgerows * _badgeheight;
     var _badgestruct = 
     {
-        x: arg3,
-        y: arg3,
-        info: array_get_undefined(arg2, arg3)
+        x: _badge_selected,
+        y: _badge_selected,
+        info: array_get_undefined(_badge_amount, _badge_selected)
     };
     
     with (_badgestruct)
     {
-        x %= (arg0 / arg1);
+        x %= (_badgeslots / _badgerows);
         x *= _badgewidth;
         x += (_badgewidth / 2);
         x -= (_badgeswidth / 2);
-        x += arg4;
-        y = (y / arg0) * arg1;
+        x += _total_width;
+        y = (y / _badgeslots) * _badgerows;
         y = floor(y);
         y *= _badgeheight;
         y += (_badgeheight / 2);
         y -= (_badgesheight / 2);
-        y += arg5;
+        y += _backing_y;
     }
     
     return _badgestruct;
@@ -802,28 +802,28 @@ function ach_perc()
     return _count / array_length(obj_achievementtracker.achievementlist);
 }
 
-function get_levelcoincount(arg0)
+function get_levelcoincount(_level)
 {
-    return ds_list_size(global.pizzacointracker[? arg0]);
+    return ds_list_size(global.pizzacointracker[? _level]);
 }
 
-function string_width_fancy(arg0)
+function string_width_fancy(_str)
 {
     var _font = draw_get_font();
     var _width = 0;
-    arg0 = string_replace_all(arg0, "{S}", "");
-    arg0 = string_replace_all(arg0, "{V}", "");
-    arg0 = string_replace_all(arg0, "{W}", "");
-    arg0 = string_replace_all(arg0, "{/}", "");
+    _str = string_replace_all(_str, "{S}", "");
+    _str = string_replace_all(_str, "{V}", "");
+    _str = string_replace_all(_str, "{W}", "");
+    _str = string_replace_all(_str, "{/}", "");
     var _arrays = ds_map_keys_to_array(global.inputs);
     
     for (var _i = 0; _i < array_length(_arrays); _i++)
     {
-        _width += (global.fontextra[_font][4] * string_count(_arrays[_i], arg0));
-        arg0 = string_replace_all(arg0, _arrays[_i], "");
+        _width += (global.fontextra[_font][4] * string_count(_arrays[_i], _str));
+        _str = string_replace_all(_str, _arrays[_i], "");
     }
     
-    _width += string_width(arg0);
+    _width += string_width(_str);
     return _width;
 }
 
@@ -837,66 +837,66 @@ function get_game_height()
     return global.currentinternalres[1];
 }
 
-function get_level_tt_time(arg0, arg1)
+function get_level_tt_time(_level_name, _tt_rank)
 {
-    switch (arg0)
+    switch (_level_name)
     {
         case "entry":
-            if (arg1 == 3)
+            if (_tt_rank == tt_rank.purple)
                 return 7020;
             
-            if (arg1 == 2)
+            if (_tt_rank == tt_rank.gold)
                 return 7800;
             
-            if (arg1 == 1)
+            if (_tt_rank == tt_rank.silver)
                 return 10200;
             
             break;
         
         case "medieval":
-            if (arg1 == 3)
+            if (_tt_rank == tt_rank.purple)
                 return 8640;
             
-            if (arg1 == 2)
+            if (_tt_rank == tt_rank.gold)
                 return 9600;
             
-            if (arg1 == 1)
+            if (_tt_rank == tt_rank.silver)
                 return 12000;
             
             break;
         
         case "ruin":
-            if (arg1 == 3)
+            if (_tt_rank == tt_rank.purple)
                 return 10080;
             
-            if (arg1 == 2)
+            if (_tt_rank == tt_rank.gold)
                 return 12000;
             
-            if (arg1 == 1)
+            if (_tt_rank == tt_rank.silver)
                 return 14400;
             
             break;
         
         case "dungeon":
-            if (arg1 == 3)
+            if (_tt_rank == tt_rank.purple)
                 return 10800;
             
-            if (arg1 == 2)
+            if (_tt_rank == tt_rank.gold)
                 return 13200;
             
-            if (arg1 == 1)
+            if (_tt_rank == tt_rank.silver)
                 return 14400;
             
             break;
         
         case "dragonslair":
-            if (arg1 == 3)
+            if (_tt_rank == tt_rank.purple)
                 return 12060;
             
-            if (arg1 == 2)
+            if (_tt_rank == tt_rank.gold)
                 return 13800;
             
-            if (arg1 == 1)
+            if (_tt_rank == tt_rank.silver)
                 return 16200;
             
             break;
