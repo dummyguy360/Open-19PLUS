@@ -412,16 +412,15 @@ function scr_tiptext(_text, save_progress = noone)
     return _id;
 }
 
-function draw_input(_x, _y, _alpha, _verb, _remap_check = true, _profile = input_profile_get(), _alternate = 0, _controller_button_spr = spr_controllerbuttons, _keyboard_key_spr = spr_keyboardkey, _func_key_spr = spr_keyfunctions, _key_fnt = global.keyfont, _color = #FFFFFF)
+function draw_input(_x, _y, _alpha, _verb, _remap_check = true, _profile = input_profile_get(), _alternate = 0, _controller_button_spr = spr_controllerbuttons, _keyboard_key_spr = spr_keyboardkey, _func_key_spr = spr_keyfunctions, _key_fnt = global.keyfont, _color = c_black)
 {
     if (_verb != "any")
     {
         var _icon = input_verb_get_icon(_verb, 0, _alternate, _profile);
-        
+		
         if (is_struct(_icon) || is_string(_icon))
         {
             draw_sprite_ext(_keyboard_key_spr, 0, _x, _y, 1, 1, 0, c_white, _alpha);
-            
             if (is_string(_icon))
             {
                 var _prevfont = draw_get_font();
@@ -435,7 +434,7 @@ function draw_input(_x, _y, _alpha, _verb, _remap_check = true, _profile = input
         else
         {
             var _ind = _icon;
-            
+			
             if (_remap_check)
             {
                 switch (_ind)
@@ -445,27 +444,24 @@ function draw_input(_x, _y, _alpha, _verb, _remap_check = true, _profile = input
                     case 20:
                         _ind = 39;
                         break;
-                    
                     case 5:
                     case 13:
                     case 18:
                         _ind = 37;
                         break;
-                    
                     case 6:
                     case 14:
                     case 19:
                         _ind = 38;
                         break;
-                    
                     case 4:
                     case 12:
                     case 17:
                         _ind = 36;
                         break;
                 }
+
             }
-            
             draw_sprite_ext(_controller_button_spr, _ind, _x, _y, 1, 1, 0, c_white, _alpha);
         }
     }
