@@ -188,9 +188,7 @@ function scr_player_mach3()
                 rollbuffer = 0;
             }
             else
-            {
                 sprite_index = spr_mach4;
-            }
         }
         
         if (grounded && vsp >= 0 && input_check("dash"))
@@ -221,9 +219,7 @@ function scr_player_mach3()
         sprite_index = spr_crazyrun;
     }
     else if (movespeed <= 16 && sprite_index == spr_crazyrun)
-    {
         sprite_index = spr_mach4;
-    }
     
     if (grounded && (sprite_index == spr_walljumpstart || sprite_index == spr_walljumpend))
         sprite_index = spr_mach4;
@@ -245,9 +241,7 @@ function scr_player_mach3()
         image_speed = 0.6;
         
         if (flamecloudbuffer > 0)
-        {
             flamecloudbuffer--;
-        }
         else
         {
             flamecloudbuffer = 10;
@@ -355,9 +349,7 @@ function scr_player_mach3()
                 vsp = 10;
             }
             else if (grounded)
-            {
                 state = states.machroll;
-            }
             
             if (!grounded)
                 fmod_studio_event_instance_start(divesnd);

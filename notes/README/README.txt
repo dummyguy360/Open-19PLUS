@@ -17,7 +17,7 @@ Also idk the history of this build, but I'm pretty sure its actually a playteste
 build of a (now cancelled) mod that planned on bring over Noise Update features with a 19 Plus twist
 not entirely sure, but if that's the case then yeah this decomp technically isn't vanilla
 
-But whatever, it's 19 PLUS just with the Noise included
+But whatever, it's '19 PLUS just with the Noise included
 
 --------------------------------------------------------
 Project Decompiled by Ultimate_GMS2_Decompiler_v3.csx

@@ -49,9 +49,7 @@ function scr_player_freefall()
                             sprite_index = spr_shotgunjump2;
                     }
                     else
-                    {
                         sprite_index = spr_player_poundcancel2;
-                    }
                     
                     state = states.freefallland;
                 }
@@ -162,9 +160,7 @@ function scr_player_freefall()
     freefallsmash++;
     
     if (steppy > 0)
-    {
         steppy--;
-    }
     else
     {
         instance_create_depth(x + irandom_range(-25, 25), y + irandom_range(-10, 35), 1, obj_cloudeffect);

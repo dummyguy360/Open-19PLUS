@@ -4,9 +4,7 @@ function scr_player_RETROdeath()
     global.smallpep = true;
     
     if (fmod_studio_event_instance_get_timeline_position(mariodeathid) < 0.5)
-    {
         vsp = -6;
-    }
     else
     {
         y += vsp;

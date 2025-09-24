@@ -140,9 +140,7 @@ function scr_player_climbwall()
     image_speed = wallspeed / 20;
     
     if (steppy > 0)
-    {
         steppy--;
-    }
     else
     {
         steppy = 10;

@@ -114,9 +114,7 @@ function scr_player_suplexgrab()
             state = states.shoulderbash;
             
             if (grounded)
-            {
                 sprite_index = spr_shoulderbash;
-            }
             else
             {
                 vsp = -5;

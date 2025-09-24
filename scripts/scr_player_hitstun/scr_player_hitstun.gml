@@ -13,9 +13,7 @@ function scr_player_hitstun()
         vsp = hitstunstoredvsp;
         
         if (hitstunstoredsprite != spr_player_hitstun1 && hitstunstoredsprite != spr_player_hitstun2 && hitstunstoredsprite != spr_player_hitstun3)
-        {
             sprite_index = hitstunstoredsprite;
-        }
         else if (hitstunstoredsprite == spr_player_hitstun1 || hitstunstoredsprite == spr_player_hitstun2 || hitstunstoredsprite == spr_player_hitstun3)
         {
             jumpAnim = 1;

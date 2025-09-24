@@ -231,9 +231,7 @@ function scr_player_normal()
             }
         }
         else
-        {
             turn = 0;
-        }
     }
     
     if (landAnim)

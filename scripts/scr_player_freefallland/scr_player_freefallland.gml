@@ -50,9 +50,7 @@ function scr_player_freefallland()
                     sprite_index = spr_armhurtup;
             }
             else
-            {
                 sprite_index = spr_fall;
-            }
             
             image_index = 0;
         }

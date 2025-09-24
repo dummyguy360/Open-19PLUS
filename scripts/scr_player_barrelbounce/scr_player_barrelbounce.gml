@@ -12,9 +12,7 @@ function scr_player_barrelbounce()
         state = states.barrel;
         
         if (!input_check("dash"))
-        {
             landAnim = 1;
-        }
         else
         {
             movespeed = 10 * xscale;

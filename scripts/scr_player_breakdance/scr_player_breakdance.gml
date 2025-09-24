@@ -26,9 +26,7 @@ function scr_player_breakdance()
                         sprite_index = spr_mach;
                     }
                     else
-                    {
                         state = states.normal;
-                    }
                 }
             }
             
@@ -148,9 +146,7 @@ function scr_player_breakdance()
             if (grounded && vsp >= 0)
             {
                 if (!input_check("dash"))
-                {
                     state = states.normal;
-                }
                 else
                 {
                     state = states.mach3;

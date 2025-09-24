@@ -39,9 +39,7 @@ function scr_player_slipnslide()
         }
     }
     else
-    {
         movespeed = 14;
-    }
     
     if (sprite_index == spr_player_slipnslidewallstart && floor(image_index) == (image_number - 1))
     {

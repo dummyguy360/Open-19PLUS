@@ -1,3 +1,2 @@
-function scr_player_ghost()
-{
-}
+// unused
+function scr_player_ghost() { }

@@ -22,9 +22,7 @@ function scr_playerC_normal()
         }
     }
     else
-    {
         jumpstop = false;
-    }
     
     if (move != 0)
     {

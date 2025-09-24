@@ -55,9 +55,7 @@ function scr_player_grab()
                         movespeed = 8;
                 }
                 else
-                {
                     movespeed = 0;
-                }
                 
                 if (movespeed > 8)
                     movespeed -= 0.1;
@@ -72,9 +70,7 @@ function scr_player_grab()
                         movespeed = 8;
                 }
                 else
-                {
                     movespeed = 0;
-                }
                 
                 if (movespeed > 8)
                     movespeed -= 0.1;

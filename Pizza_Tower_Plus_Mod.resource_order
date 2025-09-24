@@ -1193,7 +1193,7 @@
     {"name":"scr_player_keyget","order":27,"path":"scripts/scr_player_keyget/scr_player_keyget.yy",},
     {"name":"scr_player_kingbubble","order":69,"path":"scripts/scr_player_kingbubble/scr_player_kingbubble.yy",},
     {"name":"scr_player_knightpep","order":15,"path":"scripts/scr_player_knightpep/scr_player_knightpep.yy",},
-    {"name":"scr_player_knightpepbump","order":70,"path":"scripts/scr_player_knightpepbump/scr_player_knightpepbump.yy",},
+    {"name":"scr_player_knightpepbump","order":20,"path":"scripts/scr_player_knightpepbump/scr_player_knightpepbump.yy",},
     {"name":"scr_player_knightpepslopes","order":16,"path":"scripts/scr_player_knightpepslopes/scr_player_knightpepslopes.yy",},
     {"name":"scr_player_kungfu","order":71,"path":"scripts/scr_player_kungfu/scr_player_kungfu.yy",},
     {"name":"scr_player_kungfugrab","order":72,"path":"scripts/scr_player_kungfugrab/scr_player_kungfugrab.yy",},

@@ -133,9 +133,7 @@ function scr_player_mach2()
             sprite_index = spr_machslidestart;
         }
         else if (movespeed < 8)
-        {
             state = states.normal;
-        }
     }
     
     if (!input_check("dash") && grounded && vsp >= 0 && move == xscale && !longjumping)
@@ -308,9 +306,7 @@ function scr_player_mach2()
     }
     
     if (sprite_index == spr_rollgetup)
-    {
         image_speed = 0.4;
-    }
     else if (sprite_index != spr_longjumpstart && sprite_index != spr_longjump)
     {
         if (sprite_index != spr_walljumpstart && sprite_index != spr_walljumpend)
@@ -321,14 +317,10 @@ function scr_player_mach2()
                 image_speed = 0.1 + abs(movespeed / 24);
         }
         else
-        {
             image_speed = 0.45;
-        }
     }
     else
-    {
         image_speed = 0.5;
-    }
     
     if ((character == "P" || character == "N") && input_check("up") && input_buffer_attack < 8 && canuppercut)
     {

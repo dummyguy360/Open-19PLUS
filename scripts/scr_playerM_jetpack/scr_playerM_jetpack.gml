@@ -1,3 +1,2 @@
-function scr_player_firework()
-{
-}
+// unused
+function scr_player_firework() { }

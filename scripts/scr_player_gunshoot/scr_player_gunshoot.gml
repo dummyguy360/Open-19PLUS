@@ -23,9 +23,7 @@ function scr_player_gunshoot()
             movespeed = 10;
         }
         else if (!input_check("dash"))
-        {
             state = states.normal;
-        }
     }
     
     if (sprite_index == spr_player_gunshoot || sprite_index == spr_player_gunshootup)

@@ -72,9 +72,7 @@ function scr_player_superslam()
             movespeed = 6;
     }
     else
-    {
         movespeed = 0;
-    }
     
     if (movespeed > 6)
         movespeed -= 0.1;
@@ -88,9 +86,7 @@ function scr_player_superslam()
             image_speed = 0.35;
     }
     else
-    {
         image_speed = 0.35;
-    }
     
     if (freefallsmash > 10 && !instance_exists(obj_superslameffect))
     {

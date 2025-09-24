@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_player_knightpepbump",
   "parent":{
-    "name":"States",
-    "path":"folders/Scripts/Player/States.yy",
+    "name":"Transformations",
+    "path":"folders/Scripts/Player/States/Transformations.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

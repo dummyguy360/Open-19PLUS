@@ -5,7 +5,7 @@ function scr_player_knightpepslopes()
         scr_destroy_horizontal(_h, destroy.metalblock | destroy.ratblock);
     };
     
-    hit_horizontal = function(xx)
+    hit_horizontal = function(_h)
     {
         if (character != "N")
         {
@@ -18,7 +18,7 @@ function scr_player_knightpepslopes()
             state = states.knightpepbump;
             gamepadvibrate(0.4, 0, 7);
             scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
-            push_notif(achieve_type.medieval1, [xx]);
+            push_notif(achieve_type.medieval1, [_h]);
         }
         else
         {
@@ -28,7 +28,7 @@ function scr_player_knightpepslopes()
             image_index = 0;
             gamepadvibrate(0.4, 0, 7);
             scr_fmod_soundeffectONESHOT("event:/sfx/player/groundpound", x, y);
-            push_notif(achieve_type.medieval1, [xx]);
+            push_notif(achieve_type.medieval1, [_h]);
         }
     };
     

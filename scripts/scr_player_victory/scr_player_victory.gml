@@ -30,9 +30,7 @@ function scr_player_victory()
         enteredDoor = noone;
     }
     else
-    {
         image_speed = 0.35;
-    }
     
     if (floor(image_index) == 17 && sprite_index != spr_entergate && sprite_index != spr_player_sagegatestart)
     {

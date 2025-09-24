@@ -81,9 +81,7 @@ function scr_player_boxxedpep()
                     movespeed = min(movespeed + 0.4, 8);
             }
             else if (!place_meeting(x, y + 1, [obj_railh, obj_railh2]))
-            {
                 movespeed = lerp(movespeed, 0, 0.4);
-            }
         }
         else if (move != 0)
         {
@@ -91,9 +89,7 @@ function scr_player_boxxedpep()
                 movespeed += 0.6;
         }
         else
-        {
             movespeed = lerp(movespeed, 0, 0.2);
-        }
     }
     
     if (sprite_index == spr_boxxedintro && floor(image_index) == (image_number - 1))
@@ -117,9 +113,7 @@ function scr_player_boxxedpep()
                 if (sprite_index != spr_boxxedpep_kick)
                 {
                     if (movespeed < 10)
-                    {
                         sprite_index = spr_boxxedwalk;
-                    }
                     else if (movespeed >= 10)
                     {
                         sprite_index = spr_boxxeddash;
@@ -150,9 +144,7 @@ function scr_player_boxxedpep()
                 }
             }
             else if (sprite_index != spr_boxxedpep_kick && !boxxedslide)
-            {
                 sprite_index = spr_boxxedidle;
-            }
             
             if (scr_slope_ext(x, y + 1))
             {
@@ -199,13 +191,9 @@ function scr_player_boxxedpep()
                         boxxedslide = 0;
                 }
                 else if (xscale == -sign(instance_place(x, y + 1, obj_slope).image_xscale))
-                {
                     sprite_index = spr_boxxedslidedown;
-                }
                 else
-                {
                     sprite_index = spr_boxxedslide;
-                }
                 
                 if (!input_check("down"))
                     boxxedslide = 0;

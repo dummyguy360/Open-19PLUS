@@ -141,9 +141,7 @@ function scr_player_bombpep()
                     vsp = -10;
                 }
                 else
-                {
                     vsp = -22;
-                }
                 
                 countdown = 100;
                 spawner = other.bombspawnerid;
@@ -186,9 +184,7 @@ function scr_player_bombpep()
                     vsp = -5;
                 }
                 else
-                {
                     vsp = -22;
-                }
                 
                 countdown = 100;
                 spawner = other.bombspawnerid;

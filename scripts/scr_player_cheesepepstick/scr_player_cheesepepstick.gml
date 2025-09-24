@@ -1,3 +1,2 @@
-function scr_player_cheesepepstick()
-{
-}
+// unused
+function scr_player_cheesepepstick() { }

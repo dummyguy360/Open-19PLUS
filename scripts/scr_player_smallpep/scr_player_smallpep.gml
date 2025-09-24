@@ -32,9 +32,7 @@ function scr_player_smallpep()
         }
     }
     else
-    {
         jumpstop = false;
-    }
     
     if (move != 0)
     {

@@ -188,9 +188,7 @@ function scr_player_jump()
     if (sprite_index == spr_bodyslamjump)
     {
         if (steppy > 0)
-        {
             steppy--;
-        }
         else
         {
             instance_create_depth(x + irandom_range(-25, 25), y + irandom_range(-10, 35), 1, obj_cloudeffect);

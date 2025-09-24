@@ -23,9 +23,7 @@ function scr_player_Sjump()
         vsp = sjumpvsp;
         
         if (steppy > 0)
-        {
             steppy--;
-        }
         else
         {
             instance_create_depth(x + irandom_range(-25, 25), y + irandom_range(-10, 35), 1, obj_cloudeffect);

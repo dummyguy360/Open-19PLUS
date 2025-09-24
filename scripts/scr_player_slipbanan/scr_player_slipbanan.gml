@@ -102,9 +102,7 @@ function scr_player_slipbanan()
             }
         }
         else
-        {
             movespeed = Approach(movespeed, 0, 0.4);
-        }
         
         if (floor(image_index) == (image_number - 1))
         {
