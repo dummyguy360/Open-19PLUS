@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+    <object class="ParameterPreset" id="{9816dfc7-4624-40d3-a773-ab6168226951}">
+        <property name="name">
+            <value>escapestate</value>
+        </property>
+        <relationship name="folder">
+            <destination>{a1043c9c-2ca5-4597-b30b-e5becff29d60}</destination>
+        </relationship>
+        <relationship name="parameter">
+            <destination>{8a0d70f1-b709-4cb3-ac05-acbab4169aa6}</destination>
+        </relationship>
+    </object>
+    <object class="GameParameter" id="{8a0d70f1-b709-4cb3-ac05-acbab4169aa6}">
+        <property name="initialValue">
+            <value>0</value>
+        </property>
+    </object>
+</objects>
