@@ -1,8 +1,8 @@
-if (savestate != 0)
+if (savestate != save_state.idle)
 {
     saveiconalpha = 3;
     
-    if (savestate == 3)
+    if (savestate == save_state.dumpconfig)
         saveiconspr = spr_configsaveindicator;
     else
         saveiconspr = spr_saveindicator;

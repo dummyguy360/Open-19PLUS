@@ -51,9 +51,9 @@ function save_load()
 {
     with (obj_savesystem)
     {
-        if (savestate == states.normal)
+        if (savestate == save_state.idle)
         {
-            savestate = states.finishingblow;
+            savestate = save_state.loadsave;
             trace("Loading Save...");
             save_setup();
             loadbuff = buffer_create(1, buffer_grow, 1);
@@ -86,9 +86,9 @@ function save_dump(level_name = noone)
 {
     with (obj_savesystem)
     {
-        if (savestate == states.normal)
+        if (savestate == save_state.idle)
         {
-            savestate = states.tumble;
+            savestate = save_state.dumpsave;
             trace("Dumping Save...");
             buffer_async_group_begin(get_savedir());
             ini_open_from_string(savestr);
@@ -154,9 +154,9 @@ function config_dump()
 {
     with (obj_savesystem)
     {
-        if (savestate == states.normal)
+        if (savestate == save_state.idle)
         {
-            savestate = states.ejected;
+            savestate = save_state.dumpconfig;
             trace("Dumping Config...");
             buffer_async_group_begin("");
             configsavebuff = buffer_create(1, buffer_grow, 1);

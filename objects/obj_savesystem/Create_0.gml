@@ -1,4 +1,12 @@
-savestate = 0;
+enum save_state
+{
+	idle = 0,
+	dumpsave = 1,
+	loadsave = 2,
+	dumpconfig = 3
+}
+
+savestate = save_state.idle;
 savestr = "";
 walletstr = "";
 configstruct = {};
@@ -13,6 +21,7 @@ asyncsaveid = -1;
 asyncconfigsaveid = -1;
 asyncloadid = -1;
 
+#region Create Config File
 if (file_exists("optionsData.json"))
 {
     var _str = "";
@@ -29,11 +38,24 @@ if (file_exists("optionsData.json"))
     file_text_close(_file);
     configstruct = json_parse(_str);
 }
-
+#endregion
+#region Set Config Values
 global.screensizes[0] = [[640, 480], [800, 600], [1024, 768], [1280, 960], [1600, 1200]];
 global.screensizes[1] = [[480, 270], [960, 540], [1280, 720], [1600, 900], [1920, 1080]];
 global.screensizes[2] = [[480, 300], [960, 600], [1366, 854], [1600, 1000], [1920, 1200]];
-global.borders = [-1, bg_entry4, bg_medievallibrairy1, bg_ruinmerged, bg_dungeontomato, bg_90s, bg_genesis, bg_steam];
+
+global.borders = 
+[
+	-1, 
+	bg_entry4, 
+	bg_medievallibrairy1, 
+	bg_ruinmerged, 
+	bg_dungeontomato, 
+	bg_90s, 
+	bg_genesis, 
+	bg_steam
+];
+
 var _highestaspectratio = array_length(global.screensizes) - 1;
 global.maxscreenwidth = global.screensizes[_highestaspectratio][1][0];
 global.maxscreenheight = global.screensizes[_highestaspectratio][1][1];
@@ -83,7 +105,15 @@ global.savetime = 0;
 global.timetrialreplays = ds_map_create();
 global.timetrialsavedsplits = ds_map_create();
 global.pizzacointracker = ds_map_create();
-global.levels = ["entry", "medieval", "ruin", "dungeon", "dragonslair"];
+
+global.levels = 
+[
+	"entry", 
+	"medieval", 
+	"ruin", 
+	"dungeon", 
+	"dragonslair"
+];
 
 for (var i = 0; i < array_length(global.levels); i++)
 {
@@ -91,6 +121,7 @@ for (var i = 0; i < array_length(global.levels); i++)
     global.timetrialsavedsplits[? global.levels[i]] = ds_map_create();
     global.pizzacointracker[? global.levels[i]] = ds_list_create();
 }
+#endregion
 
 saveiconspr = spr_saveindicator;
 saveiconind = 0;

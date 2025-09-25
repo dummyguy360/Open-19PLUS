@@ -2,7 +2,7 @@ var _id = async_load[? "id"];
 
 switch (savestate)
 {
-    case 1:
+    case save_state.dumpsave:
         if (_id == asyncsaveid)
         {
             buffer_delete(savebuff);
@@ -11,13 +11,13 @@ switch (savestate)
             if (buffer_exists(demosavebuff))
                 buffer_delete(demosavebuff);
             
-            savestate = 0;
+            savestate = save_state.idle;
             trace("Game Save Status: ", async_load[? "status"]);
         }
         
         break;
     
-    case 2:
+    case save_state.loadsave:
         if (_id == asyncloadid)
         {
             var _ini = buffer_read(loadbuff, buffer_string);
@@ -76,17 +76,17 @@ switch (savestate)
             
             ds_map_destroy(demoloadbuffs);
             demoloadbuffs = -1;
-            savestate = 0;
+            savestate = save_state.idle;
             trace("Game Load Status: ", async_load[? "status"]);
         }
         
         break;
     
-    case 3:
+    case save_state.dumpconfig:
         if (_id == asyncconfigsaveid)
         {
             buffer_delete(configsavebuff);
-            savestate = 0;
+            savestate = save_state.idle;
             trace("Config Save Status: ", async_load[? "status"]);
         }
         
