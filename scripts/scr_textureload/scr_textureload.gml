@@ -1,10 +1,7 @@
-function scr_textureload(level)
+function scr_textureload(level = global.levelname)
 {
     static prevtex = -1;
     static prevtex = level;
-    
-    if (level == undefined)
-        level = global.levelname;
     
     if (level == noone && string_starts_with(room_get_name(room), "hub"))
         level = "hub";
@@ -28,7 +25,29 @@ function scr_textureload(level)
         }
     }
     
-    var groups = ["chateau", "beach", "city", "dungeon", "desert", "entrance", "etb", "factory", "golf", "graveyard", "hub", "mansion", "medieval", "sewer", "smb", "space", "strongcold", "ruin", "war", "kungfu"];
+    var groups = 
+	[
+		"chateau", 
+		"beach", 
+		"city", 
+		"dungeon", 
+		"desert", 
+		"entrance", 
+		"etb", 
+		"factory", 
+		"golf", 
+		"graveyard", 
+		"hub", 
+		"mansion", 
+		"medieval", 
+		"sewer", 
+		"smb", 
+		"space", 
+		"strongcold", 
+		"ruin", 
+		"war", 
+		"kungfu"
+	];
     
     if (prevtex == level || array_get_index(groups, level) == -1)
         exit;

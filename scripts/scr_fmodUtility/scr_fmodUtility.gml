@@ -24,7 +24,7 @@ function event_play_oneshot(event_path)
 function event_isplaying(event_inst)
 {
     var _playback = fmod_studio_event_instance_get_playback_state(event_inst);
-    return _playback != 2 && _playback != 4;
+    return _playback != FMOD_STUDIO_PLAYBACK_STATE.STOPPED && _playback != FMOD_STUDIO_PLAYBACK_STATE.STOPPING;
 }
 
 function event_instance(event_path)

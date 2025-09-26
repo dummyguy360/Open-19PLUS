@@ -24,35 +24,25 @@ function tile_layer_find(__depth, __x, __y)
                 {
                     var __tileX = layer_tile_get_x(__els[__j]);
                     
-                    if (__x < __tileX)
-                    {
-                    }
+                    if (__x < __tileX) { }
                     else
                     {
                         var __tileY = layer_tile_get_y(__els[__j]);
                         
-                        if (__y < __tileY)
-                        {
-                        }
+                        if (__y < __tileY) { }
                         else
                         {
                             var __tileReg = layer_tile_get_region(__els[__j]);
                             var __tileRight = __tileX + (__tileXscale * __tileReg[2]);
                             
-                            if (__x >= __tileRight)
-                            {
-                            }
+                            if (__x >= __tileRight) { }
                             else
                             {
                                 var __tileBottom = __tileY + (__tileYscale * __tileReg[3]);
                                 
-                                if (__y >= __tileBottom)
-                                {
-                                }
+                                if (__y >= __tileBottom) { }
                                 else
-                                {
                                     return __els[__j];
-                                }
                             }
                         }
                     }
@@ -70,12 +60,8 @@ function tile_layer_find(__depth, __x, __y)
                         __maxx = __temp;
                     }
                     
-                    if (__x < __minx)
-                    {
-                    }
-                    else if (__x >= __maxx)
-                    {
-                    }
+                    if (__x < __minx) { }
+                    else if (__x >= __maxx) { }
                     else
                     {
                         var __miny = layer_tile_get_y(__els[__j]);
@@ -88,16 +74,10 @@ function tile_layer_find(__depth, __x, __y)
                             __maxy = __temp;
                         }
                         
-                        if (__y < __miny)
-                        {
-                        }
-                        else if (__y >= __maxy)
-                        {
-                        }
+                        if (__y < __miny) { }
+                        else if (__y >= __maxy) { }
                         else
-                        {
                             return __els[__j];
-                        }
                     }
                 }
             }

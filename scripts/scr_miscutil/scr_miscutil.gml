@@ -435,6 +435,7 @@ function draw_input(_x, _y, _alpha, _verb, _remap_check = true, _profile = input
         {
             var _ind = _icon;
 			
+			// might be Virtual Keys, but idk, so im not gonna change it
             if (_remap_check)
             {
                 switch (_ind)
@@ -746,7 +747,15 @@ function get_collectspr(type, char)
 
 function get_toppincount()
 {
-    var _toppins = [obj_pizzakinshroom, obj_pizzakincheese, obj_pizzakintomato, obj_pizzakinsausage, obj_pizzakinpineapple];
+    var _toppins = 
+	[
+		obj_pizzakinshroom, 
+		obj_pizzakincheese, 
+		obj_pizzakintomato, 
+		obj_pizzakinsausage, 
+		obj_pizzakinpineapple
+	];
+	
     var _num = 0;
     
     for (var i = 0; i < array_length(_toppins); i++)
