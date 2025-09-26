@@ -157,7 +157,7 @@ function scr_player_Sjump()
         }
         
         if (event_isplaying(char_superjumpsnd))
-            event_stop(char_superjumpsnd, 1);
+            event_stop(char_superjumpsnd, true);
     }
     
     if (character == "N" && sprite_index == spr_superjump)

@@ -61,7 +61,7 @@ function event_set_3d_position_struct(event_inst, attr_struct)
 
 function event_stop(event_inst, mode)
 {
-    fmod_studio_event_instance_stop(event_inst, mode ? 1 : 0);
+    fmod_studio_event_instance_stop(event_inst, mode ? FMOD_STUDIO_STOP_MODE.IMMEDIATE : FMOD_STUDIO_STOP_MODE.ALLOWFADEOUT);
 }
 
 function event_stop_description(event_path, mode)

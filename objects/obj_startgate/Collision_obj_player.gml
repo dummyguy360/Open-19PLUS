@@ -11,7 +11,7 @@ if (unlockedanim >= 1 && unlocked)
             state = states.victory;
             
             if (global.music != noone)
-                event_stop(global.music.event, 0);
+                event_stop(global.music.event, false);
             
             with (obj_drawcontroller)
             {

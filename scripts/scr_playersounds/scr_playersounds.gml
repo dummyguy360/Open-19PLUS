@@ -65,7 +65,7 @@ function scr_playersounds()
             event_set_3d_position_struct(char_machsnd, _attr);
         }
         else
-            event_stop(char_machsnd, 1);
+            event_stop(char_machsnd, true);
         
         if (state != states.suplexgrab && state != states.shoulderbash && state != states.lunge)
             event_stop(suplexdashsnd, true);
@@ -92,10 +92,10 @@ function scr_playersounds()
             event_set_3d_position_struct(char_superjumpsnd, _attr);
         }
         else
-            event_stop(char_superjumpsnd, 1);
+            event_stop(char_superjumpsnd, true);
         
         if (state != states.freefallprep && state != states.freefall && state != states.superslam && state != states.hitstun)
-            event_stop(groundpoundfallsnd, 1);
+            event_stop(groundpoundfallsnd, true);
         else
             event_set_3d_position_struct(groundpoundfallsnd, _attr);
         
@@ -107,7 +107,7 @@ function scr_playersounds()
             event_set_3d_position_struct(knightslidesnd, _attr);
         }
         else
-            event_stop(knightslidesnd, 1);
+            event_stop(knightslidesnd, true);
         
         if (sprite_index == spr_bombpeprun || sprite_index == spr_bombpeprunabouttoexplode)
         {
@@ -117,7 +117,7 @@ function scr_playersounds()
             event_set_3d_position_struct(bombpep1snd, _attr);
         }
         else if (sprite_index != spr_bombpeprun && sprite_index != spr_bombpeprunabouttoexplode && event_isplaying(bombpep1snd))
-            event_stop(bombpep1snd, 1);
+            event_stop(bombpep1snd, true);
         
         if (sprite_index == spr_barrelroll && grounded)
         {
@@ -127,7 +127,7 @@ function scr_playersounds()
             event_set_3d_position_struct(barrelsnd, _attr);
         }
         else
-            event_stop(barrelsnd, 1);
+            event_stop(barrelsnd, true);
         
         if (state == states.boxxedpep)
         {
@@ -143,7 +143,7 @@ function scr_playersounds()
             event_set_3d_position_struct(boxxeddashsnd, _attr);
         }
         else
-            event_stop(boxxeddashsnd, 1);
+            event_stop(boxxeddashsnd, true);
         
         if (state == states.weeniemount)
         {
@@ -155,10 +155,10 @@ function scr_playersounds()
                 event_set_3d_position_struct(weeniegallopingsnd, _attr);
             }
             else
-                event_stop(weeniegallopingsnd, 1);
+                event_stop(weeniegallopingsnd, true);
         }
         else
-            event_stop(weeniegallopingsnd, 1);
+            event_stop(weeniegallopingsnd, true);
         
         if (sprite_index == spr_machroll || sprite_index == spr_longjumpslidestart || sprite_index == spr_longjumpslide)
         {
@@ -168,7 +168,7 @@ function scr_playersounds()
             event_set_3d_position_struct(machrollsnd, _attr);
         }
         else
-            event_stop(machrollsnd, 1);
+            event_stop(machrollsnd, true);
         
         var s = 0;
         
@@ -200,7 +200,7 @@ function scr_playersounds()
             event_set_3d_position_struct(swingdingsnd, _attr);
         }
         else
-            event_stop(swingdingsnd, 1);
+            event_stop(swingdingsnd, true);
         
         event_set_3d_position_struct(tumblesnd, _attr);
         fmod_studio_event_instance_set_parameter_by_name(tumblesnd, "state", s, true);
@@ -224,7 +224,7 @@ function scr_playersounds()
         event_set_3d_position_struct(airspinsnd, _attr);
     }
     else
-        event_stop(airspinsnd, 1);
+        event_stop(airspinsnd, true);
     
     if (state == states.nwalljump && character == "N" && sprite_index == spr_playerN_wallbounce)
     {
@@ -234,7 +234,7 @@ function scr_playersounds()
         event_set_3d_position_struct(wallbouncesnd, _attr);
     }
     else
-        event_stop(wallbouncesnd, 1);
+        event_stop(wallbouncesnd, true);
     
     if (state == states.nwalljump && character == "N" && (sprite_index == spr_playerN_divebomb || sprite_index == spr_playerN_divebombfall || sprite_index == spr_playerN_divebombland))
     {
@@ -252,5 +252,5 @@ function scr_playersounds()
         fmod_studio_event_instance_set_parameter_by_name(noisetornadosnd, "state", s, true);
     }
     else
-        event_stop(noisetornadosnd, 1);
+        event_stop(noisetornadosnd, true);
 }

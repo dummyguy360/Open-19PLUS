@@ -1,7 +1,7 @@
 if (room == virtualinsanity)
 {
     scr_playerreset(1);
-    event_stop(obj_virtualinsanity.jumpscaresnd, 1);
+    event_stop(obj_virtualinsanity.jumpscaresnd, true);
     
     with (obj_player)
     {

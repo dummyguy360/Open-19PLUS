@@ -3,7 +3,7 @@ function destroy_sounds(snd_array)
     for (var i = 0; i < array_length(snd_array); i++)
     {
         var b = snd_array[i];
-        event_stop(b, 1);
+        event_stop(b, true);
         fmod_studio_event_instance_release(b);
     }
 }
@@ -18,7 +18,7 @@ function scr_sound_multiple(snd_list, xx, yy)
     for (var i = 0; i < ds_list_size(_list); i++)
     {
         b = _list[| i];
-        event_stop(b, 0);
+        event_stop(b, false);
         fmod_studio_event_instance_release(b);
     }
     
